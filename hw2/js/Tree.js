@@ -8,12 +8,10 @@ class Tree {
      */
     constructor(json) {
 	list = [];
-	list.push(json[0]);
 
-	for (let i = 1; i < json.length; i++){
-		list.push(json[i]);
-		let parentNode = list.indexof(json[i].parentName);
-		json[i].parentNode = json[parentNode];
+	for (let i = 0; i < json.length; i++){
+		let newNode = new Node(json[i][0], json[i][1]);
+		list.push(newNode);
 		
 	this.list = list;
 
