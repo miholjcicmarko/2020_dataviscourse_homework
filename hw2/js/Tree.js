@@ -7,7 +7,15 @@ class Tree {
      * @param {json[]} json - array of json objects with name and parent fields
      */
     constructor(json) {
+	list = [];
+	list.push(json[0]);
 
+	for (let i = 1; i < json.length; i++){
+		list.push(json[i]);
+		let parentNode = list.indexof(json[i].parentName);
+		json[i].parentNode = json[parentNode];
+		
+	this.list = list;
     }
 
     /**
@@ -15,6 +23,13 @@ class Tree {
      */
     buildTree() {
         // note: in this function you will assign positions and levels by making calls to assignPosition() and assignLevel()
+		
+	for (let i = 0; i < this.list.length; i++) {
+		if (this.list[i].parentName = "root") {
+			this.root = list[i];
+			list[i].assignLevel(list[i],0)
+			list[i].assignPosition(list[i],0)
+	
 
     }
 
@@ -22,21 +37,33 @@ class Tree {
      * Recursive function that assign levels to each node
      */
     assignLevel(node, level) {
-
-    }
+	if (node.parentNode === null) {
+		node.level = level
+	}
+	else {
+		assignLevel(node.parentNode, level+1)
+  	}
 
     /**
      * Recursive function that assign positions to each node
      */
     assignPosition(node, position) {
+	child_array = node.parentName.children
 
+	if (child_array === []){
+		node.position = position
+	}
+	else {
+		for (let i = 0; i < child_array.length; i++)
+		assignPosition(node, position+1)
+	}
     }
 
     /**
      * Function that renders the tree
      */
     renderTree() {
-
+	
     }
 
 }
