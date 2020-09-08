@@ -16,6 +16,8 @@ class Tree {
 		json[i].parentNode = json[parentNode];
 		
 	this.list = list;
+
+	this.root = null;
     }
 
     /**
@@ -25,12 +27,21 @@ class Tree {
         // note: in this function you will assign positions and levels by making calls to assignPosition() and assignLevel()
 		
 	for (let i = 0; i < this.list.length; i++) {
-		if (this.list[i].parentName = "root") {
-			this.root = list[i];
-			list[i].assignLevel(list[i],0)
-			list[i].assignPosition(list[i],0)
+		let parent = this.list[i].parentName
+		
+		for (let k = 0; k < this.list.length; k++) {
+			if (parent = "root") {
+				this.root = list[i];
+				list[i].assignLevel(list[i],0);
+				list[i].assignPosition(list[i],0);
+			}
+			else if (parent === this.list[k]) {	
+`				list[i].assignLevel(list[i],0);
+				list[i].assignPosition(list[i],0);
+			}
+		}
+	}
 	
-
     }
 
     /**
@@ -38,31 +49,37 @@ class Tree {
      */
     assignLevel(node, level) {
 	if (node.parentNode === null) {
-		node.level = level
+		node.level = level;
 	}
 	else {
-		assignLevel(node.parentNode, level+1)
+		assignLevel(node.parentNode, level+1);
   	}
 
     /**
      * Recursive function that assign positions to each node
      */
     assignPosition(node, position) {
-	child_array = node.parentName.children
+	if (node.parentNode === null) {
+		position = position;
+	}
 
-	if (child_array === []){
-		node.position = position
+	child_arr = node.parentNode.children;
+
+	if (child_arr[position] === node) {
+		node.position = node.level + position;
 	}
 	else {
-		for (let i = 0; i < child_array.length; i++)
-		assignPosition(node, position+1)
+		assignPosition(node, position+1); 		
 	}
+
     }
 
     /**
      * Function that renders the tree
      */
     renderTree() {
+	
+	
 	
     }
 
