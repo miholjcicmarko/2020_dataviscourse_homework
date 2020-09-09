@@ -79,7 +79,7 @@ class Tree {
      * Function that renders the tree
      */
     renderTree() {
-	
+		
 	
 	
 	}
