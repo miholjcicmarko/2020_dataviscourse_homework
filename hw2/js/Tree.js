@@ -36,12 +36,12 @@ class Tree {
 		
 		for (let k = 0; k < this.list.length; k++) {
 			if (parent === this.list[k].name) {
-				this.assignLevel(this.list[i],0);
-				this.assignPosition(this.list[i],0);
+				this.list[i].level = this.assignLevel(this.list[i],0);
+				this.list[i].position = this.assignPosition(this.list[i],0);
 			}
 			else if (parent === "root") {
-				this.assignLevel(this.list[i],0);
-				this.assignPosition(this.list[i],0);
+				this.list[i] = this.assignLevel(this.list[i],0);
+				this.list[i] = this.assignPosition(this.list[i],0);
 			}
 		}
 	}
