@@ -11,7 +11,6 @@ class Tree {
 
 	for (let i = 0; i < json.length; i++){
 		let newNode = new Node(json[i].name,json[i].parent);
-		//newNode.parentNode(json[i])
 		list.push(newNode);
 	}
 	this.list = list;
@@ -24,9 +23,7 @@ class Tree {
 			}
 		}
 		
-
 	}
-	console.log(this.list)
 	}
     /**
      * Function that builds a tree from a list of nodes with parent refs
@@ -38,17 +35,13 @@ class Tree {
 		let parent = this.list[i].parentName
 		
 		for (let k = 0; k < this.list.length; k++) {
-			if (parent === "root") {
-				this.root = list[i];
-				list[i].assignLevel(list[i],0);
-				list[i].assignPosition(list[i],0);
+			if (parent === this.list[k]) {
+				this.assignLevel(this.list[i],0);
+				this.assignPosition(this.list[i],0);
 			}
-			else if (parent === this.list[k]) {	
-				list[i].assignLevel(list[i],0);
-				list[i].assignPosition(list[i],0);
-			}
-			else {
-				continue;
+			else if (parent === "root") {
+				this.assignLevel(this.list[i],0);
+				this.assignPosition(this.list[i],0);
 			}
 		}
 	}
