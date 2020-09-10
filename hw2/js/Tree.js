@@ -17,8 +17,9 @@ class Tree {
 	this.list = list;
 
 	this.root = null;
+	console.log(this.list)
     }
-
+}
     /**
      * Function that builds a tree from a list of nodes with parent refs
      */
@@ -79,7 +80,7 @@ class Tree {
      * Function that renders the tree
      */
     renderTree() {
-		let svg = d3.select("style");
+		let svg = d3.select('#list-container');
 		
 		let circles = svg.selectAll('circle')
 			.data(this.list);
@@ -88,3 +89,4 @@ class Tree {
 	}
 	
 }
+
