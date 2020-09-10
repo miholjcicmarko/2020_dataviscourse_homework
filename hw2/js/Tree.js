@@ -16,10 +16,18 @@ class Tree {
 	}
 	this.list = list;
 
-	this.root = null;
-	console.log(this.list)
-    }
+	for (let i = 0; i < json.length; i++){
+		for (let k = 0; k < json.length; k++) {
+			if (list[i].parentName === list[k].name) {
+				list[i].parentNode = list[k];
+				list[k].addChild(list[i]);
+			}
+		}
+		
 
+	}
+	console.log(this.list)
+	}
     /**
      * Function that builds a tree from a list of nodes with parent refs
      */
