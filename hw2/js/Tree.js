@@ -19,7 +19,7 @@ class Tree {
 	this.root = null;
 	console.log(this.list)
     }
-}
+
     /**
      * Function that builds a tree from a list of nodes with parent refs
      */
