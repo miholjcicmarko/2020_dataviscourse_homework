@@ -7,7 +7,6 @@ class Tree {
      * @param {json[]} json - array of json objects with name and parent fields
      */
     constructor(json) {
-	list = [];
 
 	for (let i = 0; i < json.length; i++){
 		let newNode = new Node(json[i][0], json[i][1]);
