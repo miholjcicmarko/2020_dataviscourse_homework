@@ -31,11 +31,11 @@ class Tree {
     buildTree() {
         // note: in this function you will assign positions and levels by making calls to assignPosition() and assignLevel()
 		
-	for (let i = 0; i < this.list.length; i++) {
+	for (let i = 1; i < this.list.length; i++) {
 		let parent = this.list[i].parentName
 		
 		for (let k = 0; k < this.list.length; k++) {
-			if (parent === this.list[k]) {
+			if (parent === this.list[k].name) {
 				this.assignLevel(this.list[i],0);
 				this.assignPosition(this.list[i],0);
 			}
@@ -50,12 +50,10 @@ class Tree {
      * Recursive function that assign levels to each node
      */
     assignLevel(node, level) {
-	if (node.parentNode === null) {
-		node.level = level;
+	if (node.parentName === "root") {
+		return level;
 	}
-	else {
-		assignLevel(node.parentNode, level+1);
-	}
+		return this.assignLevel(node.parentNode, level+1);
 	}
 
     /**
@@ -63,7 +61,8 @@ class Tree {
      */
     assignPosition(node, position) {
 	if (node.parentNode === null) {
-		position = position;
+		node.position = position;
+		return;
 	}
 
 	child_arr = node.parentNode.children;
@@ -72,7 +71,7 @@ class Tree {
 		node.position = node.level + position;
 	}
 	else {
-		return assignPosition(node, position+1); 		
+		return this.assignPosition(node, position+1); 		
 	}
 
 	}
