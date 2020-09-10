@@ -60,18 +60,20 @@ class Tree {
      * Recursive function that assign positions to each node
      */
     assignPosition(node, position) {
-	if (node.parentNode === null) {
-		node.position = position;
-		return;
-	}
+	let parent = node.parentNode;
 
-	child_arr = node.parentNode.children;
+	let child_arr = []
 
-	if (child_arr[position] === node) {
-		node.position = node.level + position;
-	}
-	else {
-		return this.assignPosition(node, position+1); 		
+	child_arr = parent.children;
+
+	for (let pos = 0; pos < child_arr.length; pos++) {
+		if (child_arr[pos] === node) {
+			return position;
+		}
+		else {
+			return this.assignPosition(node, position+1)
+		}
+
 	}
 
 	}
