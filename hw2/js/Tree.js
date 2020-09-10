@@ -70,18 +70,21 @@ class Tree {
 		node.position = node.level + position;
 	}
 	else {
-		assignPosition(node, position+1); 		
+		return assignPosition(node, position+1); 		
 	}
 
-    }
-
+	}
+	
     /**
      * Function that renders the tree
      */
     renderTree() {
+		let svg = d3.select("style");
 		
+		let circles = svg.selectAll('circle')
+			.data(this.list);
 		
-	
+		circles.attr("fill","wheat");
 	}
 	
 }
