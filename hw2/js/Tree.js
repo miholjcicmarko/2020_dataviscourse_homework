@@ -76,7 +76,7 @@ class Tree {
 	else {
 		// change this
 		let numNodes = 0
-		for (let i = 0; i < child_arr[i] === node; i++) {
+		for (let i = 0; i < child_arr[i] !== node; i++) {
 			if (child_arr[i] !== node){
 				let grandchild = child_arr[i].children.length;
 				if (grandchild > 1) {
