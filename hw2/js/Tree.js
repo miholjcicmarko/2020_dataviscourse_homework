@@ -74,14 +74,16 @@ class Tree {
 		return this.assignPosition(node.parentNode, position);
 	}
 	else {
+		// change this
 		let numNodes = 0
 		for (let i = 0; i < child_arr.length; i++) {
 			if (child_arr[i] !== node){
-				let grandchild = child_arr[i].children.length;
+				let grandchild = child_arr[i].length-1;
 				numNodes = numNodes + grandchild;
 			}
 		}
-		position = numNodes + node.level;
+		let sisters = child_arr.length;
+		position = numNodes + sisters;
 		return this.assignPosition(node.parentNode, position);
 	}
 }
