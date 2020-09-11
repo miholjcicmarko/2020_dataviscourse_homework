@@ -81,7 +81,7 @@ class Tree {
 				numNodes = numNodes + grandchild;
 			}
 		}
-		position = numNodes + level;
+		position = numNodes + node.level;
 		return this.assignPosition(node.parentNode, position);
 	}
 }
