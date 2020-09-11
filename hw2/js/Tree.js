@@ -108,12 +108,16 @@ class Tree {
      * Function that renders the tree
      */
     renderTree() {
-		let svg = d3.select('#list-container');
-		
-		let circles = svg.selectAll('circle')
-			.data(this.list);
-		
-		circles.attr("fill","wheat");
+			let svg = d3.select("svg");
+			// here you are running selectAll on an empty set!
+			svg.selectAll("rect")
+				.data([127, 61, 256])
+				.enter().append("rect")
+				.attr("x", 0)
+				.attr("y", (d, i) => i * 60 + 50)
+				.attr("width", d => d)
+				.attr("height", 20)
+				.style("fill", "steelblue");
 	}
 	
 }
