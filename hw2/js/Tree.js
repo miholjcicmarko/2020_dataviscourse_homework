@@ -31,7 +31,7 @@ class Tree {
     buildTree() {
         // note: in this function you will assign positions and levels by making calls to assignPosition() and assignLevel()
 		
-	for (let i = 0; i < this.list.length; i++) {
+	for (let i =0; i < this.list.length; i++) {
 		let parent = this.list[i].parentName
 		
 		for (let k = 0; k < this.list.length; k++) {
@@ -82,23 +82,14 @@ class Tree {
 				if (grandchild > 1) {
 					numNodes = numNodes + (grandchild-1);
 				}
-				else if (grandchild === 1){
-					numNodes = 1
-				}
 			}
 		}
 		let sisters = child_arr.length;
 		if (sisters > 1) {
 			numNodes = numNodes + (sisters-1);
 		}
-		if (node.level > 2 && sisters < 2){
+		if (node.level > 1){
 			numNodes = numNodes + node.parentNode.position;
-			position = numNodes;
-			return position;
-		}
-		if (node.level > 1 && node.position > 1) {
-			position = numNodes + sisters;
-			return position;
 		}
 		position = numNodes;
 		return position;
