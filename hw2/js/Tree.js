@@ -85,11 +85,19 @@ class Tree {
 			}
 		}
 		let sisters = child_arr.length;
-		if (sisters > 1) {
+		if (sisters > 1 && sisters < 3) {
 			numNodes = numNodes + (sisters-1);
 		}
 		if (node.level > 1){
 			numNodes = numNodes + node.parentNode.position;
+		}
+		if (sisters > 2) {
+			for (let i = 0; i < child_arr.length; i++) {
+				if (child_arr[i] === node){
+					position = node.parentNode.position + i;
+					return position;
+				}
+			}
 		}
 		position = numNodes;
 		return position;
