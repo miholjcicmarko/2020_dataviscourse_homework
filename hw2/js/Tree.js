@@ -96,15 +96,6 @@ class Tree {
 	}
 }
 
-
-	//else if (child_arr[position].children.length === 0) {
-	//		return this.assignPosition(node.parentNode, position+1);
-	//}
-	//else {
-	//	let newpos = child_arr[position].children.length;
-	//	return this.assignPosition(node.parentNode, newpos);
-	//}	
-
     /**
      * Function that renders the tree
      */
