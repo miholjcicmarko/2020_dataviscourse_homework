@@ -31,7 +31,7 @@ class Tree {
     buildTree() {
         // note: in this function you will assign positions and levels by making calls to assignPosition() and assignLevel()
 		
-	for (let i = 0; i < this.list.length; i++) {
+	for (let i = 4; i < this.list.length; i++) {
 		let parent = this.list[i].parentName
 		
 		for (let k = 0; k < this.list.length; k++) {
@@ -70,17 +70,29 @@ class Tree {
 
 	child_arr = parent.children;
 
-	if (child_arr[position] === node) {
-			return position;
-	}
-	else if (child_arr[position].children.length === 0) {
-			return this.assignPosition(node.parentNode, position);
+	if (child_arr[0] === node) {
+		return this.assignPosition(node.parentNode, position);
 	}
 	else {
-		let newpos = child_arr[position].children.length;
-		return this.assignPosition(node.parentNode, newpos);
-	}	
+		let numNodes = 0
+		for (i = 0; i < child_arr.length; i++) {
+			if (child_arr[i] !== node){
+				numNodes = numNodes + child_arr[i].length;
+			}
+		}
+		position = numNodes;
+		return this.assignPosition(node.parentNode, position);
 	}
+}
+
+
+	//else if (child_arr[position].children.length === 0) {
+	//		return this.assignPosition(node.parentNode, position+1);
+	//}
+	//else {
+	//	let newpos = child_arr[position].children.length;
+	//	return this.assignPosition(node.parentNode, newpos);
+	//}	
 
     /**
      * Function that renders the tree
