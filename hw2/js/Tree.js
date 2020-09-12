@@ -114,6 +114,7 @@ class Tree {
      * Function that renders the tree
      */
     renderTree() {
+<<<<<<< HEAD
 
 		let svgContainer = d3.select("body").append("svg")
                                     .attr("width",1200)
@@ -176,6 +177,14 @@ class Tree {
 			//svg.label
 			//	.data(this.list.name);
 >>>>>>> parent of 4bab5bc... update
+=======
+		let svg = d3.select('#list-container');
+		
+		let circles = svg.selectAll('circle')
+			.data(this.list);
+		
+		circles.attr("fill","wheat");
+>>>>>>> parent of 13d9950... update
 	}
 	
 }
