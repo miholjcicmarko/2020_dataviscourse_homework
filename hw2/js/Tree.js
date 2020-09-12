@@ -134,6 +134,16 @@ class Tree {
 				.attr("cx", (d, i) => this.list[i].level * 80 + 50)
 				.attr("cy", (d, i) => this.list[i].position * 80 + 30)
 				.attr("r",30);
+
+
+			//let text = svg.selectAll("text")
+			//	.data(this.list.name)
+				//.enter().append("text")
+			//	.attr("x", (d, i) => this.list[i].level * 80 + 50)
+			//	.attr("y", (d,i) => this.list[i].level * 80 + 50);
+
+			//svg.label
+			//	.data(this.list.name);
 	}
 	
 }
