@@ -7,210 +7,57 @@ class Tree {
      * @param {json[]} json - array of json objects with name and parent fields
      */
     constructor(json) {
-<<<<<<< HEAD
-	let list = []
+		let list = [];
 
-	for (let i = 0; i < json.length; i++){
-		let newNode = new Node(json[i].name,json[i].parent);
-		list.push(newNode);
-	}
-	this.list = list;
-=======
+		for (let i = 0; i < json.length; i++) {
+			let newNode = new Node(json[i].name, json[i].parent);
+			list.push(newNode);
+		}
+		this.list = list;
 
-    }
->>>>>>> parent of 90e33d6... update Tree.js
-
-	for (let i = 0; i < json.length; i++){
-		for (let k = 0; k < json.length; k++) {
-			if (this.list[i].parentName === this.list[k].name) {
-				this.list[i].parentNode = this.list[k];
+		for (let i = 0; i < json.length; i++) {
+			for (let k = 0; k < json.length; k++) {
+				if (this.list[i].parentName === this.list[k].name) {
+					this.list[i].parentNode = this.list[k];
+				}
 			}
 		}
-	this.list = list;
-	}
+		this.list = list;
 	}
     /**
      * Function that builds a tree from a list of nodes with parent refs
      */
     buildTree() {
-        // note: in this function you will assign positions and levels by making calls to assignPosition() and assignLevel()
-<<<<<<< HEAD
-	for (let i = 0; i < this.list.length; i++){
-		for (let k = 0; k < this.list.length; k++) {
-			if (this.list[i].parentName === this.list[k].name) {
-				this.list[k].addChild(this.list[i]);
-			}
-		}		
-	}
-=======
-
-    }
->>>>>>> parent of 90e33d6... update Tree.js
-
-	for (let i =0; i < this.list.length; i++) {
-		let parent = this.list[i].parentName
-		
-		for (let k = 0; k < this.list.length; k++) {
-			if (parent === this.list[k].name) {
-				this.list[i].level = this.assignLevel(this.list[i],0);
-				this.list[i].position = this.assignPosition(this.list[i],0);
-			}
-			else if (parent === "root") {
-				this.list[i].level = this.assignLevel(this.list[i],0);
-				this.list[i].position = this.assignPosition(this.list[i],0);
+		// note: in this function you will assign positions and levels by making calls to assignPosition() and assignLevel()
+		for (let i = 0; i < this.list.length; i++) {
+			for (let k = 0; k < this.list.length; k++) {
+				if (this.list[i].parentName === this.list[k].name){
+					this.list[k].addChild(this.list[i]);
+				}
 			}
 		}
-	}
-	console.log(this.list)
+		console.log(this.list);
+
+		
 	}
     /**
      * Recursive function that assign levels to each node
      */
     assignLevel(node, level) {
-<<<<<<< HEAD
-	if (node.parentName === "root") {
-		return level;
 	}
-		return this.assignLevel(node.parentNode, level+1);
-	}
-=======
-
-    }
->>>>>>> parent of 90e33d6... update Tree.js
 
     /**
      * Recursive function that assign positions to each node
      */
     assignPosition(node, position) {
-<<<<<<< HEAD
-	if (node.parentName === "root") {
-		return position;
+
 	}
-	let parent = node.parentNode;
-
-	let child_arr = [];
-
-	child_arr = parent.children;
-
-	if (child_arr[0] === node) {
-		return this.assignPosition(node.parentNode, position);
-	}
-	else {
-		// change this
-		let numNodes = 0
-		for (let i = 0; i < child_arr.length; i++) {
-			if (child_arr[i] !== node){
-				let grandchild = child_arr[i].children.length;
-				if (grandchild > 1) {
-					numNodes = numNodes + (grandchild-1);
-				}
-			}
-		}
-		let sisters = child_arr.length;
-		if (sisters > 1 && sisters < 3) {
-			numNodes = numNodes + (sisters-1);
-		}
-		if (node.level > 1){
-			numNodes = numNodes + node.parentNode.position;
-		}
-		if (sisters > 2) {
-			for (let i = 0; i < child_arr.length; i++) {
-				if (child_arr[i] === node){
-					position = node.parentNode.position + i;
-					return position;
-				}
-			}
-		}
-		position = numNodes;
-		return position;
-	}
-}
-=======
-
-    }
->>>>>>> parent of 90e33d6... update Tree.js
 
     /**
      * Function that renders the tree
      */
     renderTree() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-		let svgContainer = d3.select("body").append("svg")
-                                    .attr("width",1200)
-                                    .attr("height",1200);
-			
-			let svg = d3.select("svg");
-
-<<<<<<< HEAD
-		let line_sec = svgContainer.append("line")
-		
-		let line = line_sec.selectAll("line")
-			.data(this.list)
-			.enter().append("line")
-			.attr("x1",this.list[0].level * 110 +50)
-			.attr("y1",this.list[0].position * 110 + 50)
-			.attr("x2",this.list[1].level * 110+50)
-			.attr("y2",this.list[1].level * 110+50);
-
-		//	let group = svgContainer.append("g");
-
-		//	let selection = group.selectAll("circle")
-		//		.data(this.list)
-		//		.enter().append("circle")
-		//		.attr("cx", (d, i) => this.list[i].level * 110 + 50)
-		//		.attr("cy", (d, i) => this.list[i].position * 110 + 50)
-		//		.attr("r",50);
-
-		//	let text = selection.select("svg")
-		//		.data(this.list)
-		//		.enter().append("text")
-		//		.attr("x", (d,i) => this.list[i].level * 110 + 20)
-		//		.attr("y", (d,i) => this.list[i].position * 110 + 50)	
-		//		.text((d,i) => this.list[i].name)
-			
-			
-
-
-=======
-			let lines = d3.line()
-				.x(d => d.level * 80 + 50)
-				.y(d => d.position * 80 + 30);
-
-			svg.append("path")
-				.attr("d", lines(this.list));
-
-			let selection = svg.selectAll("circle")
-				.data(this.list)
-				.enter().append("circle")
-				.attr("cx", (d, i) => this.list[i].level * 80 + 50)
-				.attr("cy", (d, i) => this.list[i].position * 80 + 30)
-				.attr("r",30);
-
-
-			//let text = svg.selectAll("text")
-			//	.data(this.list.name)
-				//.enter().append("text")
-			//	.attr("x", (d, i) => this.list[i].level * 80 + 50)
-			//	.attr("y", (d,i) => this.list[i].level * 80 + 50);
-
-			//svg.label
-			//	.data(this.list.name);
->>>>>>> parent of 4bab5bc... update
-=======
-		let svg = d3.select('#list-container');
-		
-		let circles = svg.selectAll('circle')
-			.data(this.list);
-		
-		circles.attr("fill","wheat");
->>>>>>> parent of 13d9950... update
-	}
-	
-}
-=======
 
     }
->>>>>>> parent of 90e33d6... update Tree.js
 
+}
