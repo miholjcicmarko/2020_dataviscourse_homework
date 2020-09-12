@@ -7,6 +7,7 @@ class Tree {
      * @param {json[]} json - array of json objects with name and parent fields
      */
     constructor(json) {
+<<<<<<< HEAD
 	let list = []
 
 	for (let i = 0; i < json.length; i++){
@@ -14,6 +15,10 @@ class Tree {
 		list.push(newNode);
 	}
 	this.list = list;
+=======
+
+    }
+>>>>>>> parent of 90e33d6... update Tree.js
 
 	for (let i = 0; i < json.length; i++){
 		for (let k = 0; k < json.length; k++) {
@@ -29,6 +34,7 @@ class Tree {
      */
     buildTree() {
         // note: in this function you will assign positions and levels by making calls to assignPosition() and assignLevel()
+<<<<<<< HEAD
 	for (let i = 0; i < this.list.length; i++){
 		for (let k = 0; k < this.list.length; k++) {
 			if (this.list[i].parentName === this.list[k].name) {
@@ -36,6 +42,10 @@ class Tree {
 			}
 		}		
 	}
+=======
+
+    }
+>>>>>>> parent of 90e33d6... update Tree.js
 
 	for (let i =0; i < this.list.length; i++) {
 		let parent = this.list[i].parentName
@@ -57,16 +67,22 @@ class Tree {
      * Recursive function that assign levels to each node
      */
     assignLevel(node, level) {
+<<<<<<< HEAD
 	if (node.parentName === "root") {
 		return level;
 	}
 		return this.assignLevel(node.parentNode, level+1);
 	}
+=======
+
+    }
+>>>>>>> parent of 90e33d6... update Tree.js
 
     /**
      * Recursive function that assign positions to each node
      */
     assignPosition(node, position) {
+<<<<<<< HEAD
 	if (node.parentName === "root") {
 		return position;
 	}
@@ -109,11 +125,16 @@ class Tree {
 		return position;
 	}
 }
+=======
+
+    }
+>>>>>>> parent of 90e33d6... update Tree.js
 
     /**
      * Function that renders the tree
      */
     renderTree() {
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 		let svgContainer = d3.select("body").append("svg")
@@ -188,4 +209,8 @@ class Tree {
 	}
 	
 }
+=======
+
+    }
+>>>>>>> parent of 90e33d6... update Tree.js
 
