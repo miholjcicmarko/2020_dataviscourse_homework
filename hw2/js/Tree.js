@@ -118,22 +118,22 @@ class Tree {
 		let svgContainer = d3.select("body").append("svg")
                                     .attr("width",1200)
                                     .attr("height",1200);
-
+			
 			let svg = d3.select("svg");
-			selection = svg.selectAll("circle")
+
+			let lines = d3.line()
+				.x(d => d.level * 80 + 50)
+				.y(d => d.position * 80 + 30);
+
+			svg.append("path")
+				.attr("d", lines(this.list));
+
+			let selection = svg.selectAll("circle")
 				.data(this.list)
 				.enter().append("circle")
 				.attr("cx", (d, i) => this.list[i].level * 80 + 50)
 				.attr("cy", (d, i) => this.list[i].position * 80 + 30)
 				.attr("r",30);
-			
-			let lines = d3.line()
-				.x(d => d.level)
-				.y(d => d.position);
-
-			svg.append("path")
-				.attr("d", lines(this.data))
-
 	}
 	
 }
