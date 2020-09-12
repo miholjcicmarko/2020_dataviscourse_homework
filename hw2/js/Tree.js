@@ -119,40 +119,31 @@ class Tree {
                                     .attr("width",1200)
                                     .attr("height",1200);
 
-		//let line = svg.selectAll("line")
-		//	.data(this.list)
+		let line_sec = svgContainer.append("line")
+		
+		let line = line_sec.selectAll("line")
+			.data(this.list)
+			.enter().append("line")
+			.attr({"x1":100, "y1":100, "x2":550, "y2":550});
 
+			let group = svgContainer.append("g");
 
-			//let lines = d3.line()
-			//	.x(d => d.level * 80 + 50)
-			//	.y(d => d.position * 80 + 30);
-
-			//svg.append("path")
-			//	.attr("d", lines(this.list));
-
-			let selection = svgContainer.selectAll("circle")
+			let selection = group.selectAll("circle")
 				.data(this.list)
 				.enter().append("circle")
-				.attr("cx", (d, i) => this.list[i].level * 80 + 50)
-				.attr("cy", (d, i) => this.list[i].position * 80 + 30)
-				.attr("r",30);
+				.attr("cx", (d, i) => this.list[i].level * 110 + 50)
+				.attr("cy", (d, i) => this.list[i].position * 110 + 50)
+				.attr("r",50);
 
-			let text = d3.select("svg").append("text")
+			let text = selection.select("svg")
 				.data(this.list)
-				.enter()
-				.append("text");	
+				.enter().append("text")
+				.attr("x", (d,i) => this.list[i].level * 110 + 20)
+				.attr("y", (d,i) => this.list[i].position * 110 + 50)	
+				.text((d,i) => this.list[i].name)
 			
-				text.attr("x",50)
-				.attr("y",30)
-				.text("HI");
+			
 
-			//let text = svgContainer.selectAll("text")
-			//	.data(this.list.name)
-			//	.enter().append("text")
-			//	.attr("x", (d, i) => this.list[i].level * 80 + 50)
-			//	.attr("y", (d,i) => this.list[i].level * 80 + 50);
-
-			//svg.selectAll("text").label;
 
 	}
 	
