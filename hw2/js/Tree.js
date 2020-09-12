@@ -123,15 +123,15 @@ class Tree {
 		let selection = g.selectAll("circle")
 			.data(this.list)
 			.enter().append("circle")
-			.attr("cx", (d,i) => this.list[i].level * 110 + 70)
-			.attr("cy", (d,i) => this.list[i].position * 110 + 70)
+			.attr("cx", (d,i) => this.list[i].level * 125 + 70)
+			.attr("cy", (d,i) => this.list[i].position * 125 + 70)
 			.attr("r", 50);
 
 		let text = selection.select("svg")
 			.data(this.list)
 			.enter().append("text")
-			.attr("x", (d,i) => this.list[i].level* 110 + 35)
-			.attr("y", (d,i) => this.list[i].position* 110 + 70)
+			.attr("x", (d,i) => this.list[i].level* 125 + 35)
+			.attr("y", (d,i) => this.list[i].position* 125 + 70)
 			.text((d,i) => this.list[i].name);
     }
 
