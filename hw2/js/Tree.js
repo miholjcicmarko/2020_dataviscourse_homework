@@ -100,6 +100,50 @@ class Tree {
 
 	}
 
+	/**
+	 * Function that creates connection
+	 * @param {lits[]} list - array of node objects with name, parent, children,
+	 * level and position fields
+	 */
+	lineTree(array) {
+		let line_arr = [];
+		for (let i = 0; i < array.length; i++){
+			if (array[i].children.length === 0){
+				continue;
+			}
+			else {
+				for (let k = 0; k < array[i].children.length; k++){
+					line_arr.push(array[i]);
+					line_arr.push(array[i].children[k]);
+				}
+			}
+		}
+		return line_arr;
+	}
+
+	/**
+	 * Function that creates splits an array in two
+	 * even indicies in first array
+	 * odd indicies in second array
+	 * @param {lits[]} list - array of node objects with name, parent, children,
+	 * level and position fields
+	 * returns first array or second array
+	 */	
+	arrsplit(array, number){
+		let newarray = [];
+		if (number === 1) {
+			for (let i = 0; i < array.length; i+=2){
+				newarray.push(array[i]);
+			}
+		}
+		else {
+			for (let i = 1; i < array.length; i+=2){
+				newarray.push(array[i]);
+			}
+		}
+		return newarray;
+	}
+
     /**
      * Function that renders the tree
      */
@@ -108,15 +152,18 @@ class Tree {
 									.attr("width", 1200)
 									.attr("height", 1200);
 
-		let line_sec = svgContainer.append("line");
+		let array = this.lineTree(this.list);
+		let farray = this.arrsplit(array,1);
+		let sarray = this.arrsplit(array,2);
 
-		let line = line_sec.selectAll("line")
-			.data(this.list)
-			.enter().append("path")
-			.attr("x1", (d,i) => this.list[i].level * 110 +50)
-			.attr("y1", (d,i) => this.list[i].position * 110 +50)
-			.attr("x2", (d,i) => this.list[i].level * 0 + 50)
-			.attr("y2", (d,i) => this.list[i].level * 0 + 50);
+		let line = svgContainer.selectAll("line")
+			.data(farray)
+			.enter().append("line")
+			.attr("x1", (d,i) => farray[i].level * 125 + 70)
+			.attr("y1", (d,i) => farray[i].position * 125 + 70)
+			.data(sarray)
+			.attr("x2", (d,i) => sarray[i].level * 125 + 70)
+			.attr("y2", (d,i) => sarray[i].position * 125 + 70);
 
 		let g = svgContainer.append("g");
 
