@@ -39,14 +39,12 @@ class Tree {
 
 		for (let i = 0; i < this.list.length; i++) {
 			for (let k = 0; k < this.list.length; k++) {
-				if (this.list[i].parentName === this.list[k].name) {
+				if (this.list[i].parentName === this.list[k].name ||this.list[i].parentName === "root" ) {
 					this.list[i].level = this.assignLevel(this.list[i],0);
 					this.list[i].position = this.assignPosition(this.list[i],0);
 				}	
 			}
 		}
-
-		console.log(this.list);
 	}
     /**
      * Recursive function that assign levels to each node
@@ -62,13 +60,65 @@ class Tree {
      * Recursive function that assign positions to each node
      */
     assignPosition(node, position) {
-		return 0;
+		if (node.parentName === "root") {
+			return position;
+		}
+
+		let child_arr = node.parentNode.children;
+
+		if (child_arr[0] === node) {
+			return this.assignPosition(node.parentNode, position);
+		}
+		else{
+			let numNodes = 0;
+			for (let i = 0; i < child_arr.length; i++) {
+				if (child_arr[i] !== node) {
+					let grandchild = child_arr[i].children.length;
+					if (grandchild > 1){
+						numNodes = numNodes + (grandchild-1);
+					}
+				}
+			}
+			let sisters = child_arr.length
+			if (sisters > 1 && sisters < 3){
+				numNodes = numNodes + (sisters-1);
+			}
+			if (node.level > 1) {
+				numNodes = numNodes + node.parentNode.position;
+			}
+			if (sisters > 2) {
+				for (let i = 0; i < child_arr.length; i++) {
+					if (child_arr[i] === node) {
+						position = node.parentNode.position + i;
+						return position;
+					}
+				}
+			}
+			position = numNodes;
+			return position;
+		}
+
 	}
 
     /**
      * Function that renders the tree
      */
     renderTree() {
+		let svgContainer = d3.select("body").append("svg")
+									.attr("width", 1200)
+									.attr("height", 1200);
+
+		let line_sec = svgContainer.append("line");
+
+		let line = line_sec.selectAll("line")
+			.data(this.list)
+			.enter().append("line")
+			.attr("x1", (d,i) => this.list[i].level * 110 +50)
+			.attr("y1", (d,i) => this.list[i].position * 110 +50)
+			.attr("x2", (d,i) => this.list[i].level * 110 + 100)
+			.attr("y2", (d,i) => this.list[i].level * 110 + 100);
+
+
 
     }
 
