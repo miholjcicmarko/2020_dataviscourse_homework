@@ -36,21 +36,33 @@ class Tree {
 				}
 			}
 		}
-		console.log(this.list);
 
-		
+		for (let i = 0; i < this.list.length; i++) {
+			for (let k = 0; k < this.list.length; k++) {
+				if (this.list[i].parentName === this.list[k].name) {
+					this.list[i].level = this.assignLevel(this.list[i],0);
+					this.list[i].position = this.assignPosition(this.list[i],0);
+				}	
+			}
+		}
+
+		console.log(this.list);
 	}
     /**
      * Recursive function that assign levels to each node
      */
     assignLevel(node, level) {
+		if (node.parentName === "root") {
+			return level;
+		}
+		return this.assignLevel(node.parentNode, level+1);
 	}
 
     /**
      * Recursive function that assign positions to each node
      */
     assignPosition(node, position) {
-
+		return 0;
 	}
 
     /**
