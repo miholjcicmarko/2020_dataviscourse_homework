@@ -112,14 +112,27 @@ class Tree {
 
 		let line = line_sec.selectAll("line")
 			.data(this.list)
-			.enter().append("line")
+			.enter().append("path")
 			.attr("x1", (d,i) => this.list[i].level * 110 +50)
 			.attr("y1", (d,i) => this.list[i].position * 110 +50)
-			.attr("x2", (d,i) => this.list[i].level * 110 + 100)
-			.attr("y2", (d,i) => this.list[i].level * 110 + 100);
+			.attr("x2", (d,i) => this.list[i].level * 0 + 50)
+			.attr("y2", (d,i) => this.list[i].level * 0 + 50);
 
+		let g = svgContainer.append("g");
 
+		let selection = g.selectAll("circle")
+			.data(this.list)
+			.enter().append("circle")
+			.attr("cx", (d,i) => this.list[i].level * 110 + 70)
+			.attr("cy", (d,i) => this.list[i].position * 110 + 70)
+			.attr("r", 50);
 
+		let text = selection.select("svg")
+			.data(this.list)
+			.enter().append("text")
+			.attr("x", (d,i) => this.list[i].level* 110 + 35)
+			.attr("y", (d,i) => this.list[i].position* 110 + 70)
+			.text((d,i) => this.list[i].name);
     }
 
 }
