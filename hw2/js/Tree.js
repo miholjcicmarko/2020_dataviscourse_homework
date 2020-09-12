@@ -17,12 +17,11 @@ class Tree {
 
 	for (let i = 0; i < json.length; i++){
 		for (let k = 0; k < json.length; k++) {
-			if (list[i].parentName === list[k].name) {
-				list[i].parentNode = list[k];
-				list[k].addChild(list[i]);
+			if (this.list[i].parentName === this.list[k].name) {
+				this.list[i].parentNode = this.list[k];
 			}
 		}
-		
+	this.list = list;
 	}
 	}
     /**
@@ -30,7 +29,14 @@ class Tree {
      */
     buildTree() {
         // note: in this function you will assign positions and levels by making calls to assignPosition() and assignLevel()
-		
+	for (let i = 0; i < this.list.length; i++){
+		for (let k = 0; k < this.list.length; k++) {
+			if (this.list[i].parentName === this.list[k].name) {
+				this.list[k].addChild(this.list[i]);
+			}
+		}		
+	}
+
 	for (let i =0; i < this.list.length; i++) {
 		let parent = this.list[i].parentName
 		
@@ -108,16 +114,26 @@ class Tree {
      * Function that renders the tree
      */
     renderTree() {
+
+		let svgContainer = d3.select("body").append("svg")
+                                    .attr("width",1200)
+                                    .attr("height",1200);
+
 			let svg = d3.select("svg");
-			// here you are running selectAll on an empty set!
-			svg.selectAll("rect")
-				.data([127, 61, 256])
-				.enter().append("rect")
-				.attr("x", 0)
-				.attr("y", (d, i) => i * 60 + 50)
-				.attr("width", d => d)
-				.attr("height", 20)
-				.style("fill", "steelblue");
+			selection = svg.selectAll("circle")
+				.data(this.list)
+				.enter().append("circle")
+				.attr("cx", (d, i) => this.list[i].level * 80 + 50)
+				.attr("cy", (d, i) => this.list[i].position * 80 + 30)
+				.attr("r",30);
+			
+			let lines = d3.line()
+				.x(d => d.level)
+				.y(d => d.position);
+
+			svg.append("path")
+				.attr("d", lines(this.data))
+
 	}
 	
 }
