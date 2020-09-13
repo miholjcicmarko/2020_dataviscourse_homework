@@ -196,17 +196,22 @@ class Tree {
 
 		let x_cord = this.xcord(this.list);
 		let y_cord = this.ycord(this.list);
-		
-		function translate() {
-			return "translate(" + ((d,i) => x_cord[i]* 125 + 70) + "," + ((d,i) => y_cord[i] * 125 + 70)+")";
-		}
 
 		let g = svgContainer.selectAll("g")
 			.data(this.list)
 			.enter().append("g")
 			.attr('class', 'nodeGroup')
-			.attr('transform', translate);
+			.attr("transform", d => {return "translate(" + (d.level*125+70) + "," + (d.position*125+70) + ")"});
+			
+			//.attr("transform", ((d,i) => x_cord[i]* 125 + 70, (d,i) => y_cord[i] * 125 + 70));
 		
+		let group = g.append("circle")	
+			.attr("r", 50)
+		
+		let group2 = g.append("text")
+			.attr('class', 'label')
+			.text((d,i) => this.list[i].name)
+
 			//.attr("data", this.list)
 			
 
@@ -224,15 +229,15 @@ class Tree {
 		//	.enter().append("text")	
 
 		//let group = selection
-		let group = g.append("circle")
+		//let group = g.append("circle")
 			//.attr("cx", (d,i) => this.list[i].level * 125 + 70)
 			//.attr("cy", (d,i) => this.list[i].position * 125 + 70)
-			.attr("r", 50)
-		let group2 = g.append("text")
-			.attr('class', 'label')
+			//.attr("r", 50)
+		//let group2 = g.append("text")
+		//	.attr('class', 'label')
 			//.attr("x", (d,i) => this.list[i].level* 125 + 70)
 			//.attr("y", (d,i) => this.list[i].position* 125 + 70)
-			.text((d,i) => this.list[i].name)
+		//	.text((d,i) => this.list[i].name)
 			//.append("text");
 
     }
