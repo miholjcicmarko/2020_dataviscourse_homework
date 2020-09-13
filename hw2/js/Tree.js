@@ -102,7 +102,7 @@ class Tree {
 
 	/**
 	 * Function that creates connection
-	 * @param {lits[]} list - array of node objects with name, parent, children,
+	 * @param {list[]} list - array of node objects with name, parent, children,
 	 * level and position fields
 	 */
 	lineTree(array) {
@@ -125,7 +125,7 @@ class Tree {
 	 * Function that creates splits an array in two
 	 * even indicies in first array
 	 * odd indicies in second array
-	 * @param {lits[]} list - array of node objects with name, parent, children,
+	 * @param {list[]} list - array of node objects with name, parent, children,
 	 * level and position fields
 	 * returns first array or second array
 	 */	
@@ -144,6 +144,32 @@ class Tree {
 		return newarray;
 	}
 
+	/**
+	 * Function that gets the x coordinates for the translation
+	 * @param {list[]} list - array of node objects with name, parent, children,
+	 * level and position fields
+	*/
+	xcord(list) {
+		let array = [];
+		for (let i = 0; i < list.length; i++) {
+			array.push(list[i].level);
+		}
+		return array;
+	}
+
+	/**
+	 * Function that gets the y coordinates for the translation
+	 * @param {list[]} list - array of node objects with name, parent, children,
+	 * level and position fields
+	*/
+	ycord(list) {
+		let array = [];
+		for (let i = 0; i < list.length; i++) {
+			array.push(list[i].position);
+		}
+		return array;
+	}
+
     /**
      * Function that renders the tree
      */
@@ -159,30 +185,51 @@ class Tree {
 		let line = svgContainer.selectAll("line")
 			.data(farray)
 			.enter().append("line")
-			.attr("x1", (d,i) => farray[i].level * 125 + 65)
+			.attr("x1", (d,i) => farray[i].level * 125 + 70)
 			.attr("y1", (d,i) => farray[i].position * 125 + 70)
 			.data(sarray)
-			.attr("x2", (d,i) => sarray[i].level * 125 + 65)
+			.attr("x2", (d,i) => sarray[i].level * 125 + 70)
 			.attr("y2", (d,i) => sarray[i].position * 125 + 70);
+		
+		let x_cord = this.list;
+		let y_cord = this.list;
 
-		let g = svgContainer.append("g")
-			.attr("transform", "translate(0,0)")
+		//let x_cord = this.xcord(this.list);
+		//let y_cord = this.ycord(this.list);
+
+		let g = svgContainer.selectAll("g")
+			.data(this.list)
+			.enter().append("g")
 			.attr('class', 'nodeGroup')
-			.attr('class', 'label');
+			.attr('transform', "translate("+((d,i) => this.list[i].level* 125 + 70)+","+((d,i) => this.list[i].position * 125 + 70)+")");
+		
+			//.attr("data", this.list)
+			
 
-		let selection = g.selectAll("circle")
-			.data(this.list)
-			.enter().append("circle")
-			.attr("cx", (d,i) => this.list[i].level * 125 + 65)
-			.attr("cy", (d,i) => this.list[i].position * 125 + 65)
-			.attr("r", 50);
+			//.enter().append("circle")
+			//.attr("r", 50)
+			//.enter().append("text")
+			//.attr('class', 'label');
 
-		let text = selection.select("svg")
-			.data(this.list)
-			.enter().append("text")
-			.attr("x", (d,i) => this.list[i].level* 125 + 65)
-			.attr("y", (d,i) => this.list[i].position* 125 + 65)
-			.text((d,i) => this.list[i].name);
+		//let selection = g.selectAll("circle")
+		//	.data(this.list)
+		//	.enter().append("circle")
+			
+		//let text = g.select("text")
+		//	.data(this.list)
+		//	.enter().append("text")	
+
+		//let group = selection
+		let group = g.append("circle")
+			//.attr("cx", (d,i) => this.list[i].level * 125 + 70)
+			//.attr("cy", (d,i) => this.list[i].position * 125 + 70)
+			.attr("r", 50)
+		let group2 = g.append("text")
+			.attr('class', 'label')
+			//.attr("x", (d,i) => this.list[i].level* 125 + 70)
+			//.attr("y", (d,i) => this.list[i].position* 125 + 70)
+			.text((d,i) => this.list[i].name)
+			//.append("text");
 
     }
 
