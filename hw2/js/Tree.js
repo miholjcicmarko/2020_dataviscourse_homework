@@ -191,21 +191,21 @@ class Tree {
 			.attr("x2", (d,i) => sarray[i].level * 125 + 70)
 			.attr("y2", (d,i) => sarray[i].position * 125 + 70);
 		
-		let x_cord = this.list;
-		let y_cord = this.list;
+		//let x_cord = this.list;
+		//let y_cord = this.list;
 
-		//let x_cord = this.xcord(this.list);
-		//let y_cord = this.ycord(this.list);
+		let x_cord = this.xcord(this.list);
+		let y_cord = this.ycord(this.list);
 		
-		function translate(_d) {
-			return "translate(" + ((d,i) => this.list[i].level* 125 + 70) + "," + ((d,i) => this.list[i].position * 125 + 70)+")";
+		function translate() {
+			return "translate(" + ((d,i) => x_cord[i]* 125 + 70) + "," + ((d,i) => y_cord[i] * 125 + 70)+")";
 		}
 
 		let g = svgContainer.selectAll("g")
 			.data(this.list)
 			.enter().append("g")
 			.attr('class', 'nodeGroup')
-			.attr('transform', "translate("+((d,i) => this.list[i].level* 125 + 70)+","+((d,i) => this.list[i].position * 125 + 70)+")");
+			.attr('transform', translate);
 		
 			//.attr("data", this.list)
 			
