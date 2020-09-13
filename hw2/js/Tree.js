@@ -196,6 +196,10 @@ class Tree {
 
 		//let x_cord = this.xcord(this.list);
 		//let y_cord = this.ycord(this.list);
+		
+		function translate(_d) {
+			return "translate(" + ((d,i) => this.list[i].level* 125 + 70) + "," + ((d,i) => this.list[i].position * 125 + 70)+")";
+		}
 
 		let g = svgContainer.selectAll("g")
 			.data(this.list)
