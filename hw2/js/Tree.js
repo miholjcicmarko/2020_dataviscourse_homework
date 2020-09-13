@@ -159,27 +159,31 @@ class Tree {
 		let line = svgContainer.selectAll("line")
 			.data(farray)
 			.enter().append("line")
-			.attr("x1", (d,i) => farray[i].level * 125 + 70)
+			.attr("x1", (d,i) => farray[i].level * 125 + 65)
 			.attr("y1", (d,i) => farray[i].position * 125 + 70)
 			.data(sarray)
-			.attr("x2", (d,i) => sarray[i].level * 125 + 70)
+			.attr("x2", (d,i) => sarray[i].level * 125 + 65)
 			.attr("y2", (d,i) => sarray[i].position * 125 + 70);
 
-		let g = svgContainer.append("g");
+		let g = svgContainer.append("g")
+			.attr("transform", "translate(0,0)")
+			.attr('class', 'nodeGroup')
+			.attr('class', 'label');
 
 		let selection = g.selectAll("circle")
 			.data(this.list)
 			.enter().append("circle")
-			.attr("cx", (d,i) => this.list[i].level * 125 + 70)
-			.attr("cy", (d,i) => this.list[i].position * 125 + 70)
+			.attr("cx", (d,i) => this.list[i].level * 125 + 65)
+			.attr("cy", (d,i) => this.list[i].position * 125 + 65)
 			.attr("r", 50);
 
 		let text = selection.select("svg")
 			.data(this.list)
 			.enter().append("text")
-			.attr("x", (d,i) => this.list[i].level* 125 + 35)
-			.attr("y", (d,i) => this.list[i].position* 125 + 70)
+			.attr("x", (d,i) => this.list[i].level* 125 + 65)
+			.attr("y", (d,i) => this.list[i].position* 125 + 65)
 			.text((d,i) => this.list[i].name);
+
     }
 
 }
