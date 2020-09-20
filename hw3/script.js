@@ -83,6 +83,9 @@ function update(data) {
   // ****** TODO: PART III (you will also edit in PART V) ******
 
   // TODO: Select and update the 'a' bar chart bars
+  
+
+
 
   // TODO: Select and update the 'b' bar chart bars
 
