@@ -93,12 +93,12 @@
     <br />
 
     <span>
-      <button>Staircase</button>
+      <button onclick="staircase()">Staircase</button>
     </span>
 
     <span>
       <label>Dataset:</label>
-      <select id="dataset">
+      <select onchange="changeData()" id="dataset">
         <option value="covid_us">The US</option>
         <option selected value="covid_utah">Utah</option>
         <option value="covid_ca">California</option>
@@ -106,7 +106,7 @@
       </select>
     </span>
 
-    <span> <input type="checkbox" id="random" /> Random Subset </span>
+    <span> <input onchange="changeData()" type="checkbox" id="random" /> Random Subset </span>
 
     <br />
 

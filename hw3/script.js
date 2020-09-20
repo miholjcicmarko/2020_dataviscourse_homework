@@ -5,6 +5,22 @@
  */
 function staircase() {
   // ****** TODO: PART II ******
+  let bar = document.getElementById("aBarChart");
+
+  let barChart = bar.getElementsByTagName("rect");
+
+  let arr = [];
+
+  for (let i = 0; i < barChart.length; i++){
+      arr.push(barChart[i].attributes.width.nodeValue);
+  }
+
+  var sorter = new Intl.Collator(undefined, {numeric:true})
+  arr.sort(sorter.compare);
+
+  for (let k = 0; k < barChart.length; k++){
+    barChart[k].attributes.width.nodeValue = arr[k];
+  }
 
 }
 
