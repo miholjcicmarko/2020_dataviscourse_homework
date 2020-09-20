@@ -75,16 +75,28 @@ function update(data) {
   d3.select("#bAreaChart-axis").attr("transform", "translate(5,245)").call(d3.axisBottom(bScale).ticks(5));
   let aAxis_line = d3.axisLeft(aScale).ticks(5);
   d3.select("#aLineChart-axis").attr("transform", "translate(50,15)").call(aAxis_line);
-  d3.select("#aLineChart-axis").append("text").text("New Cases").attr("transform", "translate(50, -3)")
+  d3.select("#aLineChart-axis").append("text").text("New Cases").attr("transform", "translate(50, -3)");
   let bAxis_line = d3.axisRight(bScale).ticks(5);
   d3.select("#bLineChart-axis").attr("transform", "translate(550,15)").call(bAxis_line);
-  d3.select("#bLineChart-axis").append("text").text("New Deaths").attr("transform", "translate(-50, -3)")
+  d3.select("#bLineChart-axis").append("text").text("New Deaths").attr("transform", "translate(-50, -3)");
 
   // ****** TODO: PART III (you will also edit in PART V) ******
 
   // TODO: Select and update the 'a' bar chart bars
+  let achart = d3.selectAll("#aBarChart").selectAll("rect")
+        .data(data);
+
   
 
+  entering = achart_data.enter().append("rect");
+  exiting = achart_data.exit();
+
+  merged = entering.merge(achart);
+
+  //achart_data = achart_data.enter().selectAll("#aBarChart")
+  //    .merge(achart_data);
+  
+  console.log(merged);
 
 
   // TODO: Select and update the 'b' bar chart bars
