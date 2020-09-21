@@ -106,7 +106,7 @@ function update(data) {
   
   bchart.attr("width", d => bScale(d.deaths))
       .attr("height", "12")
-      .attr("transfrom", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(-1, 1)"})
+      .attr("transfrom", (d,i) => {return "translate(" +5+ "," + 14*i + ") scale(-1, 1)"})
 
 
   // TODO: Select and update the 'a' line chart path using this line generator
