@@ -85,21 +85,29 @@ function update(data) {
   // TODO: Select and update the 'a' bar chart bars
   let achart = d3.selectAll("#aBarChart").selectAll("rect")
         .data(data);
-
-  
-
-  entering = achart_data.enter().append("rect");
-  exiting = achart_data.exit();
+        
+  entering = achart.enter().append("rect");
+  exiting = achart.exit();
 
   merged = entering.merge(achart);
-
-  //achart_data = achart_data.enter().selectAll("#aBarChart")
-  //    .merge(achart_data);
   
-  console.log(merged);
-
+  achart.attr("width", d => aScale(d.cases))
+      .attr("height", "12")
+      .attr("transfrom", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(-1, 1)"});
 
   // TODO: Select and update the 'b' bar chart bars
+  let bchart = d3.selectAll("#bBarChart").selectAll("rect")
+        .data(data);
+        
+  enteringb = bchart.enter().append("rect");
+  exitingb = bchart.exit();
+
+  mergedb = enteringb.merge(bchart);
+  
+  bchart.attr("width", d => bScale(d.deaths))
+      .attr("height", "12")
+      .attr("transfrom", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(-1, 1)"})
+
 
   // TODO: Select and update the 'a' line chart path using this line generator
   let aLineGenerator = d3
