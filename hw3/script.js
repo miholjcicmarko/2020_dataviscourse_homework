@@ -125,13 +125,27 @@ function update(data) {
   let mergedALine = enteringALine.merge(aLineC);
 
   aLineC.append("path")
-    .attr("d", aLineGenerator([{d, d}]));
-
-  
-
-
+    .attr("d", (d,i) => {return aLineGenerator(d)});
 
   // TODO: Select and update the 'b' line chart path (create your own generator)
+  //check B
+  //let bLineGenerator = d3
+  //  .line()
+  //  .x((d, i) => iScale_line(i))
+  //  .y(d => bScale(d.deaths));
+
+  //let bLineC = d3.selectAll("#bLineChart").selectAll("path")
+  //  .data(data)
+  //  .enter().append("path");
+
+  //let enteringBLine = bLineC.enter().append("path");
+  //let exitingBLine = bLineC.exit();
+
+  //let mergedBLine = enteringBLine.merge(bLineC);
+
+  //bLineC.append("path")
+  //  .attr("d", bLineGenerator([d.date, d.deaths]));
+
 
   // TODO: Select and update the 'a' area chart path using this area generator
   let aAreaGenerator = d3
