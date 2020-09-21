@@ -86,10 +86,10 @@ function update(data) {
   let achart = d3.selectAll("#aBarChart").selectAll("rect")
         .data(data);
         
-  entering = achart.enter().append("rect");
-  exiting = achart.exit();
+  let entering = achart.enter().append("rect");
+  let exiting = achart.exit();
 
-  merged = entering.merge(achart);
+  let merged = entering.merge(achart);
   
   achart.attr("width", d => aScale(d.cases))
       .attr("height", "12")
@@ -97,23 +97,39 @@ function update(data) {
 
   // TODO: Select and update the 'b' bar chart bars
   let bchart = d3.selectAll("#bBarChart").selectAll("rect")
-        .data(data);
+        .data(data)
+        .enter().append("rect");
         
-  enteringb = bchart.enter().append("rect");
-  exitingb = bchart.exit();
+  let enteringb = bchart.enter().append("rect");
+  let exitingb = bchart.exit();
 
-  mergedb = enteringb.merge(bchart);
+  let mergedb = enteringb.merge(bchart);
   
   bchart.attr("width", d => bScale(d.deaths))
       .attr("height", "12")
-      .attr("transfrom", (d,i) => {return "translate(" +5+ "," + 14*i + ") scale(-1, 1)"})
-
+      .attr("transform", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(1, -1)"})
 
   // TODO: Select and update the 'a' line chart path using this line generator
   let aLineGenerator = d3
     .line()
     .x((d, i) => iScale_line(i))
     .y(d => aScale(d.cases));
+
+  let aLineC = d3.selectAll("#aLineChart").selectAll("path")
+    .data(data)
+    .enter().append("path");
+
+  let enteringALine = aLineC.enter().append("path");
+  let exitingALine = aLineC.exit();
+
+  let mergedALine = enteringALine.merge(aLineC);
+
+  aLineC.append("path")
+    .attr("d", aLineGenerator([{d, d}]));
+
+  
+
+
 
   // TODO: Select and update the 'b' line chart path (create your own generator)
 
