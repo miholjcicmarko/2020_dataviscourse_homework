@@ -113,7 +113,7 @@ function update(data) {
   let aLineGenerator = d3
     .line()
     .x((d, i) => iScale_line(i))
-    .y(d => aScale(d.cases));
+    .y((d,i) => aScale(d.cases[i]));
 
   let aLineC = d3.selectAll("#aLineChart").selectAll("path")
     .data(data)
@@ -125,26 +125,26 @@ function update(data) {
   let mergedALine = enteringALine.merge(aLineC);
 
   aLineC.append("path")
-    .attr("d", (d,i) => {return aLineGenerator(d)});
+    .attr("d", (d,i) => aLineGenerator(d));
 
   // TODO: Select and update the 'b' line chart path (create your own generator)
   //check B
-  //let bLineGenerator = d3
-  //  .line()
-  //  .x((d, i) => iScale_line(i))
-  //  .y(d => bScale(d.deaths));
+  let bLineGenerator = d3
+    .line()
+    .x((d, i) => iScale_line(i))
+    .y(d => bScale(d[i].deaths));
 
-  //let bLineC = d3.selectAll("#bLineChart").selectAll("path")
-  //  .data(data)
-  //  .enter().append("path");
+  let bLineC = d3.selectAll("#bLineChart").selectAll("path")
+    .data(data)
+    .enter().append("path");
 
-  //let enteringBLine = bLineC.enter().append("path");
-  //let exitingBLine = bLineC.exit();
+  let enteringBLine = bLineC.enter().append("path");
+  let exitingBLine = bLineC.exit();
 
-  //let mergedBLine = enteringBLine.merge(bLineC);
+  let mergedBLine = enteringBLine.merge(bLineC);
 
-  //bLineC.append("path")
-  //  .attr("d", bLineGenerator([d.date, d.deaths]));
+  bLineC.append("path")
+    .attr("d", (d,i) => bLineGenerator(d));
 
 
   // TODO: Select and update the 'a' area chart path using this area generator
@@ -152,12 +152,57 @@ function update(data) {
     .area()
     .x((d, i) => iScale_area(i))
     .y0(0)
-    .y1(d => aScale(d.cases));
+    .y1((d,i) => aScale(d[i].cases));
+
+  let aAreaC = d3.selectAll("#aAreaChart").selectAll("path")
+    .data(data)
+    .enter().append("");
+
+  let enteringAArea = aAreaC.enter().append("path");
+  let exitingAArea = aAreaC.exit();
+
+  let mergedAArea = enteringAArea.merge(aAArea);
+
+  aAreaC.append("path")
+    .attr("d", aAreaGenerator(d));
 
   // TODO: Select and update the 'b' area chart path (create your own generator)
+  let bAreaGenerator = d3
+    .area()
+    .x((d, i) => iScale_area(i))
+    .y0(0)
+    .y1(d => bScale(d[i].deaths));
+
+  let bAreaC = d3.selectAll("#aAreaChart").selectAll("path")
+    .data(data)
+    .enter().append("");
+
+  let enteringbArea = bAreaC.enter().append("path");
+  let exitingbArea = bAreaC.exit();
+
+  let mergedbArea = enteringbArea.merge(abArea);
+
+  bAreaC.append("path")
+    .attr("d", aAreaGenerator(data));
+
 
   // TODO: Select and update the scatterplot points
+  //let aAxis_line = d3.axisLeft(aScale).ticks(5);
+  //d3.select("#aLineChart-axis").attr("transform", "translate(50,15)").call(aAxis_line);
+  //d3.select("#aLineChart-axis").append("text").text("New Cases").attr("transform", "translate(50, -3)");
   
+  //let aScatter = d3
+  //  .append("circle")
+  //  .attr("cx", (d, i) => iScale_area(i))
+  //  .attr("cy", d => aScale(d.cases))
+  //  .attr("r", 1)
+  //  .style("fill", "red");
+
+
+
+
+
+
   // ****** TODO: PART IV ******
 }
 
