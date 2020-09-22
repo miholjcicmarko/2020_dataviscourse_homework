@@ -161,9 +161,23 @@ scatter.attr("cx", (d,i) => aScale(d.cases))
 
   // ****** TODO: PART IV ******
 
+  achart.on("mouseover", (d,i,g) => {
+      d3.select(g[i]).style("fill", "#77B299");
+    })
   
+  achart.on("mouseout", (d,i,g) => {
+    d3.select(g[i]).style("fill", "#83A8B7");
+  })
 
+  bchart.on("mouseover", (d,i,g) => {
+      d3.select(g[i]).style("fill", "#77B299");
+    })
+  
+  bchart.on("mouseout", (d,i,g) => {
+    d3.select(g[i]).style("fill", "#83A8B7");
+  })  
 
+  
 }
 
 /**
