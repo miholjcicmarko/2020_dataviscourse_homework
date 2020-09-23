@@ -86,17 +86,36 @@ function update(data) {
   let achart = d3.selectAll("#aBarChart").selectAll("rect") 
       .data(data);
 
-  achart.exit().remove();
+  if (achart.exit().length < achart.enter().length) {
+    achart = achart.enter().append("rect");
 
-  achart = achart.enter().append("rect");
+    achart.merge(achart);
   
-  //achart.exit().remove();
+    achart.attr("width", d => aScale(d.cases))
+        .attr("height", "12")
+        .attr("transfrom", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(-1, 1)"});  
+  }
+  else {
+    achart.exit().remove();
+  
+    achart = achart.enter().append("rect");
 
-  achart.merge(achart);
+    achart.merge(achart);
 
-  achart.attr("width", d => aScale(d.cases))
+    achart.attr("width", d => aScale(d.cases))
       .attr("height", "12")
       .attr("transfrom", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(-1, 1)"});
+  }
+
+  //achart.exit().remove();
+  
+  //achart = achart.enter().append("rect");
+
+  //achart.merge(achart);
+
+  //achart.attr("width", d => aScale(d.cases))
+  //    .attr("height", "12")
+  //    .attr("transfrom", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(-1, 1)"});
 
   // TODO: Select and update the 'b' bar chart bars
   let bchart = d3.selectAll("#bBarChart").selectAll("rect")
