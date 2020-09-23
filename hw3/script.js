@@ -86,17 +86,20 @@ function update(data) {
   let achart = d3.selectAll("#aBarChart").selectAll("rect") 
       .data(data);
 
-  if (achart.exit().length < achart.enter().length) {
-    achart = achart.enter().append("rect");
-
-    achart.merge(achart);
+  if (achart.exit(0)._groups[0].length < achart.enter(0)._groups[0].length) {
+    achart = achart.enter().append("rect").merge(achart);
   
     achart.attr("width", d => aScale(d.cases))
         .attr("height", "12")
         .attr("transfrom", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(-1, 1)"});  
   }
   else {
-    achart.exit().remove();
+    achart.exit()
+      .style("opacity", 1)
+      .transition()
+      .duration(1500)
+      .style("opacity", 0)
+      .remove();
   
     achart = achart.enter().append("rect");
 
@@ -135,7 +138,11 @@ function update(data) {
 
   let aLineC = d3.selectAll("#aLineChart")
     .datum(data);
-  aLineC.attr("d", aLineGenerator);
+  aLineC.attr("d", aLineGenerator)
+    .style("opacity", 0)
+    .transition()
+    .duration(1500)
+    .style("opacity", 1);
 
   // TODO: Select and update the 'b' line chart path (create your own generator)
   let bLineGenerator = d3
@@ -145,7 +152,11 @@ function update(data) {
 
   let bLineC = d3.selectAll("#bLineChart")
     .datum(data);
-  bLineC.attr("d", bLineGenerator);
+  bLineC.attr("d", bLineGenerator)
+    .style("opacity", 0)
+    .transition()
+    .duration(1500)
+    .style("opacity", 1);
 
   // TODO: Select and update the 'a' area chart path using this area generator
   let aAreaGenerator = d3
@@ -156,7 +167,11 @@ function update(data) {
 
   let aAreaC = d3.selectAll("#aAreaChart")
     .datum(data);
-  aAreaC.attr("d", aAreaGenerator);
+  aAreaC.attr("d", aAreaGenerator)
+    .style("opacity", 0)
+    .transition()
+    .duration(1500)
+    .style("opacity", 1);
 
   // TODO: Select and update the 'b' area chart path (create your own generator)
   let bAreaGenerator = d3
@@ -167,7 +182,11 @@ function update(data) {
 
   let bAreaC = d3.selectAll("#bAreaChart")
     .datum(data);
-  bAreaC.attr("d", bAreaGenerator);
+  bAreaC.attr("d", bAreaGenerator)
+  .style("opacity", 0)
+  .transition()
+  .duration(1500)
+  .style("opacity", 1);
 
   // TODO: Select and update the scatterplot points
   d3.select("#x-axis").attr("transform", "translate(10,250)").call(d3.axisBottom(aScale).ticks(5));
@@ -218,12 +237,26 @@ scatter.attr("cx", (d,i) => aScale(d.cases))
     let coordinates = "x-coordinate: " + xcor + ", y-coordinate: " + ycor;
       console.log(coordinates);
     })
+
+  let tooltip = d3.selectAll("#scatterplot").selectAll("circle");
+
+  tooltip.on("mouseover", function(d) {
+    var x_pos = d3.select(this).attr("cx");
+    var y_pos = d3.select(this).attr("cy");
+
+    d3.select(this).append("text")
+      .attr("id", "tooltip")
+      .attr("x", x_pos)
+      .attr("y", y_pos)
+      .attr("text-anchor", "middle")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", "20px")
+      .attr("font-weight", "bold")
+      .attr("fill", "black")
+      .text(function (d) { return "(" + x_pos + ", " + y_pos +")"});
+  })
   
-
-
-
-
-
+  tooltip.on("mouseout", function() { d3.select("#tooltip").remove()});
 
 }
 
