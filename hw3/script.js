@@ -86,49 +86,42 @@ function update(data) {
   let achart = d3.selectAll("#aBarChart").selectAll("rect") 
       .data(data);
 
-  if (achart.exit(0)._groups[0].length < achart.enter(0)._groups[0].length) {
-    achart = achart.enter().append("rect").merge(achart);
+  achart.style("opacity", 1)
+    .exit().remove()
+    .transition()
+    .duration(1000)
+    .style("opacity", 0);
   
-    achart.attr("width", d => aScale(d.cases))
-        .attr("height", "12")
-        .attr("transfrom", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(-1, 1)"});  
-  }
-  else {
-    achart.exit()
-      .style("opacity", 1)
+  achart = achart.enter().append("rect")
+    .merge(achart);
+
+  achart.style("opacity", 0)
       .transition()
-      .duration(1500)
-      .style("opacity", 0)
-      .remove();
-  
-    achart = achart.enter().append("rect");
-
-    achart.merge(achart);
-
-    achart.attr("width", d => aScale(d.cases))
+      .duration(1000)
+      .attr("width", function(d,i) { return aScale(d.cases)})
       .attr("height", "12")
-      .attr("transfrom", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(-1, 1)"});
-  }
-
-  //achart.exit().remove();
-  
-  //achart = achart.enter().append("rect");
-
-  //achart.merge(achart);
-
-  //achart.attr("width", d => aScale(d.cases))
-  //    .attr("height", "12")
-  //    .attr("transfrom", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(-1, 1)"});
+      .attr("transform", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(-1, 1)"})
+      .style("opacity", 1);
 
   // TODO: Select and update the 'b' bar chart bars
   let bchart = d3.selectAll("#bBarChart").selectAll("rect")
         .data(data);
 
+  bchart.style("opacity", 1)
+    .exit().remove()
+    .transition()
+    .duration(1000)
+    .style("opacity", 0);
+
   bchart = bchart.enter().append("rect").merge(bchart);      
   
-  bchart.attr("width", d => bScale(d.deaths))
+  bchart.style("opacity", 0)
+    .transition()
+    .duration(1000)
+    .attr("width", d => bScale(d.deaths))
       .attr("height", "12")
       .attr("transform", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(1, -1)"})
+      .style("opacity", 1);
 
   // TODO: Select and update the 'a' line chart path using this line generator
   let aLineGenerator = d3
@@ -138,10 +131,11 @@ function update(data) {
 
   let aLineC = d3.selectAll("#aLineChart")
     .datum(data);
+
   aLineC.attr("d", aLineGenerator)
     .style("opacity", 0)
     .transition()
-    .duration(1500)
+    .duration(1000)
     .style("opacity", 1);
 
   // TODO: Select and update the 'b' line chart path (create your own generator)
@@ -152,10 +146,11 @@ function update(data) {
 
   let bLineC = d3.selectAll("#bLineChart")
     .datum(data);
+
   bLineC.attr("d", bLineGenerator)
     .style("opacity", 0)
     .transition()
-    .duration(1500)
+    .duration(1000)
     .style("opacity", 1);
 
   // TODO: Select and update the 'a' area chart path using this area generator
@@ -167,10 +162,11 @@ function update(data) {
 
   let aAreaC = d3.selectAll("#aAreaChart")
     .datum(data);
+
   aAreaC.attr("d", aAreaGenerator)
     .style("opacity", 0)
     .transition()
-    .duration(1500)
+    .duration(1000)
     .style("opacity", 1);
 
   // TODO: Select and update the 'b' area chart path (create your own generator)
@@ -182,10 +178,11 @@ function update(data) {
 
   let bAreaC = d3.selectAll("#bAreaChart")
     .datum(data);
+
   bAreaC.attr("d", bAreaGenerator)
   .style("opacity", 0)
   .transition()
-  .duration(1500)
+  .duration(1000)
   .style("opacity", 1);
 
   // TODO: Select and update the scatterplot points
@@ -196,22 +193,25 @@ function update(data) {
 let scatter = d3.selectAll("#scatterplot").selectAll("circle")
     .data(data);
 
+scatter.style("opacity", 1)
+  .exit().remove()
+  .transition()
+  .duration(1000)
+  .style("opacity", 0);
+
 scatter = scatter.enter().append("circle").merge(scatter);
 
-scatter.attr("cx", (d,i) => aScale(d.cases))
+scatter.style("opacity", 0)
+    .transition()
+    .duration(1000)
+    .attr("cx", (d,i) => aScale(d.cases))
     .attr("cy", (d,i) => bScale(d.deaths))
-    .attr("r", 3);
+    .attr("r", 3)
+    .style("opacity", 1);
 
   // ****** TODO: PART IV ******
   
   let rects = achart;
-
-  //let stylesBorig = bchart.nodes().map(d => d3.select(d).attr('class', 'bar-chart-y rect'));
-
-  let stylesAnew = rects.nodes().map(d => d3.select(d).attr('class', 'bar-chart hovered'));
-  //let stylesBnew = bchart.nodes().map(d => d3.select(d).attr('class', 'bar-chart hovered'));
-
-  let stylesAorig = rects.nodes().map(d => d3.select(d).attr('class', 'bar-chart-x rect'));
 
   rects.on("mouseover", function(d) {
       d3.select(this).attr('class', 'bar-chart hovered');
@@ -234,17 +234,17 @@ scatter.attr("cx", (d,i) => aScale(d.cases))
   coor.on("click", function(d) {
     let xcor = d.cases  
     let ycor = d.deaths
-    let coordinates = "x-coordinate: " + xcor + ", y-coordinate: " + ycor;
+    let coordinates = "x: " + xcor + ", y: " + ycor;
       console.log(coordinates);
     })
 
   let tooltip = d3.selectAll("#scatterplot").selectAll("circle");
 
   tooltip.on("mouseover", function(d) {
-    var x_pos = d3.select(this).attr("cx");
-    var y_pos = d3.select(this).attr("cy");
+    var x_pos = d.cases;
+    var y_pos = d.deaths;
 
-    d3.select(this).append("text")
+    d3.select(this).append("title")
       .attr("id", "tooltip")
       .attr("x", x_pos)
       .attr("y", y_pos)
@@ -253,7 +253,7 @@ scatter.attr("cx", (d,i) => aScale(d.cases))
       .attr("font-size", "20px")
       .attr("font-weight", "bold")
       .attr("fill", "black")
-      .text(function (d) { return "(" + x_pos + ", " + y_pos +")"});
+      .text(function (d) { return "(x: " + x_pos + ", y:" + y_pos +")"});
   })
   
   tooltip.on("mouseout", function() { d3.select("#tooltip").remove()});
