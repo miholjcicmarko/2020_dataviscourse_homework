@@ -89,7 +89,7 @@ function update(data) {
   achart.style("opacity", 1)
     .exit().remove()
     .transition()
-    .duration(1000)
+    .duration(750)
     .style("opacity", 0);
   
   achart = achart.enter().append("rect")
@@ -110,14 +110,14 @@ function update(data) {
   bchart.style("opacity", 1)
     .exit().remove()
     .transition()
-    .duration(1000)
+    .duration(750)
     .style("opacity", 0);
 
   bchart = bchart.enter().append("rect").merge(bchart);      
   
   bchart.style("opacity", 0)
     .transition()
-    .duration(1000)
+    .duration(750)
     .attr("width", d => bScale(d.deaths))
       .attr("height", "12")
       .attr("transform", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(1, -1)"})
@@ -132,11 +132,12 @@ function update(data) {
   let aLineC = d3.selectAll("#aLineChart")
     .datum(data);
 
-  aLineC.attr("d", aLineGenerator)
+  aLineC
     .style("opacity", 0)
     .transition()
-    .duration(1000)
-    .style("opacity", 1);
+    .duration(750)
+    .style("opacity", 1)
+    .attr("d", aLineGenerator);
 
   // TODO: Select and update the 'b' line chart path (create your own generator)
   let bLineGenerator = d3
@@ -147,11 +148,12 @@ function update(data) {
   let bLineC = d3.selectAll("#bLineChart")
     .datum(data);
 
-  bLineC.attr("d", bLineGenerator)
+  bLineC
     .style("opacity", 0)
     .transition()
-    .duration(1000)
-    .style("opacity", 1);
+    .duration(750)
+    .style("opacity", 1)
+    .attr("d", bLineGenerator);
 
   // TODO: Select and update the 'a' area chart path using this area generator
   let aAreaGenerator = d3
@@ -163,11 +165,12 @@ function update(data) {
   let aAreaC = d3.selectAll("#aAreaChart")
     .datum(data);
 
-  aAreaC.attr("d", aAreaGenerator)
+  aAreaC
     .style("opacity", 0)
     .transition()
-    .duration(1000)
-    .style("opacity", 1);
+    .duration(750)
+    .style("opacity", 1)
+    .attr("d", aAreaGenerator);
 
   // TODO: Select and update the 'b' area chart path (create your own generator)
   let bAreaGenerator = d3
@@ -182,8 +185,9 @@ function update(data) {
   bAreaC.attr("d", bAreaGenerator)
   .style("opacity", 0)
   .transition()
-  .duration(1000)
-  .style("opacity", 1);
+  .duration(750)
+  .style("opacity", 1)
+  .attr("d", aAreaGenerator);
 
   // TODO: Select and update the scatterplot points
   d3.select("#x-axis").attr("transform", "translate(10,250)").call(d3.axisBottom(aScale).ticks(5));
@@ -196,14 +200,14 @@ let scatter = d3.selectAll("#scatterplot").selectAll("circle")
 scatter.style("opacity", 1)
   .exit().remove()
   .transition()
-  .duration(1000)
+  .duration(750)
   .style("opacity", 0);
 
 scatter = scatter.enter().append("circle").merge(scatter);
 
 scatter.style("opacity", 0)
     .transition()
-    .duration(1000)
+    .duration(750)
     .attr("cx", (d,i) => aScale(d.cases))
     .attr("cy", (d,i) => bScale(d.deaths))
     .attr("r", 3)
