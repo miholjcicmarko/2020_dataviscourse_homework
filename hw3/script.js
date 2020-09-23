@@ -161,23 +161,31 @@ scatter.attr("cx", (d,i) => aScale(d.cases))
 
   // ****** TODO: PART IV ******
 
+  let svg = d3.select()
+  
+  let stylesAorig = achart.nodes().map(d => d3.select(d).attr('style', 'bar-chart-x rect'));
+  //let stylesBorig = bchart.nodes().map(d => d3.select(d).attr('style', 'bar-chart-y rect'));
+
+  let stylesAnew = achart.nodes().map(d => d3.select(d).attr('class', 'bar-chart hovered'));
+  //let stylesBnew = bchart.nodes().map(d => d3.select(d).attr('class', 'bar-chart hovered'));
+
   achart.on("mouseover", (d,i,g) => {
-      d3.select(g[i]).style("fill", "#77B299");
+      d3.select(g[i]).attr((d,i,g) => stylesAnew);
     })
   
   achart.on("mouseout", (d,i,g) => {
-    d3.select(g[i]).style("fill", "#83A8B7");
+    d3.select(g[i]).attr((d,i,g) => stylesAorig);
   })
 
-  bchart.on("mouseover", (d,i,g) => {
-      d3.select(g[i]).style("fill", "#77B299");
-    })
+  //bchart.on("mouseover", (d,i,g) => {
+  //    d3.select(g[i]).style("fill", "#77B299");
+  //  })
   
-  bchart.on("mouseout", (d,i,g) => {
-    d3.select(g[i]).style("fill", "#83A8B7");
-  })  
+  //bchart.on("mouseout", (d,i,g) => {
+  //  d3.select(g[i]).style("fill", "#83A8B7");
+  //})  
 
-  
+
 }
 
 /**
