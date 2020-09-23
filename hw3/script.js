@@ -83,19 +83,24 @@ function update(data) {
   // ****** TODO: PART III (you will also edit in PART V) ******
 
   // TODO: Select and update the 'a' bar chart bars
-  let achart = d3.selectAll("#aBarChart").selectAll("rect")
-        .data(data);
+  let achart = d3.selectAll("#aBarChart").selectAll("rect") 
+      .data(data);
 
-  achart = achart.enter().append("rect").merge(achart);
+  achart.exit().remove();
+
+  achart = achart.enter().append("rect");
   
+  //achart.exit().remove();
+
+  achart.merge(achart);
+
   achart.attr("width", d => aScale(d.cases))
       .attr("height", "12")
       .attr("transfrom", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(-1, 1)"});
 
   // TODO: Select and update the 'b' bar chart bars
   let bchart = d3.selectAll("#bBarChart").selectAll("rect")
-        .data(data)
-        .enter().append("rect");
+        .data(data);
 
   bchart = bchart.enter().append("rect").merge(bchart);      
   
