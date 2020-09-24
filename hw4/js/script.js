@@ -49,9 +49,11 @@ loadData().then(data => {
         // ******* TODO: PART I *******
         // You need to pass the world topo data to the drawMap() function as a parameter, along with the starting activeYear.
         //TODO - your code goes here -
+        let geoJSON = topojson.feature(mapData, mapData.objects.countries);
 
-        
-        drawMap(mapData, activeYear);
+        let map = new Map(geoJSON, updateCountry);
+        console.log(map);
+        //map.drawMap(map, activeYear);
         
 
     });

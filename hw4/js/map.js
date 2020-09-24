@@ -60,9 +60,11 @@ class Map {
         // We have provided a class structure for the data called CountryData that you should assign the paramters to in your mapping
 
         //TODO - your code goes here
-        console.log(world);
-
+        
+        
         let feature = topojson.feature(data, data.objects.countries);
+
+        console.log(feature);
 
         let graticule = d3.geoGraticule();
          d3.select("#mapLayer").append('path')
