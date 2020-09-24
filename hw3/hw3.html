@@ -78,26 +78,28 @@
         grid-template-columns: 1fr 1fr;
       }
     </style>
+    <script src="script.js"></script>
+    <script src="https://d3js.org/d3.v5.js"></script>
   </head>
 
   <body>
     <h3>CS-5630 / CS-6630 Homework 3</h3>
     <address>
-      <span>Your Name</span>
-      <span>Your Email</span>
-      <span>Your UID</span>
+      <span>Name: Marko Miholjcic</span>
+      <span>Email: u0984549@utah.edu</span>
+      <span>UID: U0984549</span>
     </address>
     <br />
     <hr />
     <br />
 
     <span>
-      <button>Staircase</button>
+      <button onclick="staircase()">Staircase</button>
     </span>
 
     <span>
       <label>Dataset:</label>
-      <select id="dataset">
+      <select onchange="changeData()" id="dataset">
         <option value="covid_us">The US</option>
         <option selected value="covid_utah">Utah</option>
         <option value="covid_ca">California</option>
@@ -105,7 +107,7 @@
       </select>
     </span>
 
-    <span> <input type="checkbox" id="random" /> Random Subset </span>
+    <span> <input onchange="changeData()" type="checkbox" id="random" /> Random Subset </span>
 
     <br />
 
