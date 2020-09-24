@@ -14,10 +14,11 @@ function staircase() {
   for (let i = 0; i < barChart.length; i++){
       arr.push(barChart[i].attributes.width.nodeValue);
   }
-
+  //sort all the bars by width to put them in order
   var sorter = new Intl.Collator(undefined, {numeric:true})
   arr.sort(sorter.compare);
 
+  // set the bar chart to the sorter array
   for (let k = 0; k < barChart.length; k++){
     barChart[k].attributes.width.nodeValue = arr[k];
   }
@@ -190,10 +191,12 @@ function update(data) {
   .attr("d", aAreaGenerator);
 
   // TODO: Select and update the scatterplot points
+  // Make axis for scatter plot
   d3.select("#x-axis").attr("transform", "translate(10,250)").call(d3.axisBottom(aScale).ticks(5));
   let yAxis_line = d3.axisLeft(bScale).ticks(5);
   d3.select("#y-axis").attr("transform", "translate(10,10)").call(yAxis_line);
 
+// make scatter plot
 let scatter = d3.selectAll("#scatterplot").selectAll("circle")
     .data(data);
 
@@ -214,7 +217,7 @@ scatter.style("opacity", 0)
     .style("opacity", 1);
 
   // ****** TODO: PART IV ******
-  
+  // change color of bars when there is interaction with the user
   let rects = achart;
 
   rects.on("mouseover", function(d) {
@@ -233,6 +236,7 @@ scatter.style("opacity", 0)
       d3.select(this).attr('class', 'bar-chart-x rect');
   })  
 
+  // display coordinates in console
   let coor = d3.selectAll("#scatterplot").selectAll("circle");
 
   coor.on("click", function(d) {
@@ -241,7 +245,7 @@ scatter.style("opacity", 0)
     let coordinates = "x: " + xcor + ", y: " + ycor;
       console.log(coordinates);
     })
-
+  // create a tool tip
   let tooltip = d3.selectAll("#scatterplot").selectAll("circle");
 
   tooltip.on("mouseover", function(d) {
