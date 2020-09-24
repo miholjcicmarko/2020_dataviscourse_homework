@@ -114,7 +114,7 @@ function update(data) {
     .duration(750)
     .style("opacity", 0);
 
-  achart = bchart.enter().append("rect").merge(bchart);      
+  bchart = bchart.enter().append("rect").merge(bchart);      
   
   bchart.style("opacity", 0)
     .transition()
