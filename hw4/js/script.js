@@ -51,7 +51,7 @@ loadData().then(data => {
         //TODO - your code goes here -
         let geoJSON = topojson.feature(mapData, mapData.objects.countries);
 
-        let map = new Map(geoJSON.features, updateCountry);
+        let map = new Map(geoJSON, updateCountry);
         console.log(map);
         //map.drawMap(map, activeYear);
         
