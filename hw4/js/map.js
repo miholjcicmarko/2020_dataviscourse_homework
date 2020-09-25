@@ -61,10 +61,9 @@ class Map {
 
         //TODO - your code goes here
         
-        
-        let feature = topojson.feature(data, data.objects.countries);
+        let geoJSON = topojson.feature(data, data.objects.countries);
 
-        console.log(feature);
+        console.log(geoJSON);
 
         let graticule = d3.geoGraticule();
          d3.select("#mapLayer").append('path')
