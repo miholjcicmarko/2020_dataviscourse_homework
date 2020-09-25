@@ -118,11 +118,11 @@ function update(data) {
   
   bchart.style("opacity", 0)
     .transition()
-    .duration(750)
-    .attr("width", d => bScale(d.deaths))
-      .attr("height", "12")
-      .attr("transform", (d,i) => {return "translate(" +0+ "," + 14*i + ") scale(1, -1)"})
-      .style("opacity", 1);
+    .duration(1000)
+    .attr("width", function(d,i) { return bScale(d.deaths)})
+    .attr("height", "12")
+    .attr("transform", (d,i) => {return "translate(" +0+ "," + 14*(i+1) + ") scale(1, -1)"})
+    .style("opacity", 1);
 
   // TODO: Select and update the 'a' line chart path using this line generator
   let aLineGenerator = d3
@@ -188,7 +188,7 @@ function update(data) {
   .transition()
   .duration(750)
   .style("opacity", 1)
-  .attr("d", aAreaGenerator);
+  .attr("d", bAreaGenerator);
 
   // TODO: Select and update the scatterplot points
   // Make axis for scatter plot
@@ -213,7 +213,7 @@ scatter.style("opacity", 0)
     .duration(750)
     .attr("cx", (d,i) => aScale(d.cases))
     .attr("cy", (d,i) => bScale(d.deaths))
-    .attr("r", 3)
+    .attr("r", 5)
     .style("opacity", 1);
 
   // ****** TODO: PART IV ******
