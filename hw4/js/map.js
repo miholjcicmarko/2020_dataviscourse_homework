@@ -77,7 +77,7 @@ class Map {
 
        let graticule = d3.geoGraticule();
         d3.select("#map-chart").append("path")
-            .datum(graticule).attr("class", "grat").attr('d', 'path').attr('fill', none);
+            .datum(graticule).attr("class", "grat").attr('d', 'path').attr('fill', 'none');
     }
 
     /**
