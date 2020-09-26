@@ -97,8 +97,8 @@ class Map {
         
         debugger;
 
-        svg.selectAll("path")
-            .attr("class", function(d,i) { return "" + region_colors[i]})    
+        svg.selectAll("id")
+            .attr("class", function(d,i) { return "" + region_colors[i]});    
 
         
     }
