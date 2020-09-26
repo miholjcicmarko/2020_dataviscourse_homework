@@ -64,14 +64,20 @@ class Map {
             .attr("width", 250)
             .attr("height", 600);
         
+        let geoJSON = topojson.feature(world, world.objects.countries);
+        
         let path = d3.geoPath()
             .projection(world.projection);
-        
-        let geoJSON = topojson.feature(world, world.objects.countries);
 
-        let graticule = d3.geoGraticule();
-        d3.select("#map-chart").append("path")
-            .datum(graticule).attr("class", "grat").attr('d', 'path').attr('fill', none);
+        d3.select(svg).selectAll("path")
+            .data(geoJSON.feature)
+            .join("path")
+            .attr("d", path)
+            .attr("id", function (d,i) { return geoJSON.feature[i].id});
+
+       //let graticule = d3.geoGraticule();
+       // d3.select("#map-chart").append("path")
+       //     .datum(graticule).attr("class", "grat").attr('d', 'path').attr('fill', none);
     }
 
     /**
