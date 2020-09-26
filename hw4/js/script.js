@@ -50,7 +50,7 @@ loadData().then(data => {
         // You need to pass the world topo data to the drawMap() function as a parameter, along with the starting activeYear.
         //TODO - your code goes here -
 
-        map.drawMap(map, activeYear);
+        let world = map.drawMap(map, activeYear);
         
 
     });
