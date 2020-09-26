@@ -88,6 +88,8 @@ class Map {
             .datum(graticule.outline)
             .attr("class", "stroke")
             .attr('d', path);
+
+        
     }
 
     /**
