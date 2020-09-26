@@ -60,7 +60,7 @@ class Map {
         // We have provided a class structure for the data called CountryData that you should assign the paramters to in your mapping
 
         //TODO - your code goes here
-        let geoJSON = topojson.feature(data, data.objects.countries);
+        let geoJSON = topojson.feature(world, world.objects.countries);
 
         console.log(geoJSON);
     }
