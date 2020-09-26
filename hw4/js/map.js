@@ -79,7 +79,7 @@ class Map {
 
        let graticule = d3.geoGraticule();
        svg.select("#map-chart").selectAll("path")
-            .data(graticule).attr("class", "graticule line").attr('d', 'path');
+            .data(graticule.lines()).attr("class", "graticule line").attr('d', 'path');
     }
 
     /**
