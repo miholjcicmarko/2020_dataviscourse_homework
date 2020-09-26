@@ -91,11 +91,13 @@ class Map {
 
         let region_colors = [];
         
-        this.array.forEach(element => {
-            region_colors[element.region];
-        });
+        for (let i = 0; i < this.populationData.length(); i++){
+            region_colors.push(this.populationData[i].region);
+        }
         
-        console.log(region_colors);
+        debugger;
+
+        console.log(region_colors)
 
         //world.array.forEach(element => { 
             
