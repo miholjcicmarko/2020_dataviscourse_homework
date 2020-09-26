@@ -60,6 +60,8 @@ class Map {
         // We have provided a class structure for the data called CountryData that you should assign the paramters to in your mapping
 
         //TODO - your code goes here
+        let svg = d3.select("svg");
+        
         let geoJSON = topojson.feature(world, world.objects.countries);
 
         console.log(geoJSON);
