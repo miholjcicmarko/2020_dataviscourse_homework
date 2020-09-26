@@ -69,14 +69,6 @@ class Map {
         let path = d3.geoPath()
             .projection(this.projection);
 
-        svg.selectAll("path")
-            .data(geoJSON.features)
-            .join("path")
-            .attr("d", path)
-            .attr("id", function (d,i) { return geoJSON.features[i].id});
-
-        debugger;
-
        let graticule = d3.geoGraticule();
 
        svg.append("path")
@@ -89,18 +81,26 @@ class Map {
             .attr("class", "stroke")
             .attr('d', path);
 
-        let region_colors = [];
+        let region_colors = {};
         
         for (let i = 0; i < this.populationData.length; i++){
-            region_colors.push(this.populationData[i].region);
+            region_colors[this.nameArray].push(this.populationData[i].region);
         }
         
+        geoJSON.features.forEach(element => { 
+            element.properties.value = region_colors[element.properties.nameArray];
+        });
+
         debugger;
 
-        svg.selectAll("id")
-            .attr("class", function(d,i) { return "" + region_colors[i]});    
+        svg.selectAll("path")
+            .data(geoJSON.features)
+            .join("path")
+            .attr("d", path)
+            .attr("class", function(d) { return d.properties.value})
+            .attr("id", function (d,i) { return geoJSON.features[i].id});    
 
-        
+
     }
 
     /**
