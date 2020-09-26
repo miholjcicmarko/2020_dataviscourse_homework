@@ -67,9 +67,9 @@ class Map {
         let geoJSON = topojson.feature(world, world.objects.countries);
         
         let path = d3.geoPath()
-            .projection(world.projection);
+            .projection(this.projection);
 
-        d3.select(svg).selectAll("path")
+        svg.append("g").selectAll("path")
             .data(geoJSON.feature)
             .join("path")
             .attr("d", path)
