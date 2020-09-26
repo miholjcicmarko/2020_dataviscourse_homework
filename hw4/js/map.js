@@ -89,10 +89,14 @@ class Map {
             .attr("class", "stroke")
             .attr('d', path);
 
-        let region_colors = {};
+        //let region_colors = {};
 
-        svg.selectAll("path")
-            .attr("class", function(d) { return d.})    
+        //world.array.forEach(element => { 
+            
+        //});
+
+        //svg.selectAll("path")
+        //    .attr("class", function(d) { return d.})    
 
         
     }
