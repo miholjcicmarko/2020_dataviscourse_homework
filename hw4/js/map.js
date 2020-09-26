@@ -67,9 +67,14 @@ class Map {
         let width = parseInt(svg.attr("width"));
         let height = parseInt(svg.attr("height"));
         
+        let path = d3.path()
+            .projection(world.projection);
+        
         let geoJSON = topojson.feature(world, world.objects.countries);
 
-        console.log(geoJSON);
+        let graticule = d3.geoGraticule();
+        d3.select("#map-chart").append("path")
+            .datum(graticule).attr("class", "grat").attr('d', 'path').attr('fill', none);
     }
 
     /**
