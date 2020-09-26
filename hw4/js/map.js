@@ -71,20 +71,12 @@ class Map {
 
        let graticule = d3.geoGraticule();
 
-       svg.append("path")
-            .datum(graticule)
-            .attr("class", "graticule")
-            .attr('d', path);
-
-        svg.append("path")
-            .datum(graticule.outline)
-            .attr("class", "stroke")
-            .attr('d', path);
-
+        debugger;
+        
         let region_colors = {};
         
         for (let i = 0; i < this.populationData.length; i++){
-            region_colors[this.nameArray].push(this.populationData[i].region);
+            region_colors[this.nameArray] = geoJSON.populationData[i].region;
         }
         
         geoJSON.features.forEach(element => { 
@@ -100,6 +92,15 @@ class Map {
             .attr("class", function(d) { return d.properties.value})
             .attr("id", function (d,i) { return geoJSON.features[i].id});    
 
+        svg.append("path")
+           .datum(graticule)
+           .attr("class", "graticule")
+           .attr('d', path);
+
+        svg.append("path")
+            .datum(graticule.outline)
+            .attr("class", "stroke")
+            .attr('d', path);
 
     }
 
