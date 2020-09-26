@@ -70,10 +70,10 @@ class Map {
             .projection(this.projection);
 
         svg.selectAll("path")
-            .data(geoJSON.feature)
+            .data(geoJSON.features)
             .join("path")
             .attr("d", path)
-            .attr("id", function (d,i) { return geoJSON.feature[i].id});
+            .attr("id", function (d,i) { return geoJSON.features[i].id});
 
        //let graticule = d3.geoGraticule();
        // d3.select("#map-chart").append("path")
