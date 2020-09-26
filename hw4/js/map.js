@@ -71,6 +71,7 @@ class Map {
 
         svg.selectAll("path")
             .data(geoJSON.features)
+            .graticule.lines()
             .join("path")
             .attr("d", path)
             .attr("id", function (d,i) { return geoJSON.features[i].id});
@@ -79,7 +80,9 @@ class Map {
 
        let graticule = d3.geoGraticule();
        svg.select("#map-chart").selectAll("path")
-            .data(graticule.lines()).attr("class", "graticule line").attr('d', 'path');
+            .datum(graticule.lines())
+            .attr("class", ".graticule").
+            attr('d', path);
     }
 
     /**
