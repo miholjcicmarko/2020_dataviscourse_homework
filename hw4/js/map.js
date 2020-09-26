@@ -91,20 +91,14 @@ class Map {
 
         let region_colors = [];
         
-        for (let i = 0; i < this.populationData.length(); i++){
+        for (let i = 0; i < this.populationData.length; i++){
             region_colors.push(this.populationData[i].region);
         }
         
         debugger;
 
-        console.log(region_colors)
-
-        //world.array.forEach(element => { 
-            
-        //});
-
-        //svg.selectAll("path")
-        //    .attr("class", function(d) { return d.})    
+        svg.selectAll("path")
+            .attr("class", function(d,i) { return "" + region_colors[i]})    
 
         
     }
