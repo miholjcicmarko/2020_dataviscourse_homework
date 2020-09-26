@@ -61,7 +61,7 @@ class Map {
 
         //TODO - your code goes here
         let svg = d3.select("#map-chart").append("svg")
-            .attr("width", 200)
+            .attr("width", 250)
             .attr("height", 600);
         
         let path = d3.geoPath()
