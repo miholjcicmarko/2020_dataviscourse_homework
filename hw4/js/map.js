@@ -89,7 +89,13 @@ class Map {
             .attr("class", "stroke")
             .attr('d', path);
 
-        //let region_colors = {};
+        let region_colors = [];
+        
+        this.array.forEach(element => {
+            region_colors[element.region];
+        });
+        
+        console.log(region_colors);
 
         //world.array.forEach(element => { 
             
