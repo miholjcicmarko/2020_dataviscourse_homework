@@ -75,8 +75,6 @@ class Map {
             country_data_arr.push(country);
         }
 
-        debugger;
-
         let region_colors = [];
         
         for (let i = 0; i < country_data_arr.length; i++) {
@@ -113,13 +111,9 @@ class Map {
         debugger;
 
         let path = d3.geoPath()
-            .projection(this.projection);
+            .projection(region_colors.projection);
 
        let graticule = d3.geoGraticule();
-
-        for (let i = 0; i < region_colors.length; i++){
-            console.log(region_colors[i].region);
-        }
 
         debugger;
 
