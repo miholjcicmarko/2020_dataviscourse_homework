@@ -85,7 +85,7 @@ class GapPlot {
 
          */
 
-        //d3.select("#scatter-plot").attr("transform", "translate(10,350)")
+        d3.select("#scatter-plot").attr("transform", "translate(10,350)")
 
 
         d3.select('#scatter-plot')
