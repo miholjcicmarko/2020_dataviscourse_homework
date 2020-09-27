@@ -66,13 +66,6 @@ class Map {
         
         let geoJSON = topojson.feature(world, world.objects.countries);
         
-        let path = d3.geoPath()
-            .projection(this.projection);
-
-       let graticule = d3.geoGraticule();
-
-        debugger;
-        
         let country_data_arr = []
         
         for (let i = 0; i < geoJSON.features.length; i++) {
@@ -81,8 +74,6 @@ class Map {
                 geoJSON.features[i].geometry, geoJSON.features[i].region);
             country_data_arr.push(country);
         }
-        
-        console.log(country_data_arr);
 
         debugger;
 
@@ -118,6 +109,17 @@ class Map {
         //geoJSON.features.forEach(function (feature) { 
         //    features.properties.value = region_colors[features.properties.nameArray];
         //});
+
+        debugger;
+
+        let path = d3.geoPath()
+            .projection(this.projection);
+
+       let graticule = d3.geoGraticule();
+
+        for (let i = 0; i < region_colors.length; i++){
+            console.log(region_colors[i].region);
+        }
 
         debugger;
 
