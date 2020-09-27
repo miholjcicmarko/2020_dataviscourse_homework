@@ -51,9 +51,7 @@ class GapPlot {
         this.data = data;
 
         //TODO - your code goes here -
-        
-
-
+        this.drawPlot(data);
 
         // ******* TODO: PART 3 *******
         /**
@@ -71,7 +69,7 @@ class GapPlot {
      * Sets up the plot, axes, and slider,
      */
 
-    updatePlot() {
+    drawPlot() {
         // ******* TODO: PART 2 *******
         /**
          You will be setting up the plot for the scatterplot.
@@ -81,11 +79,14 @@ class GapPlot {
          Main things you should set up here:
          1). Create the x and y axes
          2). Create the activeYear background text
-
+        
 
          The dropdown menus have been created for you!
 
          */
+
+        //d3.select("#scatter-plot").attr("transform", "translate(10,350)")
+
 
         d3.select('#scatter-plot')
             .append('div').attr('id', 'chart-view');
