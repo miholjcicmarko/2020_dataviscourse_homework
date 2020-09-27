@@ -86,12 +86,14 @@ class Map {
 
         debugger;
 
-        let region_colors = {};
+        let region_colors = [];
         
         for (let i = 0; i < country_data_arr.length; i++) {
             for (let k = 0; k < this.nameArray.length; k++) {
                 if (country_data_arr[i].id === this.nameArray[k]) {
                     country_data_arr[i].region = this.populationData[k].region;
+                    region_colors.push(country_data_arr[i]);
+                    continue;
                 }
             }
         }
@@ -107,10 +109,10 @@ class Map {
         debugger;
 
         svg.selectAll("path")
-            .data(geoJSON.features)
+            .data(country_data_arr)
             .join("path")
             .attr("d", path)
-            .attr("class", function(i) { return country_data_arr.region[i]})
+            .attr("class", function(i) { return region_colors[i].region})
             .attr("id", function (d,i) { return geoJSON.features[i].id});    
 
         svg.append("path")
