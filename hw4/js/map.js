@@ -74,13 +74,13 @@ class Map {
         debugger;
         
         let region_colors = {};
+
+        this.forEach(function (element) {
+            region_colors[this.nameArray] = this.region;
+        });
         
-        for (let i = 0; i < this.populationData.length; i++){
-            region_colors[this.nameArray] = geoJSON.populationData[i].region;
-        }
-        
-        geoJSON.features.forEach(element => { 
-            element.properties.value = region_colors[element.properties.nameArray];
+        geoJSON.features.forEach(function (feature) { 
+            features.properties.value = region_colors[features.properties.nameArray];
         });
 
         debugger;
