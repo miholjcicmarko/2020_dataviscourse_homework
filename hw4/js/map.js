@@ -84,15 +84,25 @@ class Map {
         
         console.log(country_data_arr);
 
-        let region_colors = {};
+        debugger;
 
-        Map.forEach(function (element) {
-            region_colors[this.nameArray] = this.region;
-        });
+        let region_colors = {};
         
-        geoJSON.features.forEach(function (feature) { 
-            features.properties.value = region_colors[features.properties.nameArray];
-        });
+        for (let i = 0; i < country_data_arr.length; i++) {
+            for (let k = 0; k < this.nameArray.length; k++) {
+                if (country_data_arr[i].id === this.nameArray[k]) {
+                    country_data_arr[i].region = this.populationData[k].region;
+                }
+            }
+        }
+
+        //Map.forEach(function (element) {
+        //    region_colors[this.nameArray] = this.region;
+        //});
+        
+        //geoJSON.features.forEach(function (feature) { 
+        //    features.properties.value = region_colors[features.properties.nameArray];
+        //});
 
         debugger;
 
@@ -100,7 +110,7 @@ class Map {
             .data(geoJSON.features)
             .join("path")
             .attr("d", path)
-            .attr("class", function(d) { return d.properties.value})
+            .attr("class", function(i) { return country_data_arr.region[i]})
             .attr("id", function (d,i) { return geoJSON.features[i].id});    
 
         svg.append("path")
