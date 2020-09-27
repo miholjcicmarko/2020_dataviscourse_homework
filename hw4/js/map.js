@@ -69,10 +69,12 @@ class Map {
         let country_data_arr = []
         
         for (let i = 0; i < geoJSON.features.length; i++) {
-            let country = new CountryData(geoJSON.features[i].type, 
+            if (geoJSON.features[i].region !== 99) {
+                let country = new CountryData(geoJSON.features[i].type, 
                 geoJSON.features[i].id, geoJSON.features[i].properties,
                 geoJSON.features[i].geometry, geoJSON.features[i].region);
-            country_data_arr.push(country);
+                country_data_arr.push(country);
+            }
         }
 
         let region_colors = [];
@@ -111,7 +113,7 @@ class Map {
         debugger;
 
         let path = d3.geoPath()
-            .projection(region_colors.projection);
+            .projection(this.projection);
 
        let graticule = d3.geoGraticule();
 
