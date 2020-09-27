@@ -84,16 +84,14 @@ class GapPlot {
          The dropdown menus have been created for you!
 
          */
-        //let axisScale = d3
-        //    .scaleLinear()
-        //    .domain([0, d3.max(this.data, )])
+        let axisScale = d3
+            .scaleLinear()
+            .domain([0, d3.max(this.data)]);
         
-        //var xAxis = d3.axisBottom();
+        d3.select("#scatter-plot").append("g")
+            .call(d3.axisBottom(axisScale).ticks(5));
 
-
-         //d3.select("#scatter-plot").append
-
-        //d3.select("#scatter-plot").attr("transform", "translate(10,350)").call(d3.axisBottom(aScale).ticks(5));
+        d3.select("#scatter-plot").attr("transform", "translate(10,350)");
         //let yAxis_line = d3.axisLeft(bScale).ticks(5);
         //d3.select("#y-axis").attr("transform", "translate(10,10)").call(yAxis_line);
 
