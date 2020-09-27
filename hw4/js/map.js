@@ -77,6 +77,8 @@ class Map {
             }
         }
 
+        debugger;
+
         let region_colors = [];
         
         for (let i = 0; i < country_data_arr.length; i++) {
