@@ -73,9 +73,20 @@ class Map {
 
         debugger;
         
+        let country_data_arr = []
+        
+        for (let i = 0; i < geoJSON.features.length; i++) {
+            let country = new CountryData(geoJSON.features[i].type, 
+                geoJSON.features[i].id, geoJSON.features[i].properties,
+                geoJSON.features[i].geometry, geoJSON.features[i].region);
+            country_data_arr.push(country);
+        }
+        
+        console.log(country_data_arr);
+
         let region_colors = {};
 
-        this.forEach(function (element) {
+        Map.forEach(function (element) {
             region_colors[this.nameArray] = this.region;
         });
         
