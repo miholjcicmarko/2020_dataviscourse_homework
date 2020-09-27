@@ -98,6 +98,19 @@ class Map {
             }
         }
 
+        short_country_data = [];
+
+        for (let i = 0; i < country_data_arr.length; i++) {
+            if (country_data_arr[i].region === undefined){
+                continue;
+            }
+            else{
+                short_country_data.push(country_data_arr[i]);
+            }
+        }
+
+        console.log(short_country_data);
+
         //Map.forEach(function (element) {
         //    region_colors[this.nameArray] = this.region;
         //});
@@ -112,7 +125,14 @@ class Map {
             .data(country_data_arr)
             .join("path")
             .attr("d", path)
-            .attr("class", function(i) { return region_colors[i].region})
+            .attr("class", function(i) { 
+                var value = region_colors[i].region;
+
+                if (value) {
+                    return region_colors[i].region;
+                } else{
+                    return "white";
+                }})
             .attr("id", function (d,i) { return geoJSON.features[i].id});    
 
         svg.append("path")
