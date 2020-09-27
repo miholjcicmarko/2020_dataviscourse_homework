@@ -89,27 +89,6 @@ class Map {
             }
         }
 
-        //let short_country_data = [];
-
-        //for (let i = 0; i < country_data_arr.length; i++) {
-        //    if (country_data_arr[i].region === -99){
-        //        continue;
-        //    }
-        //    else{
-        //        short_country_data.push(country_data_arr[i]);
-        //    }
-       // }
-
-        //console.log(short_country_data);
-
-        //Map.forEach(function (element) {
-        //    region_colors[this.nameArray] = this.region;
-        //});
-        
-        //geoJSON.features.forEach(function (feature) { 
-        //    features.properties.value = region_colors[features.properties.nameArray];
-        //});
-
         debugger;
 
         let path = d3.geoPath()
