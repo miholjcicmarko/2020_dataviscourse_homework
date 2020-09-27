@@ -51,6 +51,8 @@ class GapPlot {
         this.data = data;
 
         //TODO - your code goes here -
+        
+
 
 
         // ******* TODO: PART 3 *******
@@ -69,7 +71,7 @@ class GapPlot {
      * Sets up the plot, axes, and slider,
      */
 
-    drawPlot() {
+    updatePlot() {
         // ******* TODO: PART 2 *******
         /**
          You will be setting up the plot for the scatterplot.
