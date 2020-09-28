@@ -63,7 +63,8 @@ class Map {
         let svg = d3.select("#map-chart").append("svg")
             .attr("class", "#map-chart")
             .attr("class", "#map-chart svg")
-            .attr("class", "countries");
+            .attr("class", "countries")
+            .attr("class", "boundary");
         
         let geoJSON = topojson.feature(world, world.objects.countries);
         
@@ -81,9 +82,12 @@ class Map {
                 if (country_data_arr[i].id === this.populationData[k].geo.toUpperCase()) {
                     country_data_arr[i].region = this.populationData[k].region;
                 }
-                else {
-                    country_data_arr[i].region = "countries";
-                }
+            }
+        }
+
+        for (let i = 0; i < country_data_arr.length; i++) {
+            if (country_data_arr[i].region === undefined) {
+                country_data_arr[i].region = "countries";
             }
         }
 
