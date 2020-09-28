@@ -85,7 +85,7 @@ class Map {
 
         let region_colors = [];
         
-        for (let i = 1; i < country_data_arr.length; i++) {
+        for (let i = 0; i < country_data_arr.length; i++) {
             for (let k = 0; k < this.nameArray.length; k++) {
                 if (country_data_arr[i].id === this.populationData[k].geo.toUpperCase()) {
                     country_data_arr[i].region = this.populationData[k].region;
@@ -95,18 +95,16 @@ class Map {
             }
         }
 
-        debugger
+        //let region_coloring = [];
 
-        let region_coloring = [];
-
-        for (let i = 0; i < this.populationData.length; i++) {
-            for (let k = 0; k < region_colors.length; k++){
-                if (region_colors[k].region === this.populationData[i].region) {
-                    region_coloring.push(this.populationData[i].region)
-                    break;
-                }
-            }
-        }
+        //for (let i = 0; i < this.populationData.length; i++) {
+        //    for (let k = 0; k < region_colors.length; k++){
+        //        if (region_colors[k].region === this.populationData[i].region) {
+        //            region_coloring.push(this.populationData[i].region)
+        //            break;
+        //        }
+        //    }
+        //}
 
         debugger;
 
@@ -118,10 +116,10 @@ class Map {
         debugger;
 
         svg.selectAll("path")
-            .data(country_data_arr)
+            .data(region_colors)
             .join("path")
             .attr("d", path)
-            .attr("class", region_coloring);
+            .attr("class", d => d.region);
             //.attr("id", function (d,i) { return region_colors[i].id});    
 
         svg.append("path")
