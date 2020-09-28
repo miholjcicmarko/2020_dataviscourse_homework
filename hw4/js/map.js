@@ -89,18 +89,15 @@ class Map {
             }
         }
 
-        debugger;
-
-        for (let i = 0; i < this.populationData.length; i++) {
-            console.log(this.populationData[i]);
-        }
+        debugger
 
         let region_coloring = [];
 
         for (let i = 0; i < this.populationData.length; i++) {
             for (let k = 0; k < region_colors.length; k++){
                 if (region_colors[k].region === this.populationData[i].region) {
-                    region_coloring.push(this.populationData[i].region);
+                    region_coloring.push(this.populationData[i].region)
+                    break;
                 }
             }
         }
@@ -118,7 +115,7 @@ class Map {
             .data(region_colors)
             .join("path")
             .attr("d", path)
-            .attr("class", function(i) { return region_colors[i].region})
+            .attr("class", function(i) { return region_coloring[i]})
             .attr("id", function (d,i) { return region_colors[i].id});    
 
         svg.append("path")
