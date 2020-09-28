@@ -78,6 +78,9 @@ class Map {
                         geoJSON.features[i].geometry, geoJSON.features[i].region);
                         country_data_arr.push(country);
                 }
+                else {
+                    country_data_arr.push(country);
+                }
             }
         }
 
@@ -91,6 +94,9 @@ class Map {
                     country_data_arr[i].region = this.populationData[k].region;
                     region_colors.push(country_data_arr[i]);
                     continue;
+                }
+                else {
+                    region_colors.push(country_data_arr[i])
                 }
             }
         }
@@ -116,7 +122,7 @@ class Map {
         debugger;
 
         svg.selectAll("path")
-            .data(geoJSON.features)
+            .data(region_colors)
             .join("path")
             .attr("d", path)
             .attr("class", d => d.region)
