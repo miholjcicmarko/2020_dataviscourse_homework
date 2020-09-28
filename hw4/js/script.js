@@ -42,6 +42,9 @@ loadData().then(data => {
 
     // Initialize gapPlot here.
     //TODO - your code goes here -
+
+    gapPlot.drawPlot();
+
     // here we load the map data
     d3.json('data/world.json').then(mapData => {
 
