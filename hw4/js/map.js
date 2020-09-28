@@ -119,8 +119,8 @@ class Map {
             .data(region_colors)
             .join("path")
             .attr("d", path)
-            .attr("class", d => d.region);
-            //.attr("id", function (d,i) { return region_colors[i].id});    
+            .attr("class", d => d.region)
+            .attr("id", function (d,i) { return d.id});  
 
         svg.append("path")
            .datum(graticule)
