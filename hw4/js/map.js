@@ -78,9 +78,6 @@ class Map {
                         geoJSON.features[i].geometry, geoJSON.features[i].region);
                         country_data_arr.push(country);
                 }
-                else {
-                    country_data_arr.push(country);
-                }
             }
         }
 
@@ -94,9 +91,6 @@ class Map {
                     country_data_arr[i].region = this.populationData[k].region;
                     region_colors.push(country_data_arr[i]);
                     continue;
-                }
-                else {
-                    region_colors.push(country_data_arr[i])
                 }
             }
         }
@@ -126,7 +120,7 @@ class Map {
             .join("path")
             .attr("d", path)
             .attr("class", d => d.region)
-            .attr("id", function (d,i) { return d.id});  
+            .attr("id", function (d,i) { return d.id});   
 
         svg.append("path")
            .datum(graticule)
