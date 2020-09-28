@@ -69,10 +69,14 @@ class Map {
         let country_data_arr = []
         
         for (let i = 0; i < geoJSON.features.length; i++) {
-            let country = new CountryData(geoJSON.features[i].type, 
-            geoJSON.features[i].id, geoJSON.features[i].properties,
-            geoJSON.features[i].geometry, geoJSON.features[i].region);
-            country_data_arr.push(country);
+            for (let k = 0; k < this.populationData.length; k++) {
+                if (geoJSON.features[i].region === this.populationData[i].region) {
+                    let country = new CountryData(geoJSON.features[i].type, 
+                        geoJSON.features[i].id, geoJSON.features[i].properties,
+                        geoJSON.features[i].geometry, geoJSON.features[i].region);
+                        country_data_arr.push(country);
+                }
+            }
         }
 
         debugger;
@@ -115,7 +119,7 @@ class Map {
             .data(region_colors)
             .join("path")
             .attr("d", path)
-            .attr("class", function(i) { return region_coloring[i]})
+            .attr("class", region_coloring)
             .attr("id", function (d,i) { return region_colors[i].id});    
 
         svg.append("path")
