@@ -62,7 +62,8 @@ class Map {
         //TODO - your code goes here
         let svg = d3.select("#map-chart").append("svg")
             .attr("class", "#map-chart")
-            .attr("class", "#map-chart svg");
+            .attr("class", "#map-chart svg")
+            .attr("class", "countries");
         
         let geoJSON = topojson.feature(world, world.objects.countries);
         
