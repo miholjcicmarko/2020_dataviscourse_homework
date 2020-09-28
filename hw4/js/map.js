@@ -71,15 +71,22 @@ class Map {
         debugger;
         
         for (let i = 0; i < geoJSON.features.length; i++) {
-            for (let k = 0; k < this.populationData.length; k++) {
-                if (geoJSON.features[i].id === this.nameArray[k]) {
-                    let country = new CountryData(geoJSON.features[i].type, 
-                        geoJSON.features[i].id, geoJSON.features[i].properties,
-                        geoJSON.features[i].geometry, geoJSON.features[i].region);
-                        country_data_arr.push(country);
-                }
-            }
+            let country = new CountryData(geoJSON.features[i].type, 
+            geoJSON.features[i].id, geoJSON.features[i].properties,
+            geoJSON.features[i].geometry, geoJSON.features[i].region);
+            country_data_arr.push(country);
         }
+
+        //for (let i = 0; i < geoJSON.features.length; i++) {
+        //    for (let k = 0; k < this.populationData.length; k++) {
+        //        if (geoJSON.features[i].id === this.nameArray[k]) {
+        //            let country = new CountryData(geoJSON.features[i].type, 
+        //                geoJSON.features[i].id, geoJSON.features[i].properties,
+        //                geoJSON.features[i].geometry, geoJSON.features[i].region);
+        //                country_data_arr.push(country);
+        //        }
+        //    }
+        //}
 
         debugger;
 
