@@ -108,7 +108,7 @@ class GapPlot {
         let xAxisScale = d3
             .scaleLinear()
             .domain([0, d3.max(this.data.population)])
-            .range([0, d3.max(this.data.population)]);
+            .range([0, this.width]);
     
         d3.select("#plot-svg").selectAll("g")
             .call(d3.axisBottom(xAxisScale).ticks(5));
