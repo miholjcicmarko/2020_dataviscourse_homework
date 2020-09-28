@@ -94,6 +94,7 @@ class Map {
 
         svg.selectAll("path")
             .data(country_data_arr)
+            .attr("class", "countries")
             .join("path")
             .attr("d", path)
             .attr("class", d => d.region)
