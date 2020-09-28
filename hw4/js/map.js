@@ -91,7 +91,7 @@ class Map {
 
         debugger;
 
-        for (let i = 0; i < this.length; i++) {
+        for (let i = 0; i < this.populationData.length; i++) {
             console.log(this.populationData[i]);
         }
 
