@@ -116,7 +116,7 @@ class Map {
         debugger;
 
         svg.selectAll("path")
-            .data(region_colors)
+            .data(geoJSON.features)
             .join("path")
             .attr("d", path)
             .attr("class", d => d.region)
