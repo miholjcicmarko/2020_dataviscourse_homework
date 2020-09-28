@@ -79,7 +79,7 @@ class Map {
 
         let region_colors = [];
         
-        for (let i = 2; i < country_data_arr.length; i++) {
+        for (let i = 1; i < country_data_arr.length; i++) {
             for (let k = 0; k < this.nameArray.length; k++) {
                 if (country_data_arr[i].id === this.populationData[k].geo.toUpperCase()) {
                     country_data_arr[i].region = this.populationData[k].region;
