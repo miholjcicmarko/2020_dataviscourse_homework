@@ -68,8 +68,6 @@ class Map {
         let geoJSON = topojson.feature(world, world.objects.countries);
         
         let country_data_arr = []
-
-        debugger;
         
         for (let i = 0; i < geoJSON.features.length; i++) {
             let country = new CountryData(geoJSON.features[i].type, 
@@ -77,19 +75,6 @@ class Map {
             geoJSON.features[i].geometry, geoJSON.features[i].region);
             country_data_arr.push(country);
         }
-
-        //for (let i = 0; i < geoJSON.features.length; i++) {
-        //    for (let k = 0; k < this.populationData.length; k++) {
-        //        if (geoJSON.features[i].id === this.nameArray[k]) {
-        //            let country = new CountryData(geoJSON.features[i].type, 
-        //                geoJSON.features[i].id, geoJSON.features[i].properties,
-        //                geoJSON.features[i].geometry, geoJSON.features[i].region);
-        //                country_data_arr.push(country);
-        //        }
-        //    }
-        //}
-
-        debugger;
         
         for (let i = 0; i < country_data_arr.length; i++) {
             for (let k = 0; k < this.nameArray.length; k++) {
@@ -99,37 +84,10 @@ class Map {
             }
         }
 
-        //let region_colors = [];
-        
-        //for (let i = 0; i < country_data_arr.length; i++) {
-        //    for (let k = 0; k < this.nameArray.length; k++) {
-        //        if (country_data_arr[i].id === this.populationData[k].geo.toUpperCase()) {
-        //            country_data_arr[i].region = this.populationData[k].region;
-        //            region_colors.push(country_data_arr[i]);
-        //            continue;
-        //        }
-        //    }
-        //}
-
-        //let region_coloring = [];
-
-        //for (let i = 0; i < this.populationData.length; i++) {
-        //    for (let k = 0; k < region_colors.length; k++){
-        //        if (region_colors[k].region === this.populationData[i].region) {
-        //            region_coloring.push(this.populationData[i].region)
-        //            break;
-        //        }
-        //    }
-        //}
-
-        debugger;
-
         let path = d3.geoPath()
             .projection(this.projection);
 
        let graticule = d3.geoGraticule();
-
-        debugger;
 
         svg.selectAll("path")
             .data(country_data_arr)
