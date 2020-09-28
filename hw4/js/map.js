@@ -91,8 +91,6 @@ class Map {
             }
         }
 
-        debugger;
-
         let path = d3.geoPath()
             .projection(this.projection);
 
