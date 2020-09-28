@@ -43,6 +43,8 @@ loadData().then(data => {
     // Initialize gapPlot here.
     //TODO - your code goes here -
 
+    debugger;
+
     gapPlot.drawPlot();
 
     // here we load the map data
