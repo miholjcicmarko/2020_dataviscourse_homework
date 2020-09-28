@@ -69,31 +69,38 @@ class Map {
         let country_data_arr = []
 
         debugger;
-        
+
         for (let i = 0; i < geoJSON.features.length; i++) {
-            for (let k = 0; k < this.populationData.length; k++) {
-                if (geoJSON.features[i].id === this.nameArray[k]) {
-                    let country = new CountryData(geoJSON.features[i].type, 
-                        geoJSON.features[i].id, geoJSON.features[i].properties,
-                        geoJSON.features[i].geometry, geoJSON.features[i].region);
-                        country_data_arr.push(country);
-                }
+            let country = new CountryData(geoJSON.features[i].type, 
+            geoJSON.features[i].id, geoJSON.features[i].properties,
+            geoJSON.features[i].geometry, geoJSON.features[i].region);
+            country_data_arr.push(country);   
             }
         }
+        //for (let i = 0; i < geoJSON.features.length; i++) {
+        //    for (let k = 0; k < this.populationData.length; k++) {
+        //        if (geoJSON.features[i].id === this.nameArray[k]) {
+        //            let country = new CountryData(geoJSON.features[i].type, 
+        //                geoJSON.features[i].id, geoJSON.features[i].properties,
+        //                geoJSON.features[i].geometry, geoJSON.features[i].region);
+        //                country_data_arr.push(country);
+        //        }
+        //    }
+        //}
 
-        debugger;
+        //debugger;
 
-        let region_colors = [];
+        //let region_colors = [];
         
-        for (let i = 0; i < country_data_arr.length; i++) {
-            for (let k = 0; k < this.nameArray.length; k++) {
-                if (country_data_arr[i].id === this.populationData[k].geo.toUpperCase()) {
-                    country_data_arr[i].region = this.populationData[k].region;
-                    region_colors.push(country_data_arr[i]);
-                    continue;
-                }
-            }
-        }
+        //for (let i = 0; i < country_data_arr.length; i++) {
+        //    for (let k = 0; k < this.nameArray.length; k++) {
+        //        if (country_data_arr[i].id === this.populationData[k].geo.toUpperCase()) {
+        //            country_data_arr[i].region = this.populationData[k].region;
+        //            region_colors.push(country_data_arr[i]);
+        //            continue;
+        //        }
+        //    }
+        //}
 
         //let region_coloring = [];
 
