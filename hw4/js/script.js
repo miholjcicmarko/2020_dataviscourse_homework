@@ -42,7 +42,6 @@ loadData().then(data => {
 
     // Initialize gapPlot here.
     //TODO - your code goes here -
-
     // here we load the map data
     d3.json('data/world.json').then(mapData => {
 
@@ -50,7 +49,7 @@ loadData().then(data => {
         // You need to pass the world topo data to the drawMap() function as a parameter, along with the starting activeYear.
         //TODO - your code goes here -
 
-        debugger;
+        debugger
         
         let world = new Map(data, activeCountry);
 
