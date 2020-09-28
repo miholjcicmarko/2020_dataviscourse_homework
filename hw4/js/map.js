@@ -91,6 +91,12 @@ class Map {
 
         debugger;
 
+        for (let i = 0; i < region_colors.length; i++) {
+            if (region_colors[i] === undefined) {
+                console.log(i)
+            }
+        }
+
         let region_coloring = [];
 
         for (let i = 0; i < this.populationData.length; i++) {
