@@ -84,17 +84,6 @@ class GapPlot {
          The dropdown menus have been created for you!
 
          */
-        let axisScale = d3
-            .scaleLinear()
-            .domain([0, d3.max(this.data)]);
-        
-        d3.select("#scatter-plot").append("g")
-            .call(d3.axisBottom(axisScale).ticks(5));
-
-        d3.select("#scatter-plot").attr("transform", "translate(10,350)");
-        //let yAxis_line = d3.axisLeft(bScale).ticks(5);
-        //d3.select("#y-axis").attr("transform", "translate(10,10)").call(yAxis_line);
-
 
         d3.select('#scatter-plot')
             .append('div').attr('id', 'chart-view');
@@ -116,7 +105,17 @@ class GapPlot {
 
 
         //TODO - your code goes here
+        let xAxisScale = d3
+        .scaleLinear()
+        .domain([0, d3.max(this.data)]);
+    
+        d3.select("#plot-svg").append("g")
+        .classed('axis', true)
+        .call(d3.axisBottom(xAxisScale).ticks(5));
 
+        //d3.select("#scatter-plot").attr("transform", "translate(10,350)");
+        //let yAxis_line = d3.axisLeft(bScale).ticks(5);
+        //d3.select("#y-axis").attr("transform", "translate(10,10)").call(yAxis_line);
 
         /* Below is the setup for the dropdown menu- no need to change this */
 
