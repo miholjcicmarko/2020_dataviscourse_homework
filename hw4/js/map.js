@@ -91,10 +91,8 @@ class Map {
 
         debugger;
 
-        for (let i = 0; i < region_colors.length; i++) {
-            if (region_colors[i] === undefined) {
-                console.log(i)
-            }
+        for (let i = 0; i < this.length; i++) {
+            console.log(this.populationData[i]);
         }
 
         let region_coloring = [];
@@ -117,11 +115,11 @@ class Map {
         debugger;
 
         svg.selectAll("path")
-            .data(country_data_arr)
+            .data(region_colors)
             .join("path")
             .attr("d", path)
             .attr("class", function(i) { return region_colors[i].region})
-            .attr("id", function (d,i) { return geoJSON.features[i].id});    
+            .attr("id", function (d,i) { return region_colors[i].id});    
 
         svg.append("path")
            .datum(graticule)
