@@ -77,6 +77,7 @@ class Map {
             country_data_arr.push(country);   
             }
         }
+        
         //for (let i = 0; i < geoJSON.features.length; i++) {
         //    for (let k = 0; k < this.populationData.length; k++) {
         //        if (geoJSON.features[i].id === this.nameArray[k]) {
