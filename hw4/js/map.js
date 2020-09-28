@@ -67,10 +67,12 @@ class Map {
         let geoJSON = topojson.feature(world, world.objects.countries);
         
         let country_data_arr = []
+
+        debugger;
         
         for (let i = 0; i < geoJSON.features.length; i++) {
             for (let k = 0; k < this.populationData.length; k++) {
-                if (geoJSON.features[i].region === this.populationData[i].region) {
+                if (geoJSON.features[i].id === this.nameArray[k]) {
                     let country = new CountryData(geoJSON.features[i].type, 
                         geoJSON.features[i].id, geoJSON.features[i].properties,
                         geoJSON.features[i].geometry, geoJSON.features[i].region);
@@ -116,11 +118,11 @@ class Map {
         debugger;
 
         svg.selectAll("path")
-            .data(region_colors)
+            .data(country_data_arr)
             .join("path")
             .attr("d", path)
-            .attr("class", region_coloring)
-            .attr("id", function (d,i) { return region_colors[i].id});    
+            .attr("class", region_coloring);
+            //.attr("id", function (d,i) { return region_colors[i].id});    
 
         svg.append("path")
            .datum(graticule)
