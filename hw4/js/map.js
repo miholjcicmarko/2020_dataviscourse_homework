@@ -131,7 +131,7 @@ class Map {
         debugger;
 
         svg.selectAll("path")
-            .data(region_colors)
+            .data(country_data_arr)
             .join("path")
             .attr("d", path)
             .attr("class", d => d.region)
