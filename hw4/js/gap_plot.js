@@ -103,7 +103,6 @@ class GapPlot {
 
         let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g').classed('wrapper-group', true);
 
-
         //TODO - your code goes here
         let xAxisScale = d3
             .scaleLinear()
@@ -126,10 +125,16 @@ class GapPlot {
             .attr("id", "yAxis")
             .attr("transform", "translate(5,30)")
             .call(d3.axisLeft(yAxisScale).ticks(5));
-        
-        //d3.select("#scatter-plot").attr("transform", "translate(10,350)");
-        //let yAxis_line = d3.axisLeft(bScale).ticks(5);
-        //d3.select("#y-axis").attr("transform", "translate(10,10)").call(yAxis_line);
+
+        d3.select("#xAxis").append("title")
+            .attr("id", "xAxisLabel")
+            .attr("x", this.width/2)
+            .attr("y", this.height - 10)
+            .attr("text-anchor", "middle")
+            .attr("font-size", "20px")
+            .attr("font-weight", "bold")
+            .attr("fill", "black")
+            .text("gdp");
 
         /* Below is the setup for the dropdown menu- no need to change this */
 
