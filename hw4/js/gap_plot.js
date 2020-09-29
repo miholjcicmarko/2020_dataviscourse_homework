@@ -246,15 +246,17 @@ class GapPlot {
             return d.circleSize ? cScale(d.circleSize) : 3;
         };
 
+        debugger
+
         //TODO - your code goes here -
         let plotData_arr = []
 
         for (let i = 0; i < this.data.gdp.length; i++) {
             let country_data = new PlotData(this.data.gdp[i], 
-                                this.data.xIndicator[i][""+activeYear],
-                                this.data.yIndicator[i][""+activeYear],
+                                this.data[""+xIndicator][i][""+activeYear],
+                                this.data[""+yIndicator][i][""+activeYear],
                                 this.data.population[i].region, 
-                                circleSizeIndicator);
+                                circleSizer(circleSizeIndicator));
             plotData_arr.push(country_data);
         }
 
