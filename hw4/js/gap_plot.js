@@ -114,6 +114,15 @@ class GapPlot {
             .attr("transform", "translate(0,450)")
             .call(d3.axisBottom(xAxisScale).ticks(5));
 
+        let yAxisScale = d3
+            .scaleLinear()
+            .domain([0, d3.max(this.data.population.gdp)])
+            .range([0,this.height]);
+
+        d3.select(".plot-svg").selectAll("g")
+            .attr("transform", "translate(0,425)")
+            .call(d3.axisLeft(yAxisScale).ticks(5));
+        
         //d3.select("#scatter-plot").attr("transform", "translate(10,350)");
         //let yAxis_line = d3.axisLeft(bScale).ticks(5);
         //d3.select("#y-axis").attr("transform", "translate(10,10)").call(yAxis_line);
