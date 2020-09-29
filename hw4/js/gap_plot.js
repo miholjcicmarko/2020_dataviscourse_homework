@@ -115,8 +115,8 @@ class GapPlot {
             .classed("x-axis", true)
             .attr("class", "axis line")
             .attr("id", "x-axis")
-            .attr("transform", "translate(25,"+ this.height+")")
-            .call(d3.axisBottom(xAxisScale).ticks(5));
+            .attr("transform", "translate(25,"+ this.height+")");
+            //.call(d3.axisBottom(xAxisScale).ticks(5));
 
         let yAxisScale = d3
             .scaleLinear()
@@ -127,26 +127,24 @@ class GapPlot {
             .classed("y-axis", true)
             .attr("class", "axis line")
             .attr("id", "y-axis")
-            .attr("transform", "translate(25,0)")
-            .call(d3.axisLeft(yAxisScale).ticks(5));
+            .attr("transform", "translate(25,0)");
+            //.call(d3.axisLeft(yAxisScale).ticks(5));
 
         d3.select("#x-axis").append("text")
             .classed("axis-label-x", true)
             .attr("text-anchor", "middle")
             .attr("class", "axis-label")
             .attr("class", "x-label")
-            .attr("transform", "translate(350, 30)")
-            .attr("fill", "black")
-            .text("GDP");
+            .attr("transform", "translate(350, 30)");
+            //.text("GDP");
 
         d3.select("#y-axis").append("text")
             .classed("axis-label-y", true)
             .attr("class", "axis label")
             .attr("text-anchor", "middle")
             .attr("class", "y-label")
-            .attr("transform", 'translate(-15,200)rotate(-90)')
-            .attr("fill", "black")
-            .text("GDP");        
+            .attr("transform", 'translate(-15,200)rotate(-90)');
+            //.text("GDP");        
 
         /* Below is the setup for the dropdown menu- no need to change this */
 
