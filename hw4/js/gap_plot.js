@@ -52,6 +52,10 @@ class GapPlot {
 
         //TODO - your code goes here -
         this.drawPlot(data);
+        this.updatePlot(updateYear);
+        this.drawYearBar();
+        this.drawDropDown();
+
 
         // ******* TODO: PART 3 *******
         /**
@@ -205,6 +209,8 @@ class GapPlot {
         You will need get the data specified by the x, y and circle size parameters from the data passed
         to the GapPlot constructor
 
+        
+
         *** Setting the scales for your x, y, and circle data ***
         For x and y data, you should get the overall max of the whole data set for that data category,
         not just for the activeYear.
@@ -241,6 +247,17 @@ class GapPlot {
         };
 
         //TODO - your code goes here -
+        PlotData_arr = []
+
+        for (let i = 0; i < this.data.gdp.length; i++) {
+            let country_data = new PlotData(this.data.gdp[i], 
+                                this.data.xIndicator[i][""+activeYear],
+                                this.data.yIndicator[i][""+activeYear],
+                                this.data.population[i].region, 
+                                circleSizeIndicator);
+        }
+
+        debugger;
     }
 
     /**
@@ -357,6 +374,14 @@ class GapPlot {
         // Create the x scale for the activeYear;
         // hint: the domain should be max and min of the years (1800 - 2020); it's OK to set it as numbers
         // the plot needs to update on move of the slider
+
+        let xAxisScale = d3
+            .scaleLinear()
+            .domain([1800, 2020])
+            .range([0, this.width]);
+
+        
+
 
         /* ******* TODO: PART 3 *******
         You will need to call the updateYear() function passed from script.js in your activeYear slider
