@@ -311,6 +311,7 @@ class GapPlot {
             .join("circle")
             .attr('cx', (d,i) => scaleX(d.xVal))
             .attr('cy', (d,i) => scaleY(d.yVal))
+            .attr('r', circleSizer(circleSizeIndicator));
 
 
 
