@@ -52,9 +52,9 @@ class GapPlot {
 
         //TODO - your code goes here -
         this.drawPlot(data);
-        this.updatePlot(updateYear);
-        this.drawYearBar();
-        this.drawDropDown();
+        //this.updatePlot(updateYear);
+        //this.drawYearBar();
+        //this.drawDropDown();
 
 
         // ******* TODO: PART 3 *******
@@ -246,7 +246,7 @@ class GapPlot {
             return d.circleSize ? cScale(d.circleSize) : 3;
         };
 
-        debugger
+        debugger;
 
         //TODO - your code goes here -
         let plotData_arr = []
