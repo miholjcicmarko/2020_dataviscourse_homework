@@ -298,6 +298,22 @@ class GapPlot {
             .attr("class", "y-label")
             .text(""+yIndicator);
 
+        let maxX = d3.max(this.data[""+xIndicator]);
+        let maxY = d3.max(this.data[""+yIndicator]);
+
+        let scaleX = d3.scaleLinear().domain([0,maxX]).range([0,this.width]);
+        let scaleY = d3.scaleLinear().domain([0,maxY]).range([0, this.height]);
+
+        let scaleY = 
+
+        d3.select('.plot-svg').selectAll("circle")
+            .data(plotData_arr)
+            .join("circle")
+            .attr('cx', (d,i) => scaleX(d.xVal))
+            .attr('cy', (d,i) => scaleY(d.yVal))
+
+
+
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
         //this.drawLegend
     }
