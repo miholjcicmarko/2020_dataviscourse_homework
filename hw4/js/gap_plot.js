@@ -107,20 +107,24 @@ class GapPlot {
         //TODO - your code goes here
         let xAxisScale = d3
             .scaleLinear()
-            .domain([0, d3.max(this.data.population)])
+            .domain([0, d3.max(this.data.gdp)])
             .range([0, this.width]);
     
         d3.select(".plot-svg").selectAll("g")
+            .attr("class", "axis")
+            .attr("id", "xAxis")
             .attr("transform", "translate(0,450)")
             .call(d3.axisBottom(xAxisScale).ticks(5));
 
         let yAxisScale = d3
             .scaleLinear()
-            .domain([0, d3.max(this.data.population.gdp)])
+            .domain([0, d3.max(this.data.gdp)])
             .range([0,this.height]);
 
-        d3.select(".plot-svg").selectAll("g")
-            .attr("transform", "translate(0,425)")
+        d3.select(".plot-svg").append("g")
+            .attr("class", "axis")
+            .attr("id", "yAxis")
+            .attr("transform", "translate(0,10)")
             .call(d3.axisLeft(yAxisScale).ticks(5));
         
         //d3.select("#scatter-plot").attr("transform", "translate(10,350)");
