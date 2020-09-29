@@ -106,44 +106,44 @@ class GapPlot {
         let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g').classed('wrapper-group', true);
 
         //TODO - your code goes here
-        let xAxisScale = d3
-            .scaleLinear()
-            .domain([0, d3.max(this.data.gdp)])
-            .range([0, this.width]);
+        //let xAxisScale = d3
+        //    .scaleLinear()
+        //    .domain([0, d3.max(this.data.gdp)])
+        //    .range([0, this.width]);
     
-        d3.select(".plot-svg").selectAll("g")
+        let xaxis = d3.select(".wrapper-group").selectAll("g")
             .classed("x-axis", true)
-            .attr("class", "axis line")
-            .attr("id", "x-axis")
             .attr("transform", "translate(25,"+ this.height+")");
+            //.attr("class", "axis line")
+            //.attr("id", "x-axis")
             //.call(d3.axisBottom(xAxisScale).ticks(5));
 
-        let yAxisScale = d3
-            .scaleLinear()
-            .domain([0, d3.max(this.data.gdp)])
-            .range([0,this.height]);
+        //let yAxisScale = d3
+        //    .scaleLinear()
+        //    .domain([0, d3.max(this.data.gdp)])
+        //    .range([0,this.height]);
 
-        d3.select(".plot-svg").append("g")
+        let yaxis = d3.select(".wrapper-group").append("g")
             .classed("y-axis", true)
-            .attr("class", "axis line")
-            .attr("id", "y-axis")
             .attr("transform", "translate(25,0)");
+            //.attr("class", "axis line")
+            //.attr("id", "y-axis")
             //.call(d3.axisLeft(yAxisScale).ticks(5));
 
-        d3.select("#x-axis").append("text")
+        xaxis.append("text")
             .classed("axis-label-x", true)
-            .attr("text-anchor", "middle")
-            .attr("class", "axis-label")
-            .attr("class", "x-label")
             .attr("transform", "translate(350, 30)");
+            //.attr("text-anchor", "middle")
+            //.attr("class", "axis-label")
+            //.attr("class", "x-label")
             //.text("GDP");
 
-        d3.select("#y-axis").append("text")
+        yaxis.append("text")
             .classed("axis-label-y", true)
-            .attr("class", "axis label")
-            .attr("text-anchor", "middle")
-            .attr("class", "y-label")
             .attr("transform", 'translate(-15,200)rotate(-90)');
+            //.attr("class", "axis label")
+            //.attr("text-anchor", "middle")
+            //.attr("class", "y-label")
             //.text("GDP");        
 
         /* Below is the setup for the dropdown menu- no need to change this */
@@ -268,17 +268,35 @@ class GapPlot {
             .domain([0, d3.max(this.data[""+yIndicator])])
             .range([0,this.height]);
 
-        let xaxis = document.getElementsByClassName('x-axis');
-        xaxis.call(d3.axisBottom(xUpScale).ticks(5));
+        let xaxis_data = d3.select('.x-axis');
 
-        let yaxis = document.getElementsByClassName('y-axis');
-        yaxis.call(d3.axisLeft(yUpScale).ticks(5));
+        xaxis_data.call(d3.axisBottom(xUpScale).ticks(5))
+            .attr("transform", "translate(25,"+ this.height+")")
+            .attr("class", "axis line")
+            .attr("id", "x-axis");
 
-        xlab = document.getElementsByClassName('axis-label-x');
-        xlab.text(""+xIndicator);
+        let yaxis = d3.select('.y-axis');
 
-        ylab = document.getElementsByClassName('axis-label-y');
-        ylab.text(""+yIndicator);
+        yaxis.call(d3.axisLeft(yUpScale).ticks(5))
+            .attr("transform", "translate(25,0)")
+            .attr("class", "axis line")
+            .attr("id", "y-axis");
+
+        xlab = d3.select('axis-label-x');
+
+        xlab.attr("transform", "translate(350, 30)")
+            .attr("text-anchor", "middle")
+            .attr("class", "axis-label")
+            .attr("class", "x-label")
+            .text(""+xIndicator);
+
+        ylab = d3.select('axis-label-y');
+
+        ylab.attr("transform", 'translate(-15,200)rotate(-90)')
+            .attr("class", "axis label")
+            .attr("text-anchor", "middle")
+            .attr("class", "y-label")
+            .text(""+yIndicator);
 
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
 
