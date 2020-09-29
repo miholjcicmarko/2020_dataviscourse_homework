@@ -247,7 +247,7 @@ class GapPlot {
         };
 
         //TODO - your code goes here -
-        PlotData_arr = []
+        let plotData_arr = []
 
         for (let i = 0; i < this.data.gdp.length; i++) {
             let country_data = new PlotData(this.data.gdp[i], 
@@ -255,6 +255,7 @@ class GapPlot {
                                 this.data.yIndicator[i][""+activeYear],
                                 this.data.population[i].region, 
                                 circleSizeIndicator);
+            plotData_arr.push(country_data);
         }
 
         debugger;
