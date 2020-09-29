@@ -113,7 +113,7 @@ class GapPlot {
             .classed("x-axis", true)
             .attr("class", "axis line")
             .attr("id", "x-axis")
-            .attr("transform", "translate(5,"+ this.height+")")
+            .attr("transform", "translate(25,"+ this.height+")")
             .call(d3.axisBottom(xAxisScale).ticks(5));
 
         let yAxisScale = d3
@@ -125,7 +125,7 @@ class GapPlot {
             .classed("y-axis", true)
             .attr("class", "axis line")
             .attr("id", "y-axis")
-            .attr("transform", "translate(5,0)")
+            .attr("transform", "translate(25,0)")
             .call(d3.axisLeft(yAxisScale).ticks(5));
 
         d3.select("#x-axis").append("text")
@@ -142,7 +142,7 @@ class GapPlot {
             .attr("class", "axis label")
             .attr("text-anchor", "middle")
             .attr("class", "y-label")
-            .attr("transform", "rotate(-90)")
+            .attr("transform", 'translate(-15,200)rotate(-90)')
             .attr("fill", "black")
             .text("GDP");        
 
