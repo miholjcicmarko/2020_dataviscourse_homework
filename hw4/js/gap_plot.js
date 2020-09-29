@@ -375,14 +375,6 @@ class GapPlot {
         // hint: the domain should be max and min of the years (1800 - 2020); it's OK to set it as numbers
         // the plot needs to update on move of the slider
 
-        let xAxisScale = d3
-            .scaleLinear()
-            .domain([1800, 2020])
-            .range([0, this.width]);
-
-        
-
-
         /* ******* TODO: PART 3 *******
         You will need to call the updateYear() function passed from script.js in your activeYear slider
         */
