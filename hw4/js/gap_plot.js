@@ -124,7 +124,7 @@ class GapPlot {
         d3.select(".plot-svg").append("g")
             .attr("class", "axis")
             .attr("id", "yAxis")
-            .attr("transform", "translate(0,10)")
+            .attr("transform", "translate(5,10)")
             .call(d3.axisLeft(yAxisScale).ticks(5));
         
         //d3.select("#scatter-plot").attr("transform", "translate(10,350)");
