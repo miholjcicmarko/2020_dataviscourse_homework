@@ -123,15 +123,17 @@ class GapPlot {
         d3.select(".plot-svg").append("g")
             .attr("class", "axis")
             .attr("id", "yAxis")
+            .attr("class", "axis label")
             .attr("transform", "translate(5,30)")
             .call(d3.axisLeft(yAxisScale).ticks(5));
 
         d3.select("#xAxis").append("title")
             .attr("id", "xAxisLabel")
+            .attr("class", "axis label")
             .attr("x", this.width/2)
             .attr("y", this.height - 10)
             .attr("text-anchor", "middle")
-            .attr("font-size", "20px")
+            .attr("font-size", "10px")
             .attr("font-weight", "bold")
             .attr("fill", "black")
             .text("gdp");
