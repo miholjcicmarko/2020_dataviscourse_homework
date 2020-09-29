@@ -52,7 +52,7 @@ class GapPlot {
 
         //TODO - your code goes here -
         this.drawPlot(data);
-        this.updatePlot(updateYear);
+        this.updatePlot(updateYear, selectedX, selectedY, selectedC);
 
 
         // ******* TODO: PART 3 *******
@@ -249,8 +249,8 @@ class GapPlot {
 
         for (let i = 0; i < this.data.gdp.length; i++) {
             let country_data = new PlotData(this.data.gdp[i], 
-                                this.data[""+xIndicator][i][""+this.activeYear],
-                                this.data[""+yIndicator][i][""+this.activeYear],
+                                this.data[""+xIndicator][i][""+activeYear],
+                                this.data[""+yIndicator][i][""+activeYear],
                                 this.data.population[i].region, 
                                 circleSizer(circleSizeIndicator));
             plotData_arr.push(country_data);
@@ -299,7 +299,7 @@ class GapPlot {
             .text(""+yIndicator);
 
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
-
+        //this.drawLegend
     }
 
     /**

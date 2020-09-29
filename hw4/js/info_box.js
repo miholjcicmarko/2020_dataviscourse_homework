@@ -23,6 +23,7 @@ class InfoBox {
      */
     constructor(data) {
 
+        this.data = data;
         //TODO - your code goes here -
 
     }
