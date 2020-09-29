@@ -23,7 +23,10 @@ class InfoBox {
      */
     constructor(data) {
 
-        this.data = data;
+        this.country = data;
+        this.region = data;
+        this.indicator_name = data;
+        this.value = data;
         //TODO - your code goes here -
 
     }
