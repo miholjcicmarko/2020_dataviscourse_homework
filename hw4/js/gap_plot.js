@@ -127,15 +127,13 @@ class GapPlot {
             .attr("transform", "translate(5,30)")
             .call(d3.axisLeft(yAxisScale).ticks(5));
 
-        d3.select("#xAxis").append("title")
+        d3.select("#xAxis").append("text")
             .attr("id", "xAxisLabel")
             .attr("class", "axis label")
             .attr("x", this.width/2)
             .attr("y", this.height - 10)
             .attr("text-anchor", "middle")
-            .attr("font-size", "10px")
-            .attr("font-weight", "bold")
-            .attr("fill", "black")
+            .attr("class", "axis-label")
             .text("gdp");
 
         /* Below is the setup for the dropdown menu- no need to change this */
