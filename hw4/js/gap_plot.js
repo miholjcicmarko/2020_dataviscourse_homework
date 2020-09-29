@@ -52,9 +52,7 @@ class GapPlot {
 
         //TODO - your code goes here -
         this.drawPlot(data);
-        //this.updatePlot(updateYear);
-        //this.drawYearBar();
-        //this.drawDropDown();
+        this.updatePlot(updateYear);
 
 
         // ******* TODO: PART 3 *******
@@ -253,14 +251,39 @@ class GapPlot {
 
         for (let i = 0; i < this.data.gdp.length; i++) {
             let country_data = new PlotData(this.data.gdp[i], 
-                                this.data[""+xIndicator][i][""+activeYear],
-                                this.data[""+yIndicator][i][""+activeYear],
+                                this.data[""+xIndicator][i][""+this.activeYear],
+                                this.data[""+yIndicator][i][""+this.activeYear],
                                 this.data.population[i].region, 
                                 circleSizer(circleSizeIndicator));
             plotData_arr.push(country_data);
         }
 
         debugger;
+
+        let xUpScale = d3
+            .scaleLinear()
+            .domain([0, d3.max(this.data[""+xIndicator])])
+            .range([0, this.width]);
+
+        let yUpScale = d3
+            .scaleLinear()
+            .domain([0, d3.max(this.data[""+yIndicator])])
+            .range([0,this.height]);
+
+        let xaxis = document.getElementsByClassName('x-axis');
+        xaxis.call(d3.axisBottom(xUpScale).ticks(5));
+
+        let yaxis = document.getElementsByClassName('y-axis');
+        yaxis.call(d3.axisLeft(yUpScale).ticks(5));
+
+        xlab = document.getElementsByClassName('axis-label-x');
+        xlab.text(""+xIndicator);
+
+        ylab = document.getElementsByClassName('axis-label-y');
+        ylab.text(""+yIndicator);
+
+        this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
+
     }
 
     /**
