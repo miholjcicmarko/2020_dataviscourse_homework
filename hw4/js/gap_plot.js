@@ -113,7 +113,7 @@ class GapPlot {
         d3.select(".plot-svg").selectAll("g")
             .attr("class", "axis")
             .attr("id", "xAxis")
-            .attr("transform", "translate(0,450)")
+            .attr("transform", "translate(5,450)")
             .call(d3.axisBottom(xAxisScale).ticks(5));
 
         let yAxisScale = d3
