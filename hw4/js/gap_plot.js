@@ -112,6 +112,7 @@ class GapPlot {
         d3.select(".plot-svg").selectAll("g")
             .attr("class", "axis")
             .attr("id", "xAxis")
+            .attr("class", "axis line")
             .attr("transform", "translate(5,450)")
             .call(d3.axisBottom(xAxisScale).ticks(5));
 
@@ -123,18 +124,27 @@ class GapPlot {
         d3.select(".plot-svg").append("g")
             .attr("class", "axis")
             .attr("id", "yAxis")
-            .attr("class", "axis label")
+            .attr("class", "axis line")
             .attr("transform", "translate(5,30)")
             .call(d3.axisLeft(yAxisScale).ticks(5));
 
         d3.select("#xAxis").append("text")
             .attr("id", "xAxisLabel")
             .attr("class", "axis label")
-            .attr("x", this.width/2)
-            .attr("y", this.height - 10)
             .attr("text-anchor", "middle")
             .attr("class", "axis-label")
-            .text("gdp");
+            .attr("transform", "translate(350, 30)")
+            .attr("fill", "black")
+            .text("GDP");
+
+            d3.select("#yAxis").append("text")
+            .attr("id", "yAxisLabel")
+            .attr("class", "axis label")
+            .attr("text-anchor", "middle")
+            .attr("class", "axis-label")
+            .attr("transform", "translate(-30, 350)")
+            .attr("fill", "black")
+            .text("GDP");        
 
         /* Below is the setup for the dropdown menu- no need to change this */
 
