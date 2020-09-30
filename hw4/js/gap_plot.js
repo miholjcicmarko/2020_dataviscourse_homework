@@ -183,6 +183,8 @@ class GapPlot {
             .append('svg')
             .append('g')
             .attr('transform', 'translate(10, 0)');
+
+    
     }
 
     /**
