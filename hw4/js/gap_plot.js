@@ -54,7 +54,7 @@ class GapPlot {
         this.drawPlot(data);
         this.updateYear = updateYear;
         this.updateCountry = updateCountry;
-        this.updatePlot(updateYear, "population", "population", "population");
+        this.updatePlot(updateYear, "gdp", "population", "gdp");
         this.drawDropDown();
         this.drawLegend();
 
@@ -285,27 +285,25 @@ class GapPlot {
         //TODO - your code goes here -
         let plotData_arr = []
 
-        if (this.data[""+xIndicator].length > this.data[""+yIndicator].length ) {
             for (let i = 0; i < this.data[""+xIndicator].length; i++) {
                 let country_data = new PlotData(this.data[""+xIndicator][i].country, 
-                                    this.data[""+xIndicator][i][""+this.activeYear],
-                                    this.data[""+yIndicator][i][""+this.activeYear],
+                                    this.data[""+xIndicator][i],
+                                    this.data[""+yIndicator][i],
+                                    this.data[""+xIndicator][i].geo,
                                     "region", 
                                     circleSizer(this.data[""+circleSizeIndicator]));
                 plotData_arr.push(country_data);
             }
-        }
-        else {
+
             for (let i = 0; i < this.data[""+yIndicator].length; i++) {
                 let country_data = new PlotData(this.data[""+yIndicator][i].country, 
-                                    this.data[""+xIndicator][i][""+this.activeYear],
-                                    this.data[""+yIndicator][i][""+this.activeYear],
+                                    this.data[""+xIndicator][i],
+                                    this.data[""+yIndicator][i],
                                     this.data[""+yIndicator][i].geo,
                                     "region", 
                                     circleSizer(this.data[""+circleSizeIndicator]));
                 plotData_arr.push(country_data);
             }
-        }
 
         debugger;
 
