@@ -300,6 +300,7 @@ class GapPlot {
                 let country_data = new PlotData(this.data[""+yIndicator][i].country, 
                                     this.data[""+xIndicator][i][""+this.activeYear],
                                     this.data[""+yIndicator][i][""+this.activeYear],
+                                    this.data[""+yIndicator][i].geo,
                                     "region", 
                                     circleSizer(this.data[""+circleSizeIndicator]));
                 plotData_arr.push(country_data);
@@ -308,15 +309,15 @@ class GapPlot {
 
         debugger;
 
-        for (let i = 0; i < country_data_arr.length; i++) {
-            for (let k = 0; k < this.nameArray.length; k++) {
-                if (country_data_arr[i].id === this.populationData[k].geo.toUpperCase()) {
-                    country_data_arr[i].region = this.populationData[k].region;
+        for (let i = 0; i < plotData_arr.length; i++) {
+            for (let k = 0; k < this.data["population"].length; k++) {
+                if (plotData_arr[i].id === this.data["population"][k].geo) {
+                    plotData_arr[i].region = this.data["population"][k].region;
                 }
             }
         }
 
-
+        debugger;
         let xUpScale = d3
             .scaleLinear()
             .domain([0, d3.max(this.data[""+xIndicator])])
