@@ -111,9 +111,9 @@ class GapPlot {
         //    .domain([0, d3.max(this.data.gdp)])
         //    .range([0, this.width]);
     
-        let xaxis = d3.select(".wrapper-group").selectAll("g")
+        let xaxis = d3.select(".plot-svg").selectAll("g")
             .classed("x-axis", true)
-            .attr("transform", "translate(25,"+ this.height+")");
+            //.attr("transform", "translate(25,"+ this.height+")");
             //.attr("class", "axis line")
             //.attr("id", "x-axis")
             //.call(d3.axisBottom(xAxisScale).ticks(5));
@@ -123,16 +123,16 @@ class GapPlot {
         //    .domain([0, d3.max(this.data.gdp)])
         //    .range([0,this.height]);
 
-        let yaxis = d3.select(".wrapper-group").append("g")
+        let yaxis = d3.select(".plot-svg").append("g")
             .classed("y-axis", true)
-            .attr("transform", "translate(25,0)");
+            //.attr("transform", "translate(25,0)");
             //.attr("class", "axis line")
             //.attr("id", "y-axis")
             //.call(d3.axisLeft(yAxisScale).ticks(5));
 
         xaxis.append("text")
             .classed("axis-label-x", true)
-            .attr("transform", "translate(350, 30)");
+            //.attr("transform", "translate(350, 30)");
             //.attr("text-anchor", "middle")
             //.attr("class", "axis-label")
             //.attr("class", "x-label")
@@ -140,7 +140,7 @@ class GapPlot {
 
         yaxis.append("text")
             .classed("axis-label-y", true)
-            .attr("transform", 'translate(-15,200)rotate(-90)');
+            //.attr("transform", 'translate(-15,200)rotate(-90)');
             //.attr("class", "axis label")
             //.attr("text-anchor", "middle")
             //.attr("class", "y-label")
@@ -336,7 +336,7 @@ class GapPlot {
             .join("circle")
             .attr('cx', (d,i) => xUpScale(d.xVal))
             .attr('cy', (d,i) => yUpScale(d.yVal))
-            .attr('r', (d,i) => circleSizer(plotData_arr));
+            .attr('r', (d,i) => (plotData_arr));
 
         let tooltip = d3.selectAll('#chart-view').selectAll("circle");
 
@@ -355,7 +355,7 @@ class GapPlot {
             });
         })
 
-        //this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
+        this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
         //this.drawLegend(d3.min(this.data[""+circleSizeIndicator]), d3.max(this.data[""+circleSizeIndicator]));
                         
     }
