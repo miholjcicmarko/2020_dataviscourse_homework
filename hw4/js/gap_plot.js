@@ -282,8 +282,8 @@ class GapPlot {
 
         for (let i = 0; i < this.data.population.length; i++) {
             let country_data = new PlotData(this.data.population[i], 
-                                this.data[xIndicator][i][""+this.activeYear],
-                                this.data[yIndicator][i][""+this.activeYear],
+                                this.data[""+xIndicator][i][""+this.activeYear],
+                                this.data[""+yIndicator][i][""+this.activeYear],
                                 this.data["population"][i], 
                                 (this.data[circleSizeIndicator]));
             plotData_arr.push(country_data);
@@ -502,6 +502,8 @@ class GapPlot {
 
         yearSlider.on('input', function () {
             //TODO - your code goes here -
+            sliderText.text(that.value);
+            yearScale(that.value);
         });
     }
 
