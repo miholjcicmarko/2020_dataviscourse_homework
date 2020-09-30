@@ -305,6 +305,27 @@ class GapPlot {
             .attr('cy', (d,i) => yUpScale(d.yVal))
             .attr('r', (d,i) => circleSizer(plotData_arr));
 
+        let tooltip = d3.selectAll(('.plot-svg').selectAll("circle");
+
+        tooltip.on("mouseover", function(d) {
+            let countryText = tooltipRender(d);
+            let xpos = d.xVal;
+            let ypos = d.yVal;
+
+        d3.select(this).append("title")
+            .attr("id", "tooltip")
+            .attr("x", xpos)
+            .attr("y", ypos)
+            .attr("text-anchor", "middle")
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "20px")
+            .attr("font-weight", "bold")
+            .attr("fill", "black")
+            .text(function(d) { 
+                return countryText;
+            });
+        })
+
 
 
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
