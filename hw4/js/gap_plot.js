@@ -326,10 +326,9 @@ class GapPlot {
             });
         })
 
-
-
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
-        //this.drawLegend
+        this.drawLegend(d3.min(this.data[""+circleSizeIndicator]), d3.max(this.data[""+circleSizeIndicator]));
+                        
     }
 
     /**
