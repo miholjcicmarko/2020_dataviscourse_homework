@@ -274,6 +274,8 @@ class GapPlot {
          * @returns {number} the radius
          */
         let circleSizer = function (d) {
+            let minSize = d3.min(d);
+            let maxSize = d3.max(d);
             let cScale = d3.scaleSqrt().range([3, 20]).domain([minSize, maxSize]);
             return d.circleSize ? cScale(d.circleSize) : 3;
         };
@@ -283,38 +285,37 @@ class GapPlot {
         //TODO - your code goes here -
         let plotData_arr = []
 
-        //if (this.data[""+xIndicator].length > this.data[""+yIndicator].length) {
-        //    for (let i = 0; i < this.data.population.length; i++) {
-        //        let country_data = new PlotData(this.data.population[i], 
-        //                            this.data[""+xIndicator][i][""+this.activeYear],
-        //                            this.data[""+yIndicator][i][""+this.activeYear],
-        //                            this.data[""+xIndicator, 
-        //                            (this.data[circleSizeIndicator]));
-        //        plotData_arr.push(country_data);
-        //    }
+        if (this.data[""+xIndicator].length > this.data[""+yIndicator].length ) {
+            for (let i = 0; i < this.data[""+xIndicator].length; i++) {
+                let country_data = new PlotData(this.data[""+xIndicator][i].country, 
+                                    this.data[""+xIndicator][i][""+this.activeYear],
+                                    this.data[""+yIndicator][i][""+this.activeYear],
+                                    "region", 
+                                    circleSizer(this.data[""+circleSizeIndicator]));
+                plotData_arr.push(country_data);
+            }
+        }
+        else {
+            for (let i = 0; i < this.data[""+yIndicator].length; i++) {
+                let country_data = new PlotData(this.data[""+yIndicator][i].country, 
+                                    this.data[""+xIndicator][i][""+this.activeYear],
+                                    this.data[""+yIndicator][i][""+this.activeYear],
+                                    "region", 
+                                    circleSizer(this.data[""+circleSizeIndicator]));
+                plotData_arr.push(country_data);
+            }
+        }
 
+        debugger;
 
-
-        //}
-
-        for (let i = 0; i < this.data[""+xIndicator].length; i++) {
-            for (let k = 0; k < this.data.population.length; k++) {
-                if ([i].id === this.populationData[k].geo.toUpperCase()) {
-                country_data_arr[i].region = this.populationData[k].region;
+        for (let i = 0; i < country_data_arr.length; i++) {
+            for (let k = 0; k < this.nameArray.length; k++) {
+                if (country_data_arr[i].id === this.populationData[k].geo.toUpperCase()) {
+                    country_data_arr[i].region = this.populationData[k].region;
                 }
             }
         }
 
-        for (let i = 0; i < this.data.population.length; i++) {
-            let country_data = new PlotData(this.data.population[i], 
-                                this.data[""+xIndicator][i][""+this.activeYear],
-                                this.data[""+yIndicator][i][""+this.activeYear],
-                                this.data["population"][i], 
-                                (this.data[circleSizeIndicator]));
-            plotData_arr.push(country_data);
-        }
-
-        debugger;
 
         let xUpScale = d3
             .scaleLinear()
