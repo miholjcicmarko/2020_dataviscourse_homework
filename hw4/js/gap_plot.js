@@ -332,7 +332,7 @@ class GapPlot {
             .text(""+yIndicator);
 
         d3.select('#chart-view').selectAll("circle")
-            .data(plotData_arr)
+            .data(plotData_arr[""+circleSizeIndicator])
             .join("circle")
             .attr('cx', (d,i) => xUpScale(d.xVal))
             .attr('cy', (d,i) => yUpScale(d.yVal))
