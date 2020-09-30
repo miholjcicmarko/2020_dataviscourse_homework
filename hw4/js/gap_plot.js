@@ -56,7 +56,8 @@ class GapPlot {
         this.updateYear = updateYear;
         this.updateCountry = updateCountry;
         this.updatePlot(updateYear, "population", "population", "population");
-
+        this.drawDropDown();
+        this.drawLegend();
 
         // ******* TODO: PART 3 *******
         /**
