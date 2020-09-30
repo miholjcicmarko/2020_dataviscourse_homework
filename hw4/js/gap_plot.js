@@ -49,7 +49,6 @@ class GapPlot {
         this.activeYear = activeYear;
 
         this.data = data;
-        
 
         //TODO - your code goes here -
         this.drawPlot(data);
