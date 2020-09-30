@@ -197,6 +197,7 @@ class GapPlot {
         var dropdown = d3.selectAll('#chart-view').selectAll('svg')
             .on("change", dropdownChange);   
 
+            
     }
 
     /**
