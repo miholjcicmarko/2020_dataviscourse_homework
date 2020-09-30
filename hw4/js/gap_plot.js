@@ -206,16 +206,16 @@ class GapPlot {
 
         //this.updatePlot(dropdownX, dropdownY, dropdownC);
 
-        let dropdownChange = function() {
-            let dropdownX = document.getElementById("dropdown_x").value;
-            let dropdownY = document.getElementById("dropdown_y").value;
-            let dropdownC = document.getElementById("dropdown_c").value;
+        //let dropdownChange = function() {
+        //    let dropdownX = document.getElementById("dropdown_x").value;
+        //    let dropdownY = document.getElementById("dropdown_y").value;
+        //    let dropdownC = document.getElementById("dropdown_c").value;
 
-            this.updatePlot(this.activeYear, dropdownX, dropdownY, dropdownC);
-        }
+         //   this.updatePlot(this.activeYear, dropdownX, dropdownY, dropdownC);
+        //}
 
-        var dropdown = d3.selectAll('#chart-view').selectAll()
-            .on("change", dropdownChange);   
+        //var dropdown = d3.selectAll('#chart-view').selectAll()
+        //    .on("change", dropdownChange);   
 
         
 
