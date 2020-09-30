@@ -52,7 +52,7 @@ class GapPlot {
 
         //TODO - your code goes here -
         this.drawPlot(data);
-        //this.updatePlot(updateYear, selectedX, selectedY, selectedC);
+        this.updatePlot(updateYear, selectedX, selectedY, selectedC);
 
 
         // ******* TODO: PART 3 *******
@@ -305,7 +305,7 @@ class GapPlot {
             .attr('cy', (d,i) => yUpScale(d.yVal))
             .attr('r', (d,i) => circleSizer(plotData_arr));
 
-        let tooltip = d3.selectAll(('.plot-svg').selectAll("circle");
+        let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
 
         tooltip.on("mouseover", function(d) {
             let countryText = tooltipRender(d);
