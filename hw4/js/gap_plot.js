@@ -186,18 +186,36 @@ class GapPlot {
 
         debugger;
 
-        let dropdownChange = function() {
-            let dropdownX = document.getElementById("dropdown_x").value;
-            let dropdownY = document.getElementById("dropdown_y").value;
-            let dropdownC = document.getElementById("dropdown_c").value;
+        d3.selectAll('#dropdown_x')
+            .on("change", function (d) {
+                let dropdownX = d;
+            })
 
-            this.updatePlot(this.activeYear, dropdownX, dropdownY, dropdownC);
-        }
-
-        var dropdown = d3.selectAll('#chart-view').selectAll('svg')
-            .on("change", dropdownChange);   
-
+        d3.selectAll('#dropdown_y')
+            .on("change", function (d){
+                let dropdownY = d;
+            })
             
+        d3.selectAll('#dropdown_c')
+            .on("change", function(d){
+                let dropdownC = d;
+            })
+
+        this.updatePlot(dropdownX, dropdownY, dropdownC);
+
+        //let dropdownChange = function() {
+        //    let dropdownX = document.getElementById("dropdown_x").value;
+        //    let dropdownY = document.getElementById("dropdown_y").value;
+        //    let dropdownC = document.getElementById("dropdown_c").value;
+
+        //    this.updatePlot(this.activeYear, dropdownX, dropdownY, dropdownC);
+        //}
+
+        //var dropdown = d3.selectAll('#chart-view').selectAll()
+        //    .on("change", dropdownChange);   
+
+        
+
     }
 
     /**
