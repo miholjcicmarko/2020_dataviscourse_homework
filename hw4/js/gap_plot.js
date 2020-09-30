@@ -49,9 +49,12 @@ class GapPlot {
         this.activeYear = activeYear;
 
         this.data = data;
+        
 
         //TODO - your code goes here -
         this.drawPlot(data);
+        this.updateYear = updateYear;
+        this.updateCountry = updateCountry;
         this.updatePlot(updateYear, "population", "population", "population");
 
 
@@ -203,16 +206,16 @@ class GapPlot {
 
         //this.updatePlot(dropdownX, dropdownY, dropdownC);
 
-        //let dropdownChange = function() {
-        //    let dropdownX = document.getElementById("dropdown_x").value;
-        //    let dropdownY = document.getElementById("dropdown_y").value;
-        //    let dropdownC = document.getElementById("dropdown_c").value;
+        let dropdownChange = function() {
+            let dropdownX = document.getElementById("dropdown_x").value;
+            let dropdownY = document.getElementById("dropdown_y").value;
+            let dropdownC = document.getElementById("dropdown_c").value;
 
-        //    this.updatePlot(this.activeYear, dropdownX, dropdownY, dropdownC);
-        //}
+            this.updatePlot(this.activeYear, dropdownX, dropdownY, dropdownC);
+        }
 
-        //var dropdown = d3.selectAll('#chart-view').selectAll()
-        //    .on("change", dropdownChange);   
+        var dropdown = d3.selectAll('#chart-view').selectAll()
+            .on("change", dropdownChange);   
 
         
 
@@ -280,6 +283,28 @@ class GapPlot {
         //TODO - your code goes here -
         let plotData_arr = []
 
+        //if (this.data[""+xIndicator].length > this.data[""+yIndicator].length) {
+        //    for (let i = 0; i < this.data.population.length; i++) {
+        //        let country_data = new PlotData(this.data.population[i], 
+        //                            this.data[""+xIndicator][i][""+this.activeYear],
+        //                            this.data[""+yIndicator][i][""+this.activeYear],
+        //                            this.data[""+xIndicator, 
+        //                            (this.data[circleSizeIndicator]));
+        //        plotData_arr.push(country_data);
+        //    }
+
+
+
+        //}
+
+        for (let i = 0; i < this.data[""+xIndicator].length; i++) {
+            for (let k = 0; k < this.data.population.length; k++) {
+                if ([i].id === this.populationData[k].geo.toUpperCase()) {
+                country_data_arr[i].region = this.populationData[k].region;
+                }
+            }
+        }
+
         for (let i = 0; i < this.data.population.length; i++) {
             let country_data = new PlotData(this.data.population[i], 
                                 this.data[""+xIndicator][i][""+this.activeYear],
@@ -331,12 +356,15 @@ class GapPlot {
             .attr("class", "y-label")
             .text(""+yIndicator);
 
+        let minSize = d3.min(this.data[""+circleSizeIndicator]);
+        let maxSize = d3.max(this.data[""+circleSizeIndicator]);
+
         d3.select('#chart-view').selectAll("circle")
             .data(plotData_arr)
             .join("circle")
             .attr('cx', (d,i) => xUpScale(d.xVal))
             .attr('cy', (d,i) => yUpScale(d.yVal))
-            .attr('r', (d,i) => (plotData_arr));
+            .attr('r', (d,i) => circleSizer(d));
 
         let tooltip = d3.selectAll('#chart-view').selectAll("circle");
 
