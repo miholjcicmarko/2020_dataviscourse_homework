@@ -184,7 +184,12 @@ class GapPlot {
             .append('g')
             .attr('transform', 'translate(10, 0)');
 
-    
+        let dropdownX = document.getElementById("dropdown_x").value;
+        let dropdownY = document.getElementById("dropdown_y").value;
+        let dropdownC = document.getElementById("dropdown_c").value;
+
+        this.updatePlot(this.activeYear, dropdownX, dropdownY, dropdownC);
+
     }
 
     /**
