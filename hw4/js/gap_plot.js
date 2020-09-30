@@ -298,14 +298,14 @@ class GapPlot {
             .attr("class", "y-label")
             .text(""+yIndicator);
 
-        d3.select('.plot-svg').selectAll("circle")
+        d3.select('#chart-view').selectAll("circle")
             .data(plotData_arr)
             .join("circle")
             .attr('cx', (d,i) => xUpScale(d.xVal))
             .attr('cy', (d,i) => yUpScale(d.yVal))
             .attr('r', (d,i) => circleSizer(plotData_arr));
 
-        let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
+        let tooltip = d3.selectAll('#chart-view').selectAll("circle");
 
         tooltip.on("mouseover", function(d) {
             let countryText = tooltipRender(d);
