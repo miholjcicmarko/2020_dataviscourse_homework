@@ -52,7 +52,7 @@ class GapPlot {
 
         //TODO - your code goes here -
         this.drawPlot(data);
-        //this.updatePlot(updateYear, selectedX, selectedY, selectedC);
+        this.updatePlot(updateYear, "population", "population", "population");
 
 
         // ******* TODO: PART 3 *******
@@ -184,11 +184,13 @@ class GapPlot {
             .append('g')
             .attr('transform', 'translate(10, 0)');
 
-        let dropdownX = document.getElementById("dropdown_x").value;
-        let dropdownY = document.getElementById("dropdown_y").value;
-        let dropdownC = document.getElementById("dropdown_c").value;
+        debugger;
 
-        this.updatePlot(this.activeYear, dropdownX, dropdownY, dropdownC);
+        //let dropdownX = document.getElementById("dropdown_x").value;
+        //let dropdownY = document.getElementById("dropdown_y").value;
+        //let dropdownC = document.getElementById("dropdown_c").value;
+
+        //this.updatePlot(this.activeYear, dropdownX, dropdownY, dropdownC);
 
     }
 
@@ -254,12 +256,12 @@ class GapPlot {
         //TODO - your code goes here -
         let plotData_arr = []
 
-        for (let i = 0; i < this.data.gdp.length; i++) {
-            let country_data = new PlotData(this.data.gdp[i], 
-                                this.data[""+xIndicator][i][""+activeYear],
-                                this.data[""+yIndicator][i][""+activeYear],
-                                this.data.population[i].region, 
-                                circleSizer(circleSizeIndicator));
+        for (let i = 0; i < this.data.population.length; i++) {
+            let country_data = new PlotData(this.data.population[i], 
+                                this.data[xIndicator][i][""+this.activeYear],
+                                this.data[yIndicator][i][""+this.activeYear],
+                                this.data["population"][i], 
+                                (this.data[circleSizeIndicator]));
             plotData_arr.push(country_data);
         }
 
