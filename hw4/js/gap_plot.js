@@ -201,7 +201,7 @@ class GapPlot {
                 let dropdownC = d;
             })
 
-        this.updatePlot(dropdownX, dropdownY, dropdownC);
+        //this.updatePlot(dropdownX, dropdownY, dropdownC);
 
         //let dropdownChange = function() {
         //    let dropdownX = document.getElementById("dropdown_x").value;
@@ -315,7 +315,7 @@ class GapPlot {
             .attr("class", "axis line")
             .attr("id", "y-axis");
 
-        xlab = d3.select('axis-label-x');
+        let xlab = d3.select('axis-label-x');
 
         xlab.attr("transform", "translate(350, 30)")
             .attr("text-anchor", "middle")
@@ -323,7 +323,7 @@ class GapPlot {
             .attr("class", "x-label")
             .text(""+xIndicator);
 
-        ylab = d3.select('axis-label-y');
+        let ylab = d3.select('axis-label-y');
 
         ylab.attr("transform", 'translate(-15,200)rotate(-90)')
             .attr("class", "axis label")
@@ -355,8 +355,8 @@ class GapPlot {
             });
         })
 
-        this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
-        this.drawLegend(d3.min(this.data[""+circleSizeIndicator]), d3.max(this.data[""+circleSizeIndicator]));
+        //this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
+        //this.drawLegend(d3.min(this.data[""+circleSizeIndicator]), d3.max(this.data[""+circleSizeIndicator]));
                         
     }
 
