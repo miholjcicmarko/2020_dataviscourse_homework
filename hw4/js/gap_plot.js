@@ -52,7 +52,7 @@ class GapPlot {
 
         //TODO - your code goes here -
         this.drawPlot(data);
-        this.updatePlot(updateYear, selectedX, selectedY, selectedC);
+        //this.updatePlot(updateYear, selectedX, selectedY, selectedC);
 
 
         // ******* TODO: PART 3 *******
