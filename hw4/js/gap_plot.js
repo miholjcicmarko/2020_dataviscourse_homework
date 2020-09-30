@@ -312,15 +312,11 @@ class GapPlot {
             let xpos = d.xVal;
             let ypos = d.yVal;
 
-        d3.select(this).append("title")
-            .attr("id", "tooltip")
+        d3.selectAll('tooltip').append("title")
             .attr("x", xpos)
             .attr("y", ypos)
             .attr("text-anchor", "middle")
-            .attr("font-family", "sans-serif")
-            .attr("font-size", "20px")
-            .attr("font-weight", "bold")
-            .attr("fill", "black")
+            .attr("class", "tooltip h2")
             .text(function(d) { 
                 return countryText;
             });
