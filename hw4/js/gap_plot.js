@@ -295,15 +295,15 @@ class GapPlot {
                 plotData_arr.push(country_data);
             }
 
-            for (let i = 0; i < this.data[""+yIndicator].length; i++) {
-                let country_data = new PlotData(this.data[""+yIndicator][i].country, 
-                                    this.data[""+xIndicator][i],
-                                    this.data[""+yIndicator][i],
-                                    this.data[""+yIndicator][i].geo,
-                                    "region", 
-                                    circleSizer(this.data[""+circleSizeIndicator]));
-                plotData_arr.push(country_data);
-            }
+            //for (let i = 0; i < this.data[""+yIndicator].length; i++) {
+            //    let country_data = new PlotData(this.data[""+yIndicator][i].country, 
+            //                        this.data[""+xIndicator][i],
+            //                        this.data[""+yIndicator][i],
+            //                        this.data[""+yIndicator][i].geo,
+            //                        "region", 
+            //                        circleSizer(this.data[""+circleSizeIndicator]));
+            //    plotData_arr.push(country_data);
+            //}
 
         debugger;
 
