@@ -57,6 +57,7 @@ class GapPlot {
         this.updatePlot(updateYear, "population", "population", "gdp");
         this.drawDropDown();
         this.drawLegend();
+        this.drawYearBar();
 
         // ******* TODO: PART 3 *******
         /**
@@ -358,11 +359,11 @@ class GapPlot {
             .attr("fill", "black")
             .text(function() { return yIndicator});
 
-        d3.select('#chart-view').selectAll("circle")
+        d3.select('.plot-svg').selectAll("circle")
             .data(plotData_arr)
             .join("circle")
-            .attr('cx', (d,i) => xUpScale(d.xVal))
-            .attr('cy', (d,i) => yUpScale(d.yVal))
+            .attr('cx', (d,i) => xUpScale(d.xVal[""+activeYear]))
+            .attr('cy', (d,i) => yUpScale(d.yVal[""+activeYear]))
             .attr('r', (d,i) => d.circleSize);
 
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
@@ -529,8 +530,10 @@ class GapPlot {
 
         yearSlider.on('input', function () {
             //TODO - your code goes here -
-            sliderText.text(that.value);
-            yearScale(that.value);
+            sliderText.selectAll('text')
+                .text(that.value)
+                .attr('x', yearScale(that.value))
+                .attr('y', 25); 
         });
     }
 
