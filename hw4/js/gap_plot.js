@@ -150,8 +150,9 @@ class GapPlot {
             //.attr("class", "y-label")
             //.text("GDP");    
             
-        d3.select("#activeYear-bar").append("text")
+        d3.select(".plot-svg").append("text")
             .attr("class", "activeYear-background")
+            .attr("transform", "translate(100, 150)")
             .text(function() { return activeYear});
 
         /* Below is the setup for the dropdown menu- no need to change this */
