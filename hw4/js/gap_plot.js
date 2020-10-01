@@ -366,7 +366,7 @@ class GapPlot {
                                                         this.data[""+yIndicator][i].region,
                                                         circleSizer(this.data["population"][i]));
                         plotData_arr1.push(country_data);
-                        //debugger;
+                        debugger;
                     }
                 }
             }
