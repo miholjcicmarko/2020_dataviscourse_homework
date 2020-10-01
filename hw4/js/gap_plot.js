@@ -351,9 +351,9 @@ class GapPlot {
                // }
            // }
        // }
+       let plotData_arr1 = [];
 
         if (circleSizeIndicator === "population") {
-            let plotData_arr1 = [];
 
             for (let i = 0; i < this.data[""+yIndicator].length; i++) {
                 for (let k = 0; k < this.data["population"].length; k++) {
@@ -366,13 +366,12 @@ class GapPlot {
                                                         this.data[""+yIndicator][i].region,
                                                         circleSizer(this.data["population"][i]));
                         plotData_arr1.push(country_data);
-                        debugger;
+                        //debugger;
                     }
                 }
             }
         }
         else {
-            let plotData_arr1 = [];
 
             for (let i = 0; i < this.data[""+xIndicator].length; i++) {
                 let country_data = new PlotData(this.data[""+xIndicator][i].country, 
