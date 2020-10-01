@@ -398,21 +398,15 @@ class GapPlot {
             .attr("class", "circle")
             .attr("class", d => d.region);
 
-
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
 
         tooltip.on("mouseover", function(d) {
-            let countryText = tooltipRender(d);
-            let xpos = d.xVal;
-            let ypos = d.yVal;
 
-        d3.selectAll('tooltip').append("title")
-            .attr("x", xpos)
-            .attr("y", ypos)
-            .attr("text-anchor", "middle")
+        d3.select('.tooltip')
+            .attr("class", "div.tooltip")
             .attr("class", "tooltip h2")
             .text(function(d) { 
-                return countryText;
+                return tooltipRender(d);
             });
         })
 
@@ -561,11 +555,17 @@ class GapPlot {
         sliderText.attr('x', yearScale(this.activeYear));
         sliderText.attr('y', 25);
 
-        yearSlider.on('input', function () {
+        yearSlider.on('change', function () {
             //TODO - your code goes here -
-            updatePlot(that.value, xIndicator, yIndicator, circleSizeIndicator);
-                sliderText.selectAll('text')
-                   .text('input')
+            let yValue = this.options[this.selectedIndex].value;
+            let xValue = dropX.node().value;
+            let cValue = dropC.node().value;
+            let newYear = (d,i) => d.indicator;
+
+            that.updatePlot(newYear, xValue, yValue, cValue);
+
+            //    sliderText.selectAll('text')
+            //      .text('input')
             //    .attr('x', yearScale(that.value))
             //    .attr('y', 25); 
         });
