@@ -314,6 +314,19 @@ class GapPlot {
             }
         }
 
+        //function isUndefinedXval(Xval){
+        //    return Xval !== undefined;
+        //}
+
+        //function isUndefinedYval(Yval){
+        //    return Yval !== undefined;
+        //}
+
+        //let circle_data1 = plotData_arr.filter(isUndefinedXval);
+        //let circle_data = circle_data1.filter(isUndefinedYval);
+
+        debugger;
+
         let circle_data = []
 
         for (let i = 0; i < plotData_arr.length; i++){
@@ -388,20 +401,20 @@ class GapPlot {
 
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
 
-        //tooltip.on("mouseover", function(d) {
-        //    let countryText = tooltipRender(d);
-        //    let xpos = d.xVal;
-        //    let ypos = d.yVal;
+        tooltip.on("mouseover", function(d) {
+            let countryText = tooltipRender(d);
+            let xpos = d.xVal;
+            let ypos = d.yVal;
 
-        //d3.selectAll('tooltip').append("title")
-        //    .attr("x", xpos)
-        //    .attr("y", ypos)
-        //    .attr("text-anchor", "middle")
-        //    .attr("class", "tooltip h2")
-        //    .text(function(d) { 
-        //        return countryText;
-        //    });
-        //})
+        d3.selectAll('tooltip').append("title")
+            .attr("x", xpos)
+            .attr("y", ypos)
+            .attr("text-anchor", "middle")
+            .attr("class", "tooltip h2")
+            .text(function(d) { 
+                return countryText;
+            });
+        })
 
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
         this.drawLegend(d3.min(this.data[""+circleSizeIndicator]), d3.max(this.data[""+circleSizeIndicator]));
@@ -550,10 +563,11 @@ class GapPlot {
 
         yearSlider.on('input', function () {
             //TODO - your code goes here -
-            sliderText.selectAll('text')
-                .text(that.value)
-                .attr('x', yearScale(that.value))
-                .attr('y', 25); 
+            updatePlot(that.value, xIndicator, yIndicator, circleSizeIndicator);
+                sliderText.selectAll('text')
+                   .text('input')
+            //    .attr('x', yearScale(that.value))
+            //    .attr('y', 25); 
         });
     }
 
