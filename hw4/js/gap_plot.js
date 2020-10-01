@@ -340,15 +340,16 @@ class GapPlot {
             .attr("class", "axis line")
             .attr("id", "y-axis");
 
-        let xlab = d3.select('axis-label-x');
+        let xlab = d3.selectAll('.axis-label-x');
 
         xlab.attr("transform", "translate(350, 30)")
             .attr("text-anchor", "middle")
             .attr("class", "axis-label")
             .attr("class", "x-label")
-            .text(""+xIndicator);
+            .attr("fill", "black")
+            .text(function() { return xIndicator});
 
-        let ylab = d3.select('axis-label-y');
+        let ylab = d3.selectAll('.axis-label-y');
 
         ylab.attr("transform", 'translate(-15,200)rotate(-90)')
             .attr("class", "axis label")
