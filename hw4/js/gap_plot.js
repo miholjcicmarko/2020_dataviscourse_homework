@@ -366,7 +366,7 @@ class GapPlot {
                                                         this.data[""+yIndicator][i].region,
                                                         circleSizer(this.data["population"][i]));
                         plotData_arr1.push(country_data);
-                        debugger;
+                        //debugger;
                     }
                 }
             }
@@ -448,31 +448,40 @@ class GapPlot {
             circle_data.push(country_data2);
         }
 
+        let xVals = [];
+        let yVals = [];
+
+        for (let i = 0; i < circle_data.length; i++) {
+            xVals.push(circle_data[i].xVal);
+        }
+
+        for (let i = 0; i < circle_data.length; i++) {
+            yVals.push(circle_data[i].yVal);
+        }
+
+        debugger;
+
         let xUpScale = d3
             .scaleLinear()
-            .domain([0, d3.max(circle_data, function(d) {
-                return d.xVal;
-            })])
+            .domain([0, d3.max(xVals)])
             .range([0, this.width]);
 
         let yUpScale = d3
             .scaleLinear()
-            .domain([d3.max(circle_data, function(d) {
-                return d.yVal;
-            }), 0])
-            .range([0,this.height]);
+            .domain([d3.max(yVals), 0])
+            .range([this.margin.bottom,this.height]);
 
         let xaxis_data = d3.select('.x-axis');
 
         xaxis_data.call(d3.axisBottom(xUpScale).ticks(5))
-            .attr("transform", "translate(25,"+ this.height+")")
+            .attr("transform", "translate("+this.margin.left+"," +this.height+")")
             .attr("class", "axis line")
             .attr("id", "x-axis");
 
         let yaxis = d3.select('.y-axis');
 
         yaxis.call(d3.axisLeft(yUpScale).ticks(5))
-            .attr("transform", "translate(25,0)")
+            .attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "axis line")
             .attr("id", "y-axis");
 
@@ -500,7 +509,7 @@ class GapPlot {
             .attr('cx', (d,i) => xUpScale(d.xVal))
             .attr('cy', (d,i) => yUpScale(d.yVal))
             .attr('r', (d,i) => d.circleSize)
-            .attr("transform", "translate(25,0)")
+            .attr("transform", "translate("+this.margin+",0)")
             .attr("class", "circle")
             .attr("class", d => d.region);
 
