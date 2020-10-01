@@ -54,7 +54,7 @@ class GapPlot {
         this.drawPlot();
         this.updateYear = updateYear;
         this.updateCountry = updateCountry;
-        this.updatePlot(updateYear, "population", "population", "gdp");
+        //this.updatePlot(updateYear, "population", "population", "gdp");
         this.drawDropDown();
         this.drawLegend();
         this.drawYearBar();
@@ -326,6 +326,9 @@ class GapPlot {
                                     plotData_arr[i].circleSize);
                 circle_data.push(country_data2);
             }
+            else {
+                let country_data2 = 
+            }
         }
 
         debugger;
@@ -338,9 +341,9 @@ class GapPlot {
 
         let yUpScale = d3
             .scaleLinear()
-            .domain([0, d3.max(circle_data, function(d) {
+            .domain([d3.max(circle_data, function(d) {
                 return d.yVal;
-            })])
+            }), 0])
             .range([0,this.height]);
 
         let xaxis_data = d3.select('.x-axis');
@@ -383,7 +386,7 @@ class GapPlot {
             .attr('r', (d,i) => d.circleSize)
             .attr("transform", "translate(25,0)")
             .attr("class", "circle")
-            .attr;
+            .attr("class", d => d.region);
 
 
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
