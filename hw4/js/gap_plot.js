@@ -341,14 +341,14 @@ class GapPlot {
 
         let circle_data = []
 
-        for (let i = 0; i < plotData_arr.length; i++){
+        for (let i = 0; i < circle_data1.length; i++){
             //if ((plotData_arr[i].xVal[""+activeYear] !== undefined) && (plotData_arr[i].yVal[""+activeYear] !== undefined)){
-                let country_data2 = new PlotData(plotData_arr[i].country, 
-                                    plotData_arr[i].xVal[""+activeYear],
-                                    plotData_arr[i].yVal[""+activeYear],
-                                    plotData_arr[i].id,
-                                    plotData_arr[i].region, 
-                                    plotData_arr[i].circleSize);
+                let country_data2 = new PlotData(circle_data1[i].country, 
+                                    circle_data1[i].xVal[""+activeYear],
+                                    circle_data1[i].yVal[""+activeYear],
+                                    circle_data1[i].id,
+                                    circle_data1[i].region, 
+                                    circle_data1[i].circleSize);
                 circle_data.push(country_data2);
             //}
         }
