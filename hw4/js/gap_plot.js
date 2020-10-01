@@ -316,6 +316,14 @@ class GapPlot {
             }
         }
 
+        circle_data = []
+
+        for (let i = 0; i < plotData_arr.length; i++){
+            if ((plotData_arr[i].xVal[""+activeYear] !== undefined) && (plotData_arr[i].yVal[""+activeYear] !== undefined)){
+                circleSize.push(plotData_arr[i]);
+            }
+        }
+
         debugger;
         let xUpScale = d3
             .scaleLinear()
@@ -360,7 +368,7 @@ class GapPlot {
             .text(function() { return yIndicator});
 
         d3.select('.plot-svg').selectAll("circle")
-            .data(plotData_arr)
+            .data(circle_data)
             .join("circle")
             .attr('cx', (d,i) => xUpScale(d.xVal[""+activeYear]))
             .attr('cy', (d,i) => yUpScale(d.yVal[""+activeYear]))
@@ -368,20 +376,20 @@ class GapPlot {
 
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
 
-        tooltip.on("mouseover", function(d) {
-            let countryText = tooltipRender(d);
-            let xpos = d.xVal;
-            let ypos = d.yVal;
+        //tooltip.on("mouseover", function(d) {
+        //    let countryText = tooltipRender(d);
+        //    let xpos = d.xVal;
+        //    let ypos = d.yVal;
 
-        d3.selectAll('tooltip').append("title")
-            .attr("x", xpos)
-            .attr("y", ypos)
-            .attr("text-anchor", "middle")
-            .attr("class", "tooltip h2")
-            .text(function(d) { 
-                return countryText;
-            });
-        })
+        //d3.selectAll('tooltip').append("title")
+        //    .attr("x", xpos)
+        //    .attr("y", ypos)
+        //    .attr("text-anchor", "middle")
+        //    .attr("class", "tooltip h2")
+        //    .text(function(d) { 
+        //        return countryText;
+        //    });
+        //})
 
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
         this.drawLegend(d3.min(this.data[""+circleSizeIndicator]), d3.max(this.data[""+circleSizeIndicator]));
