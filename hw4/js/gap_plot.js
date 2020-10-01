@@ -316,23 +316,33 @@ class GapPlot {
             }
         }
 
-        circle_data = []
+        let circle_data = []
 
         for (let i = 0; i < plotData_arr.length; i++){
             if ((plotData_arr[i].xVal[""+activeYear] !== undefined) && (plotData_arr[i].yVal[""+activeYear] !== undefined)){
-                circleSize.push(plotData_arr[i]);
+                let country_data2 = new PlotData(plotData_arr[i].country, 
+                                    plotData_arr[i].xVal[""+activeYear],
+                                    plotData_arr[i].xVal[""+activeYear],
+                                    plotData_arr[i].id,
+                                    plotData_arr[i].region, 
+                                    plotData_arr[i].circleSize);
+                circle_data.push(country_data2);
             }
         }
 
         debugger;
         let xUpScale = d3
             .scaleLinear()
-            .domain([0, d3.max(this.data[""+xIndicator])])
+            .domain([0, d3.max(circle_data, function(d) {
+                return d.xVal;
+            })])
             .range([0, this.width]);
 
         let yUpScale = d3
             .scaleLinear()
-            .domain([0, d3.max(this.data[""+yIndicator])])
+            .domain([0, d3.max(circle_data, function(d) {
+                return d.xVal;
+            })])
             .range([0,this.height]);
 
         let xaxis_data = d3.select('.x-axis');
@@ -370,8 +380,8 @@ class GapPlot {
         d3.select('.plot-svg').selectAll("circle")
             .data(circle_data)
             .join("circle")
-            .attr('cx', (d,i) => xUpScale(d.xVal[""+activeYear]))
-            .attr('cy', (d,i) => yUpScale(d.yVal[""+activeYear]))
+            .attr('cx', (d,i) => d.xVal)
+            .attr('cy', (d,i) => d.yVal)
             .attr('r', (d,i) => d.circleSize);
 
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
