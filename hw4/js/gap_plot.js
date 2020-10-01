@@ -555,7 +555,7 @@ class GapPlot {
         sliderText.attr('x', yearScale(this.activeYear));
         sliderText.attr('y', 25);
 
-        yearSlider.on('change', function () {
+        yearSlider.on('input', function () {
             //TODO - your code goes here -
             let yValue = this.options[this.selectedIndex].value;
             let xValue = dropX.node().value;
@@ -564,10 +564,12 @@ class GapPlot {
 
             that.updatePlot(newYear, xValue, yValue, cValue);
 
-            //    sliderText.selectAll('text')
-            //      .text('input')
-            //    .attr('x', yearScale(that.value))
-            //    .attr('y', 25); 
+            updateYear(newYear);
+
+            sliderText.selectAll('text')
+                .text(function () { return newYear})
+                .attr('x', yearScale(newYear))
+                .attr('y', 25); 
         });
     }
 
