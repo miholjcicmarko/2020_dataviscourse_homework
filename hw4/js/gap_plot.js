@@ -51,7 +51,7 @@ class GapPlot {
         this.data = data;
 
         //TODO - your code goes here -
-        this.drawPlot(data);
+        this.drawPlot();
         this.updateYear = updateYear;
         this.updateCountry = updateCountry;
         this.updatePlot(updateYear, "gdp", "population", "gdp");
