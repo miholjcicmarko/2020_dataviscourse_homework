@@ -306,8 +306,6 @@ class GapPlot {
             //    plotData_arr.push(country_data);
             //}
 
-        debugger;
-
         for (let i = 0; i < plotData_arr.length; i++) {
             for (let k = 0; k < this.data["population"].length; k++) {
                 if (plotData_arr[i].id === this.data["population"][k].geo) {
@@ -341,7 +339,7 @@ class GapPlot {
         let yUpScale = d3
             .scaleLinear()
             .domain([0, d3.max(circle_data, function(d) {
-                return d.xVal;
+                return d.yVal;
             })])
             .range([0,this.height]);
 
@@ -380,9 +378,13 @@ class GapPlot {
         d3.select('.plot-svg').selectAll("circle")
             .data(circle_data)
             .join("circle")
-            .attr('cx', (d,i) => d.xVal)
-            .attr('cy', (d,i) => d.yVal)
-            .attr('r', (d,i) => d.circleSize);
+            .attr('cx', (d,i) => xUpScale(d.xVal))
+            .attr('cy', (d,i) => yUpScale(d.yVal))
+            .attr('r', (d,i) => d.circleSize)
+            .attr("transform", "translate(25,0)")
+            .attr("class", "circle")
+            .attr;
+
 
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
 
