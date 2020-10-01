@@ -353,6 +353,13 @@ class GapPlot {
        // }
 
         if (circleSizeIndicator === "population") {
+            //for (let i = 0; i < this.data[""+yIndicator].length; i++) {
+            //    for (let k = 0; k < this.data["population"].length; k++) {
+            //        if (this.data[""+yIndicator][i].geo === this.data["population"][k].geo) {
+            //            this.data[""+yIndicator][i].region = this.data["population"][k].region;
+            
+            //filter
+
             let plotData_arr1 = []
 
             for (let i = 0; i < this.data[""+xIndicator].length; i++) {
