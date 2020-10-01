@@ -310,13 +310,21 @@ class GapPlot {
             //    plotData_arr.push(country_data);
             //}
 
-        for (let i = 0; i < plotData_arr.length; i++) {
-            for (let k = 0; k < this.data["population"].length; k++) {
-                if (plotData_arr[i].id === this.data["population"][k].geo) {
-                    plotData_arr[i].region = this.data["population"][k].region;
+        let circle_data1 = []
+
+        if (xIndicator === "population" || yIndicator === "population") {
+            for (let i = 0; i < plotData_arr.length; i++) {
+                for (let k = 0; k < this.data["population"].length; k++) {
+                    if (plotData_arr[i].id === this.data["population"][k].geo) {
+                        plotData_arr[i].region = this.data["population"][k].region;
+                        circle_data1.push(plotData_arr[i]);
+                    }
                 }
             }
-        }
+        } 
+        else {
+            circle_data1.push(plotData_arr);
+        }   
 
         //function isUndefinedXval(Xval){
         //    return Xval !== undefined;
@@ -334,15 +342,15 @@ class GapPlot {
         let circle_data = []
 
         for (let i = 0; i < plotData_arr.length; i++){
-            if ((plotData_arr[i].xVal[""+activeYear] !== undefined) && (plotData_arr[i].yVal[""+activeYear] !== undefined)){
+            //if ((plotData_arr[i].xVal[""+activeYear] !== undefined) && (plotData_arr[i].yVal[""+activeYear] !== undefined)){
                 let country_data2 = new PlotData(plotData_arr[i].country, 
                                     plotData_arr[i].xVal[""+activeYear],
-                                    plotData_arr[i].xVal[""+activeYear],
+                                    plotData_arr[i].yVal[""+activeYear],
                                     plotData_arr[i].id,
                                     plotData_arr[i].region, 
                                     plotData_arr[i].circleSize);
                 circle_data.push(country_data2);
-            }
+            //}
         }
 
         debugger;
