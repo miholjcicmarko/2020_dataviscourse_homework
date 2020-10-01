@@ -150,7 +150,7 @@ class GapPlot {
             //.attr("class", "y-label")
             //.text("GDP");    
             
-        d3.select("").selectAll("text")
+        d3.select("#activeYear-bar").append("text")
             .attr("class", "activeYear-background")
             .text(function() { return activeYear});
 
@@ -564,7 +564,7 @@ class GapPlot {
 
             that.drawPlot(that.value);
 
-            that.updateYear(that.value);
+            //script.updateYear(that.value);
 
             sliderText
                 .text(that.value)
