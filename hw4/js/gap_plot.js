@@ -148,7 +148,11 @@ class GapPlot {
             //.attr("class", "axis label")
             //.attr("text-anchor", "middle")
             //.attr("class", "y-label")
-            //.text("GDP");        
+            //.text("GDP");    
+            
+        d3.select("").selectAll("text")
+            .attr("class", "activeYear-background")
+            .text(function() { return activeYear});
 
         /* Below is the setup for the dropdown menu- no need to change this */
 
@@ -557,18 +561,14 @@ class GapPlot {
 
         yearSlider.on('input', function () {
             //TODO - your code goes here -
-            let yValue = this.options[this.selectedIndex].value;
-            let xValue = dropX.node().value;
-            let cValue = dropC.node().value;
-            let newYear = (d,i) => d.indicator;
 
-            that.updatePlot(newYear, xValue, yValue, cValue);
+            that.drawPlot(that.value);
 
-            updateYear(newYear);
+            that.updateYear(that.value);
 
-            sliderText.selectAll('text')
-                .text(function () { return newYear})
-                .attr('x', yearScale(newYear))
+            sliderText
+                .text(that.value)
+                .attr('x', yearScale(that.value))
                 .attr('y', 25); 
         });
     }
