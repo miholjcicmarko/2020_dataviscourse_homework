@@ -362,8 +362,8 @@ class GapPlot {
         d3.select('.plot-svg').selectAll("circle")
             .data(plotData_arr)
             .join("circle")
-            .attr('cx', (d,i) => xUpScale(d.xVal))
-            .attr('cy', (d,i) => yUpScale(d.yVal))
+            .attr('cx', (d,i) => xUpScale(d.xVal[""+activeYear]))
+            .attr('cy', (d,i) => yUpScale(d.yVal[""+activeYear]))
             .attr('r', (d,i) => d.circleSize);
 
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
