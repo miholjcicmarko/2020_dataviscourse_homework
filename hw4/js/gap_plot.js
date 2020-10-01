@@ -360,7 +360,7 @@ class GapPlot {
                                     this.data[""+yIndicator][i],
                                     this.data[""+xIndicator][i].geo,
                                     "region", 
-                                    circleSizer(this.data[""+circleSizeIndicator]));
+                                    circleSizer(this.data[""+circleSizeIndicator][i][""+activeYear]));
                 plotData_arr1.push(country_data);
             }
         debugger;
