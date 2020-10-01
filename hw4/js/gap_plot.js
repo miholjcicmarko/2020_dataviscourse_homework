@@ -353,14 +353,26 @@ class GapPlot {
        // }
 
         if (circleSizeIndicator === "population") {
-            //for (let i = 0; i < this.data[""+yIndicator].length; i++) {
-            //    for (let k = 0; k < this.data["population"].length; k++) {
-            //        if (this.data[""+yIndicator][i].geo === this.data["population"][k].geo) {
-            //            this.data[""+yIndicator][i].region = this.data["population"][k].region;
-            
-            //filter
+            let plotData_arr1 = [];
 
-            let plotData_arr1 = []
+            for (let i = 0; i < this.data[""+yIndicator].length; i++) {
+                for (let k = 0; k < this.data["population"].length; k++) {
+                    if (this.data[""+yIndicator][i].geo === this.data["population"][k].geo) {
+                        this.data[""+yIndicator][i].region = this.data["population"][k].region;
+                        let country_data = new PlotData(this.data[""+yIndicator][i].country,
+                                                        this.data[""+xIndicator][i],
+                                                        this.data[""+yIndicator][i], 
+                                                        this.data[""+yIndicator][i].geo,
+                                                        this.data[""+yIndicator][i].region,
+                                                        circleSizer(this.data["population"][i]));
+                        plotData_arr1.push(country_data);
+                        debugger;
+                    }
+                }
+            }
+        }
+        else {
+            let plotData_arr1 = [];
 
             for (let i = 0; i < this.data[""+xIndicator].length; i++) {
                 let country_data = new PlotData(this.data[""+xIndicator][i].country, 
@@ -373,17 +385,6 @@ class GapPlot {
             }
         }
 
-        let plotData_arr1 = []
-
-            for (let i = 0; i < this.data[""+xIndicator].length; i++) {
-                let country_data = new PlotData(this.data[""+xIndicator][i].country, 
-                                    this.data[""+xIndicator][i],
-                                    this.data[""+yIndicator][i],
-                                    this.data[""+xIndicator][i].geo,
-                                    "region", 
-                                    circleSizer(this.data[""+circleSizeIndicator][i]));
-                plotData_arr1.push(country_data);
-            }
         debugger;
 
         if (xIndicator === "population") {
