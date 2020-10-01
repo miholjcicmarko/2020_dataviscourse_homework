@@ -326,9 +326,6 @@ class GapPlot {
                                     plotData_arr[i].circleSize);
                 circle_data.push(country_data2);
             }
-            else {
-                let country_data2 = 
-            }
         }
 
         debugger;
