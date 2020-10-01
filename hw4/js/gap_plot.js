@@ -54,7 +54,7 @@ class GapPlot {
         this.drawPlot();
         this.updateYear = updateYear;
         this.updateCountry = updateCountry;
-        this.updatePlot(updateYear, "gdp", "population", "gdp");
+        this.updatePlot(updateYear, "population", "population", "gdp");
         this.drawDropDown();
         this.drawLegend();
 
@@ -355,19 +355,17 @@ class GapPlot {
             .attr("class", "axis label")
             .attr("text-anchor", "middle")
             .attr("class", "y-label")
-            .text(""+yIndicator);
-
-        let minSize = d3.min(this.data[""+circleSizeIndicator]);
-        let maxSize = d3.max(this.data[""+circleSizeIndicator]);
+            .attr("fill", "black")
+            .text(function() { return yIndicator});
 
         d3.select('#chart-view').selectAll("circle")
             .data(plotData_arr)
             .join("circle")
             .attr('cx', (d,i) => xUpScale(d.xVal))
             .attr('cy', (d,i) => yUpScale(d.yVal))
-            .attr('r', (d,i) => circleSizer(d));
+            .attr('r', (d,i) => d.circleSize);
 
-        let tooltip = d3.selectAll('#chart-view').selectAll("circle");
+        let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
 
         tooltip.on("mouseover", function(d) {
             let countryText = tooltipRender(d);
