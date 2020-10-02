@@ -54,7 +54,7 @@ class GapPlot {
         this.drawPlot();
         this.updateYear = updateYear;
         this.updateCountry = updateCountry;
-        //this.updatePlot(updateYear, "population", "population", "gdp");
+        
         this.drawDropDown();
         this.drawLegend();
         this.drawYearBar(updateYear);
@@ -787,7 +787,7 @@ class GapPlot {
         // you will need to call it from the updateHighlight function in script.js
         */
         //TODO - your code goes here -
-        this.updateCountry = activeCountry;
+        
 
         
         
