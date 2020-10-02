@@ -280,13 +280,12 @@ class GapPlot {
          * @returns {number} the radius
          */
         let circleSizer = function (d) {
-            let minSize = d3.min(d);
-            let maxSize = d3.max(d);
             let cScale = d3.scaleSqrt().range([3, 20]).domain([minSize, maxSize]);
             return d.circleSize ? cScale(d.circleSize) : 3;
         };
 
-        debugger;
+        //let minSize = d3.min(circleSize_arr);
+        //let maxSize = d3.max(circleSize_arr);
 
         //TODO - your code goes here -
         //let circle_data = []
@@ -351,68 +350,105 @@ class GapPlot {
                // }
            // }
        // }
+       
+       let plotData_arr = [];
+
+       for (let i = 0; i < this.data[""+xIndicator].length; i++) {
+           for (let k = 0; k < this.data[""+yIndicator].length; k++){
+               for (let m = 0; m < this.data[""+circleSizeIndicator].length; m++) {
+                   if((this.data[""+xIndicator][i].geo === this.data[""+yIndicator][k].geo) && 
+                   (this.data[""+circleSizeIndicator][m].geo === this.data[""+xIndicator][i].geo)) {
+                        let country_data = new PlotData(this.data[""+xIndicator][i].country,
+                                        this.data[""+xIndicator][i][this.activeYear],
+                                        this.data[""+yIndicator][k][this.activeYear],
+                                        this.data[""+xIndicator][i].geo,
+                                        "countries",
+                                        this.data[""+circleSizeIndicator][m][this.activeYear]);
+                                        plotData_arr.push(country_data);
+                   }
+               }
+           }
+       }
+       
        let plotData_arr1 = [];
 
-        if (circleSizeIndicator === "population") {
+       debugger;
 
-            for (let i = 0; i < this.data[""+yIndicator].length; i++) {
-                for (let k = 0; k < this.data["population"].length; k++) {
-                    if (this.data[""+yIndicator][i].geo === this.data["population"][k].geo) {
-                        this.data[""+yIndicator][i].region = this.data["population"][k].region;
-                        let country_data = new PlotData(this.data[""+yIndicator][i].country,
-                                                        this.data[""+xIndicator][i],
-                                                        this.data[""+yIndicator][i], 
-                                                        this.data[""+yIndicator][i].geo,
-                                                        this.data[""+yIndicator][i].region,
-                                                        circleSizer(this.data["population"][i]));
-                        plotData_arr1.push(country_data);
+       for (let i = 0; i < plotData_arr.length; i++) {
+           for (let k =0; k < this.data["population"].length; k++) {
+               if (plotData_arr[i].id === this.data["population"][k].geo) {
+                    plotData_arr[i].region = this.data["population"][k].region;
+                    plotData_arr1.push(plotData_arr[i]);
+               }
+           }
+       }
+
+
+
+       debugger;
+       
+       //let plotData_arr1 = [];
+
+        //if (circleSizeIndicator === "population") {
+
+        //    for (let i = 0; i < this.data[""+yIndicator].length; i++) {
+        //        for (let k = 0; k < this.data["population"].length; k++) {
+        //            if (this.data[""+yIndicator][i].geo === this.data["population"][k].geo) {
+        //                this.data[""+yIndicator][i].region = this.data["population"][k].region;
+        //                let country_data = new PlotData(this.data[""+yIndicator][i].country,
+        //                                                this.data[""+xIndicator][i],
+         //                                               this.data[""+yIndicator][i], 
+         //                                               this.data[""+yIndicator][i].geo,
+         //                                               this.data[""+yIndicator][i].region,
+         //                                               circleSizer(this.data["population"][i]));
+         //               plotData_arr1.push(country_data);
                         //debugger;
-                    }
-                }
-            }
-        }
-        else {
+        //            }
+        //        }
+        //    }
+        //}
+        //else {
 
-            for (let i = 0; i < this.data[""+xIndicator].length; i++) {
-                let country_data = new PlotData(this.data[""+xIndicator][i].country, 
-                                    this.data[""+xIndicator][i],
-                                    this.data[""+yIndicator][i],
-                                    this.data[""+xIndicator][i].geo,
-                                    "region", 
-                                    circleSizer(this.data[""+circleSizeIndicator][i]));
-                plotData_arr1.push(country_data);
-            }
-        }
+        //    for (let i = 0; i < this.data[""+xIndicator].length; i++) {
+        //        let country_data = new PlotData(this.data[""+xIndicator][i].country, 
+        //                            this.data[""+xIndicator][i],
+        //                            this.data[""+yIndicator][i],
+        //                            this.data[""+xIndicator][i].geo,
+        //                            "region", 
+        //                            circleSizer(this.data[""+circleSizeIndicator][i]));
+        //        plotData_arr1.push(country_data);
+        //    }
+        //}
 
         debugger;
 
-        if (xIndicator === "population") {
-            for (let i = 0; i < plotData_arr1.length; i++) {
-                for (let k = 0; k < this.data["population"].length; k++) {
-                        if (plotData_arr1[i].id === this.data["population"][k].geo) {
-                            plotData_arr1[i].region = this.data["population"][k].region;
-                        }
-                }
-            }
-        }
-        else if (yIndicator === "population") {
-            for (let i = 0; i < plotData_arr1.length; i++) {
-                for (let k = 0; k < this.data["population"].length; k++) {
-                        if (plotData_arr1[i].id === this.data["population"][k].geo) {
-                            plotData_arr1[i].region = this.data["population"][k].region;
-                        }
-                }    
-            }
-        }
-        else {
-            for (let i = 0; i < plotData_arr1.length; i++) {
-                for (let k = 0; k < this.data["population"].length; k++) {
-                        if (plotData_arr1[i].id === this.data["population"][k].geo) {
-                            plotData_arr1[i].region = this.data["population"][k].region;
-                        }
-                }
-            }
-        }
+        //if (xIndicator === "population") {
+        //    for (let i = 0; i < plotData_arr1.length; i++) {
+        //        for (let k = 0; k < this.data["population"].length; k++) {
+        //                if (plotData_arr1[i].id === this.data["population"][k].geo) {
+        //                    plotData_arr1[i].region = this.data["population"][k].region;
+        //                }
+        //        }
+        //    }
+        //}
+        //else if (yIndicator === "population") {
+        //    for (let i = 0; i < plotData_arr1.length; i++) {
+        //        for (let k = 0; k < this.data["population"].length; k++) {
+        //                if (plotData_arr1[i].id === this.data["population"][k].geo) {
+         //                   plotData_arr1[i].region = this.data["population"][k].region;
+         //               }
+         //       }    
+         //   }
+        //}
+        //else {
+        //    for (let i = 0; i < plotData_arr1.length; i++) {
+        //        for (let k = 0; k < this.data["population"].length; k++) {
+        //                if (plotData_arr1[i].id === this.data["population"][k].geo) {
+        //                    plotData_arr1[i].region = this.data["population"][k].region;
+        //                }
+        //        }
+        //    }
+        //}
             
 
             //for (let i = 0; i < this.data[""+yIndicator].length; i++) {
@@ -425,38 +461,53 @@ class GapPlot {
             //    plotData_arr.push(country_data);
             //} 
 
-        function isUndefinedXval(d){
-            return d.xVal !== undefined;
-        }
+        //function isUndefinedXval(d){
+        //    return d.xVal !== undefined;
+        //}
 
-        function isUndefinedYval(d){
-            return d.yVal !== undefined;
-        }
+        //function isUndefinedYval(d){
+        //    return d.yVal !== undefined;
+        //}
 
-        let circle_data2 = plotData_arr1.filter(isUndefinedXval);
-        let circle_data1 = circle_data2.filter(isUndefinedYval);
+        //let circle_data2 = plotData_arr1.filter(isUndefinedXval);
+        //let circle_data1 = circle_data2.filter(isUndefinedYval);
 
-        let circle_data = [];
+        //let circle_data = [];
 
-        for (let i = 0; i < circle_data1.length; i++){
-            let country_data2 = new PlotData(circle_data1[i].country, 
-                                    circle_data1[i].xVal[""+activeYear],
-                                    circle_data1[i].yVal[""+activeYear],
-                                    circle_data1[i].id,
-                                    circle_data1[i].region, 
-                                    circle_data1[i].circleSize);
-            circle_data.push(country_data2);
-        }
+        //for (let i = 0; i < circle_data1.length; i++){
+        //    let country_data2 = new PlotData(circle_data1[i].country, 
+        //                            circle_data1[i].xVal[""+activeYear],
+        //                            circle_data1[i].yVal[""+activeYear],
+        //                            circle_data1[i].id,
+        //                            circle_data1[i].region, 
+        //                            circle_data1[i].circleSize);
+        //    circle_data.push(country_data2);
+        //}
 
         let xVals = [];
         let yVals = [];
 
-        for (let i = 0; i < circle_data.length; i++) {
-            xVals.push(circle_data[i].xVal);
+        for (let i = 0; i < plotData_arr1.length; i++) {
+            xVals.push(plotData_arr1[i].xVal);
         }
 
-        for (let i = 0; i < circle_data.length; i++) {
-            yVals.push(circle_data[i].yVal);
+        for (let i = 0; i < plotData_arr1.length; i++) {
+            yVals.push(plotData_arr1[i].yVal);
+        }
+
+        debugger;
+
+        let circleSize_arr = [];
+
+        for (let i = 0; i < plotData_arr.length; i++) {
+            circleSize_arr.push(plotData_arr1[i].circleSize);
+        }
+
+        let minSize = d3.min(circleSize_arr);
+        let maxSize = d3.max(circleSize_arr);
+
+        for (let i = 0; i < plotData_arr.length; i++) {
+            plotData_arr1[i].circleSize = circleSizer(plotData_arr1[i]);
         }
 
         debugger;
@@ -487,7 +538,7 @@ class GapPlot {
 
         let xlab = d3.selectAll('.axis-label-x');
 
-        xlab.attr("transform", "translate(350, 30)")
+        xlab.attr("transform", "translate("+this.margin.bottom+"," +this.margin.right+")")
             .attr("text-anchor", "middle")
             .attr("class", "axis-label")
             .attr("class", "x-label")
@@ -496,7 +547,7 @@ class GapPlot {
 
         let ylab = d3.selectAll('.axis-label-y');
 
-        ylab.attr("transform", 'translate(-15,200)rotate(-90)')
+        ylab.attr("transform", "translate(-"+ this.margin.left + ","+this.margin.left+")rotate(-90)")
             .attr("class", "axis label")
             .attr("text-anchor", "middle")
             .attr("class", "y-label")
@@ -504,12 +555,12 @@ class GapPlot {
             .text(function() { return yIndicator});
 
         d3.select('.plot-svg').selectAll("circle")
-            .data(circle_data)
+            .data(plotData_arr1)
             .join("circle")
             .attr('cx', (d,i) => xUpScale(d.xVal))
             .attr('cy', (d,i) => yUpScale(d.yVal))
             .attr('r', (d,i) => d.circleSize)
-            .attr("transform", "translate("+this.margin+",0)")
+            .attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "circle")
             .attr("class", d => d.region);
 
