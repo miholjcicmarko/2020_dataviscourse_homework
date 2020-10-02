@@ -27,6 +27,8 @@ class InfoBox {
         this.region = data;
         this.indicator_name = data;
         this.value = data;
+
+        this.data = data;
         //TODO - your code goes here -
 
     }
@@ -49,11 +51,17 @@ class InfoBox {
          */
 
         //TODO - your code goes here -
-        let that = this;
+        let categories = ["population", "gdp", "child-mortality", "life-expectancy",
+                        "fertility-rate"];
 
-        that.country = activeCountry.country;
-        that.region = activeCountry.region;
+        let data = [];
         
+        for (let i =0; i < categories.length; i++) {
+            for (let k = 0; k < this.data[""+categories[i]].length; k++]) {
+                if (categories[i] === this.data[""+categories]
+            }
+        }
+
 
     }
 
