@@ -49,7 +49,6 @@ loadData().then(data => {
         
         //TODO - your code goes here -
         that.activeYear = year;
-        console.log(year)
 
         gapPlot.updateYear = year;
 
