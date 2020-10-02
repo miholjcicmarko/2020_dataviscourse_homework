@@ -51,6 +51,8 @@ loadData().then(data => {
 
         gapPlot.activeYear = year;
 
+        infoBox.updateTextDescription(activeCountry, activeYear);
+
     }
     // Creates the view objects
     const infoBox = new InfoBox(data);
