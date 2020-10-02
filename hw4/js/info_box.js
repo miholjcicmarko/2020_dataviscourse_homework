@@ -67,7 +67,10 @@ class InfoBox {
             }
         }
 
-        let infobox = new InfoBox(activeCountry, region[1], )
+        let infobox = new InfoBox(activeCountry, region[1], categories,
+                                text_elements);
+        
+        debugger;
         
 
     }
