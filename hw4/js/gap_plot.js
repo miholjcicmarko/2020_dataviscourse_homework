@@ -556,9 +556,16 @@ class GapPlot {
             .attr("class", "circle")
             .attr("class", d => d.region);
 
-        
+        let clickedgap = d3.select(".plot-svg").selectAll("circle")
+            .data(plotData_arr1);
 
-            
+        clickedgap.on("click", function(d){ 
+            let country = d.country;
+            let region = d.region;
+
+        })
+
+
 
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
 
