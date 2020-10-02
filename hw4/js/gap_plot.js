@@ -563,8 +563,6 @@ class GapPlot {
             that.updateCountry(d.value)
         })
 
-
-
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
 
         tooltip.on("mouseover", function(d) {

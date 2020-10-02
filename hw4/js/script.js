@@ -18,14 +18,11 @@ loadData().then(data => {
 
         that.activeCountry = countryID;
         // TODO - your code goes here
-        let clickedgap = d3.select(".plot-svg").selectAll("circle");
 
-        //clickedgap.on('click', function(d) {
             gapPlot.updateHighlightClick(countryID);
-            worldMap.updateHighlightClick(this.id);
-            gapPlot.updateCountry = this.id;
-            worldMap.updateCountry = this.id;
-        //})
+            worldMap.updateHighlightClick(countryID);
+            gapPlot.activeCountry = countryID;
+            worldMap.activeCountry = countryID;
 
         let clickedMap = d3.select("#map-chart").selectAll("path");
         
