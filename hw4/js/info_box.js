@@ -58,7 +58,7 @@ class InfoBox {
         
         for (let i =0; i < categories.length; i++) {
             for (let k = 0; k < this.data[""+categories[i]].length; k++]) {
-                if (categories[i] === this.data[""+categories]
+                
             }
         }
 
