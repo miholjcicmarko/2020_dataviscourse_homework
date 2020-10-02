@@ -23,6 +23,8 @@ loadData().then(data => {
         clickedgap.on('click', function(d) {
             gapPlot.updateHighlightClick(this.id);
             worldMap.updateHighlightClick(this.id);
+            gapPlot.updateCountry = this.id;
+            worldMap.updateCountry = this.id;
         })
 
         let clickedMap = d3.select("#map-chart").selectAll("path");
@@ -30,6 +32,8 @@ loadData().then(data => {
         clickedMap.on('click', function(d) {
             gapPlot.updateHighlightClick(this.id);
             worldMap.updateHighlightClick(this.id);
+            gapPlot.activeCountry = this.id;
+            worldMap.activeCountry = this.id;
         })
     }
 
@@ -45,6 +49,8 @@ loadData().then(data => {
 
         //TODO - your code goes here -
         that.activeYear = year;
+
+        gapPlot.updateYear = year;
 
     }
     // Creates the view objects
