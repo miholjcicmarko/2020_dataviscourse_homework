@@ -24,14 +24,6 @@ loadData().then(data => {
             gapPlot.activeCountry = countryID;
             worldMap.activeCountry = countryID;
 
-        let clickedMap = d3.select("#map-chart").selectAll("path");
-        
-        clickedMap.on('click', function(d) {
-            gapPlot.updateHighlightClick(this.id);
-            worldMap.updateHighlightClick(this.id);
-            gapPlot.activeCountry = this.id;
-            worldMap.activeCountry = this.id;
-        })
     }
 
     // ******* TODO: PART 3 *******

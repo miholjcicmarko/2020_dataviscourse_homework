@@ -101,7 +101,16 @@ class Map {
             .enter().append("path")
             .attr("d", path)
             .attr("class", d => d.region)
-            .attr("id", function (d,i) { return d.id});   
+            .attr("id", function (d,i) { return d.id}); 
+            
+        let that = this;
+
+        let clickedMap = d3.select("#map-chart").selectAll("path")
+            .data(country_data_arr);
+        
+        clickedMap.on('click', function(d) {
+            that.updateCountry(d.country);
+        })
 
         svg.append("path")
            .datum(graticule)
