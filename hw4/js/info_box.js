@@ -60,7 +60,7 @@ class InfoBox {
         
             for (let k = 0; k < this.data[""+select_category].length; k++) {
                 if (this.data[""+select_category][k].geo === activeCountry) {
-                    text_elements.push(this.data[""+i][k][""+activeYear]);
+                    text_elements.push(this.data[""+select_category][k][""+activeYear]);
                 }
             }
         }
