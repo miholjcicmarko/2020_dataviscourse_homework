@@ -785,6 +785,8 @@ class GapPlot {
         // you will need to call it from the updateHighlight function in script.js
         */
         //TODO - your code goes here -
+        
+        
 
         
     }
