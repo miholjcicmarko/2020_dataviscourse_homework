@@ -568,7 +568,7 @@ class GapPlot {
         d3.select('.tooltip')
             .attr("class", "div.tooltip")
             .attr("class", "tooltip h2")
-            .text(this.tooltipRender(d));
+            .text(tooltipRender(d));
         })
 
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
