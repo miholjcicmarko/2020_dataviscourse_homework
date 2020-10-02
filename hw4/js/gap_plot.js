@@ -475,24 +475,27 @@ class GapPlot {
         //                            circle_data1[i].circleSize);
         //    circle_data.push(country_data2);
         //}
-
         let xVals = [];
         let yVals = [];
 
-        for (let i = 0; i < plotData_arr1.length; i++) {
-            xVals.push(plotData_arr1[i].xVal);
+        for (let i = 0; i < this.data[""+xIndicator].length; i++) {
+            for (let k = 1800; k < 2021; k++) {
+                xVals.push(this.data[""+xIndicator][i][k]);
+            }
         }
 
-        for (let i = 0; i < plotData_arr1.length; i++) {
-            yVals.push(plotData_arr1[i].yVal);
+        for (let i = 0; i < this.data[""+yIndicator].length; i++) {
+            for (let k = 1800; k < 2021; k++) {
+                yVals.push(this.data[""+yIndicator][i][k]);
+            }
         }
-
-        debugger;
 
         let circleSize_arr = [];
 
-        for (let i = 0; i < plotData_arr1.length; i++) {
-            circleSize_arr.push(plotData_arr1[i].circleSize);
+        for (let i = 0; i < this.data[""+circleSizeIndicator].length; i++) {
+            for (let k = 1800; k < 2021; k++) {
+                circleSize_arr.push(this.data[""+circleSizeIndicator][i][k]);
+            }
         }
 
         let minSize = d3.min(circleSize_arr);
