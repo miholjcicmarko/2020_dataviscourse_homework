@@ -151,7 +151,7 @@ class GapPlot {
         d3.select(".plot-svg").append("text")
             .attr("class", "activeYear-background")
             .attr("transform", "translate(100, 150)")
-            .text(function() { return activeYear});
+            .attr("id", "active-YearBG");
 
         /* Below is the setup for the dropdown menu- no need to change this */
 
@@ -556,14 +556,12 @@ class GapPlot {
             .attr("class", "circle")
             .attr("class", d => d.region);
 
-        console.log("hi");
-
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle")
             .data(plotData_arr1);
 
         tooltip.on("mouseover", function(d) {
 
-        d3.select(this).append("title")
+        d3.select(this).selectAll("title")
             .attr("class", "div.tooltip")
             .attr("class", "tooltip h2")
             .text(this.tooltipRender(d));
@@ -572,10 +570,8 @@ class GapPlot {
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
         this.drawLegend(minSize,maxSize);
 
-        d3.select(".plot-svg").append("text")
-            .attr("class", "activeYear-background")
-            .attr("transform", "translate(100, 150)")
-            .text(function() { return activeYear});
+        d3.select(".plot-svg").select("#active-YearBG")
+            .text(function() { return "" + activeYear});
     }
 
     /**
