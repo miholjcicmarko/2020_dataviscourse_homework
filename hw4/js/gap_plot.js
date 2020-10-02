@@ -191,8 +191,6 @@ class GapPlot {
             .append('g')
             .attr('transform', 'translate(10, 0)');
 
-        debugger;
-
         d3.selectAll('#dropdown_x')
             .on("change", function (d) {
                 let dropdownX = d;
@@ -561,7 +559,6 @@ class GapPlot {
             .data(plotData_arr1);
 
         clickedgap.on("click", function(d){ 
-            debugger;
             that.updateCountry(d);
         });
 
