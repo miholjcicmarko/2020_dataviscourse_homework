@@ -61,8 +61,6 @@ loadData().then(data => {
     // Initialize gapPlot here.
     //TODO - your code goes here -
 
-    debugger;
-
     gapPlot.updatePlot(this.activeYear, "population", "gdp", "gdp");
 
     // here we load the map data
