@@ -54,6 +54,7 @@ class InfoBox {
                         "fertility-rate"];
 
         let text_elements = [];
+        let region = [];
 
         for (let i = 0; i < categories.length; i++) {
             let select_category = categories[i];
@@ -61,11 +62,12 @@ class InfoBox {
             for (let k = 0; k < this.data[""+select_category].length; k++) {
                 if (this.data[""+select_category][k].geo === activeCountry) {
                     text_elements.push(this.data[""+select_category][k][""+activeYear]);
+                    region.push(this.data["population"].region);
                 }
             }
         }
 
-        debugger;
+        let infobox = new InfoBox(activeCountry, region[1], )
         
 
     }
