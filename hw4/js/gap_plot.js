@@ -131,7 +131,7 @@ class GapPlot {
             .classed("y-axis", true)
             //.attr("transform", "translate(25,0)");
             //.attr("class", "axis line")
-            //.attr("id", "y-axis")
+            .attr("id", "y-axis");
             //.call(d3.axisLeft(yAxisScale).ticks(5));
 
         xaxis.append("text")
@@ -143,11 +143,10 @@ class GapPlot {
 
         yaxis.append("text")
             .classed("axis-label-y", true)
-            //.attr("transform", 'translate(-15,200)rotate(-90)');
-            //.attr("class", "axis label")
-            //.attr("text-anchor", "middle")
-            //.attr("class", "y-label")
-            //.text("GDP");    
+            .attr("transform", "translate(-"+(1.2*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
+            .attr("class", "axis-label")
+            .attr("text-anchor", "middle")
+            .attr("class", "y-label");  
             
         d3.select(".plot-svg").append("text")
             .attr("class", "activeYear-background")
@@ -496,8 +495,13 @@ class GapPlot {
                 circleSize_arr.push(this.data[""+circleSizeIndicator][i][k]);
             }
         }
+        debugger;
 
-        let minSize = d3.min(circleSize_arr);
+        let nonZeros = circleSize_arr.filter(function (d) {
+            return d !== 0;
+        })
+
+        let minSize = d3.min(nonZeros);
         let maxSize = d3.max(circleSize_arr);
 
         for (let i = 0; i < plotData_arr1.length; i++) {
@@ -518,34 +522,29 @@ class GapPlot {
 
         xaxis_data.call(d3.axisBottom(xUpScale).ticks(5))
             .attr("transform", "translate("+this.margin.left+"," +this.height+")")
-            .attr("class", "axis line")
-            .attr("id", "x-axis");
+            .attr("class", "axis line");
 
-        let yaxis = d3.select('.y-axis');
+        let yaxis = d3.select('#y-axis');
 
         yaxis.call(d3.axisLeft(yUpScale).ticks(5))
             .attr("transform", "translate("+this.margin.left+",0)")
-            .attr("class", "axis line")
-            .attr("id", "y-axis");
-
-        let labelx = xIndicator;  
+            .attr("class", "axis line");
             
         let xlab = d3.select('.x-label')
-            .text(function() { return "" + labelx});
+            .text(function() { return "" + xIndicator});
 
         xlab.attr("text-anchor", "middle")
             .attr("class", "axis-label")
             .attr("class", "x-label")
             .attr("fill", "black");
 
-        let ylab = d3.selectAll('.axis-label-y');
-
-        ylab.attr("transform", "translate(-"+(1.2*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
-            .attr("class", "axis label")
-            .attr("text-anchor", "middle")
-            .attr("class", "y-label")
-            .attr("fill", "black")
+        let ylab = d3.select('.y-label')
             .text(function() { return "" + yIndicator});
+
+        ylab.attr("text-anchor", "middle")
+            .attr("class", "axis-label")
+            .attr("class", "y-label")
+            .attr("fill", "black");
 
         d3.select('.plot-svg').selectAll("circle")
             .data(plotData_arr1)
