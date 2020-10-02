@@ -119,7 +119,7 @@ class GapPlot {
             .classed("x-axis", true)
             //.attr("transform", "translate(25,"+ this.height+")");
             //.attr("class", "axis line")
-            //.attr("id", "x-axis")
+            .attr("id", "x-axis");
             //.call(d3.axisBottom(xAxisScale).ticks(5));
 
         //let yAxisScale = d3
@@ -514,7 +514,7 @@ class GapPlot {
             .domain([d3.max(yVals), 0])
             .range([this.margin.bottom,this.height]);
 
-        let xaxis_data = d3.select('.x-axis');
+        let xaxis_data = d3.select('#x-axis');
 
         xaxis_data.call(d3.axisBottom(xUpScale).ticks(5))
             .attr("transform", "translate("+this.margin.left+"," +this.height+")")
