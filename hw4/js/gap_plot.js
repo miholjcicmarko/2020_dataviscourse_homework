@@ -115,7 +115,7 @@ class GapPlot {
         //    .domain([0, d3.max(this.data.gdp)])
         //    .range([0, this.width]);
     
-        let xaxis = d3.select(".plot-svg").selectAll("g")
+        let xaxis = svgGroup.append("g")
             .classed("x-axis", true)
             //.attr("transform", "translate(25,"+ this.height+")");
             //.attr("class", "axis line")
@@ -136,11 +136,10 @@ class GapPlot {
 
         xaxis.append("text")
             .classed("axis-label-x", true)
-            //.attr("transform", "translate(350, 30)");
-            //.attr("text-anchor", "middle")
-            //.attr("class", "axis-label")
-            //.attr("class", "x-label")
-            //.text("GDP");
+            .attr("transform", "translate("+(5*this.margin.left)+"," +(2*this.margin.top)+")")
+            .attr("text-anchor", "middle")
+            .attr("class", "axis-label")
+            .attr("class", "x-label");
 
         yaxis.append("text")
             .classed("axis-label-y", true)
@@ -531,9 +530,8 @@ class GapPlot {
 
         let labelx = xIndicator;  
             
-        let xlab = d3.selectAll('.axis-label-x')
-            .text(function() { return "" + labelx})
-            .attr("transform", "translate("+(5*this.margin.left)+"," +(2*this.margin.top)+")");
+        let xlab = d3.select('.x-label')
+            .text(function() { return "" + labelx});
 
         xlab.attr("text-anchor", "middle")
             .attr("class", "axis-label")
