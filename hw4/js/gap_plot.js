@@ -499,14 +499,14 @@ class GapPlot {
 
         let circleSize_arr = [];
 
-        for (let i = 0; i < plotData_arr.length; i++) {
+        for (let i = 0; i < plotData_arr1.length; i++) {
             circleSize_arr.push(plotData_arr1[i].circleSize);
         }
 
         let minSize = d3.min(circleSize_arr);
         let maxSize = d3.max(circleSize_arr);
 
-        for (let i = 0; i < plotData_arr.length; i++) {
+        for (let i = 0; i < plotData_arr1.length; i++) {
             plotData_arr1[i].circleSize = circleSizer(plotData_arr1[i]);
         }
 
