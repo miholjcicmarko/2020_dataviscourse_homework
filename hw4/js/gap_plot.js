@@ -191,6 +191,8 @@ class GapPlot {
             .append('g')
             .attr('transform', 'translate(10, 0)');
 
+        debugger;
+
         d3.selectAll('#dropdown_x')
             .on("change", function (d) {
                 let dropdownX = d;
@@ -552,7 +554,7 @@ class GapPlot {
             .attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "circle")
             .attr("class", d => d.region);
-   
+
         let that = this;
         
         let clickedgap = d3.select(".plot-svg").selectAll("circle")
@@ -560,6 +562,7 @@ class GapPlot {
 
         clickedgap.on("click", function(d){ 
             that.updateCountry(d.country);
+            
         });
 
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
