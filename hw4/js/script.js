@@ -25,6 +25,8 @@ loadData().then(data => {
             map.updateHighlightClick(this.activeCountry);
         })
 
+
+
         // TODO - your code goes here
     }
 
@@ -39,6 +41,7 @@ loadData().then(data => {
     function updateYear(year) {
 
         //TODO - your code goes here -
+        that.activeYear = year;
 
     }
     // Creates the view objects

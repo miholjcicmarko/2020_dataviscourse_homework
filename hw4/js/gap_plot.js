@@ -565,7 +565,7 @@ class GapPlot {
         d3.select('.tooltip')
             .attr("class", "div.tooltip")
             .attr("class", "tooltip h2")
-            .text(tooltipRender(d));
+            .text(this.tooltipRender(d));
         })
 
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
@@ -732,6 +732,7 @@ class GapPlot {
             
             that.updatePlot(this.value, dropX, dropY, dropC);
             that.updateYear = this.value;
+
         });
     }
 
@@ -785,9 +786,9 @@ class GapPlot {
         // you will need to call it from the updateHighlight function in script.js
         */
         //TODO - your code goes here -
-        
-        
+        this.updateCountry = activeCountry;
 
+        
         
     }
 
