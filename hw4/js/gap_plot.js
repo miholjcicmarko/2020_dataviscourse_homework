@@ -797,8 +797,8 @@ class GapPlot {
         let selected_region = activeCountry.region;
         let selected_country = activeCountry.country;
         
-        d3.select("."+selected_country.region)
-            .classed("hidden", true);
+        d3.select("."+selected_region)
+            .attr("class", "selected-country");
         
         
     }
