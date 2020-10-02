@@ -727,8 +727,9 @@ class GapPlot {
             let dropX = dropDownWrapper.select('#dropdown_x').select('.dropdown-content').select('select').node().value;
             let dropY = dropDownWrapper.select('#dropdown_y').select('.dropdown-content').select('select').node().value;
             
-            that.updatePlot(this.value, dropX, dropY, dropC);
+            debugger;
             that.updateYear(this.value);
+            that.updatePlot(this.value, dropX, dropY, dropC);
 
         });
     }

@@ -46,9 +46,10 @@ loadData().then(data => {
      *  @param year the new year we need to set to the other views
      */
     function updateYear(year) {
-
+        
         //TODO - your code goes here -
         that.activeYear = year;
+        console.log(year)
 
         gapPlot.updateYear = year;
 
