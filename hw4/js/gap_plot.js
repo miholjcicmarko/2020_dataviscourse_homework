@@ -831,7 +831,7 @@ class GapPlot {
         // the colors and markers for hosts/teams/winners, you can use
         // d3 selection and .classed to set these classes off here.
         //TODO - your code goes here -
-
+        d3.selectAll("path").selectAll("classed", false);
         
 
     }

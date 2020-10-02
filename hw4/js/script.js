@@ -20,7 +20,7 @@ loadData().then(data => {
 
         if (countryID === null) {
             gapPlot.clearHighlight();
-            worldMap.clearHighlight;
+            worldMap.clearHighlight();
             that.activeCountry = null;
         }
         else {

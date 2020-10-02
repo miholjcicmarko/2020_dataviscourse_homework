@@ -155,5 +155,6 @@ class Map {
         // d3 selection and .classed to set these classes off here.
 
         //TODO - your code goes here
+        d3.selectAll("path").selectAll("classed", false);
     }
 }
