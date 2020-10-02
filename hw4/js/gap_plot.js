@@ -563,7 +563,6 @@ class GapPlot {
         clickedgap.on("click", function(d){ 
             debugger;
             that.updateCountry(d);
-            
         });
 
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
@@ -795,7 +794,9 @@ class GapPlot {
         */
         //TODO - your code goes here -
         
-        let selected_country = this.data[""+activeCountry];
+        let selected_region = activeCountry.region;
+        let selected_country = activeCountry.country;
+        
         d3.select("."+selected_country.region)
             .classed("hidden", true);
         
