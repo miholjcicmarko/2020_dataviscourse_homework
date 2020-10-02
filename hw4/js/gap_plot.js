@@ -533,7 +533,7 @@ class GapPlot {
             .attr("class", "axis-label")
             .attr("class", "x-label")
             .attr("fill", "black")
-            .text(function() { return xIndicator});
+            .text(function() { return "" + xIndicator});
 
         let ylab = d3.selectAll('.axis-label-y');
 
@@ -542,7 +542,7 @@ class GapPlot {
             .attr("text-anchor", "middle")
             .attr("class", "y-label")
             .attr("fill", "black")
-            .text(function() { return yIndicator});
+            .text(function() { return "" + yIndicator});
 
         d3.select('.plot-svg').selectAll("circle")
             .data(plotData_arr1)
