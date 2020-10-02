@@ -359,11 +359,11 @@ class GapPlot {
                    if((this.data[""+xIndicator][i].geo === this.data[""+yIndicator][k].geo) && 
                    (this.data[""+circleSizeIndicator][m].geo === this.data[""+xIndicator][i].geo)) {
                         let country_data = new PlotData(this.data[""+xIndicator][i].country,
-                                        this.data[""+xIndicator][i][this.activeYear],
-                                        this.data[""+yIndicator][k][this.activeYear],
+                                        this.data[""+xIndicator][i][""+activeYear],
+                                        this.data[""+yIndicator][k][""+activeYear],
                                         this.data[""+xIndicator][i].geo,
                                         "countries",
-                                        this.data[""+circleSizeIndicator][m][this.activeYear]);
+                                        this.data[""+circleSizeIndicator][m][""+activeYear]);
                                         plotData_arr.push(country_data);
                    }
                }
@@ -526,14 +526,16 @@ class GapPlot {
             .attr("class", "axis line")
             .attr("id", "y-axis");
 
-        let xlab = d3.selectAll('.axis-label-x');
+        let labelx = xIndicator;  
+            
+        let xlab = d3.selectAll('.axis-label-x')
+            .text(function() { return "" + labelx})
+            .attr("transform", "translate("+(5*this.margin.left)+"," +(2*this.margin.top)+")");
 
-        xlab.attr("transform", "translate("+(5*this.margin.left)+"," +(2*this.margin.top)+")")
-            .attr("text-anchor", "middle")
+        xlab.attr("text-anchor", "middle")
             .attr("class", "axis-label")
             .attr("class", "x-label")
-            .attr("fill", "black")
-            .text(function() { return "" + xIndicator});
+            .attr("fill", "black");
 
         let ylab = d3.selectAll('.axis-label-y');
 
@@ -553,6 +555,8 @@ class GapPlot {
             .attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "circle")
             .attr("class", d => d.region);
+
+        console.log("hi");
 
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
 
@@ -712,12 +716,17 @@ class GapPlot {
         yearSlider.on('input', function () {
             //TODO - your code goes here -
 
-            that.drawPlot(that.value);
-
             sliderText
-                .text(that.value)
-                .attr('x', yearScale(that.value))
+                .text(this.value)
+                .attr('x', yearScale(this.value))
                 .attr('y', 25); 
+
+            let dropDownWrapper = d3.select('.dropdown-wrapper');
+            let dropC = dropDownWrapper.select('#dropdown_c').select('.dropdown-content').select('select').node().value;
+            let dropX = dropDownWrapper.select('#dropdown_x').select('.dropdown-content').select('select').node().value;
+            let dropY = dropDownWrapper.select('#dropdown_y').select('.dropdown-content').select('select').node().value;
+            
+            that.updatePlot(this.value, dropX, dropY, dropC);
         });
     }
 
