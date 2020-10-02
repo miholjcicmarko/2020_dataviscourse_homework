@@ -560,9 +560,7 @@ class GapPlot {
             .data(plotData_arr1);
 
         clickedgap.on("click", function(d){ 
-            let country = d.country;
-            let region = d.region;
-
+            that.updateCountry(d.value)
         })
 
 
