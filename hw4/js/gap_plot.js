@@ -191,8 +191,6 @@ class GapPlot {
             .append('g')
             .attr('transform', 'translate(10, 0)');
 
-        debugger;
-
         d3.selectAll('#dropdown_x')
             .on("change", function (d) {
                 let dropdownX = d;
@@ -495,7 +493,6 @@ class GapPlot {
                 circleSize_arr.push(this.data[""+circleSizeIndicator][i][k]);
             }
         }
-        debugger;
 
         let nonZeros = circleSize_arr.filter(function (d) {
             return d !== 0;
@@ -562,9 +559,7 @@ class GapPlot {
             .data(plotData_arr1);
 
         clickedgap.on("click", function(d){ 
-            debugger;
             that.updateCountry(d.country);
-            
         });
 
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");

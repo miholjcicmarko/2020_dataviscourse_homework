@@ -105,11 +105,13 @@ class Map {
             
         let that = this;
 
-        let clickedMap = d3.select("#map-chart").selectAll("path")
+        let clickedMap = d3.select("#map-chart").select("svg").selectAll("path")
             .data(country_data_arr);
         
         clickedMap.on('click', function(d) {
-            that.updateCountry(d.country);
+            debugger;
+            console.log(d.id);
+            that.updateCountry(d.id);
         })
 
         svg.append("path")
