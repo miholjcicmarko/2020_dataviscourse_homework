@@ -17,17 +17,20 @@ loadData().then(data => {
     function updateCountry(countryID) {
 
         that.activeCountry = countryID;
+        // TODO - your code goes here
+        let clickedgap = d3.select(".plot-svg").selectAll("circle");
 
-        let clicked = d3.select(".plot-svg").selectAll("circle");
-
-        clicked.on('click', function() {
+        clickedgap.on('click', function() {
             gapPlot.updateHighlightClick(this.activeCountry);
-            map.updateHighlightClick(this.activeCountry);
+            worldMap.updateHighlightClick(this.activeCountry);
         })
 
-
-
-        // TODO - your code goes here
+        let clickedMap = d3.select("#map-chart").selectAll("path");
+        
+        clickedMap.on('click', function() {
+            gapPlot.updateHighlightClick(this.activeCountry);
+            worldMap.updateHighlightClick(this.activeCountry);
+        })
     }
 
     // ******* TODO: PART 3 *******
