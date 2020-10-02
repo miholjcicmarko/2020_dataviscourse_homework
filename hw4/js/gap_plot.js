@@ -545,9 +545,9 @@ class GapPlot {
             .attr("fill", "black")
             .text(function() { return xIndicator});
 
-        let ylab = d3.selectAll('.axis-label-y');
+        let ylab = d3.selectAll('.axis-label-y').selectAll("text");
 
-        ylab..attr("transform", "translate(-"+(1.2*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
+        ylab.attr("transform", "translate(-"+(1.2*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
             .attr("class", "axis label")
             .attr("text-anchor", "middle")
             .attr("class", "y-label")
