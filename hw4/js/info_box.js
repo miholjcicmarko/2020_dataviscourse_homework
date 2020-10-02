@@ -28,9 +28,8 @@ class InfoBox {
         this.indicator_name = data;
         this.value = data;
 
-        this.data = data;
         //TODO - your code goes here -
-
+        this.data = data;
     }
 
     /**
@@ -53,15 +52,6 @@ class InfoBox {
         //TODO - your code goes here -
         let categories = ["population", "gdp", "child-mortality", "life-expectancy",
                         "fertility-rate"];
-
-        let data = [];
-        
-        for (let i =0; i < categories.length; i++) {
-            for (let k = 0; k < this.data[""+categories[i]].length; k++) {
-                
-            }
-        }
-
 
     }
 
