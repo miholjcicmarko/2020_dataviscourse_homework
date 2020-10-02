@@ -797,10 +797,26 @@ class GapPlot {
         let selected_region = activeCountry.region;
         let selected_country = activeCountry.country;
         
-        d3.select("."+selected_region)
-            .attr("class", "selected-country");
+        d3.select('.plot-svg').selectAll("circle")
+            .attr("hidden", true);
+
+        //d3.select('.plot-svg').selectAll("cicle").select(""+activeCountry)
+        //    .attr("", )
+
+        //    d3.select('.plot-svg').selectAll("circle")
+        //    .data(plotData_arr1)
+        //    .join("circle")
+        //    .attr('cx', (d,i) => xUpScale(d.xVal))
+        //    .attr('cy', (d,i) => yUpScale(d.yVal))
+        //    .attr('r', (d,i) => d.circleSize)
+        //    .attr("transform", "translate("+this.margin.left+",0)")
+        //    .attr("class", "circle")
+        //    .attr("class", d => d.region);
+
         
         
+        
+
     }
 
     /**
@@ -815,6 +831,8 @@ class GapPlot {
         // the colors and markers for hosts/teams/winners, you can use
         // d3 selection and .classed to set these classes off here.
         //TODO - your code goes here -
+
+        
 
     }
 

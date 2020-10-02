@@ -110,8 +110,7 @@ class Map {
         
         clickedMap.on('click', function(d) {
             debugger;
-            console.log(d.id);
-            that.updateCountry(d.id);
+            that.updateCountry(d);
         })
 
         svg.append("path")
