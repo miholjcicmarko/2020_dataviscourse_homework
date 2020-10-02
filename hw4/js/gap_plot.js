@@ -372,8 +372,6 @@ class GapPlot {
        
        let plotData_arr1 = [];
 
-       debugger;
-
        for (let i = 0; i < plotData_arr.length; i++) {
            for (let k =0; k < this.data["population"].length; k++) {
                if (plotData_arr[i].id === this.data["population"][k].geo) {
@@ -382,10 +380,6 @@ class GapPlot {
                }
            }
        }
-
-
-
-       debugger;
        
        //let plotData_arr1 = [];
 
@@ -419,8 +413,6 @@ class GapPlot {
         //        plotData_arr1.push(country_data);
         //    }
         //}
-
-        debugger;
 
         //if (xIndicator === "population") {
         //    for (let i = 0; i < plotData_arr1.length; i++) {
@@ -510,8 +502,6 @@ class GapPlot {
             plotData_arr1[i].circleSize = circleSizer(plotData_arr1[i]);
         }
 
-        debugger;
-
         let xUpScale = d3
             .scaleLinear()
             .domain([0, d3.max(xVals)])
@@ -545,7 +535,7 @@ class GapPlot {
             .attr("fill", "black")
             .text(function() { return xIndicator});
 
-        let ylab = d3.selectAll('.axis-label-y').selectAll("text");
+        let ylab = d3.selectAll('.axis-label-y');
 
         ylab.attr("transform", "translate(-"+(1.2*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
             .attr("class", "axis label")
