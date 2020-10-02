@@ -61,7 +61,7 @@ loadData().then(data => {
 
     debugger;
 
-    gapPlot;
+    gapPlot.updatePlot(this.activeYear, "population", "gdp", "gdp");
 
     // here we load the map data
     d3.json('data/world.json').then(mapData => {
