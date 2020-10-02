@@ -65,6 +65,7 @@ class InfoBox {
             }
         }
 
+        debugger;
         
 
     }
