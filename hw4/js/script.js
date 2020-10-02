@@ -18,6 +18,9 @@ loadData().then(data => {
 
         that.activeCountry = countryID;
 
+        gapPlot.updateHighlightClick(countryID);
+        map.updateHighlightClick(countryID);
+
         // TODO - your code goes here
     }
 

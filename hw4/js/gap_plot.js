@@ -570,7 +570,11 @@ class GapPlot {
 
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
         this.drawLegend(minSize,maxSize);
-                        
+
+        d3.select(".plot-svg").append("text")
+            .attr("class", "activeYear-background")
+            .attr("transform", "translate(100, 150)")
+            .text(function() { return activeYear});
     }
 
     /**
@@ -727,6 +731,7 @@ class GapPlot {
             let dropY = dropDownWrapper.select('#dropdown_y').select('.dropdown-content').select('select').node().value;
             
             that.updatePlot(this.value, dropX, dropY, dropC);
+            that.updateYear = this.value;
         });
     }
 
@@ -780,6 +785,8 @@ class GapPlot {
         // you will need to call it from the updateHighlight function in script.js
         */
         //TODO - your code goes here -
+
+        
     }
 
     /**
