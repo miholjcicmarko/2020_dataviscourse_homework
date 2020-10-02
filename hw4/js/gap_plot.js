@@ -554,7 +554,8 @@ class GapPlot {
             .attr("class", "circle")
             .attr("class", d => d.region);
 
-        let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
+        let tooltip = d3.selectAll('.plot-svg').selectAll("circle")
+            .data(plotData_arr1);
 
         tooltip.on("mouseover", function(d) {
 
