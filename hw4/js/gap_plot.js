@@ -714,8 +714,6 @@ class GapPlot {
 
             that.drawPlot(that.value);
 
-            //script.updateYear(that.value);
-
             sliderText
                 .text(that.value)
                 .attr('x', yearScale(that.value))
