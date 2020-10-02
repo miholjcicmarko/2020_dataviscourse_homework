@@ -61,8 +61,8 @@ class Map {
 
         //TODO - your code goes here
         let svg = d3.select("#map-chart").append("svg")
-            .attr("class", "#map-chart")
-            .attr("class", "#map-chart svg")
+            .attr("id", "map-chart")
+            .attr("id", "map-chart svg")
             .attr("class", "countries")
             .attr("class", "boundary");
         
@@ -137,7 +137,9 @@ class Map {
         // d3 selection and .classed to set these classes on here.
 
         //TODO - your code goes here
-        console.log(activeCountry);
+        let reg = activeCountry.region;
+
+        console.log(reg);
         
 
     }
