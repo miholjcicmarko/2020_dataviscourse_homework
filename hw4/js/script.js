@@ -20,12 +20,12 @@ loadData().then(data => {
         // TODO - your code goes here
         let clickedgap = d3.select(".plot-svg").selectAll("circle");
 
-        clickedgap.on('click', function(d) {
-            gapPlot.updateHighlightClick(this.id);
+        //clickedgap.on('click', function(d) {
+            gapPlot.updateHighlightClick(countryID);
             worldMap.updateHighlightClick(this.id);
             gapPlot.updateCountry = this.id;
             worldMap.updateCountry = this.id;
-        })
+        //})
 
         let clickedMap = d3.select("#map-chart").selectAll("path");
         
