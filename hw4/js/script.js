@@ -16,18 +16,20 @@ loadData().then(data => {
      */
     function updateCountry(countryID) {
 
-        that.activeCountry = countryID.id;
         // TODO - your code goes here
 
         if (countryID === null) {
             gapPlot.clearHighlight();
             worldMap.clearHighlight;
+            that.activeCountry = null;
         }
-
-        gapPlot.updateHighlightClick(countryID);
-        worldMap.updateHighlightClick(countryID);
-        gapPlot.activeCountry = countryID;
-        worldMap.activeCountry = countryID;
+        else {
+            that.activeCountry = countryID.id;
+            gapPlot.updateHighlightClick(countryID);
+            worldMap.updateHighlightClick(countryID);
+            gapPlot.activeCountry = countryID;
+            worldMap.activeCountry = countryID;
+        }
 
     }
 

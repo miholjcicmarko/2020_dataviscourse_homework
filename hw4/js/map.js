@@ -137,7 +137,7 @@ class Map {
         // d3 selection and .classed to set these classes on here.
 
         //TODO - your code goes here
-
+        console.log(activeCountry);
         
 
     }
