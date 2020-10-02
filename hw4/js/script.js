@@ -21,12 +21,14 @@ loadData().then(data => {
         if (countryID === null) {
             gapPlot.clearHighlight();
             worldMap.clearHighlight();
+            infoBox.clearHighlight();
             that.activeCountry = null;
         }
         else {
             that.activeCountry = countryID.id;
             gapPlot.updateHighlightClick(countryID);
             worldMap.updateHighlightClick(countryID);
+            infoBox.updateTextDescription(activeCountry, activeYear);
             gapPlot.activeCountry = countryID;
             worldMap.activeCountry = countryID;
         }

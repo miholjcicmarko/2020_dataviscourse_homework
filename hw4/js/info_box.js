@@ -49,6 +49,12 @@ class InfoBox {
          */
 
         //TODO - your code goes here -
+        let that = this;
+
+        that.country = activeCountry.country;
+        that.region = activeCountry.region;
+        
+
     }
 
     /**
