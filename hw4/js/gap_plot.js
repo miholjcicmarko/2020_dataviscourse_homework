@@ -565,12 +565,11 @@ class GapPlot {
         let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
 
         tooltip.on("mouseover", function(d) {
-            let country = d.country;
 
         d3.select(this).append("title")
             .attr("class", "div.tooltip")
             .attr("class", "tooltip h2")
-            .text(function(d) { return "" + country});
+            .text(that.tooltipRender(d));
         })
         
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
@@ -839,7 +838,7 @@ class GapPlot {
      * @returns {string}
      */
     tooltipRender(data) {
-        let text = "<h2>" + data['country'] + "</h2>";
+        let text = data['country'];
         return text;
     }
 

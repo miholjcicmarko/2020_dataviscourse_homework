@@ -62,12 +62,12 @@ class InfoBox {
             for (let k = 0; k < this.data[""+select_category].length; k++) {
                 if (this.data[""+select_category][k].geo === activeCountry) {
                     text_elements.push(this.data[""+select_category][k][""+activeYear]);
-                    region.push(this.data["population"].region);
+                    region.push(this.data[""+select_category[i]].region);
                 }
             }
         }
 
-        let infobox = new InfoBox(activeCountry, region[1], categories,
+        let infobox = new InfoBox(activeCountry, region, categories,
                                 text_elements);
         
         debugger;
