@@ -53,6 +53,18 @@ class InfoBox {
         let categories = ["population", "gdp", "child-mortality", "life-expectancy",
                         "fertility-rate"];
 
+        let text_elements = [];
+
+        for (let i = 0; i < categories.length; i++) {
+            for (let k = 0; k < this.data[""+i].length; k++) {
+                if (this.data[""+categories[i]][k].geo === activeCountry) {
+                    text_elements.push(this.data[""+i][k][""+activeYear]);
+                }
+            }
+        }
+
+        
+
     }
 
     /**
