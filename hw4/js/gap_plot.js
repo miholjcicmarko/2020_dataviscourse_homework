@@ -556,19 +556,17 @@ class GapPlot {
             .attr("class", "circle")
             .attr("class", d => d.region);
 
-        let tooltip = d3.selectAll('.plot-svg').selectAll("circle")
-            .data(plotData_arr1);
-
-        let that = this;
+        let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
 
         tooltip.on("mouseover", function(d) {
+            let country = d.country;
 
-        d3.select(this).selectAll("title")
+        d3.select(this).append("title")
             .attr("class", "div.tooltip")
             .attr("class", "tooltip h2")
-            .text(that.tooltipRender(d));
-        });
-
+            .text(function(d) { return "" + country});
+        })
+        
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
         this.drawLegend(minSize,maxSize);
 
