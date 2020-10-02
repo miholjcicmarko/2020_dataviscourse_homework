@@ -561,7 +561,8 @@ class GapPlot {
             .data(plotData_arr1);
 
         clickedgap.on("click", function(d){ 
-            that.updateCountry(d.country);
+            debugger;
+            that.updateCountry(d);
             
         });
 
@@ -794,7 +795,9 @@ class GapPlot {
         */
         //TODO - your code goes here -
         
-
+        let selected_country = this.data[""+activeCountry];
+        d3.select("."+selected_country.region)
+            .classed("hidden", true);
         
         
     }
