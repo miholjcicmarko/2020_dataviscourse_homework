@@ -554,8 +554,7 @@ class GapPlot {
             .attr("class", "circle")
             .attr("class", d => d.region);
 
-        let tooltip = d3.selectAll('.plot-svg').selectAll("circle")
-            .data(plotData_arr1);
+        let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
 
         tooltip.on("mouseover", function(d) {
 
@@ -566,7 +565,7 @@ class GapPlot {
         })
 
         this.drawDropDown(xIndicator,yIndicator,circleSizeIndicator);
-        this.drawLegend(d3.min(this.data[""+circleSizeIndicator]), d3.max(this.data[""+circleSizeIndicator]));
+        this.drawLegend(minSize,maxSize);
                         
     }
 
