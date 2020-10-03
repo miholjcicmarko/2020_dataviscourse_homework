@@ -48,8 +48,6 @@ loadData().then(data => {
         //TODO - your code goes here -
         that.activeYear = year;
 
-        gapPlot.activeYear = year;
-
         infoBox.updateTextDescription(activeCountry, activeYear);
 
     }
