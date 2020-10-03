@@ -106,7 +106,6 @@ class InfoBox {
             .attr("cx", 0)
             .attr("cy",130)
             .attr("r", 5)
-            .attr("class", "circle")
             .attr("class", d => {return infobox_data[0].region});
     }
 
