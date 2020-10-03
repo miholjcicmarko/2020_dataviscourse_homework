@@ -54,7 +54,8 @@ class InfoBox {
             let select_category = categories[i];
         
             for (let k = 0; k < this.data[""+select_category].length; k++) {
-                if (this.data[""+select_category][k].geo.toUpperCase() === activeCountry) {
+                if (this.data[""+select_category][k].geo.toUpperCase() === activeCountry ||
+                this.data[""+select_category][k].geo === activeCountry) {
                     let country_name = this.data[""+select_category][k].country;
 
                     let infobox = new InfoBoxData(country_name, 
