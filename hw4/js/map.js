@@ -109,7 +109,6 @@ class Map {
             .data(country_data_arr);
         
         clickedMap.on('click', function(d) {
-            debugger;
             that.updateCountry(d);
         })
 

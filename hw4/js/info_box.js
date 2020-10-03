@@ -75,8 +75,6 @@ class InfoBox {
 
         let country_name = infobox_data[0].country;
 
-        debugger;
-
         d3.select("#country-detail").selectAll("text")
             .remove();
 
