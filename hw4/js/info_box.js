@@ -120,10 +120,19 @@ class InfoBox {
 
         //TODO - your code goes here -
         d3.select("#country-detail").selectAll("text")
-            .remove();
+            .style("opacity", 1)
+            .remove()
+            .transition()
+            .duration(1000)
+            .style("opacity", 0);
 
         d3.select("#country-detail").selectAll("circle")
-            .remove();
+            .style("opacity", 1)
+            .remove()
+            .transition()
+            .duration(1000)
+            .style("opacity", 0);
+
     }
 
 }
