@@ -73,7 +73,7 @@ class InfoBox {
             }
         }
 
-        let text_country = d3.select("#country-detail").append("text")
+        let text_country = d3.select("#country-detail").select("text")
             .data(infobox_data)
             .attr("class", "stat")
             .attr("class", "stats span")
