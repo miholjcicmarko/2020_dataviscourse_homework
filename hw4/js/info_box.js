@@ -81,13 +81,6 @@ class InfoBox {
             .attr("class", "label span")
             .text(function(d) {return d.country});
 
-        d3.select("#country-detail").append("text")
-            .data(infobox_data)
-            .attr("class", "stat")
-            .attr("class", "stats span")
-            .attr("class", "label")
-            .attr("class", "label span")
-            .text(function(d) {return d.country});
 
 
         
