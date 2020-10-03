@@ -77,16 +77,16 @@ class InfoBox {
 
         debugger;
 
-        d3.select("#country-detail").selectAll("text")
+        d3.select("#country-detail").append("text")
             .attr("y", 40)
             .text(country_name);
 
-        let text_box = d3.select("#country-detail").selectAll("svg")
+        let text_box = d3.select("#country-detail").append("svg")
             .attr("width", 780)
             .attr("height", 200)
             .attr("id", "textbox_container");
 
-        text_box.selectAll("text").remove();
+        text_box.selectAll("#textbox_container").remove();
 
         text_box.selectAll("text")
             .data(infobox_data)
