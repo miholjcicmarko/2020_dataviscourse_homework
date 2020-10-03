@@ -73,6 +73,14 @@ class InfoBox {
             }
         }
 
+        let country_name = infobox_data[0].country;
+
+        debugger;
+
+        d3.select("#country-detail").append("text")
+            .attr("y", 40)
+            .text(country_name);
+
         let text_box = d3.select("#country-detail").append("svg")
             .attr("width", 780)
             .attr("height", 200)
@@ -85,14 +93,6 @@ class InfoBox {
             .join("text")
             .attr("y", (d,i) => 70+(i*20))
             .text(function(d) {return d.indicator_name +": " + d.value});
-
-        let country_name = infobox_data[0].country;
-
-        debugger;
-
-        d3.select("#country-detail").append("text")
-            .attr("y", 40)
-            .text(country_name);
 
     }
 
