@@ -48,7 +48,7 @@ class InfoBox {
         let categories = ["population", "gdp", "child-mortality", "life-expectancy",
                         "fertility-rate"];
 
-        infobox_data = [];
+        let infobox_data = [];
 
         for (let i = 0; i < categories.length; i++) {
             let select_category = categories[i];
