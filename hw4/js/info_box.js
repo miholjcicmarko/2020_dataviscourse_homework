@@ -91,9 +91,8 @@ class InfoBox {
         text_box.selectAll("text")
             .data(infobox_data)
             .join("text")
-            .attr("y", (d,i) => (i*20))
+            .attr("y", (d,i) => 20+(i*20))
             .text(function(d) {return d.indicator_name +": " + d.value});
-
     }
 
     /**
@@ -102,6 +101,8 @@ class InfoBox {
     clearHighlight() {
 
         //TODO - your code goes here -
+        d3.select("#country-detail").selectAll("text")
+            .remove();
     }
 
 }
