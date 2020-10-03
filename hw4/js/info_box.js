@@ -121,6 +121,9 @@ class InfoBox {
         //TODO - your code goes here -
         d3.select("#country-detail").selectAll("text")
             .remove();
+
+        d3.select("#country-detail").selectAll("circle")
+            .remove();
     }
 
 }
