@@ -73,7 +73,10 @@ class InfoBox {
             }
         }
 
-        //d3.select()
+        d3.select("#country-detail").append(text)
+            .data(infobox_data);
+
+        
 
     }
 
