@@ -102,13 +102,12 @@ class InfoBox {
             .attr("y", (d,i) => 20+(i*20))
             .text(function(d) {return d.indicator_name +": " + d.value});
 
-        text_box.selectAll("#textbox_container").selectAll("circle")
+        text_box.selectAll("#textbox_container").append("circle")
             .attr("cx", 0)
             .attr("cy",130)
             .attr("r", 5)
             .attr("class", "circle")
             .attr("class", d => {return infobox_data[0].region});
-
     }
 
     /**
