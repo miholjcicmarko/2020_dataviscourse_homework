@@ -73,7 +73,7 @@ class InfoBox {
             }
         }
 
-        let text_country = d3.select("#country-detail").append("svg")
+        let text_country = d3.select("#country-detail").append("svg").append("text")
             .data(infobox_data)
             .attr("class", "stat")
             .attr("class", "stats span")
@@ -82,16 +82,15 @@ class InfoBox {
 
         text_country.text(function(d) {return d.country});
 
-        let text_indicator = d3.select("#country-detail").selectAll("html")
+        let text_indicator = d3.select("#country-detail").select("svg").append("text")
             .data(infobox_data)
-            .remove().enter().append()
             .attr("class", "stat")
             .attr("class", "stats span")
             .attr("class", "label")
             .attr("class", "label span")
             .attr("transform", "translate(0,100)");
 
-        text_indicator.html(""+d.indicator_name +": " + d.value + "<br/>");
+        text_indicator.html(""+d.indicator_name +": " + d.value + " ");
 
 
     }
