@@ -137,11 +137,9 @@ class Map {
         // d3 selection and .classed to set these classes on here.
 
         //TODO - your code goes here
-        let reg = activeCountry.region;
-
-        console.log(reg);
+        let selectedCountry = d3.selectAll("#"+activeCountry.id);
+        selectedCountry.classed("selected-country", true);
         
-
     }
 
     /**
@@ -157,6 +155,6 @@ class Map {
         // d3 selection and .classed to set these classes off here.
 
         //TODO - your code goes here
-        d3.selectAll("path").selectAll("classed", false);
+        d3.selectAll("path").classed("selected-country", false);
     }
 }
