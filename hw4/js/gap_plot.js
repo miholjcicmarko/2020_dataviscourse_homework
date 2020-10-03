@@ -108,14 +108,31 @@ class GapPlot {
             .attr("height", this.height + this.margin.top + this.margin.bottom);
 
         let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g').classed('wrapper-group', true);
+
+        //TODO - your code goes here
+        //let xAxisScale = d3
+        //    .scaleLinear()
+        //    .domain([0, d3.max(this.data.gdp)])
+        //    .range([0, this.width]);
     
         let xaxis = svgGroup.append("g")
             .classed("x-axis", true)
+            //.attr("transform", "translate(25,"+ this.height+")");
+            //.attr("class", "axis line")
             .attr("id", "x-axis");
+            //.call(d3.axisBottom(xAxisScale).ticks(5));
+
+        //let yAxisScale = d3
+        //    .scaleLinear()
+        //    .domain([0, d3.max(this.data.gdp)])
+        //    .range([0,this.height]);
 
         let yaxis = d3.select(".plot-svg").append("g")
             .classed("y-axis", true)
+            //.attr("transform", "translate(25,0)");
+            //.attr("class", "axis line")
             .attr("id", "y-axis");
+            //.call(d3.axisLeft(yAxisScale).ticks(5));
 
         xaxis.append("text")
             .classed("axis-label-x", true)
@@ -188,6 +205,7 @@ class GapPlot {
             .on("change", function(d){
                 let dropdownC = d;
             })
+        
 
     }
 
@@ -248,10 +266,8 @@ class GapPlot {
             return d.circleSize ? cScale(d.circleSize) : 3;
         };
 
-        //let minSize = d3.min(circleSize_arr);
-        //let maxSize = d3.max(circleSize_arr);
-
         //TODO - your code goes here -
+        
        
        let plotData_arr = [];
 
