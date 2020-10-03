@@ -88,9 +88,11 @@ class InfoBox {
 
         let country_name = infobox_data[i].country;
 
+        debugger;
+
         d3.select("#country-detail").append("text")
             .attr("y", 40)
-            .text(country);
+            .text(country_name);
 
     }
 
