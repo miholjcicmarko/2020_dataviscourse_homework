@@ -64,7 +64,7 @@ class InfoBox {
                 }
             }
         }
-        
+
         for (let i = 0; i < infobox_data.length; i++) {
             for (let k = 0; k < this.data["population"].length; k++) {
                 if (infobox_data[i].country === this.data["population"][k].country) {
@@ -72,6 +72,8 @@ class InfoBox {
                 }
             }
         }
+
+        //d3.select()
 
     }
 
