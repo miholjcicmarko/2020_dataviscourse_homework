@@ -73,16 +73,17 @@ class InfoBox {
             }
         }
 
+
+
         let text_country = d3.select("#country-detail").selectAll("text")
-            .data(infobox_data)
-            .remove().enter().append()
+            .data(infobox_data[0].country)
             .attr("class", "stat")
             .attr("class", "stats span")
             .attr("class", "label")
             .attr("class", "label span")
             .attr("id", "country");
 
-        text_country.text(function(d) {return d.country});
+        text_country.text(function(d) {return d});
 
         let text_indicator = d3.select("#country").selectAll("text")
             .data(infobox_data)
