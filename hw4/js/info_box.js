@@ -85,7 +85,8 @@ class InfoBox {
 
         d3.select("#country-detail").append("text")
             .attr("y", 40)
-            .text(country_name);
+            .text(country_name)
+            .attr("class", ""+infobox_data[0].region);
 
         let text_box = d3.select("#country-detail").append("svg")
             .attr("width", 780)
