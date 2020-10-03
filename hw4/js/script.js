@@ -45,8 +45,9 @@ loadData().then(data => {
         
         //TODO - your code goes here -
         that.activeYear = year;
-
-        infoBox.updateTextDescription(activeCountry, activeYear);
+        if(activeCountry !== null) {
+            infoBox.updateTextDescription(activeCountry, activeYear);
+        }
 
     }
     // Creates the view objects
