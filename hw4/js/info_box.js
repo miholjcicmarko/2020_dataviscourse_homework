@@ -91,7 +91,7 @@ class InfoBox {
         text_box.selectAll("text")
             .data(infobox_data)
             .join("text")
-            .attr("y", (d,i) => 70+(i*20))
+            .attr("y", (d,i) => (i*20))
             .text(function(d) {return d.indicator_name +": " + d.value});
 
     }
