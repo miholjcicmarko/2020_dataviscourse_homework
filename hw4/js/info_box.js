@@ -82,7 +82,7 @@ class InfoBox {
 
         text_country.text(function(d) {return d.country});
 
-        let text_indicator = d3.select("#country-detail").selectAll("text")
+        let text_indicator = d3.select("#country-detail").selectAll("html")
             .data(infobox_data)
             .remove().enter().append()
             .attr("class", "stat")
@@ -93,9 +93,6 @@ class InfoBox {
 
         text_indicator.html(""+d.indicator_name +": " + d.value + "<br/>");
 
-
-
-        
 
     }
 
