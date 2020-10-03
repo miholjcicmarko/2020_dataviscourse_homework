@@ -73,6 +73,8 @@ class InfoBox {
             }
         }
 
+        debugger;
+
         let country_name = infobox_data[0].country;
 
         d3.select("#country-detail").selectAll("text")

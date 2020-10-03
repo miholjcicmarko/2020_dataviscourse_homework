@@ -25,6 +25,7 @@ loadData().then(data => {
             that.activeCountry = null;
         }
         else {
+            debugger;
             that.activeCountry = countryID.id;
             gapPlot.updateHighlightClick(countryID);
             worldMap.updateHighlightClick(countryID);
