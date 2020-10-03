@@ -73,7 +73,7 @@ class InfoBox {
             }
         }
 
-        let text_country = d3.select("#country-detail").selectAll("text")
+        let text_country = d3.select("#country-detail").append("svg")
             .data(infobox_data)
             .attr("class", "stat")
             .attr("class", "stats span")
@@ -91,7 +91,7 @@ class InfoBox {
             .attr("class", "label span")
             .attr("transform", "translate(0,100)");
 
-        text_indicator.text(function(d) {return d.indicator_name +": " + d.value});
+        text_indicator.text(function(d) {return d.indicator_name +": " + d.value + " "});
 
 
 
