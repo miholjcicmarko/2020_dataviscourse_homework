@@ -55,7 +55,7 @@ class InfoBox {
                 if (this.data[""+select_category][k].geo === activeCountry) {
                     let infobox = new InfoBox(activeCountry, 
                         "region", ""+select_category, 
-                        this.data[""+select_category][k]));
+                        this.data[""+select_category][k][""+activeYear]);
                 }
             }
         }
