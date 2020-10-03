@@ -73,35 +73,26 @@ class InfoBox {
             }
         }
 
-        //let text_box = d3.select("#country-detail").append("svg")
-        //    .attr("width", )
-        
-        
-        country_name = infobox_data[0].country;
+        let text_box = d3.select("#country-detail").append("svg")
+            .attr("width", 790)
+            .attr("height", 564)
+            .attr("id", "textbox_container");
 
-
-
-        let text_country = d3.select("#country-detail").selectAll("text")
-            .data(country_name)
-            .remove().enter().append()
-            .attr("class", "stat")
-            .attr("class", "stats span")
-            .attr("class", "label")
-            .attr("class", "label span")
-            .attr("id", "country");
-
-        text_country.text("" + country_name);
-
-        let text_indicator = d3.select("#country").selectAll("text")
+        text_box.selectAll("text")
+            .remove() 
             .data(infobox_data)
-            .remove().enter().append()
-            .attr("class", "stat")
-            .attr("class", "stats span")
-            .attr("class", "label")
-            .attr("class", "label span")
-            .attr("transform", "translate(0,100)");
+            .enter().append("text")
+            .attr("y", (i) => 60+(i*20))
+            .text(function(d) {return d.indicator_name +": " + d.value)
 
-        text_indicator.text(function(d) {return d.indicator_name +": " + d.value});
+
+        //    .attr("class", "stat")
+        //    .attr("class", "stats span")
+        //    .attr("class", "label")
+        //    .attr("class", "label span")
+        //    .attr("id", "country");
+
+        //text_country.text("" + country_name);
 
 
 
