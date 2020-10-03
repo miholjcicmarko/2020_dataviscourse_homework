@@ -73,17 +73,25 @@ class InfoBox {
             }
         }
 
-        d3.select("#country-detail").selectAll("rect")
+        d3.select("#country-detail").append("text")
             .data(infobox_data)
             .attr("class", "stat")
             .attr("class", "stats span")
             .attr("class", "label")
-            .attr("class", "label span");
+            .attr("class", "label span")
+            .text(function(d) {return d.country});
 
-        d3.select("rect").selectAll("text")
-            .attr("transform", (d,i) => {return "translate(" +0+ "," + 14*i + ")"})
-            .text(function(d,i) { return d[i].indicator_name + ":" +d.value});
+        d3.select("#country-detail").append("text")
+            .data(infobox_data)
+            .attr("class", "stat")
+            .attr("class", "stats span")
+            .attr("class", "label")
+            .attr("class", "label span")
+            .text(function(d) {return d.country});
+
+
         
+
     }
 
     /**
