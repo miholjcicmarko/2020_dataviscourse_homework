@@ -78,25 +78,19 @@ class InfoBox {
             .attr("height", 200)
             .attr("id", "textbox_container");
 
+        text_box.selectAll("text").remove();
+
         text_box.selectAll("text")
-            .remove() 
             .data(infobox_data)
-            .enter().append("text")
-            .attr("y", (i) => 60+(i*20))
+            .join("text")
+            .attr("y", (d,i) => 70+(i*20))
             .text(function(d) {return d.indicator_name +": " + d.value});
 
+        let country_name = infobox_data[i].country;
 
-        //    .attr("class", "stat")
-        //    .attr("class", "stats span")
-        //    .attr("class", "label")
-        //    .attr("class", "label span")
-        //    .attr("id", "country");
-
-        //text_country.text("" + country_name);
-
-
-
-        
+        d3.select("#country-detail").append("text")
+            .attr("y", 40)
+            .text(country);
 
     }
 
