@@ -791,17 +791,15 @@ class GapPlot {
         */
         //TODO - your code goes here -
         
-        let selected_region = activeCountry.region;
-        let selected_country = activeCountry.country;
-        
         d3.select('.plot-svg').selectAll("circle")
-            .attr("hidden", true);
+            .classed("hidden", true);
 
-        
+        let selected_region = d3.selectAll("."+activeCountry["region"]);
 
+        selected_region.classed("hidden", false);        
         
-        
-        
+        let selected_country = d3.selectAll("#" + activeCountry.id);
+        selected_country.classed("selected-country", true);
 
     }
 
