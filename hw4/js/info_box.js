@@ -75,6 +75,7 @@ class InfoBox {
 
         d3.select("#country-detail").append("text")
             .data(infobox_data)
+            .attr("transform", "translate(0,10)")
             .attr("class", "stat")
             .attr("class", "stats span")
             .attr("class", "label")
