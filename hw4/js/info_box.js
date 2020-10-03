@@ -77,6 +77,12 @@ class InfoBox {
 
         debugger;
 
+        d3.select("#country-detail").selectAll("text")
+            .remove();
+
+        d3.select("#country-detail").selectAll("svg")
+            .remove();
+
         d3.select("#country-detail").append("text")
             .attr("y", 40)
             .text(country_name);
