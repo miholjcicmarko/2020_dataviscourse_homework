@@ -109,6 +109,12 @@ class InfoBox {
             .attr("cy",150)
             .attr("r", 20)
             .attr("class", d => {return infobox_data[0].region});
+
+        d3.select("#textbox_container").append("text")
+            .attr("x", 75)
+            .attr("y",150)
+            .text("region");
+
     }
 
     /**
