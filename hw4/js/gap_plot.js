@@ -551,7 +551,8 @@ class GapPlot {
             .attr('r', (d,i) => d.circleSize)
             .attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "circle")
-            .attr("class", d => d.region);
+            .attr("class", d => d.region)
+            .attr("id", function (d,i) { return d.id.toUpperCase()});
 
         let that = this;
         

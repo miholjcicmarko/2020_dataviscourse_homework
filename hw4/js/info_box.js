@@ -91,7 +91,7 @@ class InfoBox {
 
         let text_box = d3.select("#country-detail").append("svg")
             .attr("width", 780)
-            .attr("height", 200)
+            .attr("height", 300)
             .attr("id", "textbox_container");
 
         text_box.selectAll("#textbox_container").remove();
@@ -102,10 +102,11 @@ class InfoBox {
             .attr("y", (d,i) => 20+(i*20))
             .text(function(d) {return d.indicator_name +": " + d.value});
 
-        text_box.selectAll("#textbox_container").append("circle")
-            .attr("cx", 0)
-            .attr("cy",130)
-            .attr("r", 5)
+        
+        d3.select("#textbox_container").append("circle")
+            .attr("cx", 25)
+            .attr("cy",150)
+            .attr("r", 20)
             .attr("class", d => {return infobox_data[0].region});
     }
 
