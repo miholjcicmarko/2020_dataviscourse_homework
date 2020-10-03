@@ -86,7 +86,7 @@ class InfoBox {
             .attr("y", (d,i) => 70+(i*20))
             .text(function(d) {return d.indicator_name +": " + d.value});
 
-        let country_name = infobox_data[i].country;
+        let country_name = infobox_data[0].country;
 
         debugger;
 
