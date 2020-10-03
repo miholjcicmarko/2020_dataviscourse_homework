@@ -83,7 +83,18 @@ class InfoBox {
         d3.select("#country-detail").selectAll("svg")
             .remove();
 
+        d3.select("#country-detail").selectAll("circle")
+            .remove();
+
+        d3.select("#country-detail").append("circle")
+            .attr(infobox_data[0])
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .attr("r", 2)
+            .attr("class", d.region)
+
         d3.select("#country-detail").append("text")
+            .attr("x", 40)
             .attr("y", 40)
             .text(country_name)
             .attr("class", ""+infobox_data[0].region);
