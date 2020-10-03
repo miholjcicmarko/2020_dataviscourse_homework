@@ -86,12 +86,12 @@ class InfoBox {
         d3.select("#country-detail").selectAll("circle")
             .remove();
 
-        d3.select("#country-detail").append("circle")
-            .data(infobox_data)
+        d3.select("#country-detail").selectAll("circle")
+            .data(infobox_data[0])
             .attr("cx", 0)
             .attr("cy", 0)
             .attr("r", 2)
-            .attr("class", d.region)
+            .attr("class", d.region);
 
         d3.select("#country-detail").append("text")
             .attr("x", 40)
