@@ -136,9 +136,6 @@ class GapPlot {
             .attr("transform", "translate(100, 150)")
             .attr("id", "active-YearBG");
 
-        d3.select(".plot-svg").select("#active-YearBG")
-            .text(function() { return "" + activeYear});
-
         /* Below is the setup for the dropdown menu- no need to change this */
 
         let dropdownWrap = d3.select('#chart-view').append('div').classed('dropdown-wrapper', true);

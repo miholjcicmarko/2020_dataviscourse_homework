@@ -48,6 +48,7 @@ loadData().then(data => {
         if(activeCountry !== null) {
             infoBox.updateTextDescription(activeCountry, activeYear);
         }
+        gapPlot.activeYear = year;
 
     }
     // Creates the view objects
