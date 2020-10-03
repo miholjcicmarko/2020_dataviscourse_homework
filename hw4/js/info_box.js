@@ -48,24 +48,17 @@ class InfoBox {
         let categories = ["population", "gdp", "child-mortality", "life-expectancy",
                         "fertility-rate"];
 
-        let text_elements = [];
-        let region = [];
-
         for (let i = 0; i < categories.length; i++) {
             let select_category = categories[i];
         
             for (let k = 0; k < this.data[""+select_category].length; k++) {
                 if (this.data[""+select_category][k].geo === activeCountry) {
-                    text_elements.push(this.data[""+select_category][k][""+activeYear]);
-                    region.push(this.data[""+select_category[i]].region);
+                    let infobox = new InfoBox(activeCountry, 
+                        "region", ""+select_category, 
+                        this.data[""+select_category][k]));
                 }
             }
         }
-
-        let infobox = new InfoBox(activeCountry, region, categories,
-                                text_elements);
-        
-        debugger;
         
 
     }
