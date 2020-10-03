@@ -83,16 +83,6 @@ class InfoBox {
         d3.select("#country-detail").selectAll("svg")
             .remove();
 
-        d3.select("#country-detail").selectAll("circle")
-            .remove();
-
-        d3.select("#country-detail").selectAll("circle")
-            .data(infobox_data[0])
-            .attr("cx", 0)
-            .attr("cy", 0)
-            .attr("r", 2)
-            .attr("class", d.region);
-
         d3.select("#country-detail").append("text")
             .attr("x", 40)
             .attr("y", 40)
@@ -111,6 +101,14 @@ class InfoBox {
             .join("text")
             .attr("y", (d,i) => 20+(i*20))
             .text(function(d) {return d.indicator_name +": " + d.value});
+
+        text_box.selectAll("#textbox_container").selectAll("circle")
+            .attr("cx", 0)
+            .attr("cy",130)
+            .attr("r", 5)
+            .attr("class", "circle")
+            .attr("class", d => {return infobox_data[0].region});
+
     }
 
     /**
