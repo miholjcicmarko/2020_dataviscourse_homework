@@ -81,9 +81,10 @@ class InfoBox {
             .remove();
 
         d3.select("#country-detail").selectAll("svg")
-            .remove("#textbox_container").selectAll("circle");
+            .remove();
 
-        d3.select
+        d3.select("#country-detail").selectAll("circle")
+            .remove();
 
         d3.select("#country-detail").append("text")
             .attr("x", 40)
