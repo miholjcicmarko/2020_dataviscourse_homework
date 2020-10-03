@@ -91,7 +91,7 @@ class InfoBox {
             .attr("class", "label span")
             .attr("transform", "translate(0,100)");
 
-        text_indicator.text(function(d) {return d.indicator_name +": " + d.value + "/n"});
+        text_indicator.html(""+d.indicator_name +": " + d.value + "<br/>");
 
 
 
