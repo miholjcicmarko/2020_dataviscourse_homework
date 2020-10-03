@@ -74,8 +74,8 @@ class InfoBox {
         }
 
         let text_box = d3.select("#country-detail").append("svg")
-            .attr("width", 790)
-            .attr("height", 564)
+            .attr("width", 780)
+            .attr("height", 200)
             .attr("id", "textbox_container");
 
         text_box.selectAll("text")
@@ -83,7 +83,7 @@ class InfoBox {
             .data(infobox_data)
             .enter().append("text")
             .attr("y", (i) => 60+(i*20))
-            .text(function(d) {return d.indicator_name +": " + d.value)
+            .text(function(d) {return d.indicator_name +": " + d.value});
 
 
         //    .attr("class", "stat")
