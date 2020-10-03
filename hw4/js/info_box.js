@@ -65,7 +65,7 @@ class InfoBox {
         debugger;
         for (let i = 0; i < infobox_data.length; i++) {
             for (let k = 0; k < this.data["population"].length; k++) {
-                if (infobox_data[i].geo.toUpperCase() === this.data["population"][k].geo) {
+                if (infobox_data[i].country === this.data["population"][k].geo.toUpperCase()) {
                     infobox_data[i].region = this.data["population"][k].region;
                 }
             }
