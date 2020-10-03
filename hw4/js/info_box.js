@@ -81,9 +81,9 @@ class InfoBox {
             .attr("class", "label span");
 
         d3.select("rect").selectAll("text")
-            .attr("transform", (d,i) => {return "translate(" +0+ "," + 14*i + ")")
-            .text(function(d,i) { return d[i].indicator_name + ":" +d.value})
-
+            .attr("transform", (d,i) => {return "translate(" +0+ "," + 14*i + ")"})
+            .text(function(d,i) { return d[i].indicator_name + ":" +d.value});
+        
     }
 
     /**
