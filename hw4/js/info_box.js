@@ -73,14 +73,14 @@ class InfoBox {
             }
         }
 
-        d3.select("#country-detail").append("text")
+        d3.select("#country-detail").select("text")
             .data(infobox_data)
-            .attr("class", )
+            .remove().enter().append()
+            .attr("class", "stat")
             .attr("class", "stats span")
             .attr("class", "label")
             .attr("class", "label span")
             .text(function(d) {return d.country});
-
 
 
         
