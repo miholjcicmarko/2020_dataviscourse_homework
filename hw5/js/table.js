@@ -68,13 +68,23 @@ class Table {
             .text("+50")
             .attr("x", 50)
             .attr("y", 20)
-            .attr("class", "td");
+            .attr("class", "td")
+            .attr("fill", "blue");
 
-            legend.append("text")
+        legend.append("text")
             .text("+25")
             .attr("x", 100)
             .attr("y", 20)
-            .attr("class", "td:last-of-type");
+            .attr("class", "td:last-of-type")
+            .attr("fill", "blue");
+
+        legend.append("line")
+            .attr("x1", 150)
+            .attr("y1", 0)
+            .attr("x2", 150)
+            .attr("y1", 30)
+            .attr("stroke-width", 2)
+            .attr("stroke", "black");
 
     }
 
