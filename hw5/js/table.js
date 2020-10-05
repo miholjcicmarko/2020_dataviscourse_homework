@@ -208,14 +208,14 @@ class Table {
         let gridlines = d3.select("#predictionTableBody").selectAll("svg");
 
         for (let i = 0; i < ticks.length; i++) {
-            if (ticks[i] !== 0) {
+            if (ticks[i] === 0) {
                 gridlines.append("line")
                 .attr("x1", (i*40) + 30)
                 .attr("y1", 0)
                 .attr("x2", (i*40) + 30)
                 .attr("y2", 30)
-                .attr("stroke-width", 0.5)
-                .attr("stroke", "grey");
+                .attr("stroke-width", 1)
+                .attr("stroke", "black");
             }
             gridlines.append("line")
                 .attr("x1", (i*40) + 30)
@@ -223,7 +223,7 @@ class Table {
                 .attr("x2", (i*40) + 30)
                 .attr("y2", 30)
                 .attr("stroke-width", 1)
-                .attr("stroke", "black");    
+                .attr("stroke", "grey");    
         }
     
     }
