@@ -135,7 +135,6 @@ class Table {
         /**
          * with the forecastSelection you need to set the text based on the dat value as long as the type is 'text'
          */
-        debugger;
         let txtSelection = forecastSelection.filter(d => d.type === 'text');
 
         let textSelect = txtSelection.selectAll('text')
@@ -154,7 +153,8 @@ class Table {
         let grouperSelect = svgSelect.selectAll('g')
             .data(d => [d, d, d])
             .join('g');
-
+        
+        debugger;
         this.addGridlines(grouperSelect.filter((d,i) => i === 0), [-75, -50, -25, 0, 25, 50, 75]);
         this.addRectangles(grouperSelect.filter((d,i) => i === 1));
         this.addCircles(grouperSelect.filter((d,i) => i === 2));
@@ -225,7 +225,7 @@ class Table {
          * add gridlines to the vizualization
          */
         debugger;
-        let gridlines = d3.select("#predicitonTable").selectAll("td");
+        let gridlines = d3.select("#predicitonTable").selectAll("svg");
 
         gridlines.append("line")
             .data(ticks)
