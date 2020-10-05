@@ -85,9 +85,10 @@ class Table {
 
         let txtSelection = forecastSelection.filter(d => d.type === 'text');
 
-        let svgSelect1 = txtSelection.selectAll('svg')
+        let textSelect = txtSelection.selectAll('text')
             .data(d => [d])
-            .join('svg');
+            .join("text")
+            .text(function(d) {return d});
 
         let vizSelection = forecastSelection.filter(d => d.type === 'viz');
 
