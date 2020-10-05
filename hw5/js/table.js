@@ -53,11 +53,13 @@ class Table {
          * Draw the legend for the bar chart.
          */
 
-        d3.select("#marginAxis")
+        let legend = d3.select("#marginAxis")
             .attr("width", 300)
-            .attr("height", 50);
+            .attr("height", 25);
 
-        
+        legend.append("text")
+            .text("+75")
+            .attr("class", "td:first-of-type");
 
     }
 
