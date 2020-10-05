@@ -227,7 +227,8 @@ class Table {
         debugger;
         let gridlines = d3.select("#predictionTableBody").selectAll("svg");
 
-        gridlines.append("line")
+        for (let i = 0; i < containerSelect.length; i++) {
+            gridlines.append("line")
             .data(ticks)
             .attr("x1", (d) => ((d*40) +30))
             .attr("y1", 0)
@@ -235,6 +236,7 @@ class Table {
             .attr("y1", 30)
             .attr("stroke-width", 5)
             .attr("stroke", "grey");
+        }
     
     }
 
