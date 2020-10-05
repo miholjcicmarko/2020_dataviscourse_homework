@@ -59,21 +59,21 @@ class Table {
 
         legend.append("text")
             .text("+75")
-            .attr("x", 30)
+            .attr("x", 0)
             .attr("y", 20)
             .attr("class", "td:first-of-type")
             .attr("fill", "steelblue");
 
         legend.append("text")
             .text("+50")
-            .attr("x", 70)
+            .attr("x", 50)
             .attr("y", 20)
             .attr("class", "td")
             .attr("fill", "steelblue");
 
         legend.append("text")
             .text("+25")
-            .attr("x", 110)
+            .attr("x", 100)
             .attr("y", 20)
             .attr("class", "td:last-of-type")
             .attr("fill", "steelblue");
@@ -88,14 +88,14 @@ class Table {
 
             legend.append("text")
             .text("+25")
-            .attr("x", 190)
+            .attr("x", 170)
             .attr("y", 20)
             .attr("class", "td:first-of-type")
             .attr("fill", "red");
 
         legend.append("text")
             .text("+50")
-            .attr("x", 230)
+            .attr("x", 210)
             .attr("y", 20)
             .attr("class", "td")
             .attr("fill", "red");
