@@ -227,7 +227,8 @@ class Table {
 
         let gridlines = d3.select("#predicitonTable").append("svg")
             .attr("width", 300)
-            .attr("height", 1530);
+            .attr("height", 1530)
+            .attr("class", "td");
 
         //legend.append("line")
         //    .attr("x1", d =>)
