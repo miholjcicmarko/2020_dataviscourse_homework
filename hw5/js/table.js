@@ -227,13 +227,14 @@ class Table {
 
         let gridlines = d3.select("#predicitonTable").selectAll("td");
 
-        //gridlines.append("line")
-        //    .attr("x1", d =>)
-        //    .attr("y1", 0)
-        //    .attr("x2", 150)
-        //    .attr("y1", 30)
-        //    .attr("stroke-width", 1)
-        //    .attr("stroke", "black");
+        gridlines.append("line")
+            .data(ticks)
+            .attr("x1", (d,i) => ((i*40) +30))
+            .attr("y1", 0)
+            .attr("x2", (d,i) => ((i*40) +30))
+            .attr("y1", 30)
+            .attr("stroke-width", 1)
+            .attr("stroke", "grey");
     
     }
 
