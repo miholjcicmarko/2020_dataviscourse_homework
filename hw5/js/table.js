@@ -61,13 +61,20 @@ class Table {
             .text("+75")
             .attr("x", 0)
             .attr("y", 20)
-            .attr("class", "td:first-of-type");
+            .attr("class", "td:first-of-type")
+            .attr("fill", "blue");
 
         legend.append("text")
             .text("+50")
             .attr("x", 50)
             .attr("y", 20)
             .attr("class", "td");
+
+            legend.append("text")
+            .text("+25")
+            .attr("x", 100)
+            .attr("y", 20)
+            .attr("class", "td:last-of-type");
 
     }
 
