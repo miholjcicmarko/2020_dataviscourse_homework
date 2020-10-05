@@ -225,7 +225,9 @@ class Table {
          * add gridlines to the vizualization
          */
 
-        
+        //let gridlines = d3.select("#")
+        //    .attr("width", 300)
+        //    .attr("height", 25);
 
         //legend.append("line")
         //    .attr("x1", d =>)
