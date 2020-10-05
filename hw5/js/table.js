@@ -88,7 +88,7 @@ class Table {
         let textSelect = txtSelection.selectAll('text')
             .data(d => [d])
             .join("text")
-            .text(function(d) {return d});
+            .text(function(d) {return d.value});
 
         let vizSelection = forecastSelection.filter(d => d.type === 'viz');
 
