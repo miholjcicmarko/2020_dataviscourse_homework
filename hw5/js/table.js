@@ -57,26 +57,37 @@ class Table {
             .attr("width", 300)
             .attr("height", 25);
 
-        legend.append("text")
-            .text("+75")
-            .attr("x", 30)
-            .attr("y", 20)
-            .attr("class", "td:first-of-type")
-            .attr("fill", "steelblue");
+        let democrat = [75, 50, 25]
 
-        legend.append("text")
-            .text("+50")
-            .attr("x", 70)
-            .attr("y", 20)
-            .attr("class", "td")
-            .attr("fill", "steelblue");
+        for (let i = 0; i < democrat.length; i++) {
+            legend.append("text")
+                .text("+"+democrat[i])
+                .attr("x", (i*40) + 30)
+                .attr("y", 20)
+                .attr("class", "td:first-of-type")
+                .attr("fill", "steelblue");
+        }
 
-        legend.append("text")
-            .text("+25")
-            .attr("x", 110)
-            .attr("y", 20)
-            .attr("class", "td:last-of-type")
-            .attr("fill", "steelblue");
+        //legend.append("text")
+        //    .text("+75")
+        //    .attr("x", 30)
+        //    .attr("y", 20)
+        //    .attr("class", "td:first-of-type")
+        //    .attr("fill", "steelblue");
+
+        //legend.append("text")
+        //    .text("+50")
+        //    .attr("x", 70)
+        //    .attr("y", 20)
+        //    .attr("class", "td")
+        //    .attr("fill", "steelblue");
+
+        //legend.append("text")
+        //    .text("+25")
+        //    .attr("x", 110)
+         //   .attr("y", 20)
+         //   .attr("class", "td:last-of-type")
+         //   .attr("fill", "steelblue");
 
         legend.append("line")
             .attr("x1", 150)
@@ -86,26 +97,37 @@ class Table {
             .attr("stroke-width", 1)
             .attr("stroke", "black");
 
-        legend.append("text")
-            .text("+25")
-            .attr("x", 165)
-            .attr("y", 20)
-            .attr("class", "td:first-of-type")
-            .attr("fill", "red");
+        let republican = [25, 50, 75]
 
-        legend.append("text")
-            .text("+50")
-            .attr("x", 205)
-            .attr("y", 20)
-            .attr("class", "td")
-            .attr("fill", "red");
+            for (let i = 0; i < republican.length; i++) {
+                legend.append("text")
+                    .text("+"+republican[i])
+                    .attr("x", (i*40) + 165)
+                    .attr("y", 20)
+                    .attr("class", "td:first-of-type")
+                    .attr("fill", "red");
+            }
 
-            legend.append("text")
-            .text("+75")
-            .attr("x", 245)
-            .attr("y", 20)
-            .attr("class", "td:last-of-type")
-            .attr("fill", "red");
+        //legend.append("text")
+        //    .text("+25")
+        //    .attr("x", 165)
+        //    .attr("y", 20)
+        //    .attr("class", "td:first-of-type")
+        //    .attr("fill", "red");
+
+        //legend.append("text")
+        //    .text("+50")
+        //    .attr("x", 205)
+        //    .attr("y", 20)
+        //    .attr("class", "td")
+        //    .attr("fill", "red");
+
+         //   legend.append("text")
+         //   .text("+75")
+         //   .attr("x", 245)
+         //   .attr("y", 20)
+         //   .attr("class", "td:last-of-type")
+         //   .attr("fill", "red");
     }
 
     drawTable() {
