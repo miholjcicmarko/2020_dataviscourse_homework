@@ -63,6 +63,12 @@ class Table {
             .attr("y", 20)
             .attr("class", "td:first-of-type");
 
+        legend.append("text")
+            .text("+50")
+            .attr("x", 50)
+            .attr("y", 20)
+            .attr("class", "td");
+
     }
 
     drawTable() {
