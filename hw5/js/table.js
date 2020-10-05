@@ -229,9 +229,9 @@ class Table {
 
         gridlines.append("line")
             .data(ticks)
-            .attr("x1", (d,i) => (d + (105 - i*40)))
+            .attr("x1", d)
             .attr("y1", 0)
-            .attr("x2", (d,i) => (d + (105 - i*40)))
+            .attr("x2", d)
             .attr("y1", 30)
             .attr("stroke-width", 5)
             .attr("stroke", "grey");
