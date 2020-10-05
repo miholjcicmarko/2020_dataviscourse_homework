@@ -224,7 +224,7 @@ class Table {
         /**
          * add gridlines to the vizualization
          */
-
+        debugger;
         let gridlines = d3.select("#predicitonTable").selectAll("td");
 
         gridlines.append("line")
