@@ -86,7 +86,7 @@ class Table {
             .attr("stroke-width", 1)
             .attr("stroke", "black");
 
-            legend.append("text")
+        legend.append("text")
             .text("+25")
             .attr("x", 165)
             .attr("y", 20)
@@ -230,7 +230,7 @@ class Table {
             .attr("height", 1530)
             .attr("class", "td");
 
-        //legend.append("line")
+        //gridlines.append("line")
         //    .attr("x1", d =>)
         //    .attr("y1", 0)
         //    .attr("x2", 150)
