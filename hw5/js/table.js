@@ -62,7 +62,7 @@ class Table {
         for (let i = 0; i < democrat.length; i++) {
             legend.append("text")
                 .text("+"+democrat[i])
-                .attr("x", (i*40) + 30)
+                .attr("x", (i*40) + 15)
                 .attr("y", 20)
                 .attr("class", "td:first-of-type")
                 .attr("fill", "steelblue");
@@ -81,7 +81,7 @@ class Table {
             for (let i = 0; i < republican.length; i++) {
                 legend.append("text")
                     .text("+"+republican[i])
-                    .attr("x", (i*40) + 165)
+                    .attr("x", (i*40) + 175)
                     .attr("y", 20)
                     .attr("class", "td:first-of-type")
                     .attr("fill", "red");
@@ -219,9 +219,9 @@ class Table {
             }
             else if (i < 3) {
             gridlines.append("line")
-                .attr("x1", (i*40) + 40)
+                .attr("x1", (i*40) + 15)
                 .attr("y1", 0)
-                .attr("x2", (i*40) + 40)
+                .attr("x2", (i*40) + 15)
                 .attr("y2", 30)
                 .attr("stroke-width", 1)
                 .attr("stroke", "grey") 
@@ -229,9 +229,9 @@ class Table {
             }
             else {
             gridlines.append("line")
-                .attr("x1", (i*40) + 40)
+                .attr("x1", (i*40) + 15)
                 .attr("y1", 0)
-                .attr("x2", (i*40) + 40)
+                .attr("x2", (i*40) + 15)
                 .attr("y2", 30)
                 .attr("stroke-width", 1)
                 .attr("stroke", "grey") 
