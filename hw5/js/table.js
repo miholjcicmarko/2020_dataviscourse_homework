@@ -224,6 +224,8 @@ class Table {
         /**
          * add gridlines to the vizualization
          */
+
+        
     
     }
 
