@@ -225,13 +225,13 @@ class Table {
          * add gridlines to the vizualization
          */
         debugger;
-        let gridlines = d3.select("#predicitonTable").selectAll("svg");
+        let gridlines = d3.select("#predicitonTable").selectAll("td").selectAll("svg");
 
         gridlines.append("line")
             .data(ticks)
-            .attr("x1", (d,i) => ((i*40) +30))
+            .attr("x1", (d) => ((d*40) +30))
             .attr("y1", 0)
-            .attr("x2", (d,i) => ((i*40) +30))
+            .attr("x2", (d) => ((d*40) +30))
             .attr("y1", 30)
             .attr("stroke-width", 1)
             .attr("stroke", "grey");
