@@ -225,7 +225,7 @@ class Table {
          * add gridlines to the vizualization
          */
         debugger;
-        let gridlines = d3.select("#predicitonTable").selectAll("td").selectAll("svg");
+        let gridlines = d3.select("#predicitonTable").append("svg");
 
         gridlines.append("line")
             .data(ticks)
