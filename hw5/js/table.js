@@ -82,7 +82,7 @@ class Table {
         /**
          * with the forecastSelection you need to set the text based on the dat value as long as the type is 'text'
          */
-
+            debugger;
         let txtSelection = forecastSelection.filter(d => d.type === 'text');
 
         let textSelect = txtSelection.selectAll('text')
