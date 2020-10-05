@@ -83,6 +83,12 @@ class Table {
          * with the forecastSelection you need to set the text based on the dat value as long as the type is 'text'
          */
 
+        let txtSelection = forecastSelection.filter(d => d.type === 'text');
+
+        let svgSelect1 = txtSelection.selectAll('svg')
+            .data(d => [d])
+            .join('svg');
+
         let vizSelection = forecastSelection.filter(d => d.type === 'viz');
 
         let svgSelect = vizSelection.selectAll('svg')
