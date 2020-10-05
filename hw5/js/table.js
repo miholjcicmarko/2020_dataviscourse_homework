@@ -226,6 +226,14 @@ class Table {
          */
 
         
+
+        //legend.append("line")
+        //    .attr("x1", d =>)
+        //    .attr("y1", 0)
+        //    .attr("x2", 150)
+        //    .attr("y1", 30)
+        //    .attr("stroke-width", 1)
+        //    .attr("stroke", "black");
     
     }
 
