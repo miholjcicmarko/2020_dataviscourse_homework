@@ -62,30 +62,50 @@ class Table {
             .attr("x", 0)
             .attr("y", 20)
             .attr("class", "td:first-of-type")
-            .attr("fill", "blue");
+            .attr("fill", "steelblue");
 
         legend.append("text")
             .text("+50")
             .attr("x", 50)
             .attr("y", 20)
             .attr("class", "td")
-            .attr("fill", "blue");
+            .attr("fill", "steelblue");
 
         legend.append("text")
             .text("+25")
             .attr("x", 100)
             .attr("y", 20)
             .attr("class", "td:last-of-type")
-            .attr("fill", "blue");
+            .attr("fill", "steelblue");
 
         legend.append("line")
             .attr("x1", 150)
             .attr("y1", 0)
             .attr("x2", 150)
             .attr("y1", 30)
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 1)
             .attr("stroke", "black");
 
+            legend.append("text")
+            .text("+25")
+            .attr("x", 200)
+            .attr("y", 20)
+            .attr("class", "td:first-of-type")
+            .attr("fill", "red");
+
+        legend.append("text")
+            .text("+50")
+            .attr("x", 50)
+            .attr("y", 20)
+            .attr("class", "td")
+            .attr("fill", "red");
+
+            legend.append("text")
+            .text("+75")
+            .attr("x", 0)
+            .attr("y", 20)
+            .attr("class", "td:first-of-type")
+            .attr("fill", "red");
     }
 
     drawTable() {
