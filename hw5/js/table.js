@@ -225,10 +225,7 @@ class Table {
          * add gridlines to the vizualization
          */
 
-        let gridlines = d3.select("#predicitonTable").append("svg")
-            .attr("width", 300)
-            .attr("height", 1530)
-            .attr("class", "td");
+        let gridlines = d3.select("#predicitonTable").selectAll("td");
 
         //gridlines.append("line")
         //    .attr("x1", d =>)
