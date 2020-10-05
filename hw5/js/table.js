@@ -217,16 +217,6 @@ class Table {
                 .attr("stroke-width", 1)
                 .attr("stroke", "black");
             }
-            else if (i < 3) {
-            gridlines.append("line")
-                .attr("x1", (i*40) + 30)
-                .attr("y1", 0)
-                .attr("x2", (i*40) + 30)
-                .attr("y2", 30)
-                .attr("stroke-width", 1)
-                .attr("stroke", "grey") 
-                .style("opacity", 0.4);
-            }
             else {
             gridlines.append("line")
                 .attr("x1", (i*40) + 30)
@@ -235,8 +225,8 @@ class Table {
                 .attr("y2", 30)
                 .attr("stroke-width", 1)
                 .attr("stroke", "grey") 
-                .style("opacity", 0.4); 
-            }   
+                .style("opacity", 0.4);
+            }  
         }
     
     }
