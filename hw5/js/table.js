@@ -53,6 +53,12 @@ class Table {
          * Draw the legend for the bar chart.
          */
 
+        d3.select("#marginAxis")
+            .attr("width", 300)
+            .attr("height", 50);
+
+        
+
     }
 
     drawTable() {
