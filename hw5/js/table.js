@@ -59,6 +59,8 @@ class Table {
 
         legend.append("text")
             .text("+75")
+            .attr("x", 0)
+            .attr("y", 5)
             .attr("class", "td:first-of-type");
 
     }
