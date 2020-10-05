@@ -225,7 +225,7 @@ class Table {
          * add gridlines to the vizualization
          */
         debugger;
-        let gridlines = d3.select("#predicitonTable").append("svg");
+        let gridlines = d3.select("#predictionTable").append("svg");
 
         gridlines.append("line")
             .data(ticks)
@@ -233,7 +233,7 @@ class Table {
             .attr("y1", 0)
             .attr("x2", (d) => ((d*40) +30))
             .attr("y1", 30)
-            .attr("stroke-width", 1)
+            .attr("stroke-width", 5)
             .attr("stroke", "grey");
     
     }
