@@ -68,27 +68,6 @@ class Table {
                 .attr("fill", "steelblue");
         }
 
-        //legend.append("text")
-        //    .text("+75")
-        //    .attr("x", 30)
-        //    .attr("y", 20)
-        //    .attr("class", "td:first-of-type")
-        //    .attr("fill", "steelblue");
-
-        //legend.append("text")
-        //    .text("+50")
-        //    .attr("x", 70)
-        //    .attr("y", 20)
-        //    .attr("class", "td")
-        //    .attr("fill", "steelblue");
-
-        //legend.append("text")
-        //    .text("+25")
-        //    .attr("x", 110)
-         //   .attr("y", 20)
-         //   .attr("class", "td:last-of-type")
-         //   .attr("fill", "steelblue");
-
         legend.append("line")
             .attr("x1", 150)
             .attr("y1", 0)
@@ -107,27 +86,6 @@ class Table {
                     .attr("class", "td:first-of-type")
                     .attr("fill", "red");
             }
-
-        //legend.append("text")
-        //    .text("+25")
-        //    .attr("x", 165)
-        //    .attr("y", 20)
-        //    .attr("class", "td:first-of-type")
-        //    .attr("fill", "red");
-
-        //legend.append("text")
-        //    .text("+50")
-        //    .attr("x", 205)
-        //    .attr("y", 20)
-        //    .attr("class", "td")
-        //    .attr("fill", "red");
-
-         //   legend.append("text")
-         //   .text("+75")
-         //   .attr("x", 245)
-         //   .attr("y", 20)
-         //   .attr("class", "td:last-of-type")
-         //   .attr("fill", "red");
     }
 
     drawTable() {
