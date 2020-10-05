@@ -95,16 +95,16 @@ class Table {
 
         legend.append("text")
             .text("+50")
-            .attr("x", 50)
+            .attr("x", 250)
             .attr("y", 20)
             .attr("class", "td")
             .attr("fill", "red");
 
             legend.append("text")
             .text("+75")
-            .attr("x", 0)
+            .attr("x", 300)
             .attr("y", 20)
-            .attr("class", "td:first-of-type")
+            .attr("class", "td:last-of-type")
             .attr("fill", "red");
     }
 
