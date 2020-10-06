@@ -57,21 +57,22 @@ class Table {
             .attr("width", 300)
             .attr("height", 25);
 
-        let democrat = [75, 50, 25]
+        let democrat = [-75, -50, -25]
 
         for (let i = 0; i < democrat.length; i++) {
             legend.append("text")
-                .text("+"+democrat[i])
-                .attr("x", (i*40) + 15)
+                .text("+"+democrat[i]*-1)
+                //.attr("x", (i*40) + 15)
+                .attr("x", this.scaleX(democrat[i]))
                 .attr("y", 20)
                 .attr("class", "td:first-of-type")
                 .attr("fill", "steelblue");
         }
 
         legend.append("line")
-            .attr("x1", 150)
+            .attr("x1", this.scaleX(0))
             .attr("y1", 0)
-            .attr("x2", 150)
+            .attr("x2", this.scaleX(0))
             .attr("y1", 30)
             .attr("stroke-width", 1)
             .attr("stroke", "black");
@@ -81,7 +82,8 @@ class Table {
             for (let i = 0; i < republican.length; i++) {
                 legend.append("text")
                     .text("+"+republican[i])
-                    .attr("x", (i*40) + 175)
+                    //.attr("x", (i*40) + 175)
+                    .attr("x", this.scaleX(republican[i]))
                     .attr("y", 20)
                     .attr("class", "td:first-of-type")
                     .attr("fill", "red");
@@ -255,6 +257,12 @@ class Table {
         //    .attr('width', this.vizWidth)
         //    .attr('height', d => d.isForecast ? this.vizHeight : this.smallVizHeight);
 
+        let txtSelection = forecastSelection.filter(d => d.type === 'text');
+
+        let textSelect = txtSelection.selectAll('text')
+            .data(d => [d])
+            .join("text")
+            .text(function(d) {return d.value});
  
     }
 
