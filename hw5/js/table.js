@@ -325,8 +325,9 @@ class Table {
           .selectAll("tr")
             .data(containerSelect)
             .join("tr")
-          .selectAll("td").selectAll("svg").select("g").append("rect")
+          .selectAll("td").selectAll("svg").select("g").selectAll("rect")
             .data(data_select)
+            .join("rect")
             .attr("x", function(d) {
                 return this.scaleX(d.value.marginHigh)
                 })
@@ -334,7 +335,19 @@ class Table {
             .attr("width", function(d) {
                 return this.scaleX(d.value.margin)
                 })
-            .attr("height", 30);
+            .attr("height", 30)
+            .style("fill", function(d) { 
+                if ((d.value.marginHigh > 0 && d.value.marginLow < 0) ||
+                (d.value.marginHigh < 0 && d.value.marginLow >0)) {
+                    return 0;
+                }
+                else if (margin > 0) {
+                    return "red";
+                }
+                else {
+                    return "blue";
+                }
+            });
 
 
 
