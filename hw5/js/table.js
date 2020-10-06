@@ -360,7 +360,7 @@ class Table {
 
         containerSelect
             .data(d => [d.value])
-            .join("circle")
+            .append("circle")
             .attr("cx", function(d) {
                 return that.scaleX(d.marginLow) + that.scaleX(d.margin)/2;
                 })
