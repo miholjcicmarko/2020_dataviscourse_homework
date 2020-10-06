@@ -63,7 +63,7 @@ class Table {
             .data(dem_rep)
             .join("text")
             .attr("x", (d) => this.scaleX(d))
-            .attr("y", 20)
+            .attr("y", this.vizHeight)
             .attr("fill", function(d) { 
                 if (d > 0) {
                     return "red";
@@ -95,7 +95,7 @@ class Table {
             .attr("x1", this.scaleX(0))
             .attr("y1", 0)
             .attr("x2", this.scaleX(0))
-            .attr("y1", 30)
+            .attr("y1", this.vizHeight)
             .attr("stroke-width", 1)
             .attr("stroke", "black");
 
@@ -326,14 +326,14 @@ class Table {
             .data(containerSelect)
             .join("tr")
           .selectAll("td").selectAll("svg").select("g").selectAll("rect")
-            .data(d => [d])
+            .data(d => [d.value])
             .join("rect")
-            .attr("x", function(d,i) {
-                return this.scaleX(d[i].value.marginHigh)
+            .attr("x", function(d) {
+                return this.scaleX(d.marginHigh)
                 })
             .attr("y", 0)
-            .attr("width", function(d,i) {
-                return this.scaleX(d[i].value.margin)
+            .attr("width", function(d) {
+                return this.scaleX(d.margin)
                 })
             .attr("height", 30)
             .style("fill", function(d,i) { 
