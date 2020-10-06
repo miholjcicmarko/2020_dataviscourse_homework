@@ -311,14 +311,7 @@ class Table {
 
         let that = this;
 
-        let data_select = [];
-
-        for (let i = 0; i < containerSelect._groups.length; i++) {
-            data_select.push(containerSelect._groups[i][0].__data__)
-        }
-
         debugger;
-
 
         containerSelect
             .data(d => [d.value])
@@ -330,9 +323,9 @@ class Table {
             .attr("width", function(d) {
                 return that.scaleX(d.margin)
                 })
-            .attr("height", 30)
+            .attr("height", that.smallVizHeight)
             .style("fill", 'red');
-            
+
             //function(d,i) { 
  //               if ((d.marginHigh > 0 && d.marginLow < 0) || (d.value.marginHigh < 0 && d.marginLow > 0)) {
  //                   return "red";
