@@ -339,9 +339,8 @@ class Table {
                 })
             .attr("height", 30)
             .style("fill", function(d,i) { 
-                if ((d.marginHigh > 0 && d.marginLow < 0) ||
-                (d.value.marginHigh < 0 && d.marginLow > 0)) {
-                    return 0;
+                if ((d.marginHigh > 0 && d.marginLow < 0) || (d.value.marginHigh < 0 && d.marginLow > 0)) {
+                    return "red";
                 }
                 else if (margin > 0) {
                     return "red";
