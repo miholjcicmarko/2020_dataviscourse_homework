@@ -323,10 +323,14 @@ class Table {
 
         d3.select("#predictionTableBody")
           .selectAll("tr")
-            .data(containerSelect._groups)
+            .data(containerSelect)
             .join("tr")
           .selectAll("td").selectAll("svg").select("g").selectAll("rect")
-            .data(containerSelect.__data__);
+            .data(data_select)
+            .attr("x", (d) => this.scaleX(d.value.marginHigh))
+            .attr("y", 0)
+            .attr("width", (d) => this.scaleX(d.value.margin))
+            .attr("height", 30);
 
 
 
