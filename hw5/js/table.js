@@ -238,12 +238,11 @@ class Table {
          * add gridlines to the vizualization
          */
 
-
-        let gridlines = d3.select("#predictionTableBody")
+        d3.select("#predictionTableBody")
           .selectAll("tr")
             .data(containerSelect)
             .join('tr')
-          .selectAll('td').selectAll("svg").selectAll("line")
+          .selectAll('td').selectAll("svg").select("g").selectAll("line")
             .data(ticks)
             .join('line')
             .attr("x1", (d) => this.scaleX(d))
