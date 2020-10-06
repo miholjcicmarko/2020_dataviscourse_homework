@@ -56,7 +56,7 @@ class Table {
         let legend = d3.select("#marginAxis")
             .attr("width", 300)
             .attr("height", 25);
-            
+
         let dem_rep = [-75, -50, -25, 25, 50, 75]
 
         legend.selectAll("text")
@@ -237,29 +237,72 @@ class Table {
         /**
          * add gridlines to the vizualization
          */
-        let gridlines = d3.select("#predictionTableBody").selectAll("svg");
 
-        for (let i = 0; i < ticks.length; i++) {
-            if (ticks[i] === 0) {
-                gridlines.append("line")
-                .attr("x1", (i*40) + 30)
-                .attr("y1", 0)
-                .attr("x2", (i*40) + 30)
-                .attr("y2", 30)
-                .attr("stroke-width", 1)
-                .attr("stroke", "black");
-            }
-            else {
-            gridlines.append("line")
-                .attr("x1", (i*40) + 30)
-                .attr("y1", 0)
-                .attr("x2", (i*40) + 30)
-                .attr("y2", 30)
-                .attr("stroke-width", 1)
-                .attr("stroke", "grey") 
-                .style("opacity", 0.4);
-            }  
-        }
+
+        let gridlines = d3.select("#predictionTableBody")
+          .selectAll("tr")
+            .data(containerSelect)
+            .join('tr')
+          .selectAll('td').selectAll("svg").selectAll("line")
+            .data(ticks)
+            .join('line')
+            .attr("x1", (d) => this.scaleX(d))
+            .attr("y1", 0)
+            .attr("x2", (d) => this.scaleX(d))
+            .attr("y2", 30)
+            .attr("stroke-width", 1)
+            .attr("stoke", function(d) {
+                if (d === 0) {
+                    return "black";
+                }
+                else {
+                    return "grey";
+                }
+            })
+            .style("opacity", function(d) {
+                if (d === 0) {
+                    return 1;
+                }
+                else {
+                    return 0.4;
+                }
+            })
+
+        //gridlines.selectAll("line")
+        //    .data(lines)
+        //    .join("line")
+        //    .attr("x", (d) => this.scaleX(d))
+        //    .attr("y", 20)
+        //    .attr("fill", function(d) { 
+        //        if (d > 0) {
+        //            return "red";
+        //        }
+        //        else {
+        //            return "steelblue";
+        //        }
+        //    })
+
+        //for (let i = 0; i < ticks.length; i++) {
+        //    if (ticks[i] === 0) {
+        //        gridlines.append("line")
+        //        .attr("x1", (i*40) + 30)
+        //        .attr("y1", 0)
+        //        .attr("x2", (i*40) + 30)
+        //        .attr("y2", 30)
+        //        .attr("stroke-width", 1)
+        //        .attr("stroke", "black");
+        //    }
+        //    else {
+        //    gridlines.append("line")
+        //        .attr("x1", (i*40) + 30)
+        //        .attr("y1", 0)
+        //        .attr("x2", (i*40) + 30)
+        //        .attr("y2", 30)
+        //        .attr("stroke-width", 1)
+        //        .attr("stroke", "grey") 
+        //        .style("opacity", 0.4);
+         //   }  
+        //}
     
     }
 
