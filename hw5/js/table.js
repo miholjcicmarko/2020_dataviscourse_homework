@@ -362,7 +362,7 @@ class Table {
             .data(d => [d.value])
             .join("circle")
             .attr("cx", function(d) {
-                return that.scaleX(d.value.marginLow) + that.scaleX(d.value.margin)/2;
+                return that.scaleX(d.marginLow) + that.scaleX(d.margin)/2;
                 })
             .attr("cy", 15)
             .attr("r", 5);
