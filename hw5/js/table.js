@@ -238,8 +238,22 @@ class Table {
          * add rectangles for the bar charts
          */
         debugger;
-        let gridlines = d3.select("#predictionTableBody").selectAll("svg");
+        let rectangles = d3.select("#predictionTableBody").selectAll("svg");
 
+        rectangles.selectAll('rect')
+            .data(containerSelect)
+            .join('rect')
+            .attr("x", d.marginHigh)
+            .attr("y", 0)
+            .attr("width", d.margin)
+            .attr("height", 30);
+
+
+        //let svgSelect = vizSelection.selectAll('svg')
+        //    .data(d => [d])
+        //    .join('svg')
+        //    .attr('width', this.vizWidth)
+        //    .attr('height', d => d.isForecast ? this.vizHeight : this.smallVizHeight);
 
  
     }
