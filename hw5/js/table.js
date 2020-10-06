@@ -56,16 +56,30 @@ class Table {
         let legend = d3.select("#marginAxis")
             .attr("width", 300)
             .attr("height", 25);
-
-        let democrat = [-75, -50, -25]
+            
+        let dem_rep = [-75, -50, -25, 25, 50, 75]
 
         legend.selectAll("text")
-            .data(democrat)
+            .data(dem_rep)
             .join("text")
-            .attr("x", (d,i) => this.scaleX(d[i]))
-            .attr("class", "td:first-of-type")
-            .attr("fill", "steelblue")
-            .text(function(d) {return "+"+d.value * -1});
+            .attr("x", (d) => this.scaleX(d))
+            .attr("y", 20)
+            .attr("fill", function(d) { 
+                if (d > 0) {
+                    return "red";
+                }
+                else {
+                    return "steelblue";
+                }
+            })
+            .text(function(d) {
+                if (d < 0) {
+                    return "+"+d * -1
+                }
+                else {
+                    return "+"+d
+                }
+            });
             
         //for (let i = 0; i < democrat.length; i++) {
         //    legend.append("text")
@@ -85,17 +99,26 @@ class Table {
             .attr("stroke-width", 1)
             .attr("stroke", "black");
 
-        let republican = [25, 50, 75]
+        //let republican = [25, 50, 75]
 
-            for (let i = 0; i < republican.length; i++) {
-                legend.append("text")
-                    .text("+"+republican[i])
-                    //.attr("x", (i*40) + 175)
-                    .attr("x", this.scaleX(republican[i]))
-                    .attr("y", 20)
-                    .attr("class", "td:first-of-type")
-                    .attr("fill", "red");
-            }
+        //legend.selectAll("text")
+        //    .data(republican)
+        //    .join("text")
+        //    .attr("x", (d) => this.scaleX(d))
+        ///    .attr("y", 20)
+        //    .attr("class", "td:first-of-type")
+        //    .attr("fill", "steelblue")
+        //    .text(function(d) {return "+"+d});
+
+        //    for (let i = 0; i < republican.length; i++) {
+        //        legend.append("text")
+        //            .text("+"+republican[i])
+        //            //.attr("x", (i*40) + 175)
+        //            .attr("x", this.scaleX(republican[i]))
+        //            .attr("y", 20)
+        //            .attr("class", "td:first-of-type")
+        //            .attr("fill", "red");
+        //    }
     }
 
     drawTable() {
