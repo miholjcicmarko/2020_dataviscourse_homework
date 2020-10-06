@@ -358,18 +358,8 @@ class Table {
 
         let that = this;
 
-        let data_select = [];
-
-        for (let i = 0; i < containerSelect._groups.length; i++) {
-            data_select.push(containerSelect._groups[i][0].__data__)
-        }
-
-        d3.select("#predictionTableBody")
-          .selectAll("tr")
-            .data(containerSelect)
-            .join("tr")
-          .selectAll("td").selectAll("svg").select("g").append("circle")
-            .data(data_select)
+        containerSelect
+            .data(d => [d.value])
             .join("circle")
             .attr("cx", function(d) {
                 return that.scaleX(d.value.marginLow) + that.scaleX(d.value.margin)/2;
