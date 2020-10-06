@@ -313,7 +313,13 @@ class Table {
          * add rectangles for the bar charts
          */
         debugger;
-        //let rectangles = d3.select("#predictionTableBody").selectAll("svg")
+        d3.select("#predictionTableBody")
+          .selectAll("tr")
+            .data(containerSelect)
+            .join("tr")
+          .selectAll("td").selectAll("svg").select("g").selectAll("rect")
+          
+
 
         //for (let i = 0; i < containerSelect._groups.length; i++) {
         //    rectangles.append("rect")
