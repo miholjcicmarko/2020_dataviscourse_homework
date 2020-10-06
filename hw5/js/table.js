@@ -240,9 +240,7 @@ class Table {
          * add rectangles for the bar charts
          */
         debugger;
-        let rectangles = d3.select("#predictionTableBody").selectAll("svg");
-
-        rectangles.selectAll('rect')
+        let rectangles = d3.select("#predictionTableBody").selectAll("tr")
             .data(containerSelect)
             .join('rect')
             .attr("x", d.marginHigh)
