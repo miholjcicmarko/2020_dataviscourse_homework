@@ -369,6 +369,8 @@ class Table {
          * add circles to the vizualizations
          */
 
+        let that = this;
+
         let data_select = [];
 
         for (let i = 0; i < containerSelect._groups.length; i++) {
@@ -383,7 +385,7 @@ class Table {
             .data(data_select)
             .join("circle")
             .attr("cx", function(d) {
-                return this.scaleX(d.value.marginLow) + this.scaleX(d.value.margin)/2;
+                return that.scaleX(d.value.marginLow) + that.scaleX(d.value.margin)/2;
                 })
             .attr("cy", 15)
             .attr("r", 5);
