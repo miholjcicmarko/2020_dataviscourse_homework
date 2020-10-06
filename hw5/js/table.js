@@ -313,6 +313,8 @@ class Table {
          * add rectangles for the bar charts
          */
 
+        let that = this;
+
         let data_select = [];
 
         for (let i = 0; i < containerSelect._groups.length; i++) {
@@ -329,11 +331,11 @@ class Table {
             .data(d => [d.value])
             .join("rect")
             .attr("x", function(d) {
-                return this.scaleX(d.marginHigh)
+                return that.scaleX(d.marginHigh)
                 })
             .attr("y", 0)
             .attr("width", function(d) {
-                return this.scaleX(d.margin)
+                return that.scaleX(d.margin)
                 })
             .attr("height", 30)
             .style("fill", function(d,i) { 
