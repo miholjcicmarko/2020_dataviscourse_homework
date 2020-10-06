@@ -240,20 +240,24 @@ class Table {
          * add rectangles for the bar charts
          */
         debugger;
-        let rectangles = d3.select("#predictionTableBody").selectAll("tr")
+        let rectangles = d3.select("#predictionTableBody").selectAll("svg").selectAll("rect")
             .data(containerSelect)
             .join('rect')
-            .attr("x", d.marginHigh)
+            .attr("x", d._groups[0][0].__data__.value.marginHigh)
             .attr("y", 0)
-            .attr("width", d.margin)
+            .attr("width", d._groups[0][0].__data__.value.margin)
             .attr("height", 30);
 
-
-        //let svgSelect = vizSelection.selectAll('svg')
-        //    .data(d => [d])
-        //    .join('svg')
-        //    .attr('width', this.vizWidth)
-        //    .attr('height', d => d.isForecast ? this.vizHeight : this.smallVizHeight);
+        for (let i = 0; i < democrat.length; i++) {
+                legend.append("text")
+                    .text("+"+democrat[i]*-1)
+                    //.attr("x", (i*40) + 15)
+                    .attr("x", this.scaleX(democrat[i]))
+                    .attr("y", 20)
+                    .attr("class", "td:first-of-type")
+                    .attr("fill", "steelblue");
+            }
+        
 
         let txtSelection = forecastSelection.filter(d => d.type === 'text');
 
