@@ -204,7 +204,6 @@ class Table {
         /**
          * add gridlines to the vizualization
          */
-        debugger;
         let gridlines = d3.select("#predictionTableBody").selectAll("svg");
 
         for (let i = 0; i < ticks.length; i++) {
@@ -238,6 +237,9 @@ class Table {
         /**
          * add rectangles for the bar charts
          */
+        debugger;
+        let gridlines = d3.select("#predictionTableBody").selectAll("svg");
+
 
  
     }
