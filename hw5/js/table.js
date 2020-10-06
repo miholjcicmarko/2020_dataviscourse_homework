@@ -364,7 +364,7 @@ class Table {
             .attr("cx", function(d) {
                 return that.scaleX(d.marginLow) + that.scaleX(d.margin)/2;
                 })
-            .attr("cy", 15)
+            .attr("cy", this.smallVizHeight)
             .attr("r", 5);
     }
 
