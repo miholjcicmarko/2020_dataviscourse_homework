@@ -349,8 +349,6 @@ class Table {
                 }
             });
 
-
-
         //for (let i = 0; i < containerSelect._groups.length; i++) {
         //    rectangles.append("rect")
         //        .attr("x", scaleX(containerSelect._groups[i][0].__data__.value.marginHigh))
@@ -369,7 +367,24 @@ class Table {
          * add circles to the vizualizations
          */
 
+        let data_select = [];
 
+        for (let i = 0; i < containerSelect._groups.length; i++) {
+            data_select.push(containerSelect._groups[i][0].__data__)
+        }
+
+        d3.select("#predictionTableBody")
+          .selectAll("tr")
+            .data(containerSelect)
+            .join("tr")
+          .selectAll("td").selectAll("svg").select("g").append("circle")
+            .data(data_select)
+            .join("circle")
+            .attr("cx", function(d) {
+                return this.scaleX(d.value.marginLow) + this.scaleX(d.value.margin)/2;
+                })
+            .attr("cy", 15)
+            .attr("r", 5);
     }
 
     attachSortHandlers() 
