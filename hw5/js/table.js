@@ -381,11 +381,11 @@ class Table {
          * The handler should sort based on that column and alternate between ascending/descending.
          */
 
-        let states = d3.select.filter(".sortable", (d,i) => i === 0);
-        let pred = d3.select.filter(".sortable", (d,i) => i === 1);
-        let wins = d3.select.filter(".sortable", (d,i) => i === 2);
+        let states = d3.filter(".sortable", (d,i) => i === 0);
+        let pred = d3.filter(".sortable", (d,i) => i === 1);
+        let wins = d3.filter(".sortable", (d,i) => i === 2);
 
-        
+        //d3.select('#')    
 
     }
 
