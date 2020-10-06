@@ -59,15 +59,23 @@ class Table {
 
         let democrat = [-75, -50, -25]
 
-        for (let i = 0; i < democrat.length; i++) {
-            legend.append("text")
-                .text("+"+democrat[i]*-1)
-                //.attr("x", (i*40) + 15)
-                .attr("x", this.scaleX(democrat[i]))
-                .attr("y", 20)
-                .attr("class", "td:first-of-type")
-                .attr("fill", "steelblue");
-        }
+        legend.selectAll("text")
+            .data(democrat)
+            .join("text")
+            .attr("x", (d,i) => this.scaleX(d[i]))
+            .attr("class", "td:first-of-type")
+            .attr("fill", "steelblue")
+            .text(function(d) {return "+"+d.value * -1});
+            
+        //for (let i = 0; i < democrat.length; i++) {
+        //    legend.append("text")
+        //        .text("+" + democrat[i] * -1)
+        //        //.attr("x", (i*40) + 15)
+        //        .attr("x", this.scaleX(democrat[i]))
+        //        .attr("y", 20)
+        //        .attr("class", "td:first-of-type")
+        //        .attr("fill", "steelblue");
+        //}
 
         legend.append("line")
             .attr("x1", this.scaleX(0))
@@ -240,31 +248,15 @@ class Table {
          * add rectangles for the bar charts
          */
         debugger;
-        let rectangles = d3.select("#predictionTableBody").selectAll("svg").selectAll("rect")
-            .data(containerSelect)
-            .join('rect')
-            .attr("x", d._groups[0][0].__data__.value.marginHigh)
-            .attr("y", 0)
-            .attr("width", d._groups[0][0].__data__.value.margin)
-            .attr("height", 30);
+        //let rectangles = d3.select("#predictionTableBody").selectAll("svg")
 
-        for (let i = 0; i < democrat.length; i++) {
-                legend.append("text")
-                    .text("+"+democrat[i]*-1)
-                    //.attr("x", (i*40) + 15)
-                    .attr("x", this.scaleX(democrat[i]))
-                    .attr("y", 20)
-                    .attr("class", "td:first-of-type")
-                    .attr("fill", "steelblue");
-            }
-        
-
-        let txtSelection = forecastSelection.filter(d => d.type === 'text');
-
-        let textSelect = txtSelection.selectAll('text')
-            .data(d => [d])
-            .join("text")
-            .text(function(d) {return d.value});
+        //for (let i = 0; i < containerSelect._groups.length; i++) {
+        //    rectangles.append("rect")
+        //        .attr("x", scaleX(containerSelect._groups[i][0].__data__.value.marginHigh))
+        //        .attr("y", 0)
+        //        .attr("width", containerSelect._groups[i][0].__data__.value.margin)
+        //        .attr("height", 30);
+        //}
  
     }
 
