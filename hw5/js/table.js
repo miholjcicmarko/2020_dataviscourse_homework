@@ -63,7 +63,7 @@ class Table {
             .data(dem_rep)
             .join("text")
             .attr("x", (d) => this.scaleX(d))
-            .attr("y", this.smallVizHeight)
+            .attr("y", this.vizHeight)
             .attr("fill", function(d) { 
                 if (d > 0) {
                     return "red";
