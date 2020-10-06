@@ -63,7 +63,7 @@ class Table {
             .data(dem_rep)
             .join("text")
             .attr("x", (d) => this.scaleX(d))
-            .attr("y", this.vizHeight)
+            .attr("y", this.smallVizHeight)
             .attr("fill", function(d) { 
                 if (d > 0) {
                     return "red";
@@ -95,7 +95,7 @@ class Table {
             .attr("x1", this.scaleX(0))
             .attr("y1", 0)
             .attr("x2", this.scaleX(0))
-            .attr("y1", this.vizHeight)
+            .attr("y1", this.smallVizHeight)
             .attr("stroke-width", 1)
             .attr("stroke", "black");
 
