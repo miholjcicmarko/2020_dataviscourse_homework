@@ -251,7 +251,7 @@ class Table {
             .attr("x2", (d) => this.scaleX(d))
             .attr("y2", 30)
             .attr("stroke-width", 1)
-            .attr("stoke", function(d) {
+            .attr("stroke", function(d) {
                 if (d === 0) {
                     return "black";
                 }
