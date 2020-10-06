@@ -238,11 +238,7 @@ class Table {
          * add gridlines to the vizualization
          */
 
-        d3.select("#predictionTableBody")
-          .selectAll("tr")
-            .data(containerSelect)
-            .join('tr')
-          .selectAll('td').selectAll("svg").select("g").selectAll("line")
+        containerSelect
             .data(ticks)
             .join('line')
             .attr("x1", (d) => this.scaleX(d))
@@ -323,11 +319,8 @@ class Table {
 
         debugger;
 
-        d3.select("#predictionTableBody")
-          .selectAll("tr")
-            .data(containerSelect)
-            .join("tr")
-          .selectAll("td").selectAll("svg").select("g").selectAll("rect")
+
+        containerSelect
             .data(d => [d.value])
             .join("rect")
             .attr("x", function(d) {
@@ -339,6 +332,7 @@ class Table {
                 })
             .attr("height", 30)
             .style("fill", 'red');
+            
             //function(d,i) { 
  //               if ((d.marginHigh > 0 && d.marginLow < 0) || (d.value.marginHigh < 0 && d.marginLow > 0)) {
  //                   return "red";
