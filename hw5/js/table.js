@@ -325,11 +325,15 @@ class Table {
           .selectAll("tr")
             .data(containerSelect)
             .join("tr")
-          .selectAll("td").selectAll("svg").select("g").selectAll("rect")
+          .selectAll("td").selectAll("svg").select("g").append("rect")
             .data(data_select)
-            .attr("x", (d) => this.scaleX(d.value.marginHigh))
+            .attr("x", function(d) {
+                return this.scaleX(d.value.marginHigh)
+                })
             .attr("y", 0)
-            .attr("width", (d) => this.scaleX(d.value.margin))
+            .attr("width", function(d) {
+                return this.scaleX(d.value.margin)
+                })
             .attr("height", 30);
 
 
