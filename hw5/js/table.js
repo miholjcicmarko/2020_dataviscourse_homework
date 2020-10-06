@@ -312,13 +312,22 @@ class Table {
         /**
          * add rectangles for the bar charts
          */
+
+        let data_select = [];
+
+        for (let i = 0; i < containerSelect._groups.length; i++) {
+            data_select.push(containerSelect._groups[i][0].__data__)
+        }
+
         debugger;
+
         d3.select("#predictionTableBody")
           .selectAll("tr")
-            .data(containerSelect)
+            .data(containerSelect._groups)
             .join("tr")
           .selectAll("td").selectAll("svg").select("g").selectAll("rect")
-          
+            .data(containerSelect.__data__);
+
 
 
         //for (let i = 0; i < containerSelect._groups.length; i++) {
