@@ -315,7 +315,7 @@ class Table {
 
         containerSelect
             .data(d => [d.value])
-            .join("rect")
+            .append("rect")
             .attr("x", function(d) {
                 return that.scaleX(d.marginHigh)
                 })
