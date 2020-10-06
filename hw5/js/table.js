@@ -326,7 +326,7 @@ class Table {
             .data(containerSelect)
             .join("tr")
           .selectAll("td").selectAll("svg").select("g").selectAll("rect")
-            .data(data_select)
+            .data(d => [d])
             .join("rect")
             .attr("x", function(d,i) {
                 return this.scaleX(d[i].value.marginHigh)
