@@ -328,17 +328,17 @@ class Table {
           .selectAll("td").selectAll("svg").select("g").selectAll("rect")
             .data(data_select)
             .join("rect")
-            .attr("x", function(d) {
-                return this.scaleX(d.value.marginHigh)
+            .attr("x", function(d,i) {
+                return this.scaleX(d[i].value.marginHigh)
                 })
             .attr("y", 0)
-            .attr("width", function(d) {
-                return this.scaleX(d.value.margin)
+            .attr("width", function(d,i) {
+                return this.scaleX(d[i].value.margin)
                 })
             .attr("height", 30)
-            .style("fill", function(d) { 
-                if ((d.value.marginHigh > 0 && d.value.marginLow < 0) ||
-                (d.value.marginHigh < 0 && d.value.marginLow >0)) {
+            .style("fill", function(d,i) { 
+                if ((d[i].value.marginHigh > 0 && d[i].value.marginLow < 0) ||
+                (d[i].value.marginHigh < 0 && d[i].value.marginLow >0)) {
                     return 0;
                 }
                 else if (margin > 0) {
