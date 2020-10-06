@@ -338,17 +338,18 @@ class Table {
                 return that.scaleX(d.margin)
                 })
             .attr("height", 30)
-            .style("fill", function(d,i) { 
-                if ((d.marginHigh > 0 && d.marginLow < 0) || (d.value.marginHigh < 0 && d.marginLow > 0)) {
-                    return "red";
-                }
-                else if (margin > 0) {
-                    return "red";
-                }
-                else {
-                    return "blue";
-                }
-            });
+            .style("fill", 'red');
+            //function(d,i) { 
+ //               if ((d.marginHigh > 0 && d.marginLow < 0) || (d.value.marginHigh < 0 && d.marginLow > 0)) {
+ //                   return "red";
+ //               }
+  //              else if (margin > 0) {
+   //                 return "red";
+   //             }
+   //             else {
+   //                 return "blue";
+   //             }
+   //         });
 
         //for (let i = 0; i < containerSelect._groups.length; i++) {
         //    rectangles.append("rect")
