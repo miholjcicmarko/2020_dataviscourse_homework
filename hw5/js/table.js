@@ -341,7 +341,6 @@ class Table {
 
         pred
             .on("click", () => {
-                debugger;
                 if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
                     let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.margin, b.margin)); 
                     that.tableData = newData;
@@ -350,14 +349,29 @@ class Table {
                     that.drawTable();
                 }
                 else {
-                    let newData = that.tableData.slice().sort((a,b) => d3.descending(a.state, b.state));
+                    let newData = that.tableData.slice().sort((a,b) => d3.descending(a.margin, b.margin));
                     that.tableData = newData;
-                    that.headerData[0].ascending = false;
+                    that.headerData[1].ascending = false;
                     that.drawTable();
                 }
             })
 
-    //d3.select("#")    
+        wins
+            .on("click", () => {
+                if (that.headerData[2].sorted === false && that.headerData[2].ascending === false) {
+                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.winstate_inc, b.winstate_inc)); 
+                    that.tableData = newData;
+                    that.headerData[2].sorted = true;
+                    that.headerData[2].ascending = true;
+                    that.drawTable();
+                }
+                else {
+                    let newData = that.tableData.slice().sort((a,b) => d3.descending(a.winstate_inc, b.winstate_inc));
+                    that.tableData = newData;
+                    that.headerData[2].ascending = false;
+                    that.drawTable();
+                }
+            })
     }
 
 
