@@ -280,6 +280,7 @@ class Table {
                     return "margin-bar biden"
                 }
             });
+            
     }
 
     addCircles(containerSelect) {
