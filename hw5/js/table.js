@@ -258,9 +258,7 @@ class Table {
                 return that.scaleX(d.marginLow)
                 })
             .attr("y", 0)
-            .attr("width", function(d) {
-                return that.scaleX(d.margin)
-                })
+            .attr("width", d => this.scaleX(d.margin))
             .attr("height", that.smallVizHeight)
             .attr("class", 'margin-bar trump');
  
