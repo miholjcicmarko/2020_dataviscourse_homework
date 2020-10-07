@@ -310,9 +310,10 @@ class Table {
                 }
                 else  {
                     states.slice.sort((a,b) => d3.descending(a.margin, b.margin));
-                    that.headerData.ascending = false:
+                    that.headerData.ascending = false;
                 }
         }
+    }
 
 
     toggleRow(rowData, index) {
