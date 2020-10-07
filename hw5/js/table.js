@@ -40,7 +40,7 @@ class Table {
         this.scaleX = d3.scaleLinear()
             .domain([-100, 100])
             .range([0, this.vizWidth]);
-        debugger;
+            
         this.attachSortHandlers();
         this.drawLegend();
     }
@@ -205,34 +205,46 @@ class Table {
         let pred = d3.selectAll(".sortable").filter((d,i) => i === 1);
         let wins = d3.selectAll(".sortable").filter((d,i) => i === 2);
 
-        states
-            .on('click', () => {
-                //pred.attr("class", "th");
-                //wins.attr("class", "th");          
+        if (that.headerData[0].sorted === true && that.headerData[0].ascending === true) {
+            states.selectAll("i")
+                .attr("class", "fas fa-sort-up");
+            states.classed("sorting", true);
+        }
+        else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
+            states.selectAll("i")
+                .attr("class", "fas fa-sort-down");
+            states.classed("sorting", true);
+        }
+        else {
+            states.selectAll("i")
+                .attr("class", "fas no-display");
+        }
+    
 
-                if (that.headerData[0].sorted === false && that.headerData[0].ascending === false) {
-                    that.headerData[0].sorted = true;
-                    that.headerData[0].ascending = true;
-                    states.classed("sorting", true);
-                    states.selectAll("i")
-                        .attr("class", "fas fa-sort-up");
-                }
-                else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
-                    that.headerData[0].ascending = true;
-                    states.classed("sorting", true);
-                    states.selectAll("i")
-                        .attr("class", "fas fa-sort-up");
-                }
-                else {
-                    that.headerData[0].ascending = false;
-                    states.classed("sorting", true);
-                    states.selectAll("i")
-                    .attr("class", "fas fa-sort-down");
-                }
+    //    states
+    //        .on('click', () => {
+    //             //pred.attr("class", "th");
+    //             //wins.attr("class", "th");          
+    //             if (that.headerData[0].sorted === false && that.headerData[0].ascending === false) {
+    //                 //that.headerData[0].sorted = true;
+    //                 //that.headerData[0].ascending = true;
+    //                 //states.classed("sorting", true);
+    //                states.selectAll("i")
+    //                     .attr("class", "fas fa-sort-up");
+    //             }
+    //             else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
+    //                 //that.headerData[0].ascending = true;
+    //                 //states.classed("sorting", true);
+    //                 states.selectAll("i")
+    //                     .attr("class", "fas fa-sort-up");
+    //             }
+    //             else {
+    //                 //that.headerData[0].ascending = false;
+    //                 //states.classed("sorting", true);
+    //                 states.selectAll("i")
+    //                 .attr("class", "fas fa-sort-down");
+    //             }
                 
-                
-
-    })
     }
 
     addGridlines(containerSelect, ticks) {
@@ -355,7 +367,6 @@ class Table {
          */
 
         let that = this;
-        debugger;
 
         let states = d3.selectAll(".sortable").filter((d,i) => i === 0);
         let pred = d3.selectAll(".sortable").filter((d,i) => i === 1);
