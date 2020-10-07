@@ -332,6 +332,8 @@ class Table {
          * Update table data with the poll data and redraw the table.
          */
 
+         debugger;
+        
         
 
     }
