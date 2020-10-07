@@ -54,8 +54,8 @@ class Table {
          */
 
         let legend = d3.select("#marginAxis")
-            .attr("width", 300)
-            .attr("height", 25);
+            .attr("width", this.vizWidth)
+            .attr("height", this.vizHeight);
 
         let dem_rep = [-75, -50, -25, 25, 50, 75]
 
