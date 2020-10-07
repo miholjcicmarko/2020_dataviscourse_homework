@@ -328,7 +328,12 @@ class Table {
             .attr("width", function(d) {
                 let marg = that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
                 let dist_to_z = that.scaleX(marg) - that.scaleX(d.marginHigh);
-                return dist_to_z;
+                if (dist_to_z < 0){
+                    return dist_to_z*-1
+                }
+                else {
+                    return dist_to_z;
+                }
             })
             .attr("height", that.smallVizHeight)
             .attr("class", function(d) {
