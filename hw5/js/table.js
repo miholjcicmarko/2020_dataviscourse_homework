@@ -40,7 +40,7 @@ class Table {
         this.scaleX = d3.scaleLinear()
             .domain([-100, 100])
             .range([0, this.vizWidth]);
-
+        debugger;
         this.attachSortHandlers();
         this.drawLegend();
     }
@@ -369,6 +369,7 @@ class Table {
          */
 
         let that = this;
+        debugger;
 
         let states = d3.selectAll(".sortable").filter((d,i) => i === 0);
         let pred = d3.selectAll(".sortable").filter((d,i) => i === 1);
@@ -399,22 +400,23 @@ class Table {
 
         pred
             .on("click", () => {
+                debugger;
                 if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
-                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.margin, b.margin)); 
+                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
                     that.tableData = newData;
                     that.headerData[1].sorted = true;
                     that.headerData[1].ascending = true;
                     that.drawTable();
                 }
                 else if (that.headerData[1].sorted === true && that.headerData[1].ascending === false) {
-                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.margin, b.margin));
+                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin)));
                     that.tableData = newData;
                     that.headerData[1].ascending = true;
                     that.drawTable();
                 }
 
                 else {
-                    let newData = that.tableData.slice().sort((a,b) => d3.descending(a.margin, b.margin));
+                    let newData = that.tableData.slice().sort((a,b) => d3.descending(Math.abs(a.margin), Math.abs(b.margin)));
                     that.tableData = newData;
                     that.headerData[1].ascending = false;
                     that.drawTable();
