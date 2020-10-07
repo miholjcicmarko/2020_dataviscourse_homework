@@ -207,9 +207,22 @@ class Table {
 
         states
             .on('click', () => {
-                states.attr("class", "sorting");  
+                pred.attr("class", "th");
+                wins.attr("class", "th");
+
+                if (that.headerData[0].sorted === false && that.headerData[0].ascending === false) {
+                    that.headerData[0].sorted = true;
+                    that.headerData[0].ascending = true;
+                    states.attr("class", "sorting"); 
+
+                }
+                else {
+                    that.headerData[0].ascending = false;
+                    states.attr("class", "sorting");
+                    
+                }
                 
-                that.headerData[0].sorted = true;
+                
 
     })
     }
@@ -263,6 +276,7 @@ class Table {
 
         containerSelect
             .data(d => [d.value])
+            .filter(d.marginHigh < 0)
             .append("rect")
             .attr("x", function(d) {
                 return that.scaleX(d.marginLow)
@@ -280,7 +294,7 @@ class Table {
                     return "margin-bar biden"
                 }
             });
-            
+
     }
 
     addCircles(containerSelect) {
