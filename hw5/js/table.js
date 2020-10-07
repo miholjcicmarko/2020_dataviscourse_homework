@@ -80,16 +80,6 @@ class Table {
                     return "+"+d
                 }
             });
-            
-        //for (let i = 0; i < democrat.length; i++) {
-        //    legend.append("text")
-        //        .text("+" + democrat[i] * -1)
-        //        //.attr("x", (i*40) + 15)
-        //        .attr("x", this.scaleX(democrat[i]))
-        //        .attr("y", 20)
-        //        .attr("class", "td:first-of-type")
-        //        .attr("fill", "steelblue");
-        //}
 
         legend.append("line")
             .attr("x1", this.scaleX(0))
@@ -98,27 +88,7 @@ class Table {
             .attr("y1", this.vizHeight)
             .attr("stroke-width", 1)
             .attr("stroke", "black");
-
-        //let republican = [25, 50, 75]
-
-        //legend.selectAll("text")
-        //    .data(republican)
-        //    .join("text")
-        //    .attr("x", (d) => this.scaleX(d))
-        ///    .attr("y", 20)
-        //    .attr("class", "td:first-of-type")
-        //    .attr("fill", "steelblue")
-        //    .text(function(d) {return "+"+d});
-
-        //    for (let i = 0; i < republican.length; i++) {
-        //        legend.append("text")
-        //            .text("+"+republican[i])
-        //            //.attr("x", (i*40) + 175)
-        //            .attr("x", this.scaleX(republican[i]))
-        //            .attr("y", 20)
-        //            .attr("class", "td:first-of-type")
-        //            .attr("fill", "red");
-        //    }
+    
     }
 
     drawTable() {
@@ -292,26 +262,6 @@ class Table {
                 })
             .attr("height", that.smallVizHeight)
             .style("fill", 'red');
-
-            //function(d,i) { 
- //               if ((d.marginHigh > 0 && d.marginLow < 0) || (d.value.marginHigh < 0 && d.marginLow > 0)) {
- //                   return "red";
- //               }
-  //              else if (margin > 0) {
-   //                 return "red";
-   //             }
-   //             else {
-   //                 return "blue";
-   //             }
-   //         });
-
-        //for (let i = 0; i < containerSelect._groups.length; i++) {
-        //    rectangles.append("rect")
-        //        .attr("x", scaleX(containerSelect._groups[i][0].__data__.value.marginHigh))
-        //        .attr("y", 0)
-        //        .attr("width", containerSelect._groups[i][0].__data__.value.margin)
-        //        .attr("height", 30);
-        //}
  
     }
 
