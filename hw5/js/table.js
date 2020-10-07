@@ -218,10 +218,8 @@ class Table {
                     states.attr("class", "sorting");
                     pred.attr("class", ".sortable");
                     wins.attr("class", ".sortable"); 
-                    states.selectAll("i").enter().append("i")
-                        .attr("class", function(d) {
-                            return "fas fa-" + d;
-                        });
+                    states.selectAll("i")
+                        .attr("class", "fas fa-sort-up");
                         that.attachSortHandlers();
                 }
                 else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
@@ -294,51 +292,82 @@ class Table {
         let that = this;
 
         debugger;
-        // non-overlap rectangles
+
+        let array = [];
+
+        for (let i = 0; i < containerSelect._groups.length; i++) {
+            if (containerSelect._groups[i][0].__data__.value.marginLow < 0 &&
+                containerSelect._groups[i][0].__data__.value.marginHigh < 0) {
+                    array.push(containerSelect._groups[i][0].__data__.value);
+            }
+
+        }
+debugger;
         containerSelect
-            .data(d => [d.value])
-            .filter((d,i) => (d.marginHigh < 0 && d.marginLow < 0) ||
-            (d.marginHigh > 0 && d.marginLow > 0))
+            .data(d => [array])
             .append("rect")
             .attr("x", function(d) {
                 return that.scaleX(d.marginLow)
                 })
             .attr("y", 0)
             .attr("width", function(d) {
-                return that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
+               return that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
             })
             .attr("height", that.smallVizHeight)
             .attr("class", function(d) {
-                if ((d.marginHigh < 0 && d.marginLow < 0)) {
-                    return "margin-bar biden" 
-                }
-                else {
+               if ((d.marginHigh < 0 && d.marginLow < 0)) {
+                   return "margin-bar biden" 
+               }
+               else {
                     return "margin-bar trump" 
-                }  
+               }  
             });
+
+
+        // non-overlap rectangles
+        //containerSelect
+        //    .data(d => [d.value])
+        //    .filter((d,i) => (d.marginHigh < 0 && d.marginLow < 0) ||
+        //    (d.marginHigh > 0 && d.marginLow > 0))
+        //    .append("rect")
+        //    .attr("x", function(d) {
+        //        return that.scaleX(d.marginLow)
+        //        })
+        //    .attr("y", 0)
+        //    .attr("width", function(d) {
+         //       return that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
+        //    })
+        //    .attr("height", that.smallVizHeight)
+        //    .attr("class", function(d) {
+         //       if ((d.marginHigh < 0 && d.marginLow < 0)) {
+         //           return "margin-bar biden" 
+         //       }
+         //       else {
+           //         return "margin-bar trump" 
+          //      }  
+         //   });
         // overlap that are for biden
-        containerSelect
-            .data(d => [d.value])
-            .filter((d,i) => (d.marginHigh > 0 && (d.marginHigh + d.marginLow < 0)))
-            .append("rect")
-            .attr("x", function(d) {
-                return that.scaleX(d.marginLow)
-                })
-            .attr("y", 0)
-            .attr("width", function(d) {
-                let marg = that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
-                let dist_to_z = that.scaleX(marg) - that.scaleX(d.marginHigh);
-                if (dist_to_z < 0){
-                    return dist_to_z*-1
-                }
-                else {
-                    return dist_to_z;
-                }
-            })
-            .attr("height", that.smallVizHeight)
-            .attr("class", function(d) {
-                return "margin-bar biden"    
-            });
+        //containerSelect
+        //    .data(d => [d.value])
+         //   .filter((d,i) => (d.marginHigh > 0 && (d.marginHigh + d.marginLow < 0)))
+         //   .append("rect")
+         //   .attr("x", function(d) {
+         //       return that.scaleX(d.marginLow)
+         //       })
+         //   .attr("y", 0)
+         //   .attr("width", function(d) {
+          //      let marg = 0 - that.scaleX(d.marginLow);
+         //       if (marg < 0){
+         //           return marg*-1
+         //       }
+         //       else {
+         //           return marg;
+         //       }
+         //   })
+         //   .attr("height", that.smallVizHeight)
+         //   .attr("class", function(d) {
+         //       return "margin-bar biden"    
+         //   });
         // overlap for trump
         //containerSelect
         //    .data(d => [d.value])
