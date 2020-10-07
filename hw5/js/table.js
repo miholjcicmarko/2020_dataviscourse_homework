@@ -294,7 +294,7 @@ class Table {
         let that = this;
 
         debugger;
-
+        // non-overlap rectangles
         containerSelect
             .data(d => [d.value])
             .filter((d,i) => (d.marginHigh < 0 && d.marginLow < 0) ||
@@ -316,6 +316,7 @@ class Table {
                     return "margin-bar trump" 
                 }  
             });
+        // overlap that are for biden
         containerSelect
             .data(d => [d.value])
             .filter((d,i) => (d.marginHigh > 0 && (d.marginHigh + d.marginLow < 0)))
@@ -325,12 +326,15 @@ class Table {
                 })
             .attr("y", 0)
             .attr("width", function(d) {
-                return that.scaleX(d.marginLow);
+                let marg = that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
+                let dist_to_z = that.scaleX(marg) - that.scaleX(d.marginHigh);
+                return dist_to_z;
             })
             .attr("height", that.smallVizHeight)
             .attr("class", function(d) {
                 return "margin-bar biden"    
             });
+        // overlap for trump
         containerSelect
             .data(d => [d.value])
             .filter((d,i) => (d.marginLow < 0 && (d.marginHigh + d.marginLow > 0)))
@@ -340,7 +344,27 @@ class Table {
                 })
             .attr("y", 0)
             .attr("width", function(d) {
-                return that.scaleX(d.marginLow);
+                let marg = that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
+                let dist_to_z = that.scaleX(marg) - that.scaleX(d.marginHigh);
+                return dist_to_z;
+            })
+            .attr("height", that.smallVizHeight)
+            .attr("class", function(d) {
+                return "margin-bar trump"    
+            });
+        //color portion of biden
+        containerSelect
+            .data(d => [d.value])
+            .filter((d,i) => (d.marginHigh > 0 && (d.marginHigh + d.marginLow < 0)))
+            .append("rect")
+            .attr("x", function(d) {
+                return that.scaleX(0)
+                })
+            .attr("y", 0)
+            .attr("width", function(d) {
+                let marg = that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
+                let dist_to_z = that.scaleX(marg) - that.scaleX(d.marginLow);
+                return dist_to_z;
             })
             .attr("height", that.smallVizHeight)
             .attr("class", function(d) {
