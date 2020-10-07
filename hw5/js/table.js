@@ -211,8 +211,10 @@ class Table {
             states.classed("sorting", true);
             pred.classed("sorting", false);
             pred.selectAll("i")
-                .attr("class", "fas no-display")
+                .attr("class", "fas no-display");
             wins.classed("sorting", false);
+            wins.selectAll("i")
+                .attr("class", "fas no-display");
         }
         else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
             states.selectAll("i")
@@ -220,37 +222,56 @@ class Table {
             states.classed("sorting", true);
             pred.classed("sorting", false);
             pred.selectAll("i")
-                .attr("class", "fas no-display")
+                .attr("class", "fas no-display");
             wins.classed("sorting", false);
+            wins.selectAll("i")
+                .attr("class", "fas no-display");
         }
-        else {
+        else if (that.headerData[0].sorted === false) {
             states.selectAll("i")
+                .attr("class", "fas no-display");
+            states.classed("sorting", true);
+            pred.classed("sorting", false);
+            pred.selectAll("i")
+                .attr("class", "fas no-display");
+            wins.classed("sorting", false);
+            wins.selectAll("i")
                 .attr("class", "fas no-display");
         }
     
         if (that.headerData[1].sorted === true && that.headerData[1].ascending === true) {
+            states.selectAll("i")
+                .attr("class", "fas no-display");
+            states.classed("sorting", false);
+            pred.classed("sorting", true);
             pred.selectAll("i")
                 .attr("class", "fas fa-sort-up");
-            states.classed("sorting", false);
-            states.selectAll("i")
-                .attr("class", "fas no-display");
-            pred.classed("sorting", true);
             wins.classed("sorting", false);
+            wins.selectAll("i")
+                .attr("class", "fas no-display");
         }
         else if (that.headerData[1].sorted === true && that.headerData[1].ascending === false) {
-            pred.selectAll("i")
-                .attr("class", "fas fa-sort-down");
-            states.classed("sorting", false);
             states.selectAll("i")
                 .attr("class", "fas no-display");
+            states.classed("sorting", false);
             pred.classed("sorting", true);
-            wins.classed("sorting", false);
-        }
-        else {
             pred.selectAll("i")
+                .attr("class", "fas fa-sort-down");
+            wins.classed("sorting", false);
+            wins.selectAll("i")
                 .attr("class", "fas no-display");
         }
-
+        else if (that.headerData[1].sorted === false) {
+            states.selectAll("i")
+                .attr("class", "fas no-display");
+            states.classed("sorting", true);
+            pred.classed("sorting", false);
+            pred.selectAll("i")
+                .attr("class", "fas no-display");
+            wins.classed("sorting", false);
+            wins.selectAll("i")
+                .attr("class", "fas no-display");
+        }
 
     //    states
     //        .on('click', () => {
