@@ -199,7 +199,7 @@ class Table {
          * update the column headers based on the sort state
          */
 
-
+        
         
 
     }
@@ -340,8 +340,8 @@ class Table {
 
         let rows = d3.selectAll("#prediction-table").selectAll('tr').filter((d,i) => i === index)
             
-        rows
-            .data(d => d.value);
+        rows.append("text")
+            .data(d => [d]);
 
 
 
