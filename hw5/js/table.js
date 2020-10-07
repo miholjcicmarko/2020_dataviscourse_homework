@@ -259,15 +259,16 @@ class Table {
                 })
             .attr("y", 0)
             .attr("width", function(d) {
-                if (d.margin < 0) {
-                    return d.margin*-1
+                let wid = d.marginHigh - d.marginLow;
+                if (wid < 0) {
+                    return (wid * -1)
                 }
-                if (d.margin > 0) {
-                    return d.margin
+                else {
+                    return wid;
                 }
-            }
-            .attr("height", that.smallVizHeight)
-            .attr("class", 'margin-bar trump');
+            })
+            .attr("height", that.smallVizHeight);
+            //.attr("class", 'margin-bar trump');
  
     }
 
