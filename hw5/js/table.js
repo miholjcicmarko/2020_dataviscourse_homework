@@ -218,7 +218,7 @@ class Table {
             .attr("x1", (d) => this.scaleX(d))
             .attr("y1", 0)
             .attr("x2", (d) => this.scaleX(d))
-            .attr("y2", 30)
+            .attr("y2", this.vizHeight)
             .attr("stroke-width", 1)
             .attr("stroke", function(d) {
                 if (d === 0) {
