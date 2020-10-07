@@ -293,59 +293,87 @@ class Table {
 
         debugger;
 
-        let array = [];
+//         let array = [];
 
-        for (let i = 0; i < containerSelect._groups.length; i++) {
-            if (containerSelect._groups[i][0].__data__.value.marginLow < 0 &&
-                containerSelect._groups[i][0].__data__.value.marginHigh < 0) {
-                    array.push(containerSelect._groups[i][0].__data__.value);
-            }
+//         for (let i = 0; i < containerSelect._groups.length; i++) {
+//             if (containerSelect._groups[i][0].__data__.value.marginLow < 0 &&
+//                 containerSelect._groups[i][0].__data__.value.marginHigh > 0) {
+//                     debugger;
+//                     let low = containerSelect._groups[i][0].__data__.value.marginLow;
+//                     let high = containerSelect._groups[i][0].__data__.value.marginHigh;
+//                     let low_zero = containerSelect._groups[i][0].__data__.value;
+//                     let high_zero = containerSelect._groups[i][0].__data__.value;
+//                     low_zero.marginLow = low;
+//                     low_zero.marginHigh = 0;
+//                     array.push(low_zero);
+//                     high_zero.marginLow = 0;
+//                     high_zero.marginHigh = high;
+//                     array.push(high_zero);
+//             }
+//             else {
+//                 array.push(containerSelect._groups[i][0].__data__.value);
+//             }
 
-        }
-debugger;
+//         }
+// debugger;
+//         containerSelect
+//             .data(array)
+//             .append("rect")
+//             .attr("x", function(d) {
+//                 return that.scaleX(d.marginLow)
+//                 })
+//             .attr("y", 0)
+//             .attr("width", function(d) {
+//                return that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
+//             })
+//             .attr("height", that.smallVizHeight)
+//             .attr("class", function(d) {
+//                if ((d.marginHigh < 0 && d.marginLow < 0)) {
+//                    return "margin-bar biden" 
+//                }
+//                else {
+//                     return "margin-bar trump" 
+//                }  
+//             });
+
+
+        // non-overlap rectangles
         containerSelect
-            .data(d => [array])
+            .data(d => {
+                if (d.value.marginLow < 0 && d.value.marginHigh > 0) {
+                    let d1 = {
+                        "marginLow" : d.value.marginLow,
+                        "marginHigh" : 0
+                    }
+                    let d2 = {
+                        "marginLow" : 0,
+                        "marginHigh" : d.value.marginHigh
+                    }
+                return [d1, d2];
+                }
+                else {
+                    return [d.value];
+                }
+            })
+            //.filter((d,i) => (d.marginHigh < 0 && d.marginLow < 0) ||
+            //(d.marginHigh > 0 && d.marginLow > 0))
             .append("rect")
             .attr("x", function(d) {
                 return that.scaleX(d.marginLow)
                 })
             .attr("y", 0)
             .attr("width", function(d) {
-               return that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
-            })
+                return that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
+           })
             .attr("height", that.smallVizHeight)
             .attr("class", function(d) {
-               if ((d.marginHigh < 0 && d.marginLow < 0)) {
+                if (d.marginHigh <= 0) {
                    return "margin-bar biden" 
-               }
-               else {
+                }
+                else if (d.marginLow >= 0){
                     return "margin-bar trump" 
-               }  
-            });
-
-
-        // non-overlap rectangles
-        //containerSelect
-        //    .data(d => [d.value])
-        //    .filter((d,i) => (d.marginHigh < 0 && d.marginLow < 0) ||
-        //    (d.marginHigh > 0 && d.marginLow > 0))
-        //    .append("rect")
-        //    .attr("x", function(d) {
-        //        return that.scaleX(d.marginLow)
-        //        })
-        //    .attr("y", 0)
-        //    .attr("width", function(d) {
-         //       return that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
-        //    })
-        //    .attr("height", that.smallVizHeight)
-        //    .attr("class", function(d) {
-         //       if ((d.marginHigh < 0 && d.marginLow < 0)) {
-         //           return "margin-bar biden" 
-         //       }
-         //       else {
-           //         return "margin-bar trump" 
-          //      }  
-         //   });
+                }  
+           });
         // overlap that are for biden
         //containerSelect
         //    .data(d => [d.value])
