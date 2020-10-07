@@ -92,6 +92,7 @@ class Table {
     }
 
     drawTable() {
+        d3.select("#predictionTableBody").selectAll("*").remove();
         this.updateHeaders();
         let rowSelection = d3.select('#predictionTableBody')
             .selectAll('tr')
@@ -304,16 +305,16 @@ class Table {
         states
             .on('click', () => {
                 debugger;
-                if (that.headerData.sorted === false && that.headerData.ascending === false) {
+                if (that.headerData[0].sorted === false && that.headerData[0].ascending === false) {
                     let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.state, b.state)); 
                     that.tableData = newData;
-                    that.headerData.sorted = true;
-                    that.headerData.ascending = true;
+                    that.headerData[0].sorted = true;
+                    that.headerData[0].ascending = true;
                     that.drawTable();
                 }
                 else {
                     that.tableData.slice().sort((a,b) => d3.descending(a.margin, b.margin));
-                    that.headerData.ascending = false;
+                    that.headerData[0].ascending = false;
                 }
         })
 
