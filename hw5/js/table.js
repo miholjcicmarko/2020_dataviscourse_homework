@@ -207,7 +207,9 @@ class Table {
 
         states
             .on('click', () => {
-                states.attr("class", "sorting");        
+                states.attr("class", "th");  
+                
+                that.headerData[0].sorted = true;
 
     })
     }
