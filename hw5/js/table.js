@@ -210,6 +210,8 @@ class Table {
                 .attr("class", "fas fa-sort-up");
             states.classed("sorting", true);
             pred.classed("sorting", false);
+            pred.selectAll("i")
+                .attr("class", "fas no-display")
             wins.classed("sorting", false);
         }
         else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
@@ -217,6 +219,8 @@ class Table {
                 .attr("class", "fas fa-sort-down");
             states.classed("sorting", true);
             pred.classed("sorting", false);
+            pred.selectAll("i")
+                .attr("class", "fas no-display")
             wins.classed("sorting", false);
         }
         else {
@@ -228,6 +232,8 @@ class Table {
             pred.selectAll("i")
                 .attr("class", "fas fa-sort-up");
             states.classed("sorting", false);
+            states.selectAll("i")
+                .attr("class", "fas no-display");
             pred.classed("sorting", true);
             wins.classed("sorting", false);
         }
@@ -235,6 +241,8 @@ class Table {
             pred.selectAll("i")
                 .attr("class", "fas fa-sort-down");
             states.classed("sorting", false);
+            states.selectAll("i")
+                .attr("class", "fas no-display");
             pred.classed("sorting", true);
             wins.classed("sorting", false);
         }
