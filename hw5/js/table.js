@@ -376,7 +376,7 @@ class Table {
             .filter((d,i) => (d.marginLow < 0 && (d.marginHigh + d.marginLow > 0)))
             .append("rect")
             .attr("x", function(d) {
-                return that.scaleX(d.marginLow)
+                return that.scaleX(0)
                 })
             .attr("y", 0)
             .attr("width", function(d) {
