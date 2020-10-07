@@ -207,7 +207,7 @@ class Table {
 
         states
             .on('click', () => {
-                states.attr("class", "th");  
+                states.attr("class", "sorting");  
                 
                 that.headerData[0].sorted = true;
 
@@ -269,23 +269,17 @@ class Table {
                 })
             .attr("y", 0)
             .attr("width", function(d) {
-                let wid = d.margin;
-                if (wid < 0) {
-                    return (wid * -1)
-                }
-                else {
-                    return wid;
-                }
+                return that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
             })
-            .attr("height", that.smallVizHeight);
-            //.attr("class", function(d) {
-            //    if (d.marginLow < 0 && d.marginHigh > 0) {
-
-            //    }
-            //}
-            
-           //'margin-bar trump');
- 
+            .attr("height", that.smallVizHeight)
+            .attr("class", function(d) {
+                if (d.marginLow > 0 && d.marginHigh > 0) {
+                    return "margin-bar trump"
+                }
+                else if (d.marginLow < 0 && d.marginHigh < 0) {
+                    return "margin-bar biden"
+                }
+            });
     }
 
     addCircles(containerSelect) {
