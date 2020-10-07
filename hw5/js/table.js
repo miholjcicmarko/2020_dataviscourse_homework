@@ -295,17 +295,24 @@ class Table {
          * The handler should sort based on that column and alternate between ascending/descending.
          */
 
+        let that = this;
+
         let states = d3.filter(".sortable", (d,i) => i === 0);
         let pred = d3.filter(".sortable", (d,i) => i === 1);
         let wins = d3.filter(".sortable", (d,i) => i === 2);
 
         d3.select('#state-name')  
             .on('click', () => {
-                states.sort((a,b)) => 
-                { d3.ascending(a.margin, b.margin)
-            });  
-
-    }
+                if (that.headerData.sorted === false && that.headerData.ascending === false) {
+                    states.slice().sort((a,b) => d3.ascending(a.margin, b.margin)); 
+                    that.headerData.sorted = true;
+                    that.headerData.ascending = true;
+                }
+                else  {
+                    states.slice.sort((a,b) => d3.descending(a.margin, b.margin));
+                    that.headerData.ascending = false:
+                }
+        }
 
 
     toggleRow(rowData, index) {
