@@ -265,42 +265,6 @@ class Table {
                     return 0.4;
                 }
             })
-
-        //gridlines.selectAll("line")
-        //    .data(lines)
-        //    .join("line")
-        //    .attr("x", (d) => this.scaleX(d))
-        //    .attr("y", 20)
-        //    .attr("fill", function(d) { 
-        //        if (d > 0) {
-        //            return "red";
-        //        }
-        //        else {
-        //            return "steelblue";
-        //        }
-        //    })
-
-        //for (let i = 0; i < ticks.length; i++) {
-        //    if (ticks[i] === 0) {
-        //        gridlines.append("line")
-        //        .attr("x1", (i*40) + 30)
-        //        .attr("y1", 0)
-        //        .attr("x2", (i*40) + 30)
-        //        .attr("y2", 30)
-        //        .attr("stroke-width", 1)
-        //        .attr("stroke", "black");
-        //    }
-        //    else {
-        //    gridlines.append("line")
-        //        .attr("x1", (i*40) + 30)
-        //        .attr("y1", 0)
-        //        .attr("x2", (i*40) + 30)
-        //        .attr("y2", 30)
-        //        .attr("stroke-width", 1)
-        //        .attr("stroke", "grey") 
-        //        .style("opacity", 0.4);
-         //   }  
-        //}
     
     }
 
@@ -385,7 +349,11 @@ class Table {
         let pred = d3.filter(".sortable", (d,i) => i === 1);
         let wins = d3.filter(".sortable", (d,i) => i === 2);
 
-        //d3.select('#')    
+        d3.select('#state-name')  
+            .on('click', () => {
+                states.sort((a,b)) => 
+                { d3.ascending(a.margin, b.margin)
+            });  
 
     }
 
