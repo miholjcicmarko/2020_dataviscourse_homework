@@ -213,35 +213,21 @@ class Table {
                 if (that.headerData[0].sorted === false && that.headerData[0].ascending === false) {
                     that.headerData[0].sorted = true;
                     that.headerData[0].ascending = true;
-                    states.attr("class", ".sortable sorting");
-                    //pred.attr("class", ".sortable");
-                    //wins.attr("class", ".sortable"); 
+                    states.classed("sorting", true);
                     states.selectAll("i")
                         .attr("class", "fas fa-sort-up");
-                    that.drawTable();
                 }
                 else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
                     that.headerData[0].ascending = true;
-                    //states.attr("class", "th")
-                    //states.attr("class", ".sortable");
-                    //pred.attr("class", ".sortable");
-                    //wins.attr("class", ".sortable"); 
+                    states.classed("sorting", true);
                     states.selectAll("i")
                         .attr("class", "fas fa-sort-up");
-
-                    that.drawTable();
                 }
                 else {
                     that.headerData[0].ascending = false;
-                    //states.attr("class", "th");
-                    states.attr("class", ".sortable")
-                        .attr("class", "sorting");
-                    //pred.attr("class", ".sortable");
-                    //wins.attr("class", ".sortable"); 
+                    states.classed("sorting", true);
                     states.selectAll("i")
                     .attr("class", "fas fa-sort-down");
-
-                    that.drawTable();
                 }
                 
                 
