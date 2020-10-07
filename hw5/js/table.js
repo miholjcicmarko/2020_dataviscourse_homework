@@ -313,7 +313,7 @@ class Table {
                     that.drawTable();
                 }
                 else {
-                    let newData = that.tableData.slice().sort((a,b) => d3.descending(a.margin, b.margin));
+                    let newData = that.tableData.slice().sort((a,b) => d3.descending(a.state, b.state));
                     that.tableData = newData;
                     that.headerData[0].ascending = false;
                 }
