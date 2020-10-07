@@ -331,8 +331,21 @@ class Table {
         /**
          * Update table data with the poll data and redraw the table.
          */
+        debugger;
+        let name = rowData.state;
 
-         debugger;
+        let all_poll = this.pollData;
+
+        let state_poll = all_poll.get(name);
+
+        let rows = d3.selectAll("#prediction-table").selectAll('tr').filter((d,i) => i === index)
+            
+        rows
+            .data(d => d.value);
+
+
+
+         
         
         
 
