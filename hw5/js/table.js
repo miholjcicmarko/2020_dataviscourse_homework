@@ -205,48 +205,48 @@ class Table {
         let pred = d3.selectAll(".sortable").filter((d,i) => i === 1);
         let wins = d3.selectAll(".sortable").filter((d,i) => i === 2);
 
-    //     states
-    //         .on('click', () => {
-    //             //pred.attr("class", "th");
-    //             //wins.attr("class", "th");          
+        states
+            .on('click', () => {
+                //pred.attr("class", "th");
+                //wins.attr("class", "th");          
 
-    //             if (that.headerData[0].sorted === false && that.headerData[0].ascending === false) {
-    //                 that.headerData[0].sorted = true;
-    //                 that.headerData[0].ascending = true;
-    //                 states.attr("class", ".sortable sorting");
-    //                 //pred.attr("class", ".sortable");
-    //                 //wins.attr("class", ".sortable"); 
-    //                 states.selectAll("i")
-    //                     .attr("class", "fas fa-sort-up");
-    //                 that.drawTable();
-    //             }
-    //             else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
-    //                 that.headerData[0].ascending = true;
-    //                 //states.attr("class", "th")
-    //                 //states.attr("class", ".sortable");
-    //                 //pred.attr("class", ".sortable");
-    //                 //wins.attr("class", ".sortable"); 
-    //                 states.selectAll("i")
-    //                     .attr("class", "fas fa-sort-up");
+                if (that.headerData[0].sorted === false && that.headerData[0].ascending === false) {
+                    that.headerData[0].sorted = true;
+                    that.headerData[0].ascending = true;
+                    states.attr("class", ".sortable sorting");
+                    //pred.attr("class", ".sortable");
+                    //wins.attr("class", ".sortable"); 
+                    states.selectAll("i")
+                        .attr("class", "fas fa-sort-up");
+                    that.drawTable();
+                }
+                else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
+                    that.headerData[0].ascending = true;
+                    //states.attr("class", "th")
+                    //states.attr("class", ".sortable");
+                    //pred.attr("class", ".sortable");
+                    //wins.attr("class", ".sortable"); 
+                    states.selectAll("i")
+                        .attr("class", "fas fa-sort-up");
 
-    //                 that.drawTable();
-    //             }
-    //             else {
-    //                 that.headerData[0].ascending = false;
-    //                 //states.attr("class", "th");
-    //                 states.attr("class", ".sortable")
-    //                     .attr("class", "sorting");
-    //                 //pred.attr("class", ".sortable");
-    //                 //wins.attr("class", ".sortable"); 
-    //                 states.selectAll("i")
-    //                 .attr("class", "fas fa-sort-down");
+                    that.drawTable();
+                }
+                else {
+                    that.headerData[0].ascending = false;
+                    //states.attr("class", "th");
+                    states.attr("class", ".sortable")
+                        .attr("class", "sorting");
+                    //pred.attr("class", ".sortable");
+                    //wins.attr("class", ".sortable"); 
+                    states.selectAll("i")
+                    .attr("class", "fas fa-sort-down");
 
-    //                 that.drawTable();
-    //             }
+                    that.drawTable();
+                }
                 
                 
 
-    // })
+    })
     }
 
     addGridlines(containerSelect, ticks) {
@@ -400,7 +400,6 @@ class Table {
 
         pred
             .on("click", () => {
-                debugger;
                 if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
                     let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
                     that.tableData = newData;
