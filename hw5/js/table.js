@@ -64,12 +64,12 @@ class Table {
             .join("text")
             .attr("x", (d) => this.scaleX(d))
             .attr("y", this.smallVizHeight)
-            .attr("fill", function(d) { 
+            .attr("class", function(d) { 
                 if (d > 0) {
-                    return "red";
+                    return "margin-bar trump";
                 }
                 else {
-                    return "steelblue";
+                    return "margin bar biden";
                 }
             })
             .text(function(d) {
@@ -285,8 +285,7 @@ class Table {
             .attr("r", 5);
     }
 
-    attachSortHandlers() 
-    {
+    attachSortHandlers() {
         ////////////
         // PART 7 // 
         ////////////
@@ -301,18 +300,20 @@ class Table {
         let pred = d3.filter(".sortable", (d,i) => i === 1);
         let wins = d3.filter(".sortable", (d,i) => i === 2);
 
-        d3.select('#state-name')  
-            .on('click', () => {
-                if (that.headerData.sorted === false && that.headerData.ascending === false) {
-                    states.slice().sort((a,b) => d3.ascending(a.margin, b.margin)); 
-                    that.headerData.sorted = true;
-                    that.headerData.ascending = true;
-                }
-                else  {
-                    states.slice.sort((a,b) => d3.descending(a.margin, b.margin));
-                    that.headerData.ascending = false;
-                }
-        }
+        //d3.select('#state-name')  
+        //    .on('click', () => {
+        //        if (that.headerData.sorted === false && that.headerData.ascending === false) {
+        //            states.slice().sort((a,b) => d3.ascending(a.margin, b.margin)); 
+        //            that.headerData.sorted = true;
+        //            that.headerData.ascending = true;
+        //        }
+        //        else {
+        //            states.slice.sort((a,b) => d3.descending(a.margin, b.margin));
+       //             that.headerData.ascending = false;
+       //         }
+       // }
+
+        //d3.select("#")
     }
 
 
