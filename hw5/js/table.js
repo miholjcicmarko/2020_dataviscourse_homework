@@ -201,6 +201,8 @@ class Table {
     
         let that = this;
 
+        //let icons = ["sort-up", "sort-down"];
+
         let states = d3.selectAll(".sortable").filter((d,i) => i === 0);
         let pred = d3.selectAll(".sortable").filter((d,i) => i === 1);
         let wins = d3.selectAll(".sortable").filter((d,i) => i === 2);
@@ -208,18 +210,37 @@ class Table {
         states
             .on('click', () => {
                 pred.attr("class", "th");
-                wins.attr("class", "th");
+                wins.attr("class", "th");          
 
                 if (that.headerData[0].sorted === false && that.headerData[0].ascending === false) {
                     that.headerData[0].sorted = true;
                     that.headerData[0].ascending = true;
-                    states.attr("class", "sorting"); 
+                    states.attr("class", "sorting");
+                    pred.attr("class", ".sortable");
+                    wins.attr("class", ".sortable"); 
+                    states.selectAll("i").enter().append("i")
+                        .attr("class", function(d) {
+                            return "fas fa-" + d;
+                        });
+                        that.attachSortHandlers();
+                }
+                else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
+                    that.headerData[0].ascending = true;
+                    states.attr("class", "th")
+                    states.attr("class", ".sortable");
+                    pred.attr("class", ".sortable");
+                    wins.attr("class", ".sortable"); 
 
+                    that.attachSortHandlers();
                 }
                 else {
                     that.headerData[0].ascending = false;
-                    states.attr("class", "sorting");
-                    
+                    states.attr("class", "th");
+                    states.attr("class", ".sortable");
+                    pred.attr("class", ".sortable");
+                    wins.attr("class", ".sortable"); 
+
+                    that.attachSortHandlers();
                 }
                 
                 
@@ -276,7 +297,7 @@ class Table {
 
         containerSelect
             .data(d => [d.value])
-            .filter(d.marginHigh < 0)
+            //.filter(d.marginHigh < 0)
             .append("rect")
             .attr("x", function(d) {
                 return that.scaleX(d.marginLow)
@@ -347,6 +368,12 @@ class Table {
                     let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.state, b.state)); 
                     that.tableData = newData;
                     that.headerData[0].sorted = true;
+                    that.headerData[0].ascending = true;
+                    that.drawTable();
+                }
+                else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
+                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.state, b.state));
+                    that.tableData = newData;
                     that.headerData[0].ascending = true;
                     that.drawTable();
                 }
