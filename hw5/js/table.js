@@ -255,7 +255,7 @@ class Table {
             .data(d => [d.value])
             .append("rect")
             .attr("x", function(d) {
-                return that.scaleX(d.marginHigh)
+                return that.scaleX(d.marginLow);
                 })
             .attr("y", 0)
             .attr("width", function(d) {
