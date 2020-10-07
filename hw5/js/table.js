@@ -259,7 +259,7 @@ class Table {
                 })
             .attr("y", 0)
             .attr("width", function(d) {
-                let wid = d.marginHigh - d.marginLow;
+                let wid = d.margin;
                 if (wid < 0) {
                     return (wid * -1)
                 }
@@ -267,8 +267,14 @@ class Table {
                     return wid;
                 }
             })
-            .attr("height", that.smallVizHeight);
-            //.attr("class", 'margin-bar trump');
+            .attr("height", that.smallVizHeight)
+            //.attr("class", function(d) {
+            //    if (d.marginLow < 0 && d.marginHigh > 0) {
+
+            //    }
+            //}
+            
+            'margin-bar trump');
  
     }
 
