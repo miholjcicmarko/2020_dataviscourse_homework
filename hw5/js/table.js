@@ -267,14 +267,14 @@ class Table {
                     return wid;
                 }
             })
-            .attr("height", that.smallVizHeight)
+            .attr("height", that.smallVizHeight);
             //.attr("class", function(d) {
             //    if (d.marginLow < 0 && d.marginHigh > 0) {
 
             //    }
             //}
             
-            'margin-bar trump');
+           //'margin-bar trump');
  
     }
 
@@ -324,7 +324,6 @@ class Table {
 
         states
             .on('click', () => {
-                debugger;
                 if (that.headerData[0].sorted === false && that.headerData[0].ascending === false) {
                     let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.state, b.state)); 
                     that.tableData = newData;
@@ -339,6 +338,24 @@ class Table {
                     that.drawTable();
                 }
         })
+
+        pred
+            .on("click", () => {
+                debugger;
+                if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
+                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.margin, b.margin)); 
+                    that.tableData = newData;
+                    that.headerData[1].sorted = true;
+                    that.headerData[1].ascending = true;
+                    that.drawTable();
+                }
+                else {
+                    let newData = that.tableData.slice().sort((a,b) => d3.descending(a.state, b.state));
+                    that.tableData = newData;
+                    that.headerData[0].ascending = false;
+                    that.drawTable();
+                }
+            })
 
     //d3.select("#")    
     }
