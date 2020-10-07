@@ -198,10 +198,18 @@ class Table {
         /**
          * update the column headers based on the sort state
          */
+    
+        let that = this;
 
-        
-        
+        let states = d3.selectAll(".sortable").filter((d,i) => i === 0);
+        let pred = d3.selectAll(".sortable").filter((d,i) => i === 1);
+        let wins = d3.selectAll(".sortable").filter((d,i) => i === 2);
 
+        states
+            .on('click', () => {
+                states.attr("class", "sorting");        
+
+    })
     }
 
     addGridlines(containerSelect, ticks) {
@@ -315,7 +323,7 @@ class Table {
          * Attach click handlers to all the th elements inside the columnHeaders row.
          * The handler should sort based on that column and alternate between ascending/descending.
          */
-        debugger;
+
         let that = this;
 
         let states = d3.selectAll(".sortable").filter((d,i) => i === 0);
