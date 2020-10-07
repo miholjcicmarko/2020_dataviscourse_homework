@@ -285,7 +285,8 @@ class Table {
             .attr("r", 5);
     }
 
-    attachSortHandlers() {
+    attachSortHandlers() 
+    {
         ////////////
         // PART 7 // 
         ////////////
@@ -293,17 +294,17 @@ class Table {
          * Attach click handlers to all the th elements inside the columnHeaders row.
          * The handler should sort based on that column and alternate between ascending/descending.
          */
-
+        debugger;
         let that = this;
 
-        let states = d3.filter(".sortable", (d,i) => i === 0);
-        let pred = d3.filter(".sortable", (d,i) => i === 1);
-        let wins = d3.filter(".sortable", (d,i) => i === 2);
+        let states = d3.selectAll(".sortable").filter((d,i) => i === 0);
+        let pred = d3.selectAll(".sortable").filter((d,i) => i === 1);
+        let wins = d3.selectAll(".sortable").filter((d,i) => i === 2);
 
-        d3.select('#state-name')  
+        states
             .on('click', () => {
                 if (that.headerData.sorted === false && that.headerData.ascending === false) {
-                    states.slice().sort((a,b) => d3.ascending(a.margin, b.margin)); 
+                    states.slice().sort((a,b) => d3.ascending(a.state, b.state)); 
                     that.headerData.sorted = true;
                     that.headerData.ascending = true;
                 }
@@ -311,9 +312,9 @@ class Table {
                     states.slice.sort((a,b) => d3.descending(a.margin, b.margin));
                     that.headerData.ascending = false;
                 }
-        }
+        })
 
-        //d3.select("#")
+    //d3.select("#")    
     }
 
 
