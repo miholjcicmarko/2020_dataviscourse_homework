@@ -309,7 +309,7 @@ class Table {
                     that.headerData.ascending = true;
                 }
                 else {
-                    states.slice.sort((a,b) => d3.descending(a.margin, b.margin));
+                    states.slice().sort((a,b) => d3.descending(a.margin, b.margin));
                     that.headerData.ascending = false;
                 }
         })
