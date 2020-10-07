@@ -255,7 +255,7 @@ class Table {
             .data(d => [d.value])
             .append("rect")
             .attr("x", function(d) {
-                return that.scaleX(d.marginLow);
+                return that.scaleX(d.marginLow)
                 })
             .attr("y", 0)
             .attr("width", function(d) {
@@ -280,10 +280,18 @@ class Table {
             .data(d => [d.value])
             .append("circle")
             .attr("cx", function(d) {
-                return that.scaleX(d.marginLow) + that.scaleX(d.margin)/2;
+                return that.scaleX(d.margin);
                 })
             .attr("cy", this.smallVizHeight/2)
-            .attr("r", 5);
+            .attr("r", 5)
+            .attr("class", function(d) {
+                if(d.margin > 0) {
+                    return "margin-circle trump"
+                }
+                else {
+                    return "margin-circle biden"
+                }
+            });
     }
 
     attachSortHandlers() 
