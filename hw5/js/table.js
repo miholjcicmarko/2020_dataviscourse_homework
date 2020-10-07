@@ -300,18 +300,18 @@ class Table {
         let pred = d3.filter(".sortable", (d,i) => i === 1);
         let wins = d3.filter(".sortable", (d,i) => i === 2);
 
-        //d3.select('#state-name')  
-        //    .on('click', () => {
-        //        if (that.headerData.sorted === false && that.headerData.ascending === false) {
-        //            states.slice().sort((a,b) => d3.ascending(a.margin, b.margin)); 
-        //            that.headerData.sorted = true;
-        //            that.headerData.ascending = true;
-        //        }
-        //        else {
-        //            states.slice.sort((a,b) => d3.descending(a.margin, b.margin));
-       //             that.headerData.ascending = false;
-       //         }
-       // }
+        d3.select('#state-name')  
+            .on('click', () => {
+                if (that.headerData.sorted === false && that.headerData.ascending === false) {
+                    states.slice().sort((a,b) => d3.ascending(a.margin, b.margin)); 
+                    that.headerData.sorted = true;
+                    that.headerData.ascending = true;
+                }
+                else {
+                    states.slice.sort((a,b) => d3.descending(a.margin, b.margin));
+                    that.headerData.ascending = false;
+                }
+        }
 
         //d3.select("#")
     }
