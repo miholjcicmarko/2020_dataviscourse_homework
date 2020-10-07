@@ -303,13 +303,16 @@ class Table {
 
         states
             .on('click', () => {
+                debugger;
                 if (that.headerData.sorted === false && that.headerData.ascending === false) {
-                    states.slice().sort((a,b) => d3.ascending(a.state, b.state)); 
+                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.state, b.state)); 
+                    that.tableData = newData;
                     that.headerData.sorted = true;
                     that.headerData.ascending = true;
+                    that.drawTable();
                 }
                 else {
-                    states.slice().sort((a,b) => d3.descending(a.margin, b.margin));
+                    that.tableData.slice().sort((a,b) => d3.descending(a.margin, b.margin));
                     that.headerData.ascending = false;
                 }
         })
