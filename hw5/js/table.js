@@ -40,7 +40,7 @@ class Table {
         this.scaleX = d3.scaleLinear()
             .domain([-100, 100])
             .range([0, this.vizWidth]);
-            
+
         this.attachSortHandlers();
         this.drawLegend();
     }
@@ -209,17 +209,40 @@ class Table {
             states.selectAll("i")
                 .attr("class", "fas fa-sort-up");
             states.classed("sorting", true);
+            pred.classed("sorting", false);
+            wins.classed("sorting", false);
         }
         else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
             states.selectAll("i")
                 .attr("class", "fas fa-sort-down");
             states.classed("sorting", true);
+            pred.classed("sorting", false);
+            wins.classed("sorting", false);
         }
         else {
             states.selectAll("i")
                 .attr("class", "fas no-display");
         }
     
+        if (that.headerData[1].sorted === true && that.headerData[1].ascending === true) {
+            pred.selectAll("i")
+                .attr("class", "fas fa-sort-up");
+            states.classed("sorting", false);
+            pred.classed("sorting", true);
+            wins.classed("sorting", false);
+        }
+        else if (that.headerData[1].sorted === true && that.headerData[1].ascending === false) {
+            pred.selectAll("i")
+                .attr("class", "fas fa-sort-down");
+            states.classed("sorting", false);
+            pred.classed("sorting", true);
+            wins.classed("sorting", false);
+        }
+        else {
+            pred.selectAll("i")
+                .attr("class", "fas no-display");
+        }
+
 
     //    states
     //        .on('click', () => {
