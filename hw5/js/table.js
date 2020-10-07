@@ -261,7 +261,7 @@ class Table {
                 return that.scaleX(d.margin)
                 })
             .attr("height", that.smallVizHeight)
-            .style("class", 'margin-bar trump');
+            .attr("class", 'margin-bar trump');
  
     }
 
