@@ -359,14 +359,14 @@ class Table {
         wins
             .on("click", () => {
                 if (that.headerData[2].sorted === false && that.headerData[2].ascending === false) {
-                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.winstate_inc, b.winstate_inc)); 
+                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.winstate_chal, b.winstate_chal)); 
                     that.tableData = newData;
                     that.headerData[2].sorted = true;
                     that.headerData[2].ascending = true;
                     that.drawTable();
                 }
                 else {
-                    let newData = that.tableData.slice().sort((a,b) => d3.descending(a.winstate_inc, b.winstate_inc));
+                    let newData = that.tableData.slice().sort((a,b) => d3.descending(a.winstate_chal, b.winstate_chal));
                     that.tableData = newData;
                     that.headerData[2].ascending = false;
                     that.drawTable();
