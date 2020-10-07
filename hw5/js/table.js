@@ -313,7 +313,8 @@ class Table {
                     that.drawTable();
                 }
                 else {
-                    that.tableData.slice().sort((a,b) => d3.descending(a.margin, b.margin));
+                    let newDate = that.tableData.slice().sort((a,b) => d3.descending(a.margin, b.margin));
+                    that.tableData = newData;
                     that.headerData[0].ascending = false;
                 }
         })
