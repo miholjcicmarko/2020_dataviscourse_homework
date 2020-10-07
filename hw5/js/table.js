@@ -297,7 +297,8 @@ class Table {
 
         containerSelect
             .data(d => [d.value])
-            //.filter(d.marginHigh < 0)
+            .filter((d,i) => (d.marginHigh < 0 && d.marginLow < 0) ||
+            (d.marginHigh > 0 && d.marginLow > 0))
             .append("rect")
             .attr("x", function(d) {
                 return that.scaleX(d.marginLow)
@@ -308,12 +309,42 @@ class Table {
             })
             .attr("height", that.smallVizHeight)
             .attr("class", function(d) {
-                if (d.marginLow > 0 && d.marginHigh > 0) {
-                    return "margin-bar trump"
+                if ((d.marginHigh < 0 && d.marginLow < 0)) {
+                    return "margin-bar biden" 
                 }
-                else if (d.marginLow < 0 && d.marginHigh < 0) {
-                    return "margin-bar biden"
-                }
+                else {
+                    return "margin-bar trump" 
+                }  
+            });
+        containerSelect
+            .data(d => [d.value])
+            .filter((d,i) => (d.marginHigh > 0 && (d.marginHigh + d.marginLow < 0)))
+            .append("rect")
+            .attr("x", function(d) {
+                return that.scaleX(d.marginLow)
+                })
+            .attr("y", 0)
+            .attr("width", function(d) {
+                return that.scaleX(d.marginLow);
+            })
+            .attr("height", that.smallVizHeight)
+            .attr("class", function(d) {
+                return "margin-bar biden"    
+            });
+        containerSelect
+            .data(d => [d.value])
+            .filter((d,i) => (d.marginLow < 0 && (d.marginHigh + d.marginLow > 0)))
+            .append("rect")
+            .attr("x", function(d) {
+                return that.scaleX(d.marginLow)
+                })
+            .attr("y", 0)
+            .attr("width", function(d) {
+                return that.scaleX(d.marginLow);
+            })
+            .attr("height", that.smallVizHeight)
+            .attr("class", function(d) {
+                return "margin-bar trump"    
             });
 
     }
