@@ -528,6 +528,8 @@ class Table {
         /**
          * Update table data with the poll data and redraw the table.
          */
+        let that = this;
+
         debugger;
         let name = rowData.state;
 
@@ -535,8 +537,23 @@ class Table {
 
         let state_poll = all_poll.get(name);
 
-        let newData_in = that.tableData.slice(index, 0, state_poll);
+        let data_arr = [];
+
+        for (let i = 0; i < state_poll.length; i++) {
+            let d1 = {
+                "margin" : state_poll[i].margin,
+                "state" : state_poll[i].name,
+                "isForecast" : false
+            };
+            data_arr.push(d1);
+        }
+
+        debugger;
+
+        let newData_in = that.tableData.slice(index, 0, ...data_arr);
         that.tableData = newData_in;
+
+        console.log(that.tableData);
 
         that.drawTable();
 
