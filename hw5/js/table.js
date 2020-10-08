@@ -335,23 +335,22 @@ class Table {
 
         containerSelect.selectAll("rect")
             .data(d => {
-                if (d.isForecast === true) {
-                    if ((d.value.marginLow < 0 && d.value.marginHigh > 0)) {
-                        let d1 = {
-                            "marginLow" : d.value.marginLow,
-                            "marginHigh" : 0
-                        }
-                        let d2 = {
-                            "marginLow" : 0,
-                            "marginHigh" : d.value.marginHigh
-                        }
-                    return [d1, d2];
+                if ((d.value.marginLow < 0 && d.value.marginHigh > 0)) {
+                    let d1 = {
+                        "marginLow" : d.value.marginLow,
+                        "marginHigh" : 0
                     }
-                    else {
+                    let d2 = {
+                        "marginLow" : 0,
+                        "marginHigh" : d.value.marginHigh
+                    }
+                        return [d1, d2];
+                    }
+                else {
                         return [d.value];
                     }
-                }
-            })
+                })
+            .filter(d => d.isForecast === true)
             .enter().append("rect")
             .attr("x", function(d) {
                 return that.scaleX(d.marginLow)
@@ -382,16 +381,8 @@ class Table {
         let that = this;
 
         containerSelect
-            .data(d => { 
-                if (d.isExpanded === true) {
-                    return [d.value];
-                }
-                else {
-                    if (d.isForecast === true) {
-                        return [d.value];   
-                    }
-                }
-            })
+            .data(d => [d.value])
+            .filter(d => d.isForecast === true)
             .append("circle")
             .attr("cx", function(d) {
                 return that.scaleX(d.margin);
@@ -562,8 +553,7 @@ class Table {
 
         debugger;
 
-        let newData_in = that.tableData.splice(index, 0, [...data_arr]);
-        that.tableData = newData_in;
+        that.tableData.splice(index, 0, [...data_arr]);
 
         console.log(that.tableData);
 
