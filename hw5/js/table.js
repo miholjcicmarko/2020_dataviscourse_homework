@@ -331,29 +331,30 @@ class Table {
          */
 
         let that = this;
-        debugger;
 
         containerSelect.selectAll("rect")
             .data(d => {
-                if ((d.value.marginLow < 0 && d.value.marginHigh > 0)) {
-                    let d1 = {
-                        "marginLow" : d.value.marginLow,
-                        "marginHigh" : 0,
-                        "isForecast" : true
-                    }
-                    let d2 = {
-                        "marginLow" : 0,
-                        "marginHigh" : d.value.marginHigh,
-                        "isForecast" : true
-                    }
-                        return [d1, d2];
-                    }
-                else {
-                    if (d.isForecast) {
-                        return [d.value]
+                debugger;
+                //d.filter(d => d.isForecast)
+                if (d.isForecast === true) {
+                    if ((d.value.marginLow < 0 && d.value.marginHigh > 0)) {
+                        let d1 = {
+                            "marginLow" : d.value.marginLow,
+                            "marginHigh" : 0,
+                            "isForecast" : true
+                        }
+                        let d2 = {
+                            "marginLow" : 0,
+                            "marginHigh" : d.value.marginHigh,
+                            "isForecast" : true
+                        }
+                            return [d1, d2];
+                        }
+                    else {
+                            return [d.value]   
                     }
                 }
-                })
+            })
             //.filter(d => d.isForecast === true)
             .enter().append("rect")
             .attr("x", function(d) {
@@ -538,31 +539,40 @@ class Table {
         let that = this;
 
         debugger;
-        let name = rowData.state;
 
-        let all_poll = this.pollData;
+        if (rowData.isExpanded === false) {
+            let name = rowData.state;
 
-        let state_poll = all_poll.get(name);
+            let all_poll = this.pollData;
 
-        let data_arr = [];
+            let state_poll = all_poll.get(name);
 
-        for (let i = 0; i < state_poll.length; i++) {
-            let d1 = {...rowData};
-            d1.margin = state_poll[i].margin;
-            d1.state = state_poll[i].name;
-            d1.isForecast = false;
+            let data_arr = [];
 
-            data_arr.push(d1);
-        }
+            for (let i = 0; i < state_poll.length; i++) {
+                let d1 = {...rowData};
+                d1.margin = state_poll[i].margin;
+                d1.state = state_poll[i].name;
+                d1.isForecast = false;
+
+                data_arr.push(d1);
+            }
 
         debugger;
+        for (let i =0; i < data_arr.length; i++) {
+            that.tableData.splice((index+1)+i, 0, data_arr[i]);
+        }
 
-        that.tableData.splice(index, 0, [...data_arr]);
+        rowData.isExpanded = true;
 
         console.log(that.tableData);
 
         that.drawTable();
-
+        }
+        else if (rowData.isExpanded === true) {
+            that.collapseAll();
+            that.drawTable();
+        }
     }
 
     collapseAll() {
