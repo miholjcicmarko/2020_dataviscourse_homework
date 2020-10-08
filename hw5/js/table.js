@@ -334,7 +334,6 @@ class Table {
 
         containerSelect.selectAll("rect")
             .data(d => {
-                debugger;
                 //d.filter(d => d.isForecast)
                 if (d.isForecast === true) {
                     if ((d.value.marginLow < 0 && d.value.marginHigh > 0)) {
