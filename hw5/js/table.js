@@ -347,24 +347,24 @@ class Table {
                         return [d1, d2];
                     }
                 else {
-                        return [d.value];
+                        return [d];
                     }
                 })
             .filter(d => d.isForecast === true)
             .enter().append("rect")
             .attr("x", function(d) {
-                return that.scaleX(d.marginLow)
+                return that.scaleX(d.value.marginLow)
                 })
             .attr("y", 0)
             .attr("width", function(d) {
-                return that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
+                return that.scaleX(d.value.marginHigh) - that.scaleX(d.value.marginLow);
            })
             .attr("height", that.smallVizHeight)
             .attr("class", function(d) {
-                if (d.marginHigh <= 0) {
+                if (d.value.marginHigh <= 0) {
                    return "margin-bar biden" 
                 }
-                else if (d.marginLow >= 0){
+                else if (d.value.marginLow >= 0){
                     return "margin-bar trump" 
                 }  
            });
@@ -381,16 +381,16 @@ class Table {
         let that = this;
 
         containerSelect
-            .data(d => [d.value])
+            .data(d => [d])
             .filter(d => d.isForecast === true)
             .append("circle")
             .attr("cx", function(d) {
-                return that.scaleX(d.margin);
+                return that.scaleX(d.value.margin);
                 })
             .attr("cy", this.smallVizHeight/2)
             .attr("r", 5)
             .attr("class", function(d) {
-                if(d.margin > 0) {
+                if(d.value.margin > 0) {
                     return "margin-circle trump"
                 }
                 else {
