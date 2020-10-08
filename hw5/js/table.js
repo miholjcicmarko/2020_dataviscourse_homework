@@ -335,20 +335,21 @@ class Table {
 
         containerSelect.selectAll("rect")
             .data(d => {
-                d.filter(d => d.isForecast === true);
-                if (d.value.marginLow < 0 && d.value.marginHigh > 0) {
-                    let d1 = {
-                        "marginLow" : d.value.marginLow,
-                        "marginHigh" : 0
+                if (d.isForecast === true) {
+                    if ((d.value.marginLow < 0 && d.value.marginHigh > 0)) {
+                        let d1 = {
+                            "marginLow" : d.value.marginLow,
+                            "marginHigh" : 0
+                        }
+                        let d2 = {
+                            "marginLow" : 0,
+                            "marginHigh" : d.value.marginHigh
+                        }
+                    return [d1, d2];
                     }
-                    let d2 = {
-                        "marginLow" : 0,
-                        "marginHigh" : d.value.marginHigh
+                    else {
+                        return [d.value];
                     }
-                return [d1, d2];
-                }
-                else {
-                    return [d.value];
                 }
             })
             .enter().append("rect")
@@ -383,11 +384,12 @@ class Table {
         containerSelect
             .data(d => { 
                 if (d.isExpanded === true) {
-                    return d.value;
+                    return [d.value];
                 }
                 else {
-                    return d.filter(d => d.isForecast === true);
-
+                    if (d.isForecast === true) {
+                        return [d.value];   
+                    }
                 }
             })
             .append("circle")
