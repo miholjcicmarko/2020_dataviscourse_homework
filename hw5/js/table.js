@@ -354,21 +354,21 @@ class Table {
                     }
                 }
                 })
-            .filter(d => d.isForecast === true)
+            //.filter(d => d.isForecast === true)
             .enter().append("rect")
             .attr("x", function(d) {
-                return that.scaleX(d.value.marginLow)
+                return that.scaleX(d.marginLow)
                 })
             .attr("y", 0)
             .attr("width", function(d) {
-                return that.scaleX(d.value.marginHigh) - that.scaleX(d.value.marginLow);
+                return that.scaleX(d.marginHigh) - that.scaleX(d.marginLow);
            })
             .attr("height", that.smallVizHeight)
             .attr("class", function(d) {
-                if (d.value.marginHigh <= 0) {
+                if (d.marginHigh <= 0) {
                    return "margin-bar biden" 
                 }
-                else if (d.value.marginLow >= 0){
+                else if (d.marginLow >= 0){
                     return "margin-bar trump" 
                 }  
            });
