@@ -335,9 +335,7 @@ class Table {
         containerSelect.selectAll("rect")
             .data(d => {
                 console.log(d);
-                //d.filter(d => d.isForecast)
-                if (d.isForecast === true) {
-                    if ((d.value.marginLow < 0 && d.value.marginHigh > 0)) {
+                if ((d.value.marginLow < 0 && d.value.marginHigh > 0)) {
                         let d1 = {
                             "marginLow" : d.value.marginLow,
                             "marginHigh" : 0,
@@ -353,12 +351,7 @@ class Table {
                     else {
                             return [d.value]   
                     }
-                }
-                else {
-                    return [d];
-                }
             })
-            //.filter(d => d.isForecast === true)
             .enter().append("rect")
             .attr("x", function(d) {
                 return that.scaleX(d.marginLow)
@@ -376,6 +369,8 @@ class Table {
                     return "margin-bar trump" 
                 }  
            });
+           containerSelect.filter(d => d.isForecast !== true)
+            .selectAll("rect").remove();
     }
 
     addCircles(containerSelect) {
