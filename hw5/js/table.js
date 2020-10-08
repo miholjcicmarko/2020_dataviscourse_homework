@@ -536,9 +536,6 @@ class Table {
         let state_poll = all_poll.get(name);
 
         let rows = d3.selectAll("#prediction-table").selectAll('tr').filter((d,i) => i === index)
-            
-        rows.append("text")
-            .data(d => [d]);
 
 
 
