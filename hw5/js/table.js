@@ -537,20 +537,20 @@ class Table {
 
         let state_poll = all_poll.get(name);
 
-        let data_arr = [];
+        let data_arr = {};
 
         for (let i = 0; i < state_poll.length; i++) {
-            let d1 = {
-                "margin" : state_poll[i].margin,
-                "state" : state_poll[i].name,
-                "isForecast" : false
-            };
+            let d1 = {...rowData};
+            d1.margin = state_poll[i].margin;
+            d1.state = state_poll[i].name;
+            d1.isForecast = false;
+
             data_arr.push(d1);
         }
 
         debugger;
 
-        let newData_in = that.tableData.slice(index, 0, ...data_arr);
+        let newData_in = that.tableData.slice(index, 0, {...data_arr});
         that.tableData = newData_in;
 
         console.log(that.tableData);
