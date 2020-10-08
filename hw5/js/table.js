@@ -331,9 +331,11 @@ class Table {
          */
 
         let that = this;
+        debugger;
 
         containerSelect.selectAll("rect")
             .data(d => {
+                d.filter(d => d.isForecast === true);
                 if (d.value.marginLow < 0 && d.value.marginHigh > 0) {
                     let d1 = {
                         "marginLow" : d.value.marginLow,
@@ -379,7 +381,15 @@ class Table {
         let that = this;
 
         containerSelect
-            .data(d => [d.value])
+            .data(d => { 
+                if (d.isExpanded === true) {
+                    return d.value;
+                }
+                else {
+                    return d.filter(d => d.isForecast === true);
+
+                }
+            })
             .append("circle")
             .attr("cx", function(d) {
                 return that.scaleX(d.margin);
@@ -550,7 +560,7 @@ class Table {
 
         debugger;
 
-        let newData_in = that.tableData.splice(index, 0, ...data_arr);
+        let newData_in = that.tableData.splice(index, 0, [...data_arr]);
         that.tableData = newData_in;
 
         console.log(that.tableData);
