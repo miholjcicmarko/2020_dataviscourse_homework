@@ -535,8 +535,10 @@ class Table {
 
         let state_poll = all_poll.get(name);
 
-        let newData_in = that.tableData.slice(index, 0, all_poll)
+        let newData_in = that.tableData.slice(index, 0, state_poll);
         that.tableData = newData_in;
+
+        that.drawTable();
 
     }
 
