@@ -537,7 +537,7 @@ class Table {
 
         let state_poll = all_poll.get(name);
 
-        let data_arr = {};
+        let data_arr = [];
 
         for (let i = 0; i < state_poll.length; i++) {
             let d1 = {...rowData};
@@ -550,7 +550,7 @@ class Table {
 
         debugger;
 
-        let newData_in = that.tableData.slice(index, 0, {...data_arr});
+        let newData_in = that.tableData.splice(index, 0, ...data_arr);
         that.tableData = newData_in;
 
         console.log(that.tableData);
