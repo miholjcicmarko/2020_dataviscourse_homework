@@ -349,8 +349,10 @@ class Table {
                         return [d1, d2];
                     }
                 else {
-                        return [d];
+                    if (d.isForecast) {
+                        return [d.value]
                     }
+                }
                 })
             .filter(d => d.isForecast === true)
             .enter().append("rect")
