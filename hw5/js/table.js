@@ -338,11 +338,13 @@ class Table {
                 if ((d.value.marginLow < 0 && d.value.marginHigh > 0)) {
                     let d1 = {
                         "marginLow" : d.value.marginLow,
-                        "marginHigh" : 0
+                        "marginHigh" : 0,
+                        "isForecast" : true
                     }
                     let d2 = {
                         "marginLow" : 0,
-                        "marginHigh" : d.value.marginHigh
+                        "marginHigh" : d.value.marginHigh,
+                        "isForecast" : true
                     }
                         return [d1, d2];
                     }
