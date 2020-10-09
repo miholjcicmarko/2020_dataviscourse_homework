@@ -455,6 +455,7 @@ class Table {
             .on("click", () => {
 
                 if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
+                    debugger;
                     let poll_states = [];
 
                     for (let i = 0; i < that.tableData.length; i++) {
