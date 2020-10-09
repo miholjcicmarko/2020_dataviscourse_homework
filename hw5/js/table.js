@@ -561,6 +561,9 @@ class Table {
         that.drawTable();
         }
         else if (rowData.isExpanded === true) {
+            
+
+
             that.collapseAll();
             that.drawTable();
             rowData.isExpanded = false;
