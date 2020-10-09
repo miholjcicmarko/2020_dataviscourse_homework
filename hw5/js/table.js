@@ -579,7 +579,7 @@ class Table {
             }
             debugger;
 
-            that.tableData.splice((index+1)+i, data_arr.length);
+            that.tableData.splice((index+1), data_arr.length);
 
             //that.collapseAll();
             rowData.isExpanded = false;
