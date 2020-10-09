@@ -511,7 +511,6 @@ class Table {
                     that.headerData[0].ascending = false;
                     that.headerData[2].sorted = false;
                     that.headerData[2].ascending = false;
-                    debugger;
 
                     for (let i = 0; i < polling_data.length; i++) {
                         let sorted_polling = polling_data[i][0].sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
@@ -596,6 +595,11 @@ class Table {
                     that.headerData[2].sorted = false;
                     that.headerData[2].ascending = false;
 
+                    for (let i = 0; i < polling_data.length; i++) {
+                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
+                        polling_data[i][0] = sorted_polling;
+                    }
+
                     let new_indicies = [];
 
                     for (let i = 0; i < poll_states.length; i++) {
@@ -674,6 +678,11 @@ class Table {
                     that.headerData[0].ascending = false;
                     that.headerData[2].sorted = false;
                     that.headerData[2].ascending = false;
+
+                    for (let i = 0; i < polling_data.length; i++) {
+                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
+                        polling_data[i][0] = sorted_polling;
+                    }
 
                     let new_indicies = [];
 
