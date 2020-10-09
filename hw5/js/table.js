@@ -334,7 +334,7 @@ class Table {
 
         containerSelect.selectAll("rect")
             .data(d => {
-                console.log(d);
+                console.log(d); 
                 if ((d.value.marginLow < 0 && d.value.marginHigh > 0)) {
                         let d1 = {
                             "marginLow" : d.value.marginLow,
@@ -560,7 +560,6 @@ class Table {
         for (let i =0; i < data_arr.length; i++) {
             that.tableData.splice((index+1)+i, 0, data_arr[i]);
         }
-
         rowData.isExpanded = true;
 
         console.log(that.tableData);
