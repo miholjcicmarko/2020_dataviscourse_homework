@@ -467,11 +467,11 @@ class Table {
                     }
                     debugger;
                     for (let i = 0; i < poll_states.length; i++) {
-                        for (let k = 0; l < that.tableData.length; k++) {
+                        for (let k = 0; k < that.tableData.length; k++) {
                             if (that.tableData[k].state === poll_states[i]) {
                                 let all_poll = that.pollData;
 
-                                let state_poll = all_poll.get(name);
+                                let state_poll = all_poll.get(poll_states[i]);
 
                                 that.tableData.splice(k, state_poll.length);
                             }
