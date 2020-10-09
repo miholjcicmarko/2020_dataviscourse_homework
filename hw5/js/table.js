@@ -384,7 +384,6 @@ class Table {
 
         containerSelect
             .data(d => [d])
-            //.filter(d => d.isForecast === true)
             .append("circle")
             .attr("cx", function(d) {
                 return that.scaleX(d.value.margin);
