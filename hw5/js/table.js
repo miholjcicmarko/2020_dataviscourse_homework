@@ -714,7 +714,7 @@ class Table {
                         }
                     }
 
-                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.margin, b.margin)); 
+                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
                     that.tableData = newData;
 
                     that.headerData[1].sorted = true;
@@ -725,7 +725,7 @@ class Table {
                     that.headerData[2].ascending = false;
 
                     for (let i = 0; i < polling_data.length; i++) {
-                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.ascending(a.margin, b.margin)); 
+                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
                         polling_data[i][0] = sorted_polling;
                     }
                     
@@ -798,7 +798,7 @@ class Table {
                         }
                     }
 
-                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.margin, b.margin)); 
+                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
                     that.tableData = newData;
 
                     that.headerData[1].ascending = true;
@@ -808,7 +808,7 @@ class Table {
                     that.headerData[2].ascending = false;
 
                     for (let i = 0; i < polling_data.length; i++) {
-                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.ascending(a.margin, b.margin)); 
+                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
                         polling_data[i][0] = sorted_polling;
                     }
 
@@ -883,7 +883,7 @@ class Table {
                         }
                     }
 
-                    let newData = that.tableData.slice().sort((a,b) => d3.descending(a.margin, b.margin));
+                    let newData = that.tableData.slice().sort((a,b) => d3.descending(Math.abs(a.margin), Math.abs(b.margin)));
                     that.tableData = newData;
                     that.headerData[1].ascending = false;
                     that.headerData[0].sorted = false;
@@ -892,7 +892,7 @@ class Table {
                     that.headerData[2].ascending = false;
 
                     for (let i = 0; i < polling_data.length; i++) {
-                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.descending(a.margin, b.margin)); 
+                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.descending(Math.abs(a.margin), Math.abs(b.margin))); 
                         polling_data[i][0] = sorted_polling;
                     }
 
