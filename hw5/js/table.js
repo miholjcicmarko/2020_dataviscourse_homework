@@ -138,7 +138,6 @@ class Table {
             .data(d => [d, d, d])
             .join('g');
         
-        debugger;
         this.addGridlines(grouperSelect.filter((d,i) => i === 0), [-75, -50, -25, 0, 25, 50, 75]);
         this.addRectangles(grouperSelect.filter((d,i) => i === 1));
         this.addCircles(grouperSelect.filter((d,i) => i === 2));
@@ -474,12 +473,12 @@ class Table {
                     that.headerData[1].ascending = false;
                     that.headerData[2].sorted = false;
                     that.headerData[2].ascending = false;
-debugger;
+
                     for (let i = 0; i < polling_data.length; i++) {
                         let sorted_polling = polling_data[i][0].sort((a,b) => d3.ascending(a.name, b.name)); 
                         polling_data[i][0] = sorted_polling;
                     }
-                    debugger;
+                    
                     let new_indicies = [];
 
                     for (let i = 0; i < poll_states.length; i++) {
