@@ -467,10 +467,10 @@ class Table {
                         }
                     }
 
+                    debugger;
+
                     let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
                     that.tableData = newData;
-
-                    debugger;
 
                     that.headerData[1].sorted = true;
                     that.headerData[1].ascending = true;
