@@ -525,7 +525,7 @@ class Table {
 
                     for (let k = 0; k < new_indicies.length; k++) {
                         for (let i = 0; i < polling_data[0][0].length; i++) {
-                            that.tableData.splice((new_indicies[k][0]+1), 0, polling_data[0][0][i]);
+                            that.tableData.splice((new_indicies[k]+1), 0, polling_data[0][0][i]);
                         }
                     }
 
