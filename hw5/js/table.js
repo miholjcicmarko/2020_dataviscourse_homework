@@ -466,14 +466,19 @@ class Table {
                         }
                     }
                     debugger;
-                    let indices = [];
-                    let polling_data = [];
 
+                    let indicies = [];
+                    let polling_data = []
+                    
                     for (let i = 0; i < poll_states.length; i++) {
                         for (let k = 0; k < that.tableData.length; k++) {
                             if (that.tableData[k].state === poll_states[i]) {
-                                indices.push(k);
-                                
+                                if (that.tableData[k].isForecast) {
+                                    indicies.push(that.tableData[k]);
+                                }
+                                else {
+                                    polling_data.push(that.tableData[k]);
+                                }
                             }
                             else {
                                 continue;
@@ -485,7 +490,7 @@ class Table {
 
                     let all_poll = that.pollData;
 
-                    let state_poll = all_poll.get(indices[i]);
+                    let state_poll = all_poll.get(poll_states[i]);
 
                     that.tableData.splice((k+1), state_poll.length);
 
