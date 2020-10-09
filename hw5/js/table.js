@@ -476,7 +476,7 @@ class Table {
                     that.headerData[2].ascending = false;
 debugger;
                     for (let i = 0; i < polling_data.length; i++) {
-                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.ascending(a.state, b.state)); 
+                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.ascending(a.name, b.name)); 
                         polling_data[i][0] = sorted_polling;
                     }
                     debugger;
@@ -557,7 +557,7 @@ debugger;
                     that.headerData[2].ascending = false;
 
                     for (let i = 0; i < polling_data.length; i++) {
-                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.ascending(a.state, b.state)); 
+                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.ascending(a.name, b.name)); 
                         polling_data[i][0] = sorted_polling;
                     }
 
@@ -639,7 +639,7 @@ debugger;
                     that.headerData[2].ascending = false;
 
                     for (let i = 0; i < polling_data.length; i++) {
-                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.descending(a.state, b.state)); 
+                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.descending(a.name, b.name)); 
                         polling_data[i][0] = sorted_polling;
                     }
 
