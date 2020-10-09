@@ -511,7 +511,13 @@ class Table {
 
                     debugger;
 
+                    for (let k = 0; k < indicies.length; k++) {
+                        for (let i =0; i < polling_data[0][0].length; i++) {
+                            that.tableData.splice((indicies[k][0]+1), 0, polling_data[0][0][i]);
+                        }
+                    }
 
+                    debugger;
 
                     that.drawTable();
                 }
