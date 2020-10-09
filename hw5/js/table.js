@@ -534,6 +534,7 @@ class Table {
                     that.drawTable();
                 }
                 else if (that.headerData[1].sorted === true && that.headerData[1].ascending === false) {
+                    debugger;
                     let poll_states = [];
 
                     for (let i = 0; i < that.tableData.length; i++) {
@@ -613,6 +614,7 @@ class Table {
                 }
 
                 else {
+                    debugger;
                     let poll_states = [];
 
                     for (let i = 0; i < that.tableData.length; i++) {
