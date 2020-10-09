@@ -466,7 +466,7 @@ class Table {
                             continue;
                         }
                     }
-
+                    debugger;
                     let indicies = [];
                     let polling_data = [];
                     
@@ -487,7 +487,7 @@ class Table {
                         }
                         polling_data.push([state_polling]);
                     }
-
+debugger;
                     for (let i = 0; i < poll_states.length; i++) {
                         let all_poll = that.pollData;
                         for (let k = 0; k < that.tableData.length; k++) {
@@ -507,7 +507,7 @@ class Table {
                     that.headerData[0].ascending = false;
                     that.headerData[2].sorted = false;
                     that.headerData[2].ascending = false;
-
+debugger;
                     let new_indicies = [];
 
                     for (let i = 0; i < poll_states.length; i++) {
@@ -517,12 +517,12 @@ class Table {
                             }
                         }
                     }
-
+debugger;
                     for (let k = 0; k < poll_states.length; k++) {
                         for (let m = 0; m < that.tableData.length; m++) {
                             if (poll_states[k] === that.tableData[m].state) {
                                 for (let i = 0; i < polling_data[k][0].length; i++) {
-                                    that.tableData.splice((new_indicies[k]+1), 0, polling_data[0][0][i]);
+                                    that.tableData.splice((new_indicies[k]+1), 0, polling_data[k][0][i]);
                                 }
                                 break;
                             }
@@ -531,7 +531,7 @@ class Table {
                             }
                         }
                     }
-
+debugger;
                     that.drawTable();
                 }
                 else if (that.headerData[1].sorted === true && that.headerData[1].ascending === false) {
@@ -601,7 +601,7 @@ class Table {
                         for (let m = 0; m < that.tableData.length; m++) {
                             if (poll_states[k] === that.tableData[m].state) {
                                 for (let i = 0; i < polling_data[k][0].length; i++) {
-                                    that.tableData.splice((new_indicies[k]+1), 0, polling_data[0][0][i]);
+                                    that.tableData.splice((new_indicies[k]+1), 0, polling_data[k][0][i]);
                                 }
                                 break;
                             }
@@ -680,7 +680,7 @@ class Table {
                         for (let m = 0; m < that.tableData.length; m++) {
                             if (poll_states[k] === that.tableData[m].state) {
                                 for (let i = 0; i < polling_data[k][0].length; i++) {
-                                    that.tableData.splice((new_indicies[k]+1), 0, polling_data[0][0][i]);
+                                    that.tableData.splice((new_indicies[k]+1), 0, polling_data[k][0][i]);
                                 }
                                 break;
                             }
