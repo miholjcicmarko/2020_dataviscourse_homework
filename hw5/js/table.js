@@ -459,8 +459,8 @@ class Table {
 
                     for (let i = 0; i < that.tableData.length; i++) {
                         if (that.tableData[i].isForecast === false) {
-                            that.tableData.splice(i, 1);
                             poll_data.push(that.tableData[i]);
+                            that.tableData.splice(i, 1);
                         }
                         else {
                             continue;
