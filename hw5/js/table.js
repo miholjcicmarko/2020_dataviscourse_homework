@@ -552,7 +552,6 @@ class Table {
                 data_arr.push(d1);
             }
 
-        debugger;
         for (let i =0; i < data_arr.length; i++) {
             that.tableData.splice((index+1)+i, 0, data_arr[i]);
         }
@@ -577,11 +576,9 @@ class Table {
 
                 data_arr.push(d1);
             }
-            debugger;
 
             that.tableData.splice((index+1), data_arr.length);
 
-            //that.collapseAll();
             rowData.isExpanded = false;
             that.drawTable();
         }
