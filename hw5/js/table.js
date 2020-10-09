@@ -893,7 +893,7 @@ debugger;
                     that.headerData[2].ascending = false;
 
                     for (let i = 0; i < polling_data.length; i++) {
-                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
+                        let sorted_polling = polling_data[i][0].sort((a,b) => d3.descending(Math.abs(a.margin), Math.abs(b.margin))); 
                         polling_data[i][0] = sorted_polling;
                     }
 
