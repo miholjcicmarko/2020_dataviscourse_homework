@@ -559,13 +559,12 @@ class Table {
         }
         rowData.isExpanded = true;
 
-        console.log(that.tableData);
-
         that.drawTable();
         }
         else if (rowData.isExpanded === true) {
             that.collapseAll();
             that.drawTable();
+            rowData.isExpanded = false;
         }
     }
 
