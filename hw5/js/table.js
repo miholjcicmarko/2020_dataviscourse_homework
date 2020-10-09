@@ -455,17 +455,20 @@ class Table {
             .on("click", () => {
 
                 if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
-                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
-                    that.tableData = newData;
+                    let poll_data = [];
 
                     for (let i = 0; i < that.tableData.length; i++) {
                         if (that.tableData[i].isForecast === false) {
                             that.tableData.splice(i, 1);
+                            poll_data.push(that.tableData[i]);
                         }
                         else {
                             continue;
                         }
                     }
+
+                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
+                    that.tableData = newData;
 
                     debugger;
 
