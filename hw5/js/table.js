@@ -334,23 +334,22 @@ class Table {
 
         containerSelect.selectAll("rect")
             .data(d => {
-                console.log(d); 
                 if ((d.value.marginLow < 0 && d.value.marginHigh > 0)) {
-                        let d1 = {
-                            "marginLow" : d.value.marginLow,
-                            "marginHigh" : 0,
-                            "isForecast" : true
-                        }
-                        let d2 = {
-                            "marginLow" : 0,
-                            "marginHigh" : d.value.marginHigh,
-                            "isForecast" : true
-                        }
-                            return [d1, d2];
-                        }
-                    else {
-                            return [d.value]   
+                    let d1 = {
+                        "marginLow" : d.value.marginLow,
+                        "marginHigh" : 0,
+                        "isForecast" : true
                     }
+                    let d2 = {
+                        "marginLow" : 0,
+                        "marginHigh" : d.value.marginHigh,
+                        "isForecast" : true
+                    }
+                        return [d1, d2];
+                    }
+                else {
+                    return [d.value]   
+                }
             })
             .enter().append("rect")
             .attr("x", function(d) {
