@@ -382,7 +382,7 @@ class Table {
 
         let that = this;
 
-        containerSelect
+        containerSelect.selectAll("cirlce")
             .data(d => [d])
             .append("circle")
             .attr("cx", function(d) {
