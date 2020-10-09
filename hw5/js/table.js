@@ -489,7 +489,7 @@ class Table {
 
                     debugger;
 
-                    for (let i = 0; i < indicies.length; i++) {
+                    for (let i = 0; i < poll_states.length; i++) {
                         let all_poll = that.pollData;
 
                         let state_poll = all_poll.get(that.tableData[indicies[i]].state);
