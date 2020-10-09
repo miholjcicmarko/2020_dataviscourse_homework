@@ -394,7 +394,7 @@ class Table {
                     return 5;
                 }
                 else {
-                    return 2;
+                    return 3;
                 }
             })
             .attr("class", function(d) {
