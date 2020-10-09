@@ -455,15 +455,29 @@ class Table {
             .on("click", () => {
 
                 if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
-                    let poll_data = [];
+                    let poll_states = [];
 
                     for (let i = 0; i < that.tableData.length; i++) {
-                        if (that.tableData[i].isForecast === false) {
-                            poll_data.push(that.tableData[i]);
-                            that.tableData.splice(i, 1);
+                        if (that.tableData[i].isExpanded === true) {
+                            poll_states.push(that.tableData[i].state);
                         }
                         else {
                             continue;
+                        }
+                    }
+                    debugger;
+                    for (let i = 0; i < poll_states.length; i++) {
+                        for (let k = 0; l < that.tableData.length; k++) {
+                            if (that.tableData[k].state === poll_states[i]) {
+                                let all_poll = that.pollData;
+
+                                let state_poll = all_poll.get(name);
+
+                                that.tableData.splice(k, state_poll.length);
+                            }
+                            else {
+                                continue;
+                            }
                         }
                     }
 
