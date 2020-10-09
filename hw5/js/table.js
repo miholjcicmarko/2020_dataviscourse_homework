@@ -474,7 +474,7 @@ class Table {
                         for (let k = 0; k < that.tableData.length; k++) {
                             if (that.tableData[k].state === poll_states[i]) {
                                 if (that.tableData[k].isForecast) {
-                                    indicies.push(that.tableData[k]);
+                                    indicies.push([k]);
                                 }
                                 else {
                                     polling_data.push(that.tableData[k]);
