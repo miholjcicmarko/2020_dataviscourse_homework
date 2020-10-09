@@ -536,8 +536,6 @@ class Table {
          */
         let that = this;
 
-        debugger;
-
         if (rowData.isExpanded === false) {
             let name = rowData.state;
 
