@@ -561,12 +561,29 @@ class Table {
         that.drawTable();
         }
         else if (rowData.isExpanded === true) {
+            let name = rowData.state;
 
+            let all_poll = this.pollData;
+
+            let state_poll = all_poll.get(name);
+
+            let data_arr = [];
+
+            for (let i = 0; i < state_poll.length; i++) {
+                let d1 = {...rowData};
+                d1.margin = state_poll[i].margin;
+                d1.name = state_poll[i].name;
+                d1.isForecast = false;
+
+                data_arr.push(d1);
+            }
             debugger;
 
-            that.collapseAll();
-            that.drawTable();
+            that.tableData.splice((index+1)+i, data_arr.length);
+
+            //that.collapseAll();
             rowData.isExpanded = false;
+            that.drawTable();
         }
     }
 
