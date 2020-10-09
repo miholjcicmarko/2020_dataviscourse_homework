@@ -522,7 +522,7 @@ debugger;
                         for (let m = 0; m < that.tableData.length; m++) {
                             if (poll_states[k] === that.tableData[m].state) {
                                 for (let i = 0; i < polling_data[k][0].length; i++) {
-                                    that.tableData.splice((new_indicies[k]+1), 0, polling_data[k][0][i]);
+                                    that.tableData.splice((m+1+i), 0, polling_data[k][0][i]);
                                 }
                                 break;
                             }
