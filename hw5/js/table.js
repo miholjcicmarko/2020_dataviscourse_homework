@@ -488,6 +488,14 @@ class Table {
 
                     debugger;
 
+                    for (let i = 0; i < indicies.length; i++) {
+                        let all_poll = that.pollData;
+
+                        let state_poll = all_poll.get(that.tableData[indicies[i]].state);
+
+                        that.tableData.splice((indicies[i]+1), state_poll.length);
+                    }
+
                     let all_poll = that.pollData;
 
                     let state_poll = all_poll.get(poll_states[i]);
