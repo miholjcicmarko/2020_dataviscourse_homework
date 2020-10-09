@@ -476,7 +476,7 @@ class Table {
                                     indicies.push([k]);
                                 }
                                 else {
-                                    polling_data.push(that.tableData[k]);
+                                    polling_data.push([that.tableData[k]]);
                                 }
                             }
                             else {
@@ -508,6 +508,8 @@ class Table {
                     that.headerData[2].ascending = false;
 
                     debugger;
+
+
 
                     that.drawTable();
                 }
