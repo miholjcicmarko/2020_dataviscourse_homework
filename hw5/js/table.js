@@ -512,8 +512,11 @@ class Table {
                     that.headerData[2].sorted = false;
                     that.headerData[2].ascending = false;
                     debugger;
-                    polling_data.sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
 
+                    for (let i = 0; i < polling_data.length; i++) {
+                        polling_data[i].sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
+                    }
+                    
                     let new_indicies = [];
 
                     for (let i = 0; i < poll_states.length; i++) {
