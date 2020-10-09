@@ -511,9 +511,21 @@ class Table {
 
                     debugger;
 
-                    for (let k = 0; k < indicies.length; k++) {
-                        for (let i =0; i < polling_data[0][0].length; i++) {
-                            that.tableData.splice((indicies[k][0]+1), 0, polling_data[0][0][i]);
+                    let new_indicies = [];
+
+                    for (let i = 0; i < poll_states.length; i++) {
+                        for (let k = 0; k < that.tableData.length; k++) {
+                            if (poll_states[i] === that.tableData[k].state) {
+                                new_indicies.push(k);
+                            }
+                        }
+                    }
+
+                    debugger;
+
+                    for (let k = 0; k < new_indicies.length; k++) {
+                        for (let i = 0; i < polling_data[0][0].length; i++) {
+                            that.tableData.splice((new_indicies[k][0]+1), 0, polling_data[0][0][i]);
                         }
                     }
 
