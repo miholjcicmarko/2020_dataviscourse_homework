@@ -295,7 +295,7 @@ class Table {
          * add gridlines to the vizualization
          */
 
-        containerSelect
+        containerSelect.selectAll("line")
             .data(ticks)
             .join('line')
             .attr("x1", (d) => this.scaleX(d))
