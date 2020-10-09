@@ -491,10 +491,15 @@ class Table {
 
                     for (let i = 0; i < poll_states.length; i++) {
                         let all_poll = that.pollData;
+                        for (let k = 0; k < that.tableData.length; k++) {
+                            if (poll_states[i] === that.tableData[k].state) {
+                                let state_poll = all_poll.get(that.tableData[k].state);
+                                that.tableData.splice((k+1), state_poll.length);
+                            }
+                        }
+                        //let state_poll = all_poll.get(that.tableData[indicies[i]].state);
 
-                        let state_poll = all_poll.get(that.tableData[indicies[i]].state);
-
-                        that.tableData.splice((indicies[i]+1), state_poll.length);
+                        //that.tableData.splice((indicies[i]+1), state_poll.length);
                     }
 
                     debugger;
