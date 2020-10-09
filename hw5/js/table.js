@@ -455,7 +455,6 @@ class Table {
             .on("click", () => {
 
                 if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
-                    debugger;
                     let poll_states = [];
 
                     for (let i = 0; i < that.tableData.length; i++) {
@@ -466,7 +465,6 @@ class Table {
                             continue;
                         }
                     }
-                    debugger;
                     let indicies = [];
                     let polling_data = [];
                     
@@ -487,7 +485,6 @@ class Table {
                         }
                         polling_data.push([state_polling]);
                     }
-debugger;
                     for (let i = 0; i < poll_states.length; i++) {
                         let all_poll = that.pollData;
                         for (let k = 0; k < that.tableData.length; k++) {
@@ -507,7 +504,7 @@ debugger;
                     that.headerData[0].ascending = false;
                     that.headerData[2].sorted = false;
                     that.headerData[2].ascending = false;
-debugger;
+
                     let new_indicies = [];
 
                     for (let i = 0; i < poll_states.length; i++) {
@@ -517,7 +514,6 @@ debugger;
                             }
                         }
                     }
-debugger;
                     for (let k = 0; k < poll_states.length; k++) {
                         for (let m = 0; m < that.tableData.length; m++) {
                             if (poll_states[k] === that.tableData[m].state) {
@@ -531,11 +527,11 @@ debugger;
                             }
                         }
                     }
-debugger;
+
                     that.drawTable();
                 }
                 else if (that.headerData[1].sorted === true && that.headerData[1].ascending === false) {
-                    debugger;
+                   
                     let poll_states = [];
 
                     for (let i = 0; i < that.tableData.length; i++) {
@@ -615,7 +611,7 @@ debugger;
                 }
 
                 else {
-                    debugger;
+                   
                     let poll_states = [];
 
                     for (let i = 0; i < that.tableData.length; i++) {
