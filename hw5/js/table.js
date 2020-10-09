@@ -466,14 +466,14 @@ class Table {
                         }
                     }
                     debugger;
+                    let indices = [];
+                    let polling_data = [];
+
                     for (let i = 0; i < poll_states.length; i++) {
                         for (let k = 0; k < that.tableData.length; k++) {
                             if (that.tableData[k].state === poll_states[i]) {
-                                let all_poll = that.pollData;
-
-                                let state_poll = all_poll.get(poll_states[i]);
-
-                                that.tableData.splice((k+1), state_poll.length);
+                                indices.push(k);
+                                
                             }
                             else {
                                 continue;
@@ -482,6 +482,12 @@ class Table {
                     }
 
                     debugger;
+
+                    let all_poll = that.pollData;
+
+                    let state_poll = all_poll.get(indices[i]);
+
+                    that.tableData.splice((k+1), state_poll.length);
 
                     let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
                     that.tableData = newData;
