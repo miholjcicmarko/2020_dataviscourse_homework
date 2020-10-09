@@ -493,7 +493,7 @@ class Table {
 
                         let state_poll = all_poll.get(that.tableData[indicies[i]].state);
 
-                        that.tableData.splice((indicies[i]+1), state_poll.length);
+                        that.tableData.splice((indicies[i][0]+1), state_poll.length);
                     }
 
                     let all_poll = that.pollData;
