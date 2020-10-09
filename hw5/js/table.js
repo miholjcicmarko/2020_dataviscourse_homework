@@ -382,9 +382,9 @@ class Table {
 
         let that = this;
 
-        containerSelect.selectAll("cirlce")
+        containerSelect.selectAll("circle")
             .data(d => [d])
-            .append("circle")
+            .enter().append("circle")
             .attr("cx", function(d) {
                 return that.scaleX(d.value.margin);
                 })
