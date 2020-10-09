@@ -497,12 +497,6 @@ class Table {
 
                     debugger;
 
-                    let all_poll = that.pollData;
-
-                    let state_poll = all_poll.get(poll_states[i]);
-
-                    that.tableData.splice((k+1), state_poll.length);
-
                     let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
                     that.tableData = newData;
 
@@ -512,6 +506,9 @@ class Table {
                     that.headerData[0].ascending = false;
                     that.headerData[2].sorted = false;
                     that.headerData[2].ascending = false;
+
+                    debugger;
+
                     that.drawTable();
                 }
                 else if (that.headerData[1].sorted === true && that.headerData[1].ascending === false) {
