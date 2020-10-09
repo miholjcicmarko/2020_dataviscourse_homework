@@ -487,8 +487,6 @@ class Table {
                         polling_data.push([state_polling]);
                     }
 
-                    debugger;
-
                     for (let i = 0; i < poll_states.length; i++) {
                         let all_poll = that.pollData;
                         for (let k = 0; k < that.tableData.length; k++) {
@@ -497,12 +495,7 @@ class Table {
                                 that.tableData.splice((k+1), state_poll.length);
                             }
                         }
-                        //let state_poll = all_poll.get(that.tableData[indicies[i]].state);
-
-                        //that.tableData.splice((indicies[i]+1), state_poll.length);
                     }
-
-                    debugger;
 
                     let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
                     that.tableData = newData;
@@ -514,8 +507,6 @@ class Table {
                     that.headerData[2].sorted = false;
                     that.headerData[2].ascending = false;
 
-                    debugger;
-
                     let new_indicies = [];
 
                     for (let i = 0; i < poll_states.length; i++) {
@@ -525,8 +516,6 @@ class Table {
                             }
                         }
                     }
-
-                    debugger;
 
                     for (let k = 0; k < poll_states.length; k++) {
                         for (let m = 0; m < that.tableData.length; m++) {
@@ -542,11 +531,54 @@ class Table {
                         }
                     }
 
-                    debugger;
-
                     that.drawTable();
                 }
                 else if (that.headerData[1].sorted === true && that.headerData[1].ascending === false) {
+                    let poll_states = [];
+
+                    for (let i = 0; i < that.tableData.length; i++) {
+                        if (that.tableData[i].isExpanded === true) {
+                            poll_states.push(that.tableData[i].state);
+                        }
+                        else {
+                            continue;
+                        }
+                    }
+
+                    let indicies = [];
+                    let polling_data = [];
+                    
+                    for (let i = 0; i < poll_states.length; i++) {
+                        let state_polling = [];
+                        for (let k = 0; k < that.tableData.length; k++) {
+                            if (that.tableData[k].state === poll_states[i]) {
+                                if (that.tableData[k].isForecast) {
+                                    indicies.push(k);
+                                }
+                                else {
+                                    state_polling.push(that.tableData[k]);
+                                }
+                            }
+                            else {
+                                continue;
+                            }
+                        }
+                        polling_data.push([state_polling]);
+                    }
+
+                    for (let i = 0; i < poll_states.length; i++) {
+                        let all_poll = that.pollData;
+                        for (let k = 0; k < that.tableData.length; k++) {
+                            if (poll_states[i] === that.tableData[k].state) {
+                                let state_poll = all_poll.get(that.tableData[k].state);
+                                that.tableData.splice((k+1), state_poll.length);
+                            }
+                        }
+                    }
+
+                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
+                    that.tableData = newData;
+                    
                     let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin)));
                     that.tableData = newData;
                     that.headerData[1].ascending = true;
@@ -554,6 +586,31 @@ class Table {
                     that.headerData[0].ascending = false;
                     that.headerData[2].sorted = false;
                     that.headerData[2].ascending = false;
+
+                    let new_indicies = [];
+
+                    for (let i = 0; i < poll_states.length; i++) {
+                        for (let k = 0; k < that.tableData.length; k++) {
+                            if (poll_states[i] === that.tableData[k].state) {
+                                new_indicies.push(k);
+                            }
+                        }
+                    }
+
+                    for (let k = 0; k < poll_states.length; k++) {
+                        for (let m = 0; m < that.tableData.length; m++) {
+                            if (poll_states[k] === that.tableData[m].state) {
+                                for (let i = 0; i < polling_data[k][0].length; i++) {
+                                    that.tableData.splice((new_indicies[k]+1), 0, polling_data[0][0][i]);
+                                }
+                                break;
+                            }
+                            else {
+                                continue;
+                            }
+                        }
+                    }
+
                     that.drawTable();
                 }
 
