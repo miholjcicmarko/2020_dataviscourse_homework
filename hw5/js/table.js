@@ -453,15 +453,21 @@ class Table {
 
         pred
             .on("click", () => {
-                debugger;
 
                 if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
                     let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
                     that.tableData = newData;
 
                     for (let i = 0; i < that.tableData.length; i++) {
-                        
+                        if (that.tableData[i].isForecast === false) {
+                            that.tableData.splice(i, 1);
+                        }
+                        else {
+                            continue;
+                        }
                     }
+
+                    debugger;
 
                     that.headerData[1].sorted = true;
                     that.headerData[1].ascending = true;
