@@ -389,7 +389,14 @@ class Table {
                 return that.scaleX(d.value.margin);
                 })
             .attr("cy", this.smallVizHeight/2)
-            .attr("r", 5)
+            .attr("r", function (d) {
+                if (d.isForecast) {
+                    return 5;
+                }
+                else {
+                    return 2;
+                }
+            })
             .attr("class", function(d) {
                 if(d.value.margin > 0) {
                     return "margin-circle trump"
