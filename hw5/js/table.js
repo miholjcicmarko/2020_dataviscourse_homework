@@ -453,6 +453,8 @@ class Table {
 
         pred
             .on("click", () => {
+                debugger;
+
                 if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
                     let newData = that.tableData.slice().sort((a,b) => d3.ascending(Math.abs(a.margin), Math.abs(b.margin))); 
                     that.tableData = newData;
