@@ -19,6 +19,5 @@ Promise.all([d3.csv('./data/forecasts.csv'), preGrouped]).then( data =>
 
         rolledPollData = new Map(pollData); //  convert to a Map object for consistency with d3.rollup
         let table = new Table(forecastData, rolledPollData);
-        debugger;
         table.drawTable();
     });
