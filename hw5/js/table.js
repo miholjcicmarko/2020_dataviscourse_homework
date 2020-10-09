@@ -546,7 +546,7 @@ class Table {
             for (let i = 0; i < state_poll.length; i++) {
                 let d1 = {...rowData};
                 d1.margin = state_poll[i].margin;
-                d1.state = state_poll[i].name;
+                d1.name = state_poll[i].name;
                 d1.isForecast = false;
 
                 data_arr.push(d1);
