@@ -467,22 +467,24 @@ class Table {
                     }
 
                     let indicies = [];
-                    let polling_data = []
+                    let polling_data = [];
                     
                     for (let i = 0; i < poll_states.length; i++) {
+                        let state_polling = [];
                         for (let k = 0; k < that.tableData.length; k++) {
                             if (that.tableData[k].state === poll_states[i]) {
                                 if (that.tableData[k].isForecast) {
                                     indicies.push([k]);
                                 }
                                 else {
-                                    polling_data.push([that.tableData[k]]);
+                                    state_polling.push(that.tableData[k]);
                                 }
                             }
                             else {
                                 continue;
                             }
                         }
+                        polling_data.push([state_polling]);
                     }
 
                     debugger;
