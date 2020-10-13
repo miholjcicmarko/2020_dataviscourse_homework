@@ -22,8 +22,8 @@ function fetchJSONFile(path, callback) {
 // this is the function executed as a callback when parsing is done
 fetchJSONFile('data/words.json', function(data) {
     debugger;
-    let bubbleChart = new bubbleChart(data);
-    bubbleChart.drawChart();
+    let bubbles = new bubbleChart(data);
+    bubbles.drawChart();
     //tree.renderTree();
 });
 
