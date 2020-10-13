@@ -1,7 +1,7 @@
-class BubbleChart {
+class bubbleChart {
 
     /**
-     * Creates a BubbleChart Object
+     * Creates a bubbleChart Object
      *
      * @param data the full dataset
      */
@@ -23,7 +23,7 @@ class BubbleChart {
     }
 
     /**
-     * Draws the BubbleChart
+     * Draws the bubbleChart
      *
      */
     drawChart() {
