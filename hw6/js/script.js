@@ -5,7 +5,6 @@
 * @param {function} callback - The callback function to execute once the result is available
 */
 function fetchJSONFile(path, callback) {
-    debugger;
     let httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === 4) {
