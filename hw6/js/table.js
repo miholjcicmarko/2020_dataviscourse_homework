@@ -38,11 +38,11 @@ class table {
         this.subWidth = 100;
 
         this.scaleXFreq = d3.scaleLinear()
-            .domain([0,1])
-            .range([0, this.vizWidth]);
+            .domain([0,1.1])
+            .range([0, this.subWidth]);
 
         this.scaleXPercent = d3.scaleLinear()
-            .domain([-100,100])
+            .domain([-110,110])
             .range([0, this.vizWidth]);
 
         this.sortHandlers();
@@ -54,24 +54,42 @@ class table {
      *
      */
     drawLegends() {
-        let legend = d3.select("#frequency-axis")
+        let legendF = d3.select("#frequency-axis")
             .attr("width", this.subWidth)
             .attr("height", this.vizHeight);
 
         let freq_values = [0, 0.5, 1];
         
-        legend.selectAll("text")
+        legendF.selectAll("text")
             .data(freq_values)
             .join("text")
             .attr("x", (d) => this.scaleXFreq(d))
             .attr("y", this.vizHeight)
             .attr('class', "axislabel-table")
-            .text(d);
+            .text(d => d); 
 
+        let legendP = d3.select("#percentages-axis")
+            .attr("width", this.subWidth)
+            .attr("height", this.vizHeight);
+
+        let percentValues = [-100, -50, 0, 50, 100];
+
+        legendP.selectAll("text")
+            .data(percentvalues)
+            .join("text")
+            .attr("x", (d) => this.scaleXPercent(d))
+            .attr("y", this.vizHeight)
+            .attr('class', "axislabel-table")
+            .text(function(d) {
+                if (d < 0) {
+                    return "" + d * -1;
+                }
+                else {
+                    return "" + d;
+                }
+            });        
         
 
-
-        
     }
 
     /**
