@@ -23,7 +23,28 @@
         </header>
     </div>
     <div id="bubbleChart" class="view"></div>
-    <div id="table" class = "view"></div>
+    <div class = "tableview">
+    <table id="table">
+        <thread>
+            <tr id ="columnHeaders"> 
+                <th class = "sortable"> Phrase<i class="fas no-display"></i></th> 
+                <th class = "sortable"> Frequency<i class="fas no-display"></i></th>
+                <th class = "sortable"> Percentages<i class="fas no-display"></i></th>
+                <th class = "sortable"> Total<i class="fas no-display"></i></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td><svg id = "frequency-axis"></svg></td>
+                <td><svg id = "percentages-axis"></svg></td>
+                <td></td>
+                </td>
+            </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+    </table>
+</div>
 <script src="js/bubblechart.js"></script>
 <script src="js/table.js"></script>
 <script src="js/script.js"></script>
