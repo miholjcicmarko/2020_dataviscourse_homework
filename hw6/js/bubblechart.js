@@ -7,7 +7,7 @@ class bubblechart {
      */
     constructor(wordData) {
         this.data = wordData;
-        this.chartData = [...data]
+        this.chartData = [...wordData];
 
         for (let bubble of this.chartData)
         {
