@@ -6,7 +6,7 @@ class table {
      * @param data the full dataset
      */
     constructor(data) {
-        this.data = wordData;
+        this.data = data;
         this.chartData = [...data]
 
         this.headerData = [
