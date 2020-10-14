@@ -37,11 +37,11 @@ class table {
 
         this.subWidth = 100;
 
-        this.scaleXFreq = d3.ScaleLinear()
+        this.scaleXFreq = d3.scaleLinear()
             .domain([0,100])
             .range([0, this.vizWidth]);
 
-        this.scaleXPercent = d3.ScaleLinear()
+        this.scaleXPercent = d3.scaleLinear()
             .domain([-100,100])
             .range([0, this.vizWidth]);
 
