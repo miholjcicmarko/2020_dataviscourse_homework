@@ -18,27 +18,33 @@ class Table {
             {
                 sorted: false,
                 ascending: false,
-                key: 'frequency',
-                //alterFunc: d => Math.abs(+d)
+                key: 'frequency'
             },
             {
                 sorted: false,
                 ascending: false,
-                key: 'percentages',
-                //alterFunc: d => +d
+                key: 'percentages'
             },
             {
                 sorted: false,
                 ascending: false,
-                key: 'total',
-                //alterFunc: d => +d
-            },
+                key: 'total'
+            }
         ]
     
-        let margin = {top: 50, right: 30, bottom: 50, left: 100};
-        this.width = 1000 - margin.left - margin.right;
-        this.height = 800 - margin.top - margin.bottom;
+        this.vizHeight = 20;
+        this.vizWidth = 300;
 
+        this.scaleXFreq = d3.ScaleLinear()
+            .domain([0,100])
+            .range([0, this.vizWidth]);
+
+        this.scaleXPercent = d3.ScaleLinear()
+            .domain([-100,100])
+            .range([0, this.vizWidth]);
+
+        this.sortHandlers();
+        this.drawLegend();
     }
 
     /**
@@ -75,6 +81,13 @@ class Table {
 
     }    
 
+    /**
+    * Attach click handlers to all the th elements inside the columnHeaders row.
+    * The handler should sort based on that column and alternate between ascending/descending.
+    */
+    sortHandlers() {
+        
+    }
 
 
 }
