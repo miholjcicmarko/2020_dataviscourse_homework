@@ -36,3 +36,9 @@
     cursor: pointer;
     padding: 6px;
 }
+
+.axislabel-table {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 10 px;
+    font-weight: bold;
+}

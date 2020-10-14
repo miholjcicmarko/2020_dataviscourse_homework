@@ -38,7 +38,7 @@ class table {
         this.subWidth = 100;
 
         this.scaleXFreq = d3.scaleLinear()
-            .domain([0,100])
+            .domain([0,1])
             .range([0, this.vizWidth]);
 
         this.scaleXPercent = d3.scaleLinear()
@@ -64,7 +64,8 @@ class table {
             .data(freq_values)
             .join("text")
             .attr("x", (d) => this.scaleXFreq(d))
-            .attr("y", this.vizHeight);
+            .attr("y", this.vizHeight)
+            .attr('class', "axislabel-table");
 
         
 
