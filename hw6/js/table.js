@@ -44,15 +44,15 @@ class Table {
             .range([0, this.vizWidth]);
 
         this.sortHandlers();
-        this.drawLegend();
+        this.drawLegends();
     }
 
     /**
      * Draws the legend for the table
      *
      */
-    drawLegend() {
-
+    drawLegends() {
+        
         
     }
 
@@ -86,7 +86,7 @@ class Table {
     * The handler should sort based on that column and alternate between ascending/descending.
     */
     sortHandlers() {
-        
+
     }
 
 
