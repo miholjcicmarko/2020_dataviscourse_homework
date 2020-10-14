@@ -37,8 +37,14 @@
     padding: 6px;
 }
 
-.axislabel-table {
+.freqlabel-table {
     font-family: 'Times New Roman', Times, serif;
     font-size: 10 px;
+    font-weight: bold;
+}
+
+.percentlabel-table {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 5 px;
     font-weight: bold;
 }

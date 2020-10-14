@@ -43,7 +43,7 @@ class table {
 
         this.scaleXPercent = d3.scaleLinear()
             .domain([-110,110])
-            .range([0, this.vizWidth]);
+            .range([0, this.subWidth]);
 
         this.sortHandlers();
         this.drawLegends();
@@ -65,7 +65,7 @@ class table {
             .join("text")
             .attr("x", (d) => this.scaleXFreq(d))
             .attr("y", this.vizHeight)
-            .attr('class', "axislabel-table")
+            .attr('class', "freqlabel-table")
             .text(d => d); 
 
         let legendP = d3.select("#percentages-axis")
@@ -75,11 +75,11 @@ class table {
         let percentValues = [-100, -50, 0, 50, 100];
 
         legendP.selectAll("text")
-            .data(percentvalues)
+            .data(percentValues)
             .join("text")
             .attr("x", (d) => this.scaleXPercent(d))
             .attr("y", this.vizHeight)
-            .attr('class', "axislabel-table")
+            .attr('class', "percentlabel-table")
             .text(function(d) {
                 if (d < 0) {
                     return "" + d * -1;
