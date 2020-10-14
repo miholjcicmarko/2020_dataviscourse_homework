@@ -33,7 +33,9 @@ class Table {
         ]
     
         this.vizHeight = 20;
-        this.vizWidth = 300;
+        this.vizWidth = 400;
+
+        this.subWidth = 100;
 
         this.scaleXFreq = d3.ScaleLinear()
             .domain([0,100])
@@ -52,7 +54,21 @@ class Table {
      *
      */
     drawLegends() {
+        let legend = d3.select("#frequency-axis")
+            .attr("width", this.subWidth)
+            .attr("height", this.vizHeight);
+
+        let freq_values = [0, 0.5, 1];
         
+        legend.selectAll("text")
+            .data(freq_values)
+            .join("text")
+            .attr("x", (d) => this.scaleXFreq(d))
+            .attr("y", this.vizHeight);
+
+        
+
+
         
     }
 
