@@ -14,8 +14,8 @@ class bubblechart {
             bubble.isExpanded = false;
         }
 
-      let margin = {top: 50, right: 30, bottom: 50, left: 100},
-      this.width = 1000 - margin.left - margin.right,
+      let margin = {top: 50, right: 30, bottom: 50, left: 100};
+      this.width = 1000 - margin.left - margin.right;
       this.height = 800 - margin.top - margin.bottom;
 
 
