@@ -9,6 +9,7 @@
     <script src="https://d3js.org/d3-force.v2.min.js"></script>
     
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
     <!-- 
        Bootstrap styling if you want to use it: 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -22,8 +23,43 @@
             <div>Name: Marko Miholjcic; E-Mail: u0984549@utah.edu; UID: u0984549</div>
         </header>
     </div>
-    <div id="bubbleChart" class="view"></div>
+
+    <div class="wrapper">
+        <div class="innerWrapper">
+            <div id="bubbleChart" class="view"></div>  
+        </div>
+
+        <div class = "tableview">
+    
+            <table id="table">
+                <thread>
+                    <tr id ="columnHeaders"> 
+                        <th class = "sortable"> Phrase<i class="fas no-display"></i></th> 
+                        <th class = "sortable"> Frequency<i class="fas no-display"></i></th>
+                        <th class = "sortable"> Percentages<i class="fas no-display"></i></th>
+                        <th class = "sortable"> Total<i class="fas no-display"></i></th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><svg id = "frequency-axis"></svg></td>
+                        <td><svg id = "percentages-axis"></svg></td>
+                        <td></td>
+                        </td>
+                    </tr>
+                    </thead>
+                    <tbody id="tableBody">
+        
+                    </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+
+    
     <div class = "tableview">
+    
     <table id="table">
         <thread>
             <tr id ="columnHeaders"> 
