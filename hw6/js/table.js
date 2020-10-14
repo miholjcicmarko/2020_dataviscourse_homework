@@ -65,7 +65,8 @@ class table {
             .join("text")
             .attr("x", (d) => this.scaleXFreq(d))
             .attr("y", this.vizHeight)
-            .attr('class', "axislabel-table");
+            .attr('class', "axislabel-table")
+            .text(d);
 
         
 
