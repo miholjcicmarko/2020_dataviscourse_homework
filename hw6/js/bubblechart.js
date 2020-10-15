@@ -88,7 +88,7 @@ debugger;
     addCircles() {
         // size of circle encodes the  total use of the N-grams.
         // the circle is colored by category
-
+debugger;
         let circleSizer = function (d) {
             let cScale = d3.scaleSqrt()
                 .range([0, 20])
@@ -98,7 +98,7 @@ debugger;
         
         
 
-        let minSize = d3.min(nonZeros);
+        //let minSize = d3.min(nonZeros);
         //let maxSize = 
 
 
