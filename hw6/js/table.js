@@ -381,23 +381,97 @@ class table {
             })
 
         percentage
-        .on("click", () =>{
-            if (that.headerData[2].sorted === false && that.headerData[2].ascending === false) {
-                let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.percent_of_d_speeches, b.percent_of_d_speeches)); 
+            .on("click", () =>{
+                if (that.headerData[2].sorted === false && that.headerData[2].ascending === false) {
+                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.percent_of_d_speeches, b.percent_of_d_speeches)); 
                 
-                that.chartData = newData;
-                that.headerData[2].sorted = true;
-                that.headerData[2].ascending = true;
-                that.headerData[0].sorted = false;
-                that.headerData[0].ascending = false;
-                that.headerData[1].sorted = false;
-                that.headerData[1].ascending = false;
-                that.headerData[3].sorted = false;
-                that.headerData[3].ascending = false;
+                    that.chartData = newData;
+                    that.headerData[2].sorted = true;
+                    that.headerData[2].ascending = true;
+                    that.headerData[0].sorted = false;
+                    that.headerData[0].ascending = false;
+                    that.headerData[1].sorted = false;
+                    that.headerData[1].ascending = false;
+                    that.headerData[3].sorted = false;
+                    that.headerData[3].ascending = false;
 
-                that.drawTable();
+                    that.drawTable();
+            }
+                else if (that.headerData[2].sorted === true && that.headerData[2].ascending === false) {
+                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.percent_of_d_speeches, b.percent_of_d_speeches)); 
+                
+                    that.chartData = newData;
+                    that.headerData[2].ascending = true;
+                    that.headerData[0].sorted = false;
+                    that.headerData[0].ascending = false;
+                    that.headerData[1].sorted = false;
+                    that.headerData[1].ascending = false;
+                    that.headerData[3].sorted = false;
+                    that.headerData[3].ascending = false;
+
+                    that.drawTable();
+            }
+            else {
+                    let newData = that.chartData.slice().sort((a,b) => d3.descending(a.percent_of_d_speeches, b.percent_of_d_speeches)); 
+                
+                    that.chartData = newData;
+                    that.headerData[2].ascending = false;
+                    that.headerData[0].sorted = false;
+                    that.headerData[0].ascending = false;
+                    that.headerData[1].sorted = false;
+                    that.headerData[1].ascending = false;
+                    that.headerData[3].sorted = false;
+                    that.headerData[3].ascending = false;
+
+                    that.drawTable();
             }
         })
+
+        total
+            .on("click", () =>{
+                if (that.headerData[3].sorted === false && that.headerData[3].ascending === false) {
+                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.total, b.total)); 
+                
+                    that.chartData = newData;
+                    that.headerData[3].sorted = true;
+                    that.headerData[3].ascending = true;
+                    that.headerData[0].sorted = false;
+                    that.headerData[0].ascending = false;
+                    that.headerData[1].sorted = false;
+                    that.headerData[1].ascending = false;
+                    that.headerData[2].sorted = false;
+                    that.headerData[2].ascending = false;
+
+                    that.drawTable();
+            }
+            else if (that.headerData[3].sorted === true && that.headerData[3].ascending === false) {
+                let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.total, b.total)); 
+                
+                    that.chartData = newData;
+                    that.headerData[3].ascending = true;
+                    that.headerData[0].sorted = false;
+                    that.headerData[0].ascending = false;
+                    that.headerData[1].sorted = false;
+                    that.headerData[1].ascending = false;
+                    that.headerData[2].sorted = false;
+                    that.headerData[2].ascending = false;
+
+                    that.drawTable();
+            }
+            else {
+                let newData = that.chartData.slice().sort((a,b) => d3.descending(a.total, b.total)); 
+                
+                    that.chartData = newData;
+                    that.headerData[3].ascending = false;
+                    that.headerData[0].sorted = false;
+                    that.headerData[0].ascending = false;
+                    that.headerData[1].sorted = false;
+                    that.headerData[1].ascending = false;
+                    that.headerData[2].sorted = false;
+                    that.headerData[2].ascending = false;
+
+                    that.drawTable();
+            }
 
    }
 
