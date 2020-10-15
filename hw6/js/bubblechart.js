@@ -30,6 +30,20 @@ class bubblechart {
         // create the diverging x-axis
 
         // create the tool tip
+        d3.select("#bubbleChart")
+            .append('div').attr("id", "chart-view");
+
+        d3.select('#chart-view')
+            .append('div')
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+        d3.select('#chart-view')
+            .append('svg').classed('plot-svg', true)
+            .attr("width", this.width + this.margin.left + this.margin.right)
+            .attr("height", this.height + this.margin.top + this.margin.bottom);
+
+        
     }
 
      /**
