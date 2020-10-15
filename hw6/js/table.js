@@ -484,7 +484,37 @@ class table {
      *
      */
     updateHeaders () {
+        let that = this;
 
+        let phrase = d3.selectAll(".sortable").filter((d,i) => i === 0);
+
+        let frequency = d3.selectAll(".sortable").filter((d,i) => i === 1);
+
+        let percentage = d3.selectAll(".sortable").filter((d,i) => i === 2);
+
+        let total = d3.selectAll(".sortable").filter((d,i) => i === 3);
+
+        if (that.headerData[0].sorted === true && that.headerData[0].ascending === true) {
+            phrase.selectAll("i")
+                .attr("class", "fas fa-sort-up");
+
+            let arr = [frequency, percentage, total];
+
+            for (let i = 0; i < arr.length(); i++) {
+                arr[i].selectAll("i")
+                    .attr("class", "fas no-display");
+            }
+            // frequency.selectAll("i")
+            //     .attr("class", "fas no-display");
+
+            // percentage.selectAll("i")
+            //     .attr("class", "fas no-display");
+
+            // total.selectAll("i")
+            //     .attr("class", "fas no-display");
+
+            
+        }
 
     }
 
