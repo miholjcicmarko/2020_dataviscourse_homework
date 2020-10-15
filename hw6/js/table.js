@@ -252,7 +252,7 @@ class table {
     }   
 
     /**
-     * Create midline
+     * Create midline for Percentage Chart
      *
      */
     midline (grouperPercentSelect) {
@@ -270,20 +270,100 @@ class table {
             .attr("stroke", "white");            
     }
 
+    
     /**
-     * Updates the header of the column
-     *
+     * Helper method that sets header data equal to false
      */
-    updateHeaders () {
+    setToFalse([index]) {
+        let that = this;
 
+        for (let i =0; i < index.length(); i++) {
+            that.headerData[index[i]].sorted === false;
+            that.headerData[index[i]].ascending === false;
+        }
 
+        return;
     }
 
     /**
     * Attach click handlers to all the th elements inside the columnHeaders row.
     * The handler should sort based on that column and alternate between ascending/descending.
     */
-    sortHandlers() {
+   sortHandlers() {
+        let that = this;
+
+        let phrase = d3.selectAll(".sortable").filter((d,i) => i === 0);
+
+        let frequency = d3.selectAll(".sortable").filter((d,i) => i === 1);
+
+        let percentage = d3.selectAll(".sortable").filter((d,i) => i === 2);
+
+        let total = d3.selectAll(".sortable").filter((d,i) => i === 3);
+
+        phrase
+            .on('click', () => {
+                if (that.headerData[0].sorted === false && that.headerData[0].ascending === false) {
+                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.phrase, b.phrase)); 
+                    
+                    that.tableData = newData;
+                    that.headerData[0].sorted = true;
+                    that.headerData[0].ascending = true;
+                    debugger;
+                    that.setToFalse([1,2]);
+
+                    that.drawTable();
+                }
+                else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
+
+                }
+            })
+        
+        frequency 
+            .on("click", () =>{
+                if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
+                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.total, b.total)); 
+                    
+                    that.tableData = newData;
+                    that.headerData[1].sorted = true;
+                    that.headerData[1].ascending = true;
+                    that.headerData[0].sorted = false;
+                    that.headerData[0].ascending = false;
+                    that.headerData[2].sorted = false;
+                    that.headerData[2].ascending = false;
+                    that.headerData[3].sorted = false;
+                    that.headerData[3].ascending = false;
+
+                    that.drawTable();
+                }
+            })
+
+        percentage
+        .on("click", () =>{
+            if (that.headerData[2].sorted === false && that.headerData[2].ascending === false) {
+                let newData = that.tableData.slice().sort((a,b) => d3.ascending(a., b.)); 
+                
+                that.tableData = newData;
+                that.headerData[2].sorted = true;
+                that.headerData[2].ascending = true;
+                that.headerData[0].sorted = false;
+                that.headerData[0].ascending = false;
+                that.headerData[1].sorted = false;
+                that.headerData[1].ascending = false;
+                that.headerData[3].sorted = false;
+                that.headerData[3].ascending = false;
+
+                that.drawTable();
+            }
+        })
+
+   }
+
+    /**
+     * Updates the header of the column
+     *
+     */
+    updateHeaders () {
+
 
     }
 
