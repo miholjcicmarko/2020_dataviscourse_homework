@@ -238,6 +238,7 @@ debugger;
      *
      */
     midline (grouperPercentSelect) {
+        debugger;
 
         let mid = 0;
 
