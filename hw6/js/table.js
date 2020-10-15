@@ -236,7 +236,7 @@ debugger;
                 else if (d.marginLow > 0) {
                     return "bar-percent-dem";
                 }
-            })
+            });
             
     }   
 
