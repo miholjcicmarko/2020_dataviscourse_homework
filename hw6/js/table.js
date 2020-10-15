@@ -240,7 +240,7 @@ debugger;
     midline (grouperPercentSelect) {
         debugger;
 
-        let mid = 0;
+        let mid = [0];
 
         grouperPercentSelect.selectAll("line")
             .data(mid)
