@@ -384,7 +384,7 @@ class table {
             .on("click", () =>{
                 debugger;
                 if (that.headerData[2].sorted === false && that.headerData[2].ascending === false) {
-                    let newData = that.chartData.slice().sort(function(a,b) {a.percent_of_d_speeches - b.percent_of_d_speeches}); 
+                    let newData = that.chartData.slice().sort(function(a,b) {return b.percent_of_d_speeches - a.percent_of_d_speeches}); 
                 
                     that.chartData = newData;
                     that.headerData[2].sorted = true;
@@ -432,7 +432,7 @@ class table {
             .on("click", () =>{
                 debugger;
                 if (that.headerData[3].sorted === false && that.headerData[3].ascending === false) {
-                    let newData = that.chartData.slice().sort(function(a,b) {a.total - b.total}); 
+                    let newData = that.chartData.slice().sort(function(a,b) {return a.total - b.total}); 
                 
                     that.chartData = newData;
                     that.headerData[3].sorted = true;
