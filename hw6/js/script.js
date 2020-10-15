@@ -24,8 +24,8 @@ fetchJSONFile('data/words.json', function(data) {
     debugger;
     let bubbles = new bubblechart(data);
     bubbles.drawChart();
-    let bars = new table(data);
-    bars.drawTable();
+    //let bars = new table(data);
+    //bars.drawTable();
 
 });
 
