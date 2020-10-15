@@ -54,6 +54,7 @@ class table {
      *
      */
     drawLegends() {
+        debugger;
         let legendF = d3.select("#frequency-axis")
             .attr("width", this.subWidth)
             .attr("height", this.vizHeight);
@@ -105,7 +106,7 @@ class table {
             .selectAll('tr')
             .data(this.chartData)
             .join('tr');
-debugger;
+
         let phraseSelection = rowSelection.selectAll('td')
         .data(this.rowToCellDataTransform)
         .join('td');
@@ -119,7 +120,7 @@ debugger;
             .text(function(d) {return d.value});
 
         let freqSelection = phraseSelection.filter(d => d.type === 'freq');
-        debugger;
+
         let svgFreq = freqSelection.selectAll('svg')
             .data(d => [d])
             .join('svg')
@@ -194,8 +195,6 @@ debugger;
      */
     drawFrequencyBars (grouperFreqSelect) {
         let that = this;
-
-        debugger;
 
         grouperFreqSelect.selectAll("rect")
             .data(d => [d])
