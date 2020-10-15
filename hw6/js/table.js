@@ -180,7 +180,7 @@ debugger;
             }
         };
 
-        let dataList = [phraseInfo, freqInfo, phraseInfo, totalInfo];
+        let dataList = [phraseInfo, freqInfo, percentInfo, totalInfo];
 
         return dataList;
     }
