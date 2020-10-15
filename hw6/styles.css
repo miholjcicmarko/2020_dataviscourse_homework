@@ -39,13 +39,13 @@
 
 .freqlabel-table {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 5px;
+    font-size: 10px;
     font-weight: bold;
 }
 
 .percentlabel-table {
     font-family: 'Times New Roman', Times, serif;
-    font: 0.5px;
+    font-size: 5px;
     font-weight: bold;
 }
 
