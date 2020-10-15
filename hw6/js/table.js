@@ -311,7 +311,7 @@ class table {
                     that.headerData[0].sorted = true;
                     that.headerData[0].ascending = true;
                     debugger;
-                    that.setToFalse([1,2]);
+                    that.setToFalse([1,2,3]);
 
                     that.drawTable();
                 }
@@ -321,7 +321,7 @@ class table {
                     that.chartData = newData;
                     that.headerData[0].ascending = true;
                     debugger;
-                    that.setToFalse([1,2]);
+                    that.setToFalse([1,2,3]);
 
                     that.drawTable();
                 }
@@ -331,7 +331,7 @@ class table {
                     that.chartData = newData;
                     that.headerData[0].ascending = false;
                     debugger;
-                    that.setToFalse([1,2]);
+                    that.setToFalse([1,2,3]);
 
                     that.drawTable();
                 }
@@ -345,12 +345,9 @@ class table {
                     that.chartData = newData;
                     that.headerData[1].sorted = true;
                     that.headerData[1].ascending = true;
-                    that.headerData[0].sorted = false;
-                    that.headerData[0].ascending = false;
-                    that.headerData[2].sorted = false;
-                    that.headerData[2].ascending = false;
-                    that.headerData[3].sorted = false;
-                    that.headerData[3].ascending = false;
+                    
+                    debugger;
+                    that.setToFalse([0,2,3]);
 
                     that.drawTable();
                 }
