@@ -119,7 +119,7 @@ debugger;
             .text(function(d) {return d.value});
 
         let freqSelection = phraseSelection.filter(d => d.type === 'freq');
-        
+        debugger;
         let svgFreq = freqSelection.selectAll('svg')
             .data(d => [d])
             .join('svg')
@@ -195,8 +195,10 @@ debugger;
     drawFrequencyBars (grouperFreqSelect) {
         let that = this;
 
+        debugger;
+
         grouperFreqSelect.selectAll("rect")
-            .data(d => d)
+            .data(d => [d])
             .enter().append("rect")
             .attr("x", 0)
             .attr("y", 0)
