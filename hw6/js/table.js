@@ -103,9 +103,9 @@ class table {
         
         let rowSelection = d3.select('#table')
             .selectAll('tr')
-            .data(this.tableData)
+            .data(this.chartData)
             .join('tr');
-
+debugger;
         let phraseSelection = rowSelection.selectAll('td')
         .data(this.rowToCellDataTransform)
         .join('td');
