@@ -335,6 +335,7 @@ class table {
         frequency 
             .on("click", () =>{
                 if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
+                    debugger;
                     let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.total, b.total)); 
                     
                     that.chartData = newData;
@@ -383,7 +384,7 @@ class table {
         percentage
             .on("click", () =>{
                 if (that.headerData[2].sorted === false && that.headerData[2].ascending === false) {
-                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.percent_of_d_speeches, b.percent_of_d_speeches)); 
+                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.d_speeches, b.d_speeches)); 
                 
                     that.chartData = newData;
                     that.headerData[2].sorted = true;
@@ -398,7 +399,7 @@ class table {
                     that.drawTable();
             }
                 else if (that.headerData[2].sorted === true && that.headerData[2].ascending === false) {
-                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.percent_of_d_speeches, b.percent_of_d_speeches)); 
+                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.d_speeches, b.d_speeches)); 
                 
                     that.chartData = newData;
                     that.headerData[2].ascending = true;
@@ -412,7 +413,7 @@ class table {
                     that.drawTable();
             }
             else {
-                    let newData = that.chartData.slice().sort((a,b) => d3.descending(a.percent_of_d_speeches, b.percent_of_d_speeches)); 
+                    let newData = that.chartData.slice().sort((a,b) => d3.descending(a.d_speeches, b.d_speeches)); 
                 
                     that.chartData = newData;
                     that.headerData[2].ascending = false;
