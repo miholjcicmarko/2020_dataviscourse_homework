@@ -201,7 +201,7 @@ debugger;
             .attr("x", 0)
             .attr("y", 0)
             .attr("width", function(d) {
-                return that.scaleXPercent(d.value) - that.scaleXPercent(d.value)
+                return that.scaleXFreq(d.value) - that.scaleXFreq(d.value)
             })
             .attr("height", that.vizHeight)
             .style("fill", "black");
