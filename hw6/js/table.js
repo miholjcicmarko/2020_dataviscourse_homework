@@ -164,7 +164,8 @@ debugger;
 
         let freqInfo = {
             type: "freq",
-            value: d.total/50
+            value: d.total/50,
+            category: d.category
         };
 
         let percentInfo = {
@@ -193,7 +194,6 @@ debugger;
      */
     drawFrequencyBars (grouperFreqSelect) {
         let that = this;
-        debugger;
 
         grouperFreqSelect.selectAll("rect")
             .data(d => d)
@@ -221,13 +221,11 @@ debugger;
             .data(d => {
                 let d1 = {
                     "marginLow": d.value.percent_of_d_speeches *-1,
-                    "marginHigh": 0,
-                    "category" : d.category
+                    "marginHigh": 0
                 }
                 let d2 = {
                     "marginLow": 0,
-                    "marginHigh": d.value.percent_of_r_speeches,
-                    "category" : d.category
+                    "marginHigh": d.value.percent_of_r_speeches
                 }
                 return [d1,d2];
             })     
