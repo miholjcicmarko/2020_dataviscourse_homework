@@ -51,9 +51,11 @@
 
 .bar-percent-rep {
     color : coral;
+    fill : coral;
 }
 
 .bar-percent-dem {
     color: steelblue;
+    fill: steelblue;
 }
 
