@@ -229,8 +229,15 @@ debugger;
                 return that.scaleXPercent(d.marginHigh) - that.scaleXPercent(d.marginLow)
             })
             .attr("height", that.vizHeight)
-            .style("fill", "steelblue");
-
+            .attr("class", function(d) {
+                if (d.marginHigh < 0) {
+                    return "bar-percent-rep";
+                }
+                else if (d.marginLow > 0) {
+                    return "bar-percent-dem";
+                }
+            })
+            
     }   
 
     /**
