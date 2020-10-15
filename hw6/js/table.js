@@ -242,10 +242,10 @@ class table {
             .attr("height", that.vizHeight)
             .attr("class", function(d) {
                 if (d.marginHigh <= 0) {
-                    return "bar-percent-rep";
+                    return "bar-percent-dem";
                 }
                 else if (d.marginLow >= 0) {
-                    return "bar-percent-dem";
+                    return "bar-percent-rep";
                 }
             });
             
@@ -379,7 +379,8 @@ class table {
                     that.drawTable();
                 }
             })
-
+        
+        // sorted by democrat percentages
         percentage
             .on("click", () =>{
                 debugger;
