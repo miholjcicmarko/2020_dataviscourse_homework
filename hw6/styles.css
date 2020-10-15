@@ -54,3 +54,12 @@
     fill: steelblue;
 }
 
+.x-label {
+    width: 1%7;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.axis-label {
+    font-size: 11px;
+}
