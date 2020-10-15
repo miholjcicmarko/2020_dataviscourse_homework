@@ -222,8 +222,8 @@ debugger;
             })   
             .attr("y", 0)
             .attr("width", function(d) {
-                return that.scaleXPercent(d.marginHigh) - 
-                    that.scaleXPercent(d.marginLow)
+                return that.scaleXPercent(d.marginHigh) - that.scaleXPercent(d.marginLow)
+            })
             .attr("height", that.smallVizHeight);
             
         })
