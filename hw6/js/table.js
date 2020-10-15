@@ -127,10 +127,10 @@ debugger;
             .attr('height', this.vizHeight);
 
         let grouperFreqSelect = svgFreq.selectAll('g')
-            .data(d => [d,d,d,d])
+            .data(d => [d])
             .join('g');
         
-            this.drawFrequencyBars(grouperFreqSelect((d,i) => i === 0));
+            this.drawFrequencyBars(grouperFreqSelect.filter((d,i) => i === 0));
         
         let percentSelection = phraseSelection.filter(d => d.type === 'percent');
 
