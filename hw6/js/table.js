@@ -189,8 +189,8 @@ debugger;
      * Draws the bar chart for the frequency column
      *
      */
-    drawFrequencyBars () {
-
+    drawFrequencyBars (grouperFreqSelect) {
+        let that = this;
 
     }
 
@@ -201,8 +201,32 @@ debugger;
      * Draws the bar chart for the percentages column
      *
      */
-    drawPercentageBars () {
+    drawPercentageBars (grouperPercentSelect) {
+        let that = this;
 
+        grouperPercentSelect.selectAll("rect")
+            .data(d => {
+                let d1 = {
+                    "marginLow": d.value.percent_of_d_speeches *-1,
+                    "marginHigh": 0
+                }
+                let d2 = {
+                    "marginLow": 0,
+                    "marginHigh": d.value.percent_of_r_speeches
+                }
+                return [d1,d2];
+            })     
+            .enter().append("rect")
+            .attr("x", function(d) {
+                return that.scaleXPercent(d.marginLow);
+            })   
+            .attr("y", 0)
+            .attr("width", function(d) {
+                return that.scaleXPercent(d.marginHigh) - 
+                    that.scaleXPercent(d.marginLow)
+            .attr("height", that.smallVizHeight);
+            
+        })
     }    
 
     /**
