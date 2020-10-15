@@ -203,7 +203,6 @@ debugger;
      */
     drawPercentageBars (grouperPercentSelect) {
         let that = this;
-        debugger;
 
         grouperPercentSelect.selectAll("rect")
             .data(d => {
@@ -225,8 +224,8 @@ debugger;
             .attr("width", function(d) {
                 return that.scaleXPercent(d.marginHigh) - that.scaleXPercent(d.marginLow)
             })
-            .attr("height", that.smallVizHeight);
-            
+            .attr("height", that.smallVizHeight)
+            .style("fill", "blue");
     }   
 
     /**
