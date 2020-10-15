@@ -485,6 +485,7 @@ class table {
      */
     updateHeaders () {
         let that = this;
+        debugger;
 
         let phrase = d3.selectAll(".sortable").filter((d,i) => i === 0);
 
