@@ -303,9 +303,9 @@ class table {
         phrase
             .on('click', () => {
                 if (that.headerData[0].sorted === false && that.headerData[0].ascending === false) {
-                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.phrase, b.phrase)); 
+                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.phrase, b.phrase)); 
                     
-                    that.tableData = newData;
+                    that.chartData = newData;
                     that.headerData[0].sorted = true;
                     that.headerData[0].ascending = true;
                     debugger;
@@ -321,9 +321,9 @@ class table {
         frequency 
             .on("click", () =>{
                 if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
-                    let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.total, b.total)); 
+                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.total, b.total)); 
                     
-                    that.tableData = newData;
+                    that.chartData = newData;
                     that.headerData[1].sorted = true;
                     that.headerData[1].ascending = true;
                     that.headerData[0].sorted = false;
@@ -340,9 +340,9 @@ class table {
         percentage
         .on("click", () =>{
             if (that.headerData[2].sorted === false && that.headerData[2].ascending === false) {
-                let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.percent_of_d_speeches, b.percent_of_d_speeches)); 
+                let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.percent_of_d_speeches, b.percent_of_d_speeches)); 
                 
-                that.tableData = newData;
+                that.chartData = newData;
                 that.headerData[2].sorted = true;
                 that.headerData[2].ascending = true;
                 that.headerData[0].sorted = false;
