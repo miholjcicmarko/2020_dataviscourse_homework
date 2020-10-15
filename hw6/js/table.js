@@ -144,7 +144,7 @@ debugger;
             .data(d => [d,d,d,d])
             .join('g');
 
-            this.drawPercentageBars(grouperPercentSelect((d,i) => i === 0));
+            this.drawPercentageBars(grouperPercentSelect.filter((d,i) => i === 0));
 
 
         
