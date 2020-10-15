@@ -226,7 +226,7 @@ debugger;
             })
             .attr("height", that.smallVizHeight);
             
-        })
+        }
     }    
 
     /**
