@@ -226,8 +226,7 @@ debugger;
             })
             .attr("height", that.smallVizHeight);
             
-        }
-    }    
+    }   
 
     /**
      * Updates the header of the column
