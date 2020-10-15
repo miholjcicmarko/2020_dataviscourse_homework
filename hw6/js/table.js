@@ -599,9 +599,18 @@ class table {
             total.selectAll("i")
                 .attr("class", "fas fa-sort-down"); 
         }
+        else {
+            phrase.selectAll("i")
+                .attr("class", "fas no-display");
 
+            frequency.selectAll("i")
+                .attr("class", "fas no-display");
 
+            percentage.selectAll("i")
+                .attr("class", "fas no-display");
+
+            total.selectAll("i")
+                .attr("class", "fas no-display"); 
+        }
     }
-
-
 }
