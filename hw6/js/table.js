@@ -203,6 +203,7 @@ debugger;
      */
     drawPercentageBars (grouperPercentSelect) {
         let that = this;
+        debugger;
 
         grouperPercentSelect.selectAll("rect")
             .data(d => {
