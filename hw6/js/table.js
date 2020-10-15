@@ -99,7 +99,8 @@ class table {
     drawTable() {
         d3.select("#table").selectAll("*").remove();
 
-        this.updateHeaders();    
+        this.updateHeaders(); 
+        this.drawLegends();   
         
         let rowSelection = d3.select('#table')
             .selectAll('tr')
