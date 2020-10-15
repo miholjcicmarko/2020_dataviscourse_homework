@@ -98,11 +98,12 @@ class table {
      *
      */
     drawTable() {
-        d3.select("#table").selectAll("*").remove();
+        d3.select("#tableBody").selectAll("*").remove();
 
-        this.updateHeaders();   
+        this.updateHeaders();
+
         
-        let rowSelection = d3.select('#table')
+        let rowSelection = d3.select('#tableBody')
             .selectAll('tr')
             .data(this.chartData)
             .join('tr');
