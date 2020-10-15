@@ -64,6 +64,15 @@ debugger;
     addCircles() {
         // size of circle encodes the  total use of the N-grams.
         // the circle is colored by category
+
+        let circleSizer = function (d) {
+            let cScale = d3.scaleSqrt().range([3, 20]).domain([minSize, maxSize]);
+            return d.circleSize ? cScale(d.circleSize) : 3;
+        };        
+
+
+
+
     }
 
     /**
