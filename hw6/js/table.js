@@ -500,18 +500,18 @@ class table {
 
             let arr = [frequency, percentage, total];
 
-            for (let i = 0; i < arr.length(); i++) {
-                arr[i].selectAll("i")
-                    .attr("class", "fas no-display");
-            }
-            // frequency.selectAll("i")
-            //     .attr("class", "fas no-display");
+            // for (let i = 0; i < arr.length(); i++) {
+            //     arr[i].selectAll("i")
+            //         .attr("class", "fas no-display");
+            // }
+            frequency.selectAll("i")
+                .attr("class", "fas no-display");
 
-            // percentage.selectAll("i")
-            //     .attr("class", "fas no-display");
+            percentage.selectAll("i")
+                .attr("class", "fas no-display");
 
-            // total.selectAll("i")
-            //     .attr("class", "fas no-display");
+            total.selectAll("i")
+                .attr("class", "fas no-display");
 
             
         }
