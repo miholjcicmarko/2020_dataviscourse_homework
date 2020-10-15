@@ -384,8 +384,7 @@ class table {
             .on("click", () =>{
                 debugger;
                 if (that.headerData[2].sorted === false && that.headerData[2].ascending === false) {
-                    let newData = that.chartData.slice().sort(function(a,b) {
-                        return (b.percent_of_d_speeches+b.percent_of_r_speeches) - (a.percent_of_d_speeches+a.percent_of_r_speeches)}); 
+                    let newData = that.chartData.slice().sort(function(a,b) {return b.percent_of_d_speeches - a.percent_of_d_speeches}); 
                 
                     that.chartData = newData;
                     that.headerData[2].sorted = true;
@@ -400,8 +399,7 @@ class table {
                     that.drawTable();
             }
                 else if (that.headerData[2].sorted === true && that.headerData[2].ascending === false) {
-                    let newData = that.chartData.slice().sort(function(a,b) {
-                        return (b.percent_of_d_speeches+b.percent_of_r_speeches) - (a.percent_of_d_speeches+a.percent_of_r_speeches)}); 
+                    let newData = that.chartData.slice().sort(function(a,b) {return b.percent_of_d_speeches - a.percent_of_d_speeches}); 
                 
                     that.chartData = newData;
                     that.headerData[2].ascending = true;
@@ -415,8 +413,7 @@ class table {
                     that.drawTable();
             }
             else {
-                    let newData = that.chartData.slice().sort(function(a,b) {
-                        return (a.percent_of_d_speeches+a.percent_of_r_speeches) - (b.percent_of_d_speeches+b.percent_of_r_speeches)}); 
+                    let newData = that.chartData.slice().sort(function(a,b) {return a.percent_of_d_speeches - b.percent_of_d_speeches}); 
                 
                     that.chartData = newData;
                     that.headerData[2].ascending = false;
