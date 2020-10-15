@@ -14,9 +14,9 @@ class bubblechart {
             bubble.isExpanded = false;
         }
 
-      let margin = {top: 50, right: 30, bottom: 50, left: 100};
-      this.width = 1000 - margin.left - margin.right;
-      this.height = 800 - margin.top - margin.bottom;
+      this.margin = {top: 50, right: 30, bottom: 50, left: 100};
+      this.width = 1000 - this.margin.left - this.margin.right;
+      this.height = 800 - this.margin.top - this.margin.bottom;
 
 
         this.drawChart();
@@ -28,7 +28,7 @@ class bubblechart {
      */
     drawChart() {
         // create the diverging x-axis
-
+debugger;
         // create the tool tip
         d3.select("#bubbleChart")
             .append('div').attr("id", "chart-view");
