@@ -275,13 +275,12 @@ class table {
      * Helper method that sets header data equal to false
      */
     setToFalse(index) {
-        let that = this;
 
         let arr = index;
 
         for (let i =0; i < arr.length; i++) {
-            that.headerData[arr[i]].sorted === false;
-            that.headerData[arr[i]].ascending === false;
+            this.headerData[arr[i]].sorted === false;
+            this.headerData[arr[i]].ascending === false;
         }
 
         return
