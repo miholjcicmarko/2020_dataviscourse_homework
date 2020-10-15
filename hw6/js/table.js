@@ -336,7 +336,7 @@ class table {
             .on("click", () =>{
                 if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
                     debugger;
-                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.total, b.total)); 
+                    let newData = that.chartData.slice().sort(function(a,b) {a.total-b.total}); 
                     
                     that.chartData = newData;
                     that.headerData[1].sorted = true;
@@ -352,7 +352,7 @@ class table {
                 }
                 else if (that.headerData[1].sorted === true && that.headerData[1].ascending === false) {
 
-                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.total, b.total)); 
+                    let newData = that.chartData.slice().sort(function(a,b) {a.total-b.total}); 
 
                     that.chartData = newData;
                     that.headerData[1].ascending = true;
@@ -366,7 +366,7 @@ class table {
                     that.drawTable();
                 }
                 else {
-                    let newData = that.chartData.slice().sort((a,b) => d3.descending(a.total, b.total)); 
+                    let newData = that.chartData.slice().sort(function(a,b) {a.total-b.total}); 
 
                     that.chartData = newData;
                     that.headerData[1].ascending = false;
@@ -384,7 +384,7 @@ class table {
         percentage
             .on("click", () =>{
                 if (that.headerData[2].sorted === false && that.headerData[2].ascending === false) {
-                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.d_speeches, b.d_speeches)); 
+                    let newData = that.chartData.slice().sort(function(a,b) {a.d_speeches - b.d_speeches}); 
                 
                     that.chartData = newData;
                     that.headerData[2].sorted = true;
@@ -399,7 +399,7 @@ class table {
                     that.drawTable();
             }
                 else if (that.headerData[2].sorted === true && that.headerData[2].ascending === false) {
-                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.d_speeches, b.d_speeches)); 
+                    let newData = that.chartData.slice().sort(function(a,b) {a.d_speeches - b.d_speeches}); 
                 
                     that.chartData = newData;
                     that.headerData[2].ascending = true;
@@ -413,7 +413,7 @@ class table {
                     that.drawTable();
             }
             else {
-                    let newData = that.chartData.slice().sort((a,b) => d3.descending(a.d_speeches, b.d_speeches)); 
+                    let newData = that.chartData.slice().sort(function(a,b) {a.d_speeches - b.d_speeches}); 
                 
                     that.chartData = newData;
                     that.headerData[2].ascending = false;
@@ -431,7 +431,7 @@ class table {
         total
             .on("click", () =>{
                 if (that.headerData[3].sorted === false && that.headerData[3].ascending === false) {
-                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.total, b.total)); 
+                    let newData = that.chartData.slice().sort(function(a,b) {a.total - b.total}); 
                 
                     that.chartData = newData;
                     that.headerData[3].sorted = true;
@@ -446,7 +446,7 @@ class table {
                     that.drawTable();
             }
             else if (that.headerData[3].sorted === true && that.headerData[3].ascending === false) {
-                let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.total, b.total)); 
+                let newData = that.chartData.slice().sort(function(a,b) {a.total - b.total}); 
                 
                     that.chartData = newData;
                     that.headerData[3].ascending = true;
@@ -460,7 +460,7 @@ class table {
                     that.drawTable();
             }
             else {
-                let newData = that.chartData.slice().sort((a,b) => d3.descending(a.total, b.total)); 
+                let newData = that.chartData.slice().sort(function(a,b) {a.total - b.total}); 
                 
                     that.chartData = newData;
                     that.headerData[3].ascending = false;
