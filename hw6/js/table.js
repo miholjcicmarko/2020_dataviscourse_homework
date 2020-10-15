@@ -146,6 +146,8 @@ debugger;
 
             this.drawPercentageBars(grouperPercentSelect.filter((d,i) => i === 0));
 
+            this.midline(grouperPercentSelect.filter((d,i) => i === 0));
+
 
         
     }
@@ -228,7 +230,17 @@ debugger;
             })
             .attr("height", that.vizHeight)
             .style("fill", "steelblue");
+
     }   
+
+    /**
+     * Create midline
+     *
+     */
+    midline (grouperPercentSelect) {
+
+
+    }
 
     /**
      * Updates the header of the column
