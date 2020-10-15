@@ -49,5 +49,11 @@
     font-weight: bold;
 }
 
+.bar-percent-rep {
+    color : coral;
+}
 
+.bar-percent-dem {
+    color: steelblue;
+}
 
