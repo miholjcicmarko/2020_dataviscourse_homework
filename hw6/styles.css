@@ -25,11 +25,6 @@
     display: none !important;
 }
 
-.sorting {
-    background: black;
-    color: white;
-}
-
 .sortable {
     user-select: none;
     border-radius: 3px;
