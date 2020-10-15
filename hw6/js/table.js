@@ -194,6 +194,16 @@ debugger;
     drawFrequencyBars (grouperFreqSelect) {
         let that = this;
 
+        grouperFreqSelect.selectAll("rect")
+            .data(d => d)
+            .enter().append("rect")
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("width", function(d) {
+                return that.scaleXPercent(d.value) - that.scaleXPercent(d.value);
+            })
+            .attr("height", that.vizHeight)
+            .style("fill", "black");
     }
 
 
@@ -230,10 +240,10 @@ debugger;
             })
             .attr("height", that.vizHeight)
             .attr("class", function(d) {
-                if (d.marginHigh < 0) {
+                if (d.marginHigh <= 0) {
                     return "bar-percent-rep";
                 }
-                else if (d.marginLow > 0) {
+                else if (d.marginLow >= 0) {
                     return "bar-percent-dem";
                 }
             });
