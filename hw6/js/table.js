@@ -226,8 +226,8 @@ debugger;
             .attr("width", function(d) {
                 return that.scaleXPercent(d.marginHigh) - that.scaleXPercent(d.marginLow)
             })
-            .attr("height", that.smallVizHeight)
-            .style("fill", "blue");
+            .attr("height", that.vizHeight)
+            .style("fill", "steelblue");
     }   
 
     /**
