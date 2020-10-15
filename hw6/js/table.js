@@ -270,22 +270,6 @@ class table {
             .attr("stroke", "white");            
     }
 
-    
-    /**
-     * Helper method that sets header data equal to false
-     */
-    setToFalse(index) {
-
-        let arr = index;
-
-        for (let i =0; i < arr.length; i++) {
-            this.headerData[arr[i]].sorted === false;
-            this.headerData[arr[i]].ascending === false;
-        }
-
-        return
-    }
-
     /**
     * Attach click handlers to all the th elements inside the columnHeaders row.
     * The handler should sort based on that column and alternate between ascending/descending.
@@ -309,8 +293,12 @@ class table {
                     that.chartData = newData;
                     that.headerData[0].sorted = true;
                     that.headerData[0].ascending = true;
-                    debugger;
-                    that.setToFalse([1,2,3]);
+                    that.headerData[1].sorted = false;
+                    that.headerData[1].ascending = false;
+                    that.headerData[2].sorted = false;
+                    that.headerData[2].ascending = false;
+                    that.headerData[3].sorted = false;
+                    that.headerData[3].ascending = false;
 
                     that.drawTable();
                 }
@@ -319,8 +307,12 @@ class table {
 
                     that.chartData = newData;
                     that.headerData[0].ascending = true;
-                    debugger;
-                    that.setToFalse([1,2,3]);
+                    that.headerData[1].sorted = false;
+                    that.headerData[1].ascending = false;
+                    that.headerData[2].sorted = false;
+                    that.headerData[2].ascending = false;
+                    that.headerData[3].sorted = false;
+                    that.headerData[3].ascending = false;
 
                     that.drawTable();
                 }
@@ -329,8 +321,12 @@ class table {
 
                     that.chartData = newData;
                     that.headerData[0].ascending = false;
-                    debugger;
-                    that.setToFalse([1,2,3]);
+                    that.headerData[1].sorted = false;
+                    that.headerData[1].ascending = false;
+                    that.headerData[2].sorted = false;
+                    that.headerData[2].ascending = false;
+                    that.headerData[3].sorted = false;
+                    that.headerData[3].ascending = false;
 
                     that.drawTable();
                 }
@@ -344,9 +340,41 @@ class table {
                     that.chartData = newData;
                     that.headerData[1].sorted = true;
                     that.headerData[1].ascending = true;
-                    
-                    debugger;
-                    that.setToFalse([0,2,3]);
+                    that.headerData[0].sorted = false;
+                    that.headerData[0].ascending = false;
+                    that.headerData[2].sorted = false;
+                    that.headerData[2].ascending = false;
+                    that.headerData[3].sorted = false;
+                    that.headerData[3].ascending = false;
+
+                    that.drawTable();
+                }
+                else if (that.headerData[1].sorted === true && that.headerData[1].ascending === false) {
+
+                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.total, b.total)); 
+
+                    that.chartData = newData;
+                    that.headerData[1].ascending = true;
+                    that.headerData[0].sorted = false;
+                    that.headerData[0].ascending = false;
+                    that.headerData[2].sorted = false;
+                    that.headerData[2].ascending = false;
+                    that.headerData[3].sorted = false;
+                    that.headerData[3].ascending = false;
+
+                    that.drawTable();
+                }
+                else {
+                    let newData = that.chartData.slice().sort((a,b) => d3.descending(a.total, b.total)); 
+
+                    that.chartData = newData;
+                    that.headerData[1].ascending = false;
+                    that.headerData[0].sorted = false;
+                    that.headerData[0].ascending = false;
+                    that.headerData[2].sorted = false;
+                    that.headerData[2].ascending = false;
+                    that.headerData[3].sorted = false;
+                    that.headerData[3].ascending = false;
 
                     that.drawTable();
                 }
