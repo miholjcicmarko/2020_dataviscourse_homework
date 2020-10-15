@@ -499,12 +499,6 @@ class table {
             phrase.selectAll("i")
                 .attr("class", "fas fa-sort-up");
 
-            let arr = [frequency, percentage, total];
-
-            // for (let i = 0; i < arr.length(); i++) {
-            //     arr[i].selectAll("i")
-            //         .attr("class", "fas no-display");
-            // }
             frequency.selectAll("i")
                 .attr("class", "fas no-display");
 
@@ -512,10 +506,100 @@ class table {
                 .attr("class", "fas no-display");
 
             total.selectAll("i")
+                .attr("class", "fas no-display");   
+        }
+        else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
+            phrase.selectAll("i")
+                .attr("class", "fas fa-sort-down");
+
+            frequency.selectAll("i")
                 .attr("class", "fas no-display");
 
-            
+            percentage.selectAll("i")
+                .attr("class", "fas no-display");
+
+            total.selectAll("i")
+                .attr("class", "fas no-display"); 
         }
+        else if (that.headerData[1].sorted === true && that.headerData[1].ascending === true) {
+            phrase.selectAll("i")
+                .attr("class", "fas no-display");
+
+            frequency.selectAll("i")
+                .attr("class", "fas fa-sort-up");
+
+            percentage.selectAll("i")
+                .attr("class", "fas no-display");
+
+            total.selectAll("i")
+                .attr("class", "fas no-display"); 
+        }
+        else if (that.headerData[1].sorted === true && that.headerData[1].ascending === false) {
+            phrase.selectAll("i")
+                .attr("class", "fas no-display");
+
+            frequency.selectAll("i")
+                .attr("class", "fas fa-sort-down");
+
+            percentage.selectAll("i")
+                .attr("class", "fas no-display");
+
+            total.selectAll("i")
+                .attr("class", "fas no-display"); 
+        }
+        else if (that.headerData[2].sorted === true && that.headerData[2].ascending === true) {
+            phrase.selectAll("i")
+                .attr("class", "fas no-display");
+
+            frequency.selectAll("i")
+                .attr("class", "fas no-display");
+
+            percentage.selectAll("i")
+                .attr("class", "fas fa-sort-up");
+
+            total.selectAll("i")
+                .attr("class", "fas no-display"); 
+        }
+        else if (that.headerData[2].sorted === true && that.headerData[2].ascending === false) {
+            phrase.selectAll("i")
+                .attr("class", "fas no-display");
+
+            frequency.selectAll("i")
+                .attr("class", "fas no-display");
+
+            percentage.selectAll("i")
+                .attr("class", "fas fa-sort-down");
+
+            total.selectAll("i")
+                .attr("class", "fas no-display"); 
+        }
+        else if (that.headerData[3].sorted === true && that.headerData[3].ascending === true) {
+            phrase.selectAll("i")
+                .attr("class", "fas no-display");
+
+            frequency.selectAll("i")
+                .attr("class", "fas no-display");
+
+            percentage.selectAll("i")
+                .attr("class", "fas no-display");
+
+            total.selectAll("i")
+                .attr("class", "fas fa-sort-up"); 
+        }
+        else if (that.headerData[3].sorted === true && that.headerData[3].ascending === false) {
+            phrase.selectAll("i")
+                .attr("class", "fas no-display");
+
+            frequency.selectAll("i")
+                .attr("class", "fas no-display");
+
+            percentage.selectAll("i")
+                .attr("class", "fas no-display");
+
+            total.selectAll("i")
+                .attr("class", "fas fa-sort-down"); 
+        }
+
 
     }
 
