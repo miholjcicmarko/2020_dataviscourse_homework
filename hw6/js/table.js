@@ -208,11 +208,13 @@ debugger;
             .data(d => {
                 let d1 = {
                     "marginLow": d.value.percent_of_d_speeches *-1,
-                    "marginHigh": 0
+                    "marginHigh": 0,
+                    "category" : d.category
                 }
                 let d2 = {
                     "marginLow": 0,
-                    "marginHigh": d.value.percent_of_r_speeches
+                    "marginHigh": d.value.percent_of_r_speeches,
+                    "category" : d.category
                 }
                 return [d1,d2];
             })     
