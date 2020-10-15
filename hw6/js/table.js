@@ -282,7 +282,7 @@ class table {
             that.headerData[index[i]].ascending === false;
         }
 
-        return;
+        return
     }
 
     /**
@@ -340,7 +340,7 @@ class table {
         percentage
         .on("click", () =>{
             if (that.headerData[2].sorted === false && that.headerData[2].ascending === false) {
-                let newData = that.tableData.slice().sort((a,b) => d3.ascending(a., b.)); 
+                let newData = that.tableData.slice().sort((a,b) => d3.ascending(a.percent_of_d_speeches, b.percent_of_d_speeches)); 
                 
                 that.tableData = newData;
                 that.headerData[2].sorted = true;
