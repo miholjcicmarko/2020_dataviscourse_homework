@@ -201,6 +201,7 @@ debugger;
             .attr("x", 0)
             .attr("y", 0)
             .attr("width", function(d) {
+                debugger;
                 return that.scaleXFreq(d.value) - that.scaleXFreq(d.value)
             })
             .attr("height", that.vizHeight)
