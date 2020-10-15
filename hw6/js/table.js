@@ -432,7 +432,7 @@ class table {
             .on("click", () =>{
                 debugger;
                 if (that.headerData[3].sorted === false && that.headerData[3].ascending === false) {
-                    let newData = that.chartData.slice().sort(function(a,b) {return a.total - b.total}); 
+                    let newData = that.chartData.slice().sort(function(a,b) {return b.total - a.total}); 
                 
                     that.chartData = newData;
                     that.headerData[3].sorted = true;
