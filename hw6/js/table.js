@@ -108,9 +108,46 @@ class table {
 
         let phraseSelection = rowSelection.selectAll('td')
         .data(this.rowToCellDataTransform)
-        .join('td')
-        .attr('class', d => d.class);
+        .join('td');
+        //.attr('class', d => d.class);
 
+        let txtSelection = phraseSelection.filter(d => d.type === 'text');
+
+        let textSelect = txtSelection.selectAll('text')
+            .data(d => [d])
+            .join("text")
+            .text(function(d) {return d.value});
+
+        let freqSelection = phraseSelection.filter(d => d.type === 'freq');
+        
+        let svgFreq = freqSelection.selectAll('svg')
+            .data(d => [d])
+            .join('svg')
+            .attr('width', this.vizWidth)
+            .attr('height', this.vizHeight);
+
+        let grouperFreqSelect = svgFreq.selectAll('g')
+            .data(d => [d,d,d,d])
+            .join('g');
+        
+            this.drawFrequencyBars(grouperFreqSelect((d,i) => i === 0));
+        
+        let percentSelection = phraseSelection.filter(d => d.type === 'percent');
+
+        let svgPercent = percentSelection.selectAll('svg')
+            .data(d => [d])
+            .join('svg')
+            .attr('width', this.vizWidth)
+            .attr('height', this.vizHeight);
+
+        let grouperPercentSelect = svgPercent.selectAll('g')
+            .data(d => [d,d,d,d])
+            .join('g');
+
+            this.drawPercentageBars(grouperPercentSelect((d,i) => i === 0));
+
+
+        
     }
 
     /**
@@ -118,7 +155,34 @@ class table {
      * @param {data} d 
      */
     rowToCellDataTransform(d) {
-        
+        let phraseInfo = {
+            type: "text", 
+            value: d.phrase
+        };
+
+        let freqInfo = {
+            type: "freq",
+            value: d.total/50
+        };
+
+        let percentInfo = {
+            type: "percent",
+            value: {
+                percent_of_d_speeches: d.percent_of_d_speeches,
+                percent_of_r_speeches: d.percent_of_r_speeches
+            }
+        };
+
+        let totalInfo = {
+            type: "text",
+            value: {
+                total: "" + d.total
+            }
+        };
+
+        let dataList = [phraseInfo, freqInfo, phraseInfo, totalInfo];
+
+        return dataList;
     }
 
 
