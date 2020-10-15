@@ -280,8 +280,8 @@ class table {
         let arr = index;
 
         for (let i =0; i < arr.length; i++) {
-            that.headerData[index[i]].sorted === false;
-            that.headerData[index[i]].ascending === false;
+            that.headerData[arr[i]].sorted === false;
+            that.headerData[arr[i]].ascending === false;
         }
 
         return
