@@ -1,3 +1,26 @@
+/**
+ * Data Structure for the circles used in the plot
+ */
+class CircleData {
+    /**
+     * 
+     * @param {phrase} phrase 
+     * @param {xVal} xVal x-position
+     * @param {*} yVal y-position
+     * @param {*} category category 
+     * @param {*} circleSize the radius of the circle
+     */
+    
+    constructor(phrase, xVal, yVal, category, circleSize) {
+        this.phrase = phrase;
+        this.xVal = xVal;
+        this.yVal = yVal;
+        this.category = category;
+        this.circleSize = circleSize;
+    }
+}
+
+
 class bubblechart {
 
     /**
@@ -54,6 +77,7 @@ debugger;
                 .attr("class", "axis-label")
                 .attr("class", "x-label");
 
+            this.addCircles();
         
     }
 
@@ -66,11 +90,16 @@ debugger;
         // the circle is colored by category
 
         let circleSizer = function (d) {
-            let cScale = d3.scaleSqrt().range([3, 20]).domain([minSize, maxSize]);
-            return d.circleSize ? cScale(d.circleSize) : 3;
-        };        
+            let cScale = d3.scaleSqrt()
+                .range([0, 20])
+                .domain([minSize, maxSize]);
+            return d.circleSize ? cScale(d.circleSize) : 1;
+        }; 
+        
+        
 
-
+        let minSize = d3.min(nonZeros);
+        //let maxSize = 
 
 
     }
