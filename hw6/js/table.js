@@ -97,9 +97,31 @@ class table {
      *
      */
     drawTable() {
+        d3.select("#table").selectAll("*").remove();
 
+        this.updateHeaders();    
+        
+        let rowSelection = d3.select('#table')
+            .selectAll('tr')
+            .data(this.tableData)
+            .join('tr');
+
+        let phraseSelection = rowSelection.selectAll('td')
+        .data(this.rowToCellDataTransform)
+        .join('td')
+        .attr('class', d => d.class);
+
+    }
+
+    /**
+     * Takes all of the data and converts into a usable form
+     * @param {data} d 
+     */
+    rowToCellDataTransform(d) {
         
     }
+
+
 
     /**
      * Draws the bar chart for the frequency column
@@ -107,7 +129,11 @@ class table {
      */
     drawFrequencyBars () {
 
+
     }
+
+
+
 
     /**
      * Draws the bar chart for the percentages column
@@ -116,6 +142,15 @@ class table {
     drawPercentageBars () {
 
     }    
+
+    /**
+     * Updates the header of the column
+     *
+     */
+    updateHeaders () {
+
+
+    }
 
     /**
     * Attach click handlers to all the th elements inside the columnHeaders row.
