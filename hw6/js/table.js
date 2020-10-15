@@ -239,7 +239,17 @@ debugger;
      */
     midline (grouperPercentSelect) {
 
+        let mid = 0;
 
+        grouperPercentSelect.selectAll("line")
+            .data(mid)
+            .join('line')
+            .attr("x1", (d) => this.scaleXPercent(d))
+            .attr("y1", 0)
+            .attr("x2", (d) => this.scaleXPercent(d))
+            .attr("y2", this.vizHeight)
+            .attr("stroke-width", 1)
+            .attr("stroke", "white");            
     }
 
     /**
