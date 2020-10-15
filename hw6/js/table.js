@@ -335,7 +335,6 @@ class table {
         frequency 
             .on("click", () =>{
                 if (that.headerData[1].sorted === false && that.headerData[1].ascending === false) {
-                    debugger;
                     let newData = that.chartData.slice().sort(function(a,b) {a.total-b.total}); 
                     
                     that.chartData = newData;
@@ -383,6 +382,7 @@ class table {
 
         percentage
             .on("click", () =>{
+                debugger;
                 if (that.headerData[2].sorted === false && that.headerData[2].ascending === false) {
                     let newData = that.chartData.slice().sort(function(a,b) {a.d_speeches - b.d_speeches}); 
                 
@@ -430,6 +430,7 @@ class table {
 
         total
             .on("click", () =>{
+                debugger;
                 if (that.headerData[3].sorted === false && that.headerData[3].ascending === false) {
                     let newData = that.chartData.slice().sort(function(a,b) {a.total - b.total}); 
                 
