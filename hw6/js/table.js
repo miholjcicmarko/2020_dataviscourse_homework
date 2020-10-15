@@ -274,10 +274,12 @@ class table {
     /**
      * Helper method that sets header data equal to false
      */
-    setToFalse([index]) {
+    setToFalse(index) {
         let that = this;
 
-        for (let i =0; i < index.length(); i++) {
+        let arr = index;
+
+        for (let i =0; i < arr.length; i++) {
             that.headerData[index[i]].sorted === false;
             that.headerData[index[i]].ascending === false;
         }
@@ -314,7 +316,24 @@ class table {
                     that.drawTable();
                 }
                 else if (that.headerData[0].sorted === true && that.headerData[0].ascending === false) {
+                    let newData = that.chartData.slice().sort((a,b) => d3.ascending(a.phrase, b.phrase)); 
 
+                    that.chartData = newData;
+                    that.headerData[0].ascending = true;
+                    debugger;
+                    that.setToFalse([1,2]);
+
+                    that.drawTable();
+                }
+                else {
+                    let newData = that.chartData.slice().sort((a,b) => d3.descending(a.phrase, b.phrase)); 
+
+                    that.chartData = newData;
+                    that.headerData[0].ascending = false;
+                    debugger;
+                    that.setToFalse([1,2]);
+
+                    that.drawTable();
                 }
             })
         
