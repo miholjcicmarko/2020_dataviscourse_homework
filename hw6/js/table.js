@@ -255,7 +255,6 @@ class table {
      *
      */
     midline (grouperPercentSelect) {
-        debugger;
 
         let mid = [0];
 
