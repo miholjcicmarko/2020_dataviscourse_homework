@@ -472,6 +472,7 @@ class table {
 
                     that.drawTable();
             }
+        })
 
    }
 
