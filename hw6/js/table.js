@@ -42,7 +42,7 @@ class table {
             .range([0, this.subWidth]);
 
         this.scaleXPercent = d3.scaleLinear()
-            .domain([-110,110])
+            .domain([-120,120])
             .range([0, this.subWidth]);
 
         this.sortHandlers();
