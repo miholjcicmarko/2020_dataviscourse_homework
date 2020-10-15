@@ -141,12 +141,12 @@ debugger;
             .attr('height', this.vizHeight);
 
         let grouperPercentSelect = svgPercent.selectAll('g')
-            .data(d => [d,d,d,d])
+            .data(d => [d,d])
             .join('g');
 
             this.drawPercentageBars(grouperPercentSelect.filter((d,i) => i === 0));
 
-            this.midline(grouperPercentSelect.filter((d,i) => i === 0));
+            this.midline(grouperPercentSelect.filter((d,i) => i === 1));
 
 
         
