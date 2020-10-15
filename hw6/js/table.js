@@ -175,9 +175,7 @@ debugger;
 
         let totalInfo = {
             type: "text",
-            value: {
-                total: "" + d.total
-            }
+            value: d.total
         };
 
         let dataList = [phraseInfo, freqInfo, percentInfo, totalInfo];
