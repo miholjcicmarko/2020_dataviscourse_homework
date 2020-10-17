@@ -201,8 +201,8 @@ class table {
 
         let category_arr = [];
 
-        for (let i = 0; i < circles_arr.length; i++) {
-            category_arr.push(circles_arr[i].category);
+        for (let i = 0; i < this.chartData.length; i++) {
+            category_arr.push(this.chartData[i].category);
         }
 
         let unique_categories = [... new Set(category_arr)];
