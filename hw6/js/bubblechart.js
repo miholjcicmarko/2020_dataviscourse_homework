@@ -119,7 +119,7 @@ debugger;
         })
 
         let minSize = d3.min(nonZeros);
-        let maxSize = d3.max(circlesSize_arr);
+        let maxSize = d3.max(circleSize_arr);
         
         for (let i = 0; i < circles_arr.length; i++) {
             circles_arr[i].circleSize = circleSizer(circles_arr[i])
