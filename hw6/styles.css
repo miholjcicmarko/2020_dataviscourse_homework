@@ -70,3 +70,9 @@
     stroke: #000;
     shape-rendering: crispEdges;
 }
+
+circle {
+    fill: #d9d9d9;
+    stroke: gray;
+    opacity: .8;
+}

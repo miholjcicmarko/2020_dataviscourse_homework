@@ -13,9 +13,6 @@ class CircleData {
     
     constructor(phrase, xVal, yVal, category, circleSize) {
         this.phrase = phrase;
-
-
-
         this.xVal = xVal;
         this.yVal = yVal;
         this.category = category;
@@ -165,7 +162,13 @@ debugger;
             .attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "axis line");
 
-        
+        d3.select('.plot-svg').selectAll('circle')
+            .data(circles_arr)
+            .join("circle")
+            .attr('cx', (d,i) => xScale(d.xVal))
+            .attr('cy', (d,i) => yScale(d.yVal))
+            .attr('r', (d,i) => d.circleSize)
+            .attr("class", "circle");
 
 
     }
