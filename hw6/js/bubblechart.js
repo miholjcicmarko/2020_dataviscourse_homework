@@ -207,7 +207,7 @@ debugger;
         chartSelection
             .on("click", () =>{
                 if (that.isExpanded === false) {
-
+                    
                 }
                 else if (that.isExpanded === true) {
 
