@@ -108,15 +108,11 @@ debugger;
             circles_arr.push(circle_data);
         }
 
-        debugger;
-
         let circleSize_arr = [];
 
         for (let i = 0; i < circles_arr.length; i++) {
             circleSize_arr.push(circles_arr[i].circleSize);
         }
-
-        debugger;
 
         let minSize = d3.min(circleSize_arr, s => +s);
         let maxSize = d3.max(circleSize_arr, s => +s);
@@ -126,6 +122,9 @@ debugger;
         }
 
         debugger;
+
+        
+
 
 
     }
