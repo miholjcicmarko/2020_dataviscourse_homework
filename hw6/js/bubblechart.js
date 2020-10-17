@@ -178,7 +178,7 @@ debugger;
 
         d3.select('.plot-svg').selectAll('circle')
             .data(circles_arr)
-            .enter().append()
+            .enter().append("circle")
             .attr('cx', (d,i) => xScale(d.xVal))
             .attr('cy', (d,i) => yScale(d.yVal))
             .attr('r', (d,i) => d.circleSize)
