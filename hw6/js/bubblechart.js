@@ -172,7 +172,7 @@ debugger;
         
         debugger;
 
-        let colorScale = d3.scaleBand()
+        let colorScale = d3.scaleOrdinal()
             .domain([unique_categories])
             .range(d3.schemeCategory10);
 
@@ -184,7 +184,8 @@ debugger;
             .attr('r', (d,i) => d.circleSize)
             .attr("class", "circle")
             .attr("fill", function(d) {
-                
+
+
 
                 return colorScale(d)
             });
