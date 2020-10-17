@@ -76,14 +76,14 @@ debugger;
         
             xaxis.append("text")
                 .classed("axis-label-x", true)
-                .attr("transform", "translate("+(5*this.margin.left)+"," +(2*this.margin.top)+")")
+                .attr("transform", "translate("+(10*this.margin.left)+"," +(2*this.margin.top)+")")
                 .attr("text-anchor", "middle")
                 .attr("class", "axis-label")
                 .attr("class", "x-label");
 
             yaxis.append("text")
                 .classed("axis-label-y", true)
-                .attr("transform", "translate("+(1.2*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
+                .attr("transform", "translate("+(2*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
                 .attr("class", "axis-label")
                 .attr("text-anchor", "middle")
                 .attr("class", "y-label");  
