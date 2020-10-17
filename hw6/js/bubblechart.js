@@ -135,8 +135,26 @@ debugger;
         debugger;
 
         let xScale = d3.scaleLinear()
-            .domain([0,d3.max(xVals)]);
+            .domain([0,d3.max(xVals)])
+            .range([0, this.width]);
 
+        let yScale = d3.scaleLinear()
+            .domain([d3.max(yVals), 0])
+            .range([this.margin.bottom, this.height]);
+
+        let xaxis_data = d3.select('#x-axis');
+
+        xaxis_data.call(d3.axisBottom(xUpScale).ticks(5))
+            .attr("transform", "translate("+this.margin.left+"," +this.height+")")
+            .attr("class", "axis line");
+    
+        let yaxis = d3.select('#y-axis');
+    
+        yaxis.call(d3.axisLeft(yUpScale).ticks(5))
+            .attr("transform", "translate("+this.margin.left+",0)")
+            .attr("class", "axis line");
+
+        
 
 
     }

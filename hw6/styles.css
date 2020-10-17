@@ -54,7 +54,8 @@
     fill: steelblue;
 }
 
-.x-label {
+.x-label,
+.y-label {
     width: 1%7;
     display: inline-block;
     padding-right: 5px;
@@ -62,4 +63,10 @@
 
 .axis-label {
     font-size: 11px;
+}
+
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
 }
