@@ -173,8 +173,7 @@ debugger;
         debugger;
 
         let colorScale = d3.scaleOrdinal(d3.schemeCategory10)
-            .domain([unique_categories])
-            .range();
+            .domain(unique_categories);
 
         d3.select('.plot-svg').selectAll('circle')
             .data(circles_arr)
