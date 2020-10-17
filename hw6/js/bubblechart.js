@@ -72,6 +72,10 @@ debugger;
             let xaxis = svgGroup.append("g")
                 .classed("x-axis", true)
                 .attr("id", "x-axis");
+
+            let yaxis = svgGroup.append("g")
+                .classed("y-axis", true)
+                .attr("id", "y-axis");
         
             xaxis.append("text")
                 .classed("axis-label-x", true)
@@ -79,6 +83,13 @@ debugger;
                 .attr("text-anchor", "middle")
                 .attr("class", "axis-label")
                 .attr("class", "x-label");
+
+            yaxis.append("text")
+                .classed("axis-label-y", true)
+                .attr("transform", "translate(-"+(1.2*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
+                .attr("class", "axis-label")
+                .attr("text-anchor", "middle")
+                .attr("class", "y-label");  
 
             this.addCircles();
         
