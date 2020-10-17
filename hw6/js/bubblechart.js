@@ -168,13 +168,12 @@ debugger;
             category_arr.push(circles_arr[i].category);
         }
 
-        let colors = ["orange", "limegreen", "steelblue", 
-                        "magenta", "gold"];
+        let unique_categories = [... new Set(category_arr)];
         
         debugger;
-        
-        //colors = d3.scaleBand()
-        //    .domain([])
+
+        let colorScale = d3.scaleBand()
+            .domain([unique_categories]);
 
         d3.select('.plot-svg').selectAll('circle')
             .data(circles_arr)
