@@ -173,7 +173,8 @@ debugger;
         debugger;
 
         let colorScale = d3.scaleBand()
-            .domain([unique_categories]);
+            .domain([unique_categories])
+            .range(d3.schemeCategory10);
 
         d3.select('.plot-svg').selectAll('circle')
             .data(circles_arr)
@@ -181,7 +182,10 @@ debugger;
             .attr('cx', (d,i) => xScale(d.xVal))
             .attr('cy', (d,i) => yScale(d.yVal))
             .attr('r', (d,i) => d.circleSize)
-            .attr("class", "circle");
+            .attr("class", "circle")
+            .attr("fill", function(d) {
+                return colorScale(d)
+            });
 
 
     }
