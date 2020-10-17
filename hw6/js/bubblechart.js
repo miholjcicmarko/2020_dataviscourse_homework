@@ -182,7 +182,7 @@ debugger;
             .attr('cx', (d,i) => xScale(d.xVal))
             .attr('cy', (d,i) => yScale(d.yVal))
             .attr('r', (d,i) => d.circleSize)
-            .attr("class", "circle")
+            //.attr("class", "circle")
             .attr("fill", function(d) {
                 return colorScale(d)
             });
