@@ -32,14 +32,18 @@ class bubblechart {
         this.data = wordData;
         this.chartData = [...wordData];
 
-        for (let bubble of this.chartData)
-        {
-            bubble.isExpanded = false;
-        }
+        this.isExpanded = false;
+
+        // for (let bubble of this.chartData)
+        // {
+        //     bubble.isExpanded = false;
+        // }
 
       this.margin = {top: 50, right: 30, bottom: 50, left: 100};
       this.width = 1000 - this.margin.left - this.margin.right;
       this.height = 600 - this.margin.top - this.margin.bottom;
+
+      this.toggleExpansion();
 
     }
 
@@ -196,6 +200,22 @@ debugger;
     toggleExpansion() {
         //button toggles between
         // animated transitions
+
+        let that = this;
+
+        let chartSelection = d3.select('#toggle-group')
+            
+        chartSelection
+            .on("click", () =>{
+                if (that.isExpanded === false) {
+
+                }
+                else if (that.isExpanded === true) {
+
+                }
+            })
+           
+
     }
 
 
