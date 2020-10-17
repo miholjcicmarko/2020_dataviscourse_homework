@@ -76,14 +76,14 @@ debugger;
         
             xaxis.append("text")
                 .classed("axis-label-x", true)
-                .attr("transform", "translate("+(10*this.margin.left)+"," +(2*this.margin.top)+")")
+                .attr("transform", "translate("+(1000*this.margin.left)+"," +(2*this.margin.top)+")")
                 .attr("text-anchor", "middle")
                 .attr("class", "axis-label")
                 .attr("class", "x-label");
 
             yaxis.append("text")
                 .classed("axis-label-y", true)
-                .attr("transform", "translate("+(2*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
+                .attr("transform", "translate("+(20*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
                 .attr("class", "axis-label")
                 .attr("text-anchor", "middle")
                 .attr("class", "y-label");  
@@ -161,6 +161,20 @@ debugger;
         yaxis.call(d3.axisLeft(yScale).ticks(5))
             .attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "axis line");
+
+        let category_arr = [];
+
+        for (let i = 0; i < circles_arr.length; i++) {
+            category_arr.push(circles_arr[i].category);
+        }
+
+        let colors = ["orange", "limegreen", "steelblue", 
+                        "magenta", "gold"];
+        
+        debugger;
+        
+        //colors = d3.scaleBand()
+        //    .domain([])
 
         d3.select('.plot-svg').selectAll('circle')
             .data(circles_arr)
