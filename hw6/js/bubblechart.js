@@ -144,13 +144,13 @@ debugger;
 
         let xaxis_data = d3.select('#x-axis');
 
-        xaxis_data.call(d3.axisBottom(xUpScale).ticks(5))
+        xaxis_data.call(d3.axisBottom(xScale).ticks(5))
             .attr("transform", "translate("+this.margin.left+"," +this.height+")")
             .attr("class", "axis line");
     
         let yaxis = d3.select('#y-axis');
     
-        yaxis.call(d3.axisLeft(yUpScale).ticks(5))
+        yaxis.call(d3.axisLeft(yScale).ticks(5))
             .attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "axis line");
 
