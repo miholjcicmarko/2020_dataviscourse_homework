@@ -114,7 +114,7 @@ debugger;
             circleSize_arr.push(circles_arr[i].total);
         }
 
-        let nonZeros = circlesSize_arr.filter(function(d) {
+        let nonZeros = circleSize_arr.filter(function(d) {
             return d !== 0;
         })
 
