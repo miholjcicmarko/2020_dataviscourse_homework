@@ -143,11 +143,11 @@ debugger;
         debugger;
 
         let xScale = d3.scaleLinear()
-            .domain([0,d3.max(xVals)])
+            .domain([d3.min(xVals),d3.max(xVals)])
             .range([0, this.width]);
 
         let yScale = d3.scaleLinear()
-            .domain([d3.max(yVals), 0])
+            .domain([d3.min(yVals), d3.max(yVals)])
             .range([this.margin.bottom, this.height]);
 
         let xaxis_data = d3.select('#x-axis');
