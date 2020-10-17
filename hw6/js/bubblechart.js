@@ -121,9 +121,21 @@ debugger;
             circles_arr[i].circleSize = circleSizer(circles_arr[i])
         }
 
+        let xVals = [];
+        let yVals = [];
+
+        for (let i = 0; i < circles_arr.length; i++) {
+            xVals.push(circles_arr[i].xVal);
+        }
+
+        for (let i = 0; i < circles_arr.length; i++) {
+            yVals.push(circles_arr[i].yVal);
+        }
+
         debugger;
 
-        
+        let xScale = d3.scaleLinear()
+            .domain([0,d3.max(xVals)]);
 
 
 
