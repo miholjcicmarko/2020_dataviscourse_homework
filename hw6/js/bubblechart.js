@@ -100,7 +100,7 @@ debugger;
         
         for (let i = 0; i < this.data.length; i++) {
             let circle_data = new CircleData(this.data[i].phrase,
-                                    this.data.sourceX, this.data.sourceY,
+                                    this.data[i].sourceX, this.data[i].sourceY,
                                     this.data[i].category, this.data[i].total);
             circles.push(circle_data);
         }
