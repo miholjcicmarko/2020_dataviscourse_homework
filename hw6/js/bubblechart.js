@@ -94,7 +94,7 @@ debugger;
 
         let circleSizer = function (d) {
             let cScale = d3.scaleSqrt()
-                .range([0, 20])
+                .range([0, 15])
                 .domain([minSize, maxSize]);
             return d.circleSize ? cScale(d.circleSize) : 1;
         }; 
@@ -121,7 +121,11 @@ debugger;
         let minSize = d3.min(nonZeros);
         let maxSize = d3.max(circlesSize_arr);
         
-        
+        for (let i = 0; i < circles_arr.length; i++) {
+            circles_arr[i].circleSize = circleSizer(circles_arr[i])
+        }
+
+        debugger;
 
 
     }
