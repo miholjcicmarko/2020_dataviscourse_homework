@@ -78,9 +78,7 @@ bubbleChart stylings
 }
 
 .axis line {
-    fill: none;
-    stroke: #000;
-    shape-rendering: crispEdges;
+    opacity: 0;
 }
 
 circle {
