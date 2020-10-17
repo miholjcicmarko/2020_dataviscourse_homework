@@ -13,6 +13,9 @@ class CircleData {
     
     constructor(phrase, xVal, yVal, category, circleSize) {
         this.phrase = phrase;
+
+
+
         this.xVal = xVal;
         this.yVal = yVal;
         this.category = category;
@@ -96,19 +99,29 @@ debugger;
             return d.circleSize ? cScale(d.circleSize) : 1;
         }; 
 
-        let circles = [];
+        let circles_arr = [];
         
         for (let i = 0; i < this.data.length; i++) {
             let circle_data = new CircleData(this.data[i].phrase,
                                     this.data[i].sourceX, this.data[i].sourceY,
                                     this.data[i].category, this.data[i].total);
-            circles.push(circle_data);
+            circles_arr.push(circle_data);
         }
 
-        debugger;
+        let circleSize_arr = [];
 
-        //let minSize = d3.min(nonZeros);
-        //let maxSize = 
+        for (let i = 0; i < circles_arr.length; i++) {
+            circleSize_arr.push(circles[i].total);
+        }
+
+        let nonZeros = circlesSize_arr.filter(function(d) {
+            return d !== 0;
+        })
+
+        let minSize = d3.min(nonZeros);
+        let maxSize = d3.max(circlesSize_arr);
+        
+        
 
 
     }
