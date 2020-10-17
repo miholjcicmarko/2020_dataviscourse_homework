@@ -194,7 +194,6 @@ debugger;
 
     /**
      * Toggles between the separation of the categories
-     * 
      *
      */
     toggleExpansion() {
