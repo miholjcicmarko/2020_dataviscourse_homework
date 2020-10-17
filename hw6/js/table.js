@@ -199,6 +199,14 @@ class table {
 
         debugger;
 
+        let category_arr = [];
+
+        for (let i = 0; i < circles_arr.length; i++) {
+            category_arr.push(circles_arr[i].category);
+        }
+
+        let unique_categories = [... new Set(category_arr)];
+
         let colorScale = d3.scaleOrdinal()
             .domain(unique_categories)
             .range(d3.schemeSet3);
