@@ -172,19 +172,18 @@ debugger;
         
         debugger;
 
-        let colorScale = d3.scaleOrdinal(d3.schemeCategory10)
-            .domain(unique_categories);
+        let colorScale = d3.scaleOrdinal()
+            .domain(unique_categories)
+            .range(d3.schemeSet3);
 
         d3.select('.plot-svg').selectAll('circle')
             .data(circles_arr)
-            .join("circle")
+            .enter().append()
             .attr('cx', (d,i) => xScale(d.xVal))
             .attr('cy', (d,i) => yScale(d.yVal))
             .attr('r', (d,i) => d.circleSize)
             .attr("class", "circle")
-            .attr("fill", function(d) {
-                return colorScale(d.category)
-            });
+            .attr("fill", (d,i) => colorScale(d.category));
 
 
     }
