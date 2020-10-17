@@ -113,7 +113,7 @@ debugger;
         let circleSize_arr = [];
 
         for (let i = 0; i < circles_arr.length; i++) {
-            circleSize_arr.push(circles_arr[i].total);
+            circleSize_arr.push(circles_arr[i].circleSize);
         }
 
         let nonZeros = circleSize_arr.filter(function(d) {
