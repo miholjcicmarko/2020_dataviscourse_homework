@@ -184,10 +184,7 @@ debugger;
             .attr('r', (d,i) => d.circleSize)
             .attr("class", "circle")
             .attr("fill", function(d) {
-
-
-
-                return colorScale(d)
+                return colorScale(d.category)
             });
 
 
