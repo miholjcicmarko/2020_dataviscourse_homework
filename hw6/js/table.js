@@ -197,6 +197,12 @@ class table {
     drawFrequencyBars (grouperFreqSelect) {
         let that = this;
 
+        debugger;
+
+        let colorScale = d3.scaleOrdinal()
+            .domain(unique_categories)
+            .range(d3.schemeSet3);
+
         grouperFreqSelect.selectAll("rect")
             .data(d => [d])
             .enter().append("rect")
@@ -206,7 +212,8 @@ class table {
                 return that.scaleXFreq(d.value)
             })
             .attr("height", that.vizHeight)
-            .style("fill", "black");
+            .attr("fill", (d,i) => colorScale(d.category));
+
     }
 
 

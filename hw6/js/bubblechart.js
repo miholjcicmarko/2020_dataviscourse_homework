@@ -185,7 +185,7 @@ debugger;
             .attr("class", "circle")
             .attr("fill", (d,i) => colorScale(d.category));
 
-
+        
     }
 
     /**
