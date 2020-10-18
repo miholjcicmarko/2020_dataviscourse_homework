@@ -11,12 +11,14 @@ class CircleData {
      * @param {*} circleSize the radius of the circle
      */
     
-    constructor(phrase, xVal, yVal, category, circleSize) {
+    constructor(phrase, xVal, yVal, category, circleSize, moveX, moveY) {
         this.phrase = phrase;
         this.xVal = xVal;
         this.yVal = yVal;
         this.category = category;
         this.circleSize = circleSize;
+        this.moveX = moveX;
+        this.moveY = moveY;
     }
 }
 
@@ -55,7 +57,8 @@ class bubblechart {
         for (let i = 0; i < this.data.length; i++) {
             let circle_data = new CircleData(this.data[i].phrase,
                                 this.data[i].sourceX, this.data[i].sourceY,
-                                this.data[i].category, this.data[i].total);
+                                this.data[i].category, this.data[i].total, 
+                                this.data[i].moveX, this.data[i].moveY);
             circles_arr.push(circle_data);
         }
 
