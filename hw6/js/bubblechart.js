@@ -43,7 +43,79 @@ class bubblechart {
       this.width = 650 - this.margin.left - this.margin.right;
       this.height = 250 - this.margin.top - this.margin.bottom;
 
-      this.toggleExpansion();
+        let circleSizer = function (d) {
+            let cScale = d3.scaleSqrt()
+                .range([3, 12])
+                .domain([minSize, maxSize]);
+            return d.circleSize ? cScale(d.circleSize) : 3;
+        }; 
+
+        let circles_arr = [];
+    
+        for (let i = 0; i < this.data.length; i++) {
+            let circle_data = new CircleData(this.data[i].phrase,
+                                this.data[i].sourceX, this.data[i].sourceY,
+                                this.data[i].category, this.data[i].total);
+            circles_arr.push(circle_data);
+        }
+
+        let circleSize_arr = [];
+
+        for (let i = 0; i < circles_arr.length; i++) {
+            circleSize_arr.push(circles_arr[i].circleSize);
+        }
+
+        let minSize = d3.min(circleSize_arr, s => +s);
+        let maxSize = d3.max(circleSize_arr, s => +s);
+    
+        for (let i = 0; i < circles_arr.length; i++) {
+            circles_arr[i].circleSize = circleSizer(circles_arr[i])
+        }
+
+        let xVals = [];
+        let yVals = [];
+
+        for (let i = 0; i < circles_arr.length; i++) {
+            xVals.push(circles_arr[i].xVal);
+        }
+
+        for (let i = 0; i < circles_arr.length; i++) {
+            yVals.push(circles_arr[i].yVal);
+        }
+
+        this.xScale = d3.scaleLinear()
+            .domain([d3.min(xVals),d3.max(xVals)])
+            .range([0, this.width]);
+
+        this.yScale = d3.scaleLinear()
+            .domain([d3.min(yVals), d3.max(yVals)])
+            .range([this.margin.bottom, this.height]);
+
+        let xaxis_data = d3.select('#x-axis');
+
+        xaxis_data.call(d3.axisBottom(xScale).ticks(5))
+            //.attr("transform", "translate("+this.margin.left+"," +this.height+")")
+            .attr("class", "axis line");
+
+        let yaxis = d3.select('#y-axis');
+
+        yaxis.call(d3.axisLeft(yScale).ticks(5))
+            //.attr("transform", "translate("+this.margin.left+",0)")
+            .attr("class", "axis line");
+
+        let category_arr = [];
+
+        for (let i = 0; i < circles_arr.length; i++) {
+            category_arr.push(circles_arr[i].category);
+        }
+
+        let unique_categories = [... new Set(category_arr)];
+
+        this.colorScale = d3.scaleOrdinal()
+            .domain(unique_categories)
+            .range(d3.schemeSet2);
+
+        this.toggleExpansion();
 
     }
 
@@ -104,91 +176,15 @@ class bubblechart {
         // size of circle encodes the  total use of the N-grams.
         // the circle is colored by category
 
-        let circleSizer = function (d) {
-            let cScale = d3.scaleSqrt()
-                .range([3, 12])
-                .domain([minSize, maxSize]);
-            return d.circleSize ? cScale(d.circleSize) : 3;
-        }; 
-
-        let circles_arr = [];
-        
-        for (let i = 0; i < this.data.length; i++) {
-            let circle_data = new CircleData(this.data[i].phrase,
-                                    this.data[i].sourceX, this.data[i].sourceY,
-                                    this.data[i].category, this.data[i].total);
-            circles_arr.push(circle_data);
-        }
-
-        let circleSize_arr = [];
-
-        for (let i = 0; i < circles_arr.length; i++) {
-            circleSize_arr.push(circles_arr[i].circleSize);
-        }
-
-        let minSize = d3.min(circleSize_arr, s => +s);
-        let maxSize = d3.max(circleSize_arr, s => +s);
-        
-        for (let i = 0; i < circles_arr.length; i++) {
-            circles_arr[i].circleSize = circleSizer(circles_arr[i])
-        }
-
-        let xVals = [];
-        let yVals = [];
-
-        for (let i = 0; i < circles_arr.length; i++) {
-            xVals.push(circles_arr[i].xVal);
-        }
-
-        for (let i = 0; i < circles_arr.length; i++) {
-            yVals.push(circles_arr[i].yVal);
-        }
-
-        debugger;
-
-        let xScale = d3.scaleLinear()
-            .domain([d3.min(xVals),d3.max(xVals)])
-            .range([0, this.width-5]);
-
-        let yScale = d3.scaleLinear()
-            .domain([d3.min(yVals), d3.max(yVals)])
-            .range([this.margin.bottom, this.height]);
-
-        let xaxis_data = d3.select('#x-axis');
-
-        xaxis_data.call(d3.axisBottom(xScale).ticks(5))
-            //.attr("transform", "translate("+this.margin.left+"," +this.height+")")
-            .attr("class", "axis line");
-    
-        let yaxis = d3.select('#y-axis');
-    
-        yaxis.call(d3.axisLeft(yScale).ticks(5))
-            //.attr("transform", "translate("+this.margin.left+",0)")
-            .attr("class", "axis line");
-
-        let category_arr = [];
-
-        for (let i = 0; i < circles_arr.length; i++) {
-            category_arr.push(circles_arr[i].category);
-        }
-
-        let unique_categories = [... new Set(category_arr)];
-        
-        debugger;
-
-        let colorScale = d3.scaleOrdinal()
-            .domain(unique_categories)
-            .range(d3.schemeSet2);
-
         d3.select('.plot-svg').selectAll('circle')
             .data(circles_arr)
             .enter().append("circle")
-            .attr('cx', (d,i) => xScale(d.xVal))
-            .attr('cy', (d,i) => yScale(d.yVal))
+            .attr('cx', (d,i) => this.xScale(d.xVal))
+            .attr('cy', (d,i) => this.yScale(d.yVal))
             .attr('r', (d,i) => d.circleSize)
             .attr("class", "circle")
             .attr("transform", "translate("+10+",0)")
-            .attr("fill", (d,i) => colorScale(d.category));
+            .attr("fill", (d,i) => this.colorScale(d.category));
 
         
     }
@@ -205,7 +201,8 @@ class bubblechart {
 
         if (that.isExpanded === false){
             d3.select('.plot-svg').selectAll('circle')
-                .attr
+                .attr('cx', (d,i) => that.xScale(d.xVal))
+                .attr('cy', (d,i) => that.yScale(d.yVal))
 
 
         }
