@@ -33,9 +33,9 @@ class table {
         ]
     
         this.vizHeight = 20;
-        this.vizWidth = 400;
+        this.vizWidth = 100;
 
-        this.subWidth = 100;
+        this.subWidth = 50;
 
         this.scaleXFreq = d3.scaleLinear()
             .domain([0,1.1])

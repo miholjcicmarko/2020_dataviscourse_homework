@@ -40,7 +40,7 @@ class bubblechart {
         // }
 
       this.margin = {top: 50, right: 30, bottom: 50, left: 100};
-      this.width = 1000 - this.margin.left - this.margin.right;
+      this.width = 650 - this.margin.left - this.margin.right;
       this.height = 250 - this.margin.top - this.margin.bottom;
 
       this.toggleExpansion();
