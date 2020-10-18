@@ -16,7 +16,7 @@ class CircleData {
         this.xVal = xVal;
         this.yVal = yVal;
         this.category = category;
-        this.circleSize = circleSize;
+        this.circleSize = +circleSize;
         this.moveX = moveX;
         this.moveY = moveY;
     }
