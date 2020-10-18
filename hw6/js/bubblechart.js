@@ -90,21 +90,7 @@ class bubblechart {
                 .attr("transform", "translate("+(20*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
                 .attr("class", "axis-label")
                 .attr("text-anchor", "middle")
-                .attr("class", "y-label");  
-
-            document.addEventListener('DOMContentLoaded', function () {
-                var checkbox = document.querySelector('input[type="checkbox"]');
-                  
-                checkbox.addEventListener('change', function () {
-                    if (checkbox.checked) {
-                    
-                        console.log('Checked');
-                    } else {
-                        // do that
-                        console.log('Not checked');
-                    }
-                });
-            });    
+                .attr("class", "y-label");      
 
             this.addCircles();
         
