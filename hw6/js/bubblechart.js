@@ -22,7 +22,6 @@ class CircleData {
     }
 }
 
-
 class bubblechart {
 
     /**
@@ -68,30 +67,30 @@ class bubblechart {
             circleSize_arr.push(this.circles_arr[i].circleSize);
         }
 
-        this.minSize = d3.min(this.circleSize_arr, s => +s);
-        this.maxSize = d3.max(this.circleSize_arr, s => +s);
+        this.minSize = d3.min(circleSize_arr, s => +s);
+        this.maxSize = d3.max(circleSize_arr, s => +s);
     
-        for (let i = 0; i < circles_arr.length; i++) {
+        for (let i = 0; i < this.circles_arr.length; i++) {
             this.circles_arr[i].circleSize = circleSizer(circles_arr[i])
         }
 
         this.xVals = [];
         this.yVals = [];
 
-        for (let i = 0; i < circles_arr.length; i++) {
+        for (let i = 0; i < this.circles_arr.length; i++) {
             this.xVals.push(this.circles_arr[i].xVal);
         }
 
-        for (let i = 0; i < circles_arr.length; i++) {
+        for (let i = 0; i < this.circles_arr.length; i++) {
             this.yVals.push(this.circles_arr[i].yVal);
         }
 
         this.xScale = d3.scaleLinear()
-            .domain([d3.min(xVals),d3.max(xVals)])
+            .domain([d3.min(this.xVals),d3.max(this.xVals)])
             .range([0, this.width]);
 
         this.yScale = d3.scaleLinear()
-            .domain([d3.min(yVals), d3.max(yVals)])
+            .domain([d3.min(this.yVals), d3.max(this.yVals)])
             .range([this.margin.bottom, this.height]);
 
         this.category_arr = [];
