@@ -17,11 +17,13 @@ Wrapper and view stylings
 .innerWrapper1 {
     width: 50%;
     display: inline-block;
+    float: left;
 }
 
 .innerWrapper2 {
     width: 50%;
     display: inline-block;
+    float: right;
 }
 
 .view {
