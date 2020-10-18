@@ -76,8 +76,8 @@ class bubblechart {
             this.circles_arr[i].circleSize = circleSizer(this.circles_arr[i])
         }
 
-        this.xVals = [];
-        this.yVals = [];
+        let xVals = [];
+        let yVals = [];
 
         for (let i = 0; i < this.circles_arr.length; i++) {
             this.xVals.push(this.circles_arr[i].xVal);
@@ -88,11 +88,11 @@ class bubblechart {
         }
 
         this.xScale = d3.scaleLinear()
-            .domain([d3.min(this.xVals),d3.max(this.xVals)])
+            .domain([d3.min(xVals),d3.max(xVals)])
             .range([0, this.width]);
 
         this.yScale = d3.scaleLinear()
-            .domain([d3.min(this.yVals), d3.max(this.yVals)])
+            .domain([d3.min(yVals), d3.max(yVals)])
             .range([this.margin.bottom, this.height]);
 
         this.category_arr = [];
