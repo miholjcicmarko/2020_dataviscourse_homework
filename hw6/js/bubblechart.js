@@ -200,7 +200,7 @@ class bubblechart {
     toggleExpansion() {
         //button toggles between
         // animated transitions
-
+        debugger;
         let that = this;
 
         let chartSelection = d3.select('#toggle-group')
