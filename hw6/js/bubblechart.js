@@ -203,7 +203,15 @@ class bubblechart {
         debugger;
         let that = this;
 
-        
+        if (that.isExpanded === false){
+            d3.select('.plot-svg').selectAll('circle')
+                .attr
+
+
+        }
+        else if (that.isExpanded === true) {
+
+        }
            
 
     }
