@@ -53,8 +53,6 @@ class bubblechart {
         }; 
 
         let circles_arr = [];
-
-        debugger;
     
         for (let i = 0; i < this.data.length; i++) {
             let circle_data = new CircleData(this.data[i].phrase,
@@ -96,18 +94,6 @@ class bubblechart {
             .domain([d3.min(yVals), d3.max(yVals)])
             .range([this.margin.bottom, this.height]);
 
-        let xaxis_data = d3.select('#x-axis');
-
-        xaxis_data.call(d3.axisBottom(xScale).ticks(5))
-            //.attr("transform", "translate("+this.margin.left+"," +this.height+")")
-            .attr("class", "axis line");
-
-        let yaxis = d3.select('#y-axis');
-
-        yaxis.call(d3.axisLeft(yScale).ticks(5))
-            //.attr("transform", "translate("+this.margin.left+",0)")
-            .attr("class", "axis line");
-
         let category_arr = [];
 
         for (let i = 0; i < circles_arr.length; i++) {
@@ -119,8 +105,6 @@ class bubblechart {
         this.colorScale = d3.scaleOrdinal()
             .domain(unique_categories)
             .range(d3.schemeSet2);
-
-        debugger;
 
         this.toggleExpansion();
 
@@ -182,6 +166,18 @@ class bubblechart {
     addCircles() {
         // size of circle encodes the  total use of the N-grams.
         // the circle is colored by category
+
+        let xaxis_data = d3.select('#x-axis');
+
+        xaxis_data.call(d3.axisBottom(this.xScale).ticks(5))
+            //.attr("transform", "translate("+this.margin.left+"," +this.height+")")
+            .attr("class", "axis line");
+
+        let yaxis = d3.select('#y-axis');
+
+        yaxis.call(d3.axisLeft(this.yScale).ticks(5))
+            //.attr("transform", "translate("+this.margin.left+",0)")
+            .attr("class", "axis line");
 
         d3.select('.plot-svg').selectAll('circle')
             .data(circles_arr)
