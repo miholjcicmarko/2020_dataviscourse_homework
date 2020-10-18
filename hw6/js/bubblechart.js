@@ -52,14 +52,14 @@ class bubblechart {
             return d.circleSize ? cScale(d.circleSize) : 3;
         }; 
 
-        let circles_arr = [];
+        this.circles_arr = [];
     
         for (let i = 0; i < this.data.length; i++) {
             let circle_data = new CircleData(this.data[i].phrase,
                                 this.data[i].sourceX, this.data[i].sourceY,
                                 this.data[i].category, this.data[i].total, 
                                 this.data[i].moveX, this.data[i].moveY);
-            circles_arr.push(circle_data);
+            this.circles_arr.push(circle_data);
         }
 
         let circleSize_arr = [];
@@ -68,22 +68,22 @@ class bubblechart {
             circleSize_arr.push(circles_arr[i].circleSize);
         }
 
-        let minSize = d3.min(circleSize_arr, s => +s);
-        let maxSize = d3.max(circleSize_arr, s => +s);
+        this.minSize = d3.min(circleSize_arr, s => +s);
+        this.maxSize = d3.max(circleSize_arr, s => +s);
     
         for (let i = 0; i < circles_arr.length; i++) {
             circles_arr[i].circleSize = circleSizer(circles_arr[i])
         }
 
-        let xVals = [];
-        let yVals = [];
+        this.xVals = [];
+        this.yVals = [];
 
         for (let i = 0; i < circles_arr.length; i++) {
-            xVals.push(circles_arr[i].xVal);
+            xVals.push(this.circles_arr[i].xVal);
         }
 
         for (let i = 0; i < circles_arr.length; i++) {
-            yVals.push(circles_arr[i].yVal);
+            yVals.push(this.circles_arr[i].yVal);
         }
 
         this.xScale = d3.scaleLinear()
@@ -94,13 +94,13 @@ class bubblechart {
             .domain([d3.min(yVals), d3.max(yVals)])
             .range([this.margin.bottom, this.height]);
 
-        let category_arr = [];
+        this.category_arr = [];
 
         for (let i = 0; i < circles_arr.length; i++) {
-            category_arr.push(circles_arr[i].category);
+            this.category_arr.push(this.circles_arr[i].category);
         }
 
-        let unique_categories = [... new Set(category_arr)];
+        this.unique_categories = [... new Set(category_arr)];
 
         this.colorScale = d3.scaleOrdinal()
             .domain(unique_categories)
@@ -188,8 +188,7 @@ class bubblechart {
             .attr("class", "circle")
             .attr("transform", "translate("+10+",0)")
             .attr("fill", (d,i) => this.colorScale(d.category));
-
-        
+   
     }
 
     /**
@@ -206,7 +205,6 @@ class bubblechart {
             d3.select('.plot-svg').selectAll('circle')
                 .attr('cx', (d,i) => that.xScale(d.moveX))
                 .attr('cy', (d,i) => that.yScale(d.moveY));
-
 
         }
         else if (that.isExpanded === true) {
