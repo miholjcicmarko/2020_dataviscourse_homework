@@ -54,7 +54,6 @@ class table {
      *
      */
     drawLegends() {
-        debugger;
         let legendF = d3.select("#frequency-axis")
             .attr("width", this.subWidth)
             .attr("height", this.vizHeight);
@@ -196,8 +195,6 @@ class table {
      */
     drawFrequencyBars (grouperFreqSelect) {
         let that = this;
-
-        debugger;
 
         let category_arr = [];
 
@@ -398,7 +395,6 @@ class table {
         // sorted by democrat percentages
         percentage
             .on("click", () =>{
-                debugger;
                 if (that.headerData[2].sorted === false && that.headerData[2].ascending === false) {
                     let newData = that.chartData.slice().sort(function(a,b) {return b.percent_of_d_speeches - a.percent_of_d_speeches}); 
                 
@@ -446,7 +442,6 @@ class table {
 
         total
             .on("click", () =>{
-                debugger;
                 if (that.headerData[3].sorted === false && that.headerData[3].ascending === false) {
                     let newData = that.chartData.slice().sort(function(a,b) {return b.total - a.total}); 
                 
@@ -500,7 +495,6 @@ class table {
      */
     updateHeaders () {
         let that = this;
-        debugger;
 
         let phrase = d3.selectAll(".sortable").filter((d,i) => i === 0);
 
