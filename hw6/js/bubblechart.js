@@ -97,16 +97,16 @@ class bubblechart {
 
         debugger;
 
-        this.category_arr = [];
+        let category_arr = [];
 
-        for (let i = 0; i < circles_arr.length; i++) {
-            this.category_arr.push(this.circles_arr[i].category);
+        for (let i = 0; i < this.circles_arr.length; i++) {
+            category_arr.push(this.circles_arr[i].category);
         }
 
-        this.unique_categories = [... new Set(category_arr)];
+        let unique_categories = [... new Set(category_arr)];
 
         this.colorScale = d3.scaleOrdinal()
-            .domain(this.unique_categories)
+            .domain(unique_categories)
             .range(d3.schemeSet2);
 
         this.toggleExpansion();
