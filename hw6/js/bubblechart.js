@@ -61,9 +61,11 @@ class bubblechart {
             this.circles_arr.push(circle_data);
         }
 
+        debugger;
+
         let circleSize_arr = [];
 
-        for (let i = 0; i < circles_arr.length; i++) {
+        for (let i = 0; i < this.circles_arr.length; i++) {
             circleSize_arr.push(this.circles_arr[i].circleSize);
         }
 
@@ -73,6 +75,8 @@ class bubblechart {
         for (let i = 0; i < this.circles_arr.length; i++) {
             this.circles_arr[i].circleSize = circleSizer(circles_arr[i])
         }
+
+        debugger;
 
         this.xVals = [];
         this.yVals = [];
