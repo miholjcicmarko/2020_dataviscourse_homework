@@ -80,11 +80,11 @@ class bubblechart {
         let yVals = [];
 
         for (let i = 0; i < this.circles_arr.length; i++) {
-            this.xVals.push(this.circles_arr[i].xVal);
+            xVals.push(this.circles_arr[i].xVal);
         }
 
         for (let i = 0; i < this.circles_arr.length; i++) {
-            this.yVals.push(this.circles_arr[i].yVal);
+            yVals.push(this.circles_arr[i].yVal);
         }
 
         this.xScale = d3.scaleLinear()
