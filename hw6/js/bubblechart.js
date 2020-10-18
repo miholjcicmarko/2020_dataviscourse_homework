@@ -95,6 +95,8 @@ class bubblechart {
             .domain([d3.min(yVals), d3.max(yVals)])
             .range([this.margin.bottom, this.height]);
 
+        debugger;
+
         this.category_arr = [];
 
         for (let i = 0; i < circles_arr.length; i++) {
