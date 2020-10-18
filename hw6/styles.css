@@ -3,7 +3,6 @@ Wrapper and view stylings
 */
 
 .wrapper {
-    width: 50%;
     margin: auto;
     float: left;
 }
@@ -15,9 +14,16 @@ Wrapper and view stylings
     display: inline-block;
 }
 
-.innerWrapper {
+.innerWrapper1 {
     width: 50%;
     display: inline-block;
+    float: left;
+}
+
+.innerWrapper2 {
+    width: 50%;
+    display: inline-block;
+    float: right;
 }
 
 .view {
