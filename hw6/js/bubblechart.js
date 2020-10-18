@@ -41,7 +41,7 @@ class bubblechart {
 
       this.margin = {top: 50, right: 30, bottom: 50, left: 100};
       this.width = 1000 - this.margin.left - this.margin.right;
-      this.height = 600 - this.margin.top - this.margin.bottom;
+      this.height = 250 - this.margin.top - this.margin.bottom;
 
       this.toggleExpansion();
 
@@ -106,7 +106,7 @@ class bubblechart {
 
         let circleSizer = function (d) {
             let cScale = d3.scaleSqrt()
-                .range([0, 15])
+                .range([3, 12])
                 .domain([minSize, maxSize]);
             return d.circleSize ? cScale(d.circleSize) : 3;
         }; 
@@ -148,7 +148,7 @@ class bubblechart {
 
         let xScale = d3.scaleLinear()
             .domain([d3.min(xVals),d3.max(xVals)])
-            .range([0, this.width]);
+            .range([0, this.width-5]);
 
         let yScale = d3.scaleLinear()
             .domain([d3.min(yVals), d3.max(yVals)])
@@ -178,7 +178,7 @@ class bubblechart {
 
         let colorScale = d3.scaleOrdinal()
             .domain(unique_categories)
-            .range(d3.schemeSet3);
+            .range(d3.schemeSet2);
 
         d3.select('.plot-svg').selectAll('circle')
             .data(circles_arr)
@@ -187,6 +187,7 @@ class bubblechart {
             .attr('cy', (d,i) => yScale(d.yVal))
             .attr('r', (d,i) => d.circleSize)
             .attr("class", "circle")
+            .attr("transform", "translate("+10+",0)")
             .attr("fill", (d,i) => colorScale(d.category));
 
         

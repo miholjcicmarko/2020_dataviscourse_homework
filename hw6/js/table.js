@@ -206,7 +206,7 @@ class table {
 
         let colorScale = d3.scaleOrdinal()
             .domain(unique_categories)
-            .range(d3.schemeSet3);
+            .range(d3.schemeSet2);
 
         grouperFreqSelect.selectAll("rect")
             .data(d => [d])
