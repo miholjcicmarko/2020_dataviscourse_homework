@@ -46,7 +46,7 @@ class bubblechart {
 
         let circleSizer = function (d) {
             let cScale = d3.scaleSqrt()
-                .range([3, 12])
+                .range([2, 8])
                 .domain([minSize, maxSize]);
             return d.circleSize ? cScale(d.circleSize) : 3;
         }; 
