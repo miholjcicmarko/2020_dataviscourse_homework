@@ -53,6 +53,8 @@ class bubblechart {
         }; 
 
         let circles_arr = [];
+
+        debugger;
     
         for (let i = 0; i < this.data.length; i++) {
             let circle_data = new CircleData(this.data[i].phrase,
