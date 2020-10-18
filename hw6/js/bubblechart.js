@@ -108,7 +108,7 @@ debugger;
             let cScale = d3.scaleSqrt()
                 .range([0, 15])
                 .domain([minSize, maxSize]);
-            return d.circleSize ? cScale(d.circleSize) : 1;
+            return d.circleSize ? cScale(d.circleSize) : 3;
         }; 
 
         let circles_arr = [];
