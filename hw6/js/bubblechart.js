@@ -118,6 +118,8 @@ class bubblechart {
             .domain(unique_categories)
             .range(d3.schemeSet2);
 
+        debugger;
+
         this.toggleExpansion();
 
     }
