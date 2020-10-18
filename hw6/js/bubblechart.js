@@ -79,11 +79,11 @@ class bubblechart {
         this.yVals = [];
 
         for (let i = 0; i < circles_arr.length; i++) {
-            xVals.push(this.circles_arr[i].xVal);
+            this.xVals.push(this.circles_arr[i].xVal);
         }
 
         for (let i = 0; i < circles_arr.length; i++) {
-            yVals.push(this.circles_arr[i].yVal);
+            this.yVals.push(this.circles_arr[i].yVal);
         }
 
         this.xScale = d3.scaleLinear()
@@ -180,7 +180,7 @@ class bubblechart {
             .attr("class", "axis line");
 
         d3.select('.plot-svg').selectAll('circle')
-            .data(circles_arr)
+            .data(this.circles_arr)
             .enter().append("circle")
             .attr('cx', (d,i) => this.xScale(d.xVal))
             .attr('cy', (d,i) => this.yScale(d.yVal))
