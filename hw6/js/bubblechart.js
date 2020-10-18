@@ -204,8 +204,8 @@ class bubblechart {
 
         if (that.isExpanded === false){
             d3.select('.plot-svg').selectAll('circle')
-                .attr('cx', (d,i) => that.xScale(d.xVal))
-                .attr('cy', (d,i) => that.yScale(d.yVal))
+                .attr('cx', (d,i) => that.xScale(d.moveX))
+                .attr('cy', (d,i) => that.yScale(d.moveY));
 
 
         }
