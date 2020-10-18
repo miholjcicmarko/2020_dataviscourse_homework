@@ -92,6 +92,20 @@ class bubblechart {
                 .attr("text-anchor", "middle")
                 .attr("class", "y-label");  
 
+            document.addEventListener('DOMContentLoaded', function () {
+                var checkbox = document.querySelector('input[type="checkbox"]');
+                  
+                checkbox.addEventListener('change', function () {
+                    if (checkbox.checked) {
+                    
+                        console.log('Checked');
+                    } else {
+                        // do that
+                        console.log('Not checked');
+                    }
+                });
+            });    
+
             this.addCircles();
         
     }
