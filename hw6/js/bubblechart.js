@@ -53,7 +53,7 @@ class bubblechart {
      */
     drawChart() {
         // create the diverging x-axis
-debugger;
+        
         //create the tool tip
         d3.select("#bubbleChart")
             .append('div').attr("id", "chart-view");
