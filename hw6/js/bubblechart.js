@@ -71,6 +71,8 @@ class bubblechart {
 
         this.minSize = d3.min(circleSize_arr, s => +s);
         this.maxSize = d3.max(circleSize_arr, s => +s);
+
+        debugger;
     
         for (let i = 0; i < this.circles_arr.length; i++) {
             this.circles_arr[i].circleSize = circleSizer(circles_arr[i])
