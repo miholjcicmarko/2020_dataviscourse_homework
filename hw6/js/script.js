@@ -27,19 +27,8 @@ fetchJSONFile('data/words.json', function(data) {
     let bars = new table(data);
     bars.drawTable();
 
-    document.addEventListener('DOMContentLoaded', function () {
-        var checkbox = document.querySelector('input[type="checkbox"]');
-          
-        checkbox.addEventListener('change', function () {
-            if (checkbox.checked) {
-            
-                console.log('Checked');
-            } else {
-                // do that
-                console.log('Not checked');
-            }
-        });
-    }); 
+    document.getElementById("toggle-group")
+        .addEventListener("click", bubbles.toggleExpansion);
 
 });
 
