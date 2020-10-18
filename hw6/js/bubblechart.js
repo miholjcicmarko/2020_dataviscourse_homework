@@ -203,17 +203,7 @@ class bubblechart {
         debugger;
         let that = this;
 
-        let chartSelection = d3.select('#toggle-group')
-            
-        chartSelection
-            .on("click", () =>{
-                if (that.isExpanded === false) {
-                    
-                }
-                else if (that.isExpanded === true) {
-
-                }
-            })
+        
            
 
     }
