@@ -65,14 +65,14 @@ class bubblechart {
         let circleSize_arr = [];
 
         for (let i = 0; i < circles_arr.length; i++) {
-            circleSize_arr.push(circles_arr[i].circleSize);
+            circleSize_arr.push(this.circles_arr[i].circleSize);
         }
 
-        this.minSize = d3.min(circleSize_arr, s => +s);
-        this.maxSize = d3.max(circleSize_arr, s => +s);
+        this.minSize = d3.min(this.circleSize_arr, s => +s);
+        this.maxSize = d3.max(this.circleSize_arr, s => +s);
     
         for (let i = 0; i < circles_arr.length; i++) {
-            circles_arr[i].circleSize = circleSizer(circles_arr[i])
+            this.circles_arr[i].circleSize = circleSizer(circles_arr[i])
         }
 
         this.xVals = [];
@@ -103,7 +103,7 @@ class bubblechart {
         this.unique_categories = [... new Set(category_arr)];
 
         this.colorScale = d3.scaleOrdinal()
-            .domain(unique_categories)
+            .domain(this.unique_categories)
             .range(d3.schemeSet2);
 
         this.toggleExpansion();
