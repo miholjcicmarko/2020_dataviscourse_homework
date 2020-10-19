@@ -5,6 +5,7 @@ Wrapper and view stylings
 .wrapper {
     margin: auto;
     float: left;
+    height: fit-content;
 }
 
 .view {
