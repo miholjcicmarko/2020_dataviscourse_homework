@@ -210,7 +210,6 @@ class bubblechart {
         debugger;
         let that = this;
 
-
         if (that.isExpanded === false){
             that.isExpanded = true;
             let chart = d3.select('.plot-svg').selectAll('circle')
@@ -220,7 +219,9 @@ class bubblechart {
                 .exit().remove()
                 .transition()
                 .duration(750)
-                .style("opacity",0)
+                .style("opacity",0);
+            
+            chart
                 .enter().append("rect")
                 .merge(chart)
             
