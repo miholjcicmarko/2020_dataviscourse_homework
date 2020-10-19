@@ -246,7 +246,7 @@ class bubblechart {
             chart.style("opacity", 1)
                 .exit().remove()
                 .transition()
-                .duration(750)
+                .duration(500)
                 .style("opacity",0);
             
             chart
@@ -255,7 +255,7 @@ class bubblechart {
             
             chart.style("opacity", 0)
                 .transition()
-                .duration(750)
+                .duration(1000)
                 .attr('cx', (d,i) => that.xScale(d.xVal))
                 .attr('cy', (d,i) => that.yScale(d.yVal))
                 .attr('r', (d,i) => d.circleSize)
