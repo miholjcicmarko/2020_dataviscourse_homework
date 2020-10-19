@@ -27,8 +27,5 @@ fetchJSONFile('data/words.json', function(data) {
     let bars = new table(data);
     bars.drawTable();
 
-    document.getElementById("toggle-group")
-        .addEventListener("click", bubbles.toggleExpansion);
-
 });
 

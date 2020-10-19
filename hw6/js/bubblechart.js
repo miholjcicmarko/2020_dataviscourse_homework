@@ -156,7 +156,10 @@ class bubblechart {
                 .attr("transform", "translate("+(20*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
                 .attr("class", "axis-label")
                 .attr("text-anchor", "middle")
-                .attr("class", "y-label");      
+                .attr("class", "y-label");    
+                
+            document.getElementById("toggle-group")
+                .addEventListener("click", bubbles.toggleExpansion);
 
             this.addCircles();
         
@@ -203,6 +206,7 @@ class bubblechart {
         // animated transitions
         debugger;
         let that = this;
+
 
         if (that.isExpanded === false){
             d3.select('.plot-svg').selectAll('circle')
