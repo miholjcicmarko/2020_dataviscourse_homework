@@ -166,6 +166,17 @@ class bubblechart {
             toggleGroup.on("change", function() {
                 that.toggleExpansion();
             });
+
+            let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
+
+            tooltip.on("mouseover", function(d) {
+
+                d3.select(this).append("title")
+                    .attr("class", "div.tooltip")
+                    .attr("class", "tooltip h2")
+                    .text(that.tooltipRender(d));
+            });
+
     }
 
      /**
@@ -268,6 +279,15 @@ class bubblechart {
 
     }
 
+    /**
+     * Returns html that can be used to render the tooltip.
+     * @param data 
+     * @returns {string}
+     */
+    tooltipRender(data) {
+        let text = data['country'];
+        return text;
+    }
 
 
 
