@@ -297,7 +297,7 @@ class bubblechart {
     showExtremes() {
         let that = this;
         debugger;
-        console.log(this.circles_arr);
+        console.log(that.circles_arr);
     }
 
 
