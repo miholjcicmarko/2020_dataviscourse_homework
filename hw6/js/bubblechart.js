@@ -159,7 +159,7 @@ class bubblechart {
                 .attr("class", "y-label");    
                 
             document.getElementById("toggle-group")
-                .addEventListener("click", bubbles.toggleExpansion);
+                .addEventListener("click", this.toggleExpansion);
 
             this.addCircles();
         
