@@ -42,7 +42,9 @@ class bubblechart {
 
       this.margin = {top: 50, right: 30, bottom: 50, left: 100};
       this.width = 650 - this.margin.left - this.margin.right;
-      this.height = 1000 - this.margin.top - this.margin.bottom;
+      this.height = 250 - this.margin.top - this.margin.bottom;
+
+      this.chartHeight = 1000;
 
         let circleSizer = function (d) {
             let cScale = d3.scaleSqrt()
@@ -130,7 +132,7 @@ class bubblechart {
         d3.select('#chart-view')
             .append('svg').classed('plot-svg', true)
             .attr("width", this.width + this.margin.left + this.margin.right)
-            .attr("height", this.height + this.margin.top + this.margin.bottom);
+            .attr("height", this.chartHeight + this.margin.top + this.margin.bottom);
 
         let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g').classed('wrapper-group', true);
     
