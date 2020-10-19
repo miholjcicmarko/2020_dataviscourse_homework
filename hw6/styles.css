@@ -19,6 +19,7 @@ Wrapper and view stylings
     width: 50%;
     display: inline-block;
     float: left;
+    height: fit-content;
 }
 
 .innerWrapper2 {

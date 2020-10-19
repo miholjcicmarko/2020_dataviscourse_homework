@@ -42,7 +42,7 @@ class bubblechart {
 
       this.margin = {top: 50, right: 30, bottom: 50, left: 100};
       this.width = 650 - this.margin.left - this.margin.right;
-      this.height = 250 - this.margin.top - this.margin.bottom;
+      this.height = 1000 - this.margin.top - this.margin.bottom;
 
         let circleSizer = function (d) {
             let cScale = d3.scaleSqrt()
