@@ -214,7 +214,7 @@ class bubblechart {
             //.attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "axis line");
 
-        d3.select('.plot-svg').selectAll('circle')
+        d3.select('.plot-svg').select('.brushes').selectAll('circle')
             .data(this.circles_arr)
             .enter().append("circle")
             .attr('cx', (d,i) => this.xScale(d.xVal))
