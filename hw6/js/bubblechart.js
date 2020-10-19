@@ -140,7 +140,7 @@ class bubblechart {
             .attr("width", this.width + this.margin.left + this.margin.right)
             .attr("height", this.chartHeight + this.margin.top + this.margin.bottom);
 
-        let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g').classed('wrapper-group', true);
+        let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g');
     
             let xaxis = svgGroup.append("g")
                 .classed("x-axis", true)
@@ -164,7 +164,7 @@ class bubblechart {
                 .attr("text-anchor", "middle")
                 .attr("class", "y-label");   
                 
-            let brushGroup = d3.select('#chart-view')
+            let brushGroup = d3.select('#chart-view').select('.plot-svg')
                 .append('g').classed('brushes', true);
                 
             let toggleGroup = d3.select("#toggle-group");
