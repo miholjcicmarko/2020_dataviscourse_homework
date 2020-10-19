@@ -165,6 +165,12 @@ class bubblechart {
                
             toggleGroup.on("click", function() {
                 that.toggleExpansion();
+                if (that.isExpanded === false) {
+                    that.isExpanded === true;
+                }
+                else if (that.isExpanded === true) {
+                    that.isExpanded === false;
+                }
             });
     }
 
@@ -215,6 +221,7 @@ class bubblechart {
             d3.select('.plot-svg').selectAll('circle')
                 .attr('cx', (d,i) => that.xScale(d.moveX))
                 .attr('cy', (d,i) => that.yScale(d.moveY));
+            
             that.isExpanded === true;
         }
         else if (that.isExpanded === true) {
