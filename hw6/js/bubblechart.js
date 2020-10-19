@@ -298,7 +298,7 @@ class bubblechart {
         debugger;
         let phrase = data['phrase'];
         let freq = data['frequency']*100;
-        let pos = data['position'];
+        let pos = +data['position'];
         let party = "";
         if (pos > 0) {
             party = party + "R+"
