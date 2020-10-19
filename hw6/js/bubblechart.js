@@ -309,9 +309,7 @@ class bubblechart {
         }
         return phrase + "\n" + 
             party + " " + pos + "%" +"\n" + 
-            "In " + freq + "%" + "of speeches";
+            "In " + freq + "%" + " of speeches";
     }
-
-
 
 }
