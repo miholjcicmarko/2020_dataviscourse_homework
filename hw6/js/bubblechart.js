@@ -298,15 +298,15 @@ class bubblechart {
         debugger;
         let phrase = data['phrase'];
         let freq = data['frequency']*100;
-        let pos_val = +data['position'];
-        let pos = pos_val.toFixed(3);
+        let pos = +data['position'];
         let party = "";
         if (pos > 0) {
             party = party + "R+"
         }
         else if (pos < 0) {
             party = party + "D+"
-            pos = pos * -1;
+            pos_val = pos * -1;
+            pos = pos_val.toFixed(3);
         }
         return phrase + "\n" + 
             party + " " + pos + "%" +"\n" + 
