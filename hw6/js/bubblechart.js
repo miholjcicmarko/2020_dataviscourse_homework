@@ -26,8 +26,8 @@ class CircleData {
         this.circleSize = +circleSize;
         this.moveX = moveX;
         this.moveY = moveY;
-        this.position = +position_fixed;
-        this.frequency = +frequency_fixed;
+        this.position = position_fixed;
+        this.frequency = frequency_fixed;
     }
 }
 
