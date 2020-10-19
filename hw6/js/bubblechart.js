@@ -227,7 +227,7 @@ class bubblechart {
             
             chart.style("opacity", 0)
                 .transition()
-                .duration(1000)
+                .duration(750)
                 .attr('cx', (d,i) => that.xScale(d.moveX))
                 .attr('cy', (d,i) => that.yScale(d.moveY))
                 .attr('r', (d,i) => d.circleSize)
@@ -239,9 +239,30 @@ class bubblechart {
         }
         else if (that.isExpanded === true) {
             that.isExpanded = false;
-            d3.select('.plot-svg').selectAll('circle')
+
+            let chart = d3.select('.plot-svg').selectAll('circle')
+                .data(that.circles_arr)
+
+            chart.style("opacity", 1)
+                .exit().remove()
+                .transition()
+                .duration(750)
+                .style("opacity",0);
+            
+            chart
+                .enter().append("rect")
+                .merge(chart)
+            
+            chart.style("opacity", 0)
+                .transition()
+                .duration(750)
                 .attr('cx', (d,i) => that.xScale(d.xVal))
-                .attr('cy', (d,i) => that.yScale(d.yVal));
+                .attr('cy', (d,i) => that.yScale(d.yVal))
+                .attr('r', (d,i) => d.circleSize)
+                .attr("class", "circle")
+                .attr("transform", "translate("+10+",0)")
+                .attr("fill", (d,i) => this.colorScale(d.category))
+                .style("opacity", 1);
         }
            
 
