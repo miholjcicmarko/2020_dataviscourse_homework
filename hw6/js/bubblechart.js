@@ -296,7 +296,16 @@ class bubblechart {
      */
     tooltipRender(data) {
         debugger;
-        let text = data['category'];
+        let text = data['phrase'];
+        let freq = data['frequency'];
+        let pos = data['position'];
+        let party = "";
+        if (pos > 0) {
+            party = party + "R+"
+        }
+        else if (pos < 0) {
+            party = party + "D+"
+        }
         return text;
     }
 
