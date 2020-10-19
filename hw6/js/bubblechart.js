@@ -14,8 +14,9 @@ class CircleData {
     constructor(phrase, xVal, yVal, category, circleSize, moveX, moveY,
                 position, total) {
 
-        let position_val = position.toFixed(3);
-        let total_val = total.toFixed(2);
+        let position_val = position;
+        let position_fixed = position_val.toFixed(3);
+        //let total_val = total.toFixed(2);
 
         this.phrase = phrase;
         this.xVal = xVal;
@@ -24,8 +25,8 @@ class CircleData {
         this.circleSize = +circleSize;
         this.moveX = moveX;
         this.moveY = moveY;
-        this.position = position_val;
-        this.frequency = total_val;
+        this.position = position_fixed;
+        this.frequency = total;
     }
 }
 
