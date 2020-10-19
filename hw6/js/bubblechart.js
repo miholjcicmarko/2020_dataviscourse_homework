@@ -175,7 +175,7 @@ class bubblechart {
                 that.toggleExpansion();
             });
 
-            extremeButton.on("change", function() {
+            extremeButton.on("click", function() {
                 that.showExtremes();
             });
 
@@ -295,7 +295,8 @@ class bubblechart {
      *
      */
     showExtremes() {
-        console.log("Hi");
+        debugger;
+        let k =0;
     }
 
 
