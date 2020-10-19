@@ -165,12 +165,6 @@ class bubblechart {
                
             toggleGroup.on("click", function() {
                 that.toggleExpansion();
-                if (that.isExpanded === false) {
-                    that.isExpanded === true;
-                }
-                else if (that.isExpanded === true) {
-                    that.isExpanded === false;
-                }
             });
     }
 
@@ -213,16 +207,25 @@ class bubblechart {
     toggleExpansion() {
         //button toggles between
         // animated transitions
+
         debugger;
+
+        if (this.isExpanded === false) {
+            this.isExpanded === true;
+        }
+        else if (this.isExpanded === true) {
+            this.isExpanded === false;
+        }
+
         let that = this;
 
 
-        if (that.isExpanded === false){
+        if (that.isExpanded === true){
             d3.select('.plot-svg').selectAll('circle')
                 .attr('cx', (d,i) => that.xScale(d.moveX))
                 .attr('cy', (d,i) => that.yScale(d.moveY));
         }
-        else if (that.isExpanded === true) {
+        else if (that.isExpanded === false) {
             d3.select('.plot-svg').selectAll('circle')
                 .attr('cx', (d,i) => that.xScale(d.sourceX))
                 .attr('cy', (d,i) => that.yScale(d.sourceY));
