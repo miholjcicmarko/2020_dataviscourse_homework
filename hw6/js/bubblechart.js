@@ -290,6 +290,16 @@ class bubblechart {
     }
 
     /**
+     * Shows the Extremes when the button is pressed
+     *
+     */
+    showExtremes() {
+    
+    
+    }
+
+
+    /**
      * Returns html that can be used to render the tooltip.
      * @param data 
      * @returns {string}
