@@ -109,8 +109,6 @@ class bubblechart {
             .domain(unique_categories)
             .range(d3.schemeSet2);
 
-        this.toggleExpansion();
-
     }
 
     /**
@@ -158,11 +156,14 @@ class bubblechart {
                 .attr("text-anchor", "middle")
                 .attr("class", "y-label");    
                 
-            document.getElementById("toggle-group")
-                .addEventListener("click", this.toggleExpansion);
-
+            let toggleGroup = d3.select("#toggle-group")
+            
             this.addCircles();
-        
+            let that = this;
+               
+            toggleGroup.on("click", function() {
+                that.toggleExpansion();
+            });
     }
 
      /**
