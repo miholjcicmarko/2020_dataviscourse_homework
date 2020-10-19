@@ -213,9 +213,26 @@ class bubblechart {
 
         if (that.isExpanded === false){
             that.isExpanded = true;
-            d3.select('.plot-svg').selectAll('circle')
+            let chart = d3.select('.plot-svg').selectAll('circle')
+                .data(that.circles_arr)
+
+            chart.style("opacity", 1)
+                .exit().remove()
+                .transition()
+                .duration(750)
+                .style("opacity",0)
+                .enter().append("rect")
+                .merge(chart)
+            
+            chart.style("opacity", 0)
+                .transition()
+                .duration(1000)
                 .attr('cx', (d,i) => that.xScale(d.moveX))
-                .attr('cy', (d,i) => that.yScale(d.moveY));
+                .attr('cy', (d,i) => that.yScale(d.moveY))
+                .attr('r', (d,i) => d.circleSize)
+                .attr("class", "circle")
+                .attr("transform", "translate("+10+",0)")
+                .attr("fill", (d,i) => this.colorScale(d.category));
 
         }
         else if (that.isExpanded === true) {
