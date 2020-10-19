@@ -178,3 +178,7 @@ div.tooltip {
     margin: auto;
     font: 14px sans-serif;
 }
+
+.brushed {
+    fill: black;
+}
