@@ -16,7 +16,8 @@ class CircleData {
 
         let position_val = position;
         let position_fixed = position_val.toFixed(3);
-        //let total_val = total.toFixed(2);
+        let frequency_val = total/50;
+        let frequency_fixed = frequency_val.toFixed(2);
 
         this.phrase = phrase;
         this.xVal = xVal;
@@ -26,7 +27,7 @@ class CircleData {
         this.moveX = moveX;
         this.moveY = moveY;
         this.position = position_fixed;
-        this.frequency = total;
+        this.frequency = frequency_fixed;
     }
 }
 
