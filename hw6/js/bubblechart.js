@@ -26,8 +26,8 @@ class CircleData {
         this.circleSize = +circleSize;
         this.moveX = moveX;
         this.moveY = moveY;
-        this.position = position_fixed;
-        this.frequency = frequency_fixed;
+        this.position = +position_fixed;
+        this.frequency = +frequency_fixed;
     }
 }
 
@@ -296,8 +296,8 @@ class bubblechart {
      */
     tooltipRender(data) {
         debugger;
-        let text = data['phrase'];
-        let freq = data['frequency'];
+        let phrase = data['phrase'];
+        let freq = data['frequency']*100;
         let pos = data['position'];
         let party = "";
         if (pos > 0) {
@@ -305,8 +305,11 @@ class bubblechart {
         }
         else if (pos < 0) {
             party = party + "D+"
+            pos = pos * -1;
         }
-        return text;
+        return phrase + "\n" + 
+            party + " " + pos + "%" +"\n" + 
+            "In " + freq + "%" + "of speeches";
     }
 
 
