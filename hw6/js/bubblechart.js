@@ -53,7 +53,7 @@ class bubblechart {
       this.width = 650 - this.margin.left - this.margin.right;
       this.height = 250 - this.margin.top - this.margin.bottom;
 
-      this.chartHeight = 1000;
+      this.chartHeight = 900;
 
         let circleSizer = function (d) {
             let cScale = d3.scaleSqrt()
@@ -140,7 +140,7 @@ class bubblechart {
             .attr("width", this.width + this.margin.left + this.margin.right)
             .attr("height", this.chartHeight + this.margin.top + this.margin.bottom);
 
-        let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g').classed('brushes', true);
+        let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g').classed('wrapper-group', true);
     
             let xaxis = svgGroup.append("g")
                 .classed("x-axis", true)
@@ -162,7 +162,10 @@ class bubblechart {
                 .attr("transform", "translate("+(20*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
                 .attr("class", "axis-label")
                 .attr("text-anchor", "middle")
-                .attr("class", "y-label");    
+                .attr("class", "y-label");   
+                
+            let brushGroup = d3.select('#chart-view').select('.plot-svg')
+                .append('g').classed('brushes', true);
                 
             let toggleGroup = d3.select("#toggle-group");
 
