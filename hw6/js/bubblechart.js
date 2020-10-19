@@ -172,6 +172,53 @@ class bubblechart {
             let extremeButton = d3.select("#extreme-button");
             
             this.addCircles();
+
+            let brush_chart = d3.selectAll('.brushes');
+
+            let activeBrush = null;
+            let activeBrushNode = null;
+
+            brush_chart.each(function() {
+                let selectionThis = this;
+                let selection = d3.select(selectionThis);
+
+                brush = d3.brushX().extent([[0,0], [this.width, this.chartHeight]]);
+
+                brush
+                    .on('start', function() {
+                        if (activeBrush && selection !== activeBrushNode) {
+                            activeBrushNode.call(activeBrush.move, null);
+                        }
+                        activeBrush = brush;
+
+                        activeBrushNode = selection;
+                    });
+                brush
+                    .on('brush', function () {
+                        brushSelection = d3.brushSelection(selectionThis);
+                        if (!brushSelection) {
+                            return;
+                        }
+                        let [y1,y2] = brushSelection;
+
+                        brushGroup.selectAll("circle").classed("brushed", false);
+
+                        let filteredGroups = activeBrushNode.selectAll("circle")
+                            .filter(d => d[1] >= y1 && d[1] <= y2)
+                            .classed("brushed", true);
+
+                    });
+                brush   
+                    .on('end', function() {
+                        let brushSelection = d3.brushSelection(selectionThis);
+                        if(!brushSelection){
+                            brushGroup.selectAll("circle").classed("brushed",false);
+                        }
+                    });
+                
+                selection.call(brush);
+            })
+
             let that = this;
                
             toggleGroup.on("change", function() {
