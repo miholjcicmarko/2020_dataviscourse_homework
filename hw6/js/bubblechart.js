@@ -164,7 +164,7 @@ class bubblechart {
                 .attr("text-anchor", "middle")
                 .attr("class", "y-label");   
                 
-            let brushGroup = d3.select('#chart-view').select('.plot-svg')
+            let brushGroup = d3.select('#chart-view')
                 .append('g').classed('brushes', true);
                 
             let toggleGroup = d3.select("#toggle-group");
