@@ -215,12 +215,13 @@ class bubblechart {
             d3.select('.plot-svg').selectAll('circle')
                 .attr('cx', (d,i) => that.xScale(d.moveX))
                 .attr('cy', (d,i) => that.yScale(d.moveY));
-
+            that.isExpanded === true;
         }
         else if (that.isExpanded === true) {
             d3.select('.plot-svg').selectAll('circle')
                 .attr('cx', (d,i) => that.xScale(d.sourceX))
                 .attr('cy', (d,i) => that.yScale(d.sourceY));
+            that.isExpanded === false;
         }
            
 
