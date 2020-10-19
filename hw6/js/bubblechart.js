@@ -168,13 +168,19 @@ class bubblechart {
                 .attr("text-anchor", "middle")
                 .attr("class", "y-label");    
                 
-            let toggleGroup = d3.select("#toggle-group")
+            let toggleGroup = d3.select("#toggle-group");
+
+            let extremeButton = d3.select("#extreme-button");
             
             this.addCircles();
             let that = this;
                
             toggleGroup.on("change", function() {
                 that.toggleExpansion();
+            });
+
+            extremeButton.on("change", function() {
+                that.showExtremes();
             });
 
             let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
@@ -294,8 +300,7 @@ class bubblechart {
      *
      */
     showExtremes() {
-    
-    
+        console.log("Hi");
     }
 
 
