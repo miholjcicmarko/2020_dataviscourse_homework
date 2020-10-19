@@ -285,7 +285,8 @@ class bubblechart {
      * @returns {string}
      */
     tooltipRender(data) {
-        let text = data['country'];
+        debugger;
+        let text = data['category'];
         return text;
     }
 
