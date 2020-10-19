@@ -164,7 +164,7 @@ class bubblechart {
                 .attr("text-anchor", "middle")
                 .attr("class", "y-label");   
                 
-            let brushGroup = d3.select('#chart-view').select('.plot-svg')
+            d3.select('#chart-view').select('.plot-svg')
                 .append('g').classed('brushes', true);
                 
             let toggleGroup = d3.select("#toggle-group");
@@ -172,52 +172,6 @@ class bubblechart {
             let extremeButton = d3.select("#extreme-button");
             
             this.addCircles();
-
-            let brush_chart = d3.selectAll('.brushes');
-
-            let activeBrush = null;
-            let activeBrushNode = null;
-
-            brush_chart.each(function() {
-                let selectionThis = this;
-                let selection = d3.select(selectionThis);
-
-                brush = d3.brushX().extent([[0,0], [this.width, this.chartHeight]]);
-
-                brush
-                    .on('start', function() {
-                        if (activeBrush && selection !== activeBrushNode) {
-                            activeBrushNode.call(activeBrush.move, null);
-                        }
-                        activeBrush = brush;
-
-                        activeBrushNode = selection;
-                    });
-                brush
-                    .on('brush', function () {
-                        brushSelection = d3.brushSelection(selectionThis);
-                        if (!brushSelection) {
-                            return;
-                        }
-                        let [y1,y2] = brushSelection;
-
-                        brushGroup.selectAll("circle").classed("brushed", false);
-
-                        let filteredGroups = activeBrushNode.selectAll("circle")
-                            .filter(d => d[1] >= y1 && d[1] <= y2)
-                            .classed("brushed", true);
-
-                    });
-                brush   
-                    .on('end', function() {
-                        let brushSelection = d3.brushSelection(selectionThis);
-                        if(!brushSelection){
-                            brushGroup.selectAll("circle").classed("brushed",false);
-                        }
-                    });
-                
-                selection.call(brush);
-            })
 
             let that = this;
                
@@ -270,7 +224,54 @@ class bubblechart {
             .attr("class", "circle")
             .attr("transform", "translate("+10+",0)")
             .attr("fill", (d,i) => this.colorScale(d.category));
-   
+        
+        let svg = d3.select('.plot-svg');
+        let brush_chart = d3.selectAll('.brushes');
+
+            let activeBrush = null;
+            let activeBrushNode = null;
+
+            brush_chart.each(function() {
+                let selectionThis = this;
+                let selection = d3.select(selectionThis);
+
+                let brush = d3.brushX().extent([[0,0], [this.width, this.chartHeight]]);
+
+                brush
+                    .on('start', function() {
+                        if (activeBrush && selection !== activeBrushNode) {
+                            activeBrushNode.call(activeBrush.move, null);
+                        }
+                        activeBrush = brush;
+
+                        activeBrushNode = selection;
+                    });
+                brush
+                    .on('brush', function () {
+                        brushSelection = d3.brushSelection(selectionThis);
+                        if (!brushSelection) {
+                            return;
+                        }
+                        let [y1,y2] = brushSelection;
+
+                        svg.selectAll("circle").classed("brushed", false);
+
+                        let filteredGroups = activeBrushNode.selectAll("circle")
+                            .filter(d => d[1] >= y1 && d[1] <= y2)
+                            .classed("brushed", true);
+
+                    });
+                brush   
+                    .on('end', function() {
+                        let brushSelection = d3.brushSelection(selectionThis);
+                        if(!brushSelection){
+                            svg.selectAll("circle").classed("brushed",false);
+                        }
+                    });
+                
+                selection.call(brush);
+            });
+
     }
 
     /**
