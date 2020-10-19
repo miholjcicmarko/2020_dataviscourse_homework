@@ -233,7 +233,8 @@ class bubblechart {
                 .attr('r', (d,i) => d.circleSize)
                 .attr("class", "circle")
                 .attr("transform", "translate("+10+",0)")
-                .attr("fill", (d,i) => this.colorScale(d.category));
+                .attr("fill", (d,i) => this.colorScale(d.category))
+                .style("opacity", 1);
 
         }
         else if (that.isExpanded === true) {
