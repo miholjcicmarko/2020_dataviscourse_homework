@@ -305,7 +305,7 @@ class bubblechart {
         }
         else if (pos < 0) {
             party = party + "D+"
-            pos_val = pos * -1;
+            let pos_val = pos * -1;
             pos = pos_val.toFixed(3);
         }
         return phrase + "\n" + 
