@@ -81,8 +81,6 @@ class bubblechart {
 
         let minSize = d3.min(circleSize_arr, s => +s);
         let maxSize = d3.max(circleSize_arr, s => +s);
-
-        debugger;
     
         for (let i = 0; i < this.circles_arr.length; i++) {
             this.circles_arr[i].circleSize = circleSizer(this.circles_arr[i])
@@ -106,8 +104,6 @@ class bubblechart {
         this.yScale = d3.scaleLinear()
             .domain([d3.min(yVals), d3.max(yVals)])
             .range([this.margin.bottom, this.height]);
-
-        debugger;
 
         let category_arr = [];
 
@@ -234,7 +230,6 @@ class bubblechart {
     toggleExpansion() {
         //button toggles between
         // animated transitions
-        debugger;
         let that = this;
 
         if (that.isExpanded === false){
@@ -310,7 +305,6 @@ class bubblechart {
      * @returns {string}
      */
     tooltipRender(data) {
-        debugger;
         let phrase = data['phrase'];
         let freq = data['frequency']*100;
         let pos = +data['position'];
