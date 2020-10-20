@@ -124,8 +124,8 @@ class bubblechart {
         }
 
         debugger;
-        
-        this.max_brush_width = d3.min(xVals);
+
+        this.max_brush_width = d3.max(xVals);
         this.max_height_width = d3.max(yMoves);
     }
 
