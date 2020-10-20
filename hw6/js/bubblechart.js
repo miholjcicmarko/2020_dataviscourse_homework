@@ -223,64 +223,118 @@ class bubblechart {
             //.attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "axis line");
 
-        d3.select('.plot-svg').select('.brushes').selectAll('circle')
+        if (this.isExpanded === false) {
+            debugger;
+            let chart = d3.select('.plot-svg').selectAll('circle')
             .data(this.circles_arr)
-            .enter().append("circle")
+
+        chart.style("opacity", 1)
+            .exit().remove()
+            .transition()
+            .duration(5)
+            .style("opacity",0);
+        
+        chart
+            .enter().append("rect")
+            .merge(chart)
+        
+        chart.style("opacity", 0)
+            .transition()
+            .duration(750)
             .attr('cx', (d,i) => this.xScale(d.xVal))
             .attr('cy', (d,i) => this.yScale(d.yVal))
             .attr('r', (d,i) => d.circleSize)
             .attr("class", "circle")
             .attr("transform", "translate("+10+",0)")
-            .attr("fill", (d,i) => this.colorScale(d.category));
+            .attr("fill", (d,i) => this.colorScale(d.category))
+            .style("opacity", 1);
 
-        let svg = d3.select('.plot-svg');
-        let brush_chart = d3.selectAll('.brushes');
+            let svg = d3.select('.plot-svg');
+            let brush_chart = d3.selectAll('.brushes');
+
+            let brush_width = this.xScale(this.max_brush_width);
+            let brush_height = this.height;
     
+            this.brush(svg, brush_chart, brush_width, brush_height);
+        }
+        else if (this.isExpanded === true) {
+            let chart = d3.select('.plot-svg').selectAll('circle')
+            .data(this.circles_arr)
+
+        chart.style("opacity", 1)
+            .exit().remove()
+            .transition()
+            .duration(5)
+            .style("opacity",0);
+        
+        chart
+            .enter().append("rect")
+            .merge(chart)
+        
+        chart.style("opacity", 0)
+            .transition()
+            .duration(750)
+            .attr('cx', (d,i) => this.xScale(d.moveX))
+            .attr('cy', (d,i) => this.yScale(d.moveY))
+            .attr('r', (d,i) => d.circleSize)
+            .attr("class", "circle")
+            .attr("transform", "translate("+10+",0)")
+            .attr("fill", (d,i) => this.colorScale(d.category))
+            .style("opacity", 1);
+        }
+
+       
+                
+         
+    }
+
+    /**
+     * Creates the brush
+     */
+    brush(svg, brush_chart, brush_width, brush_height) {
         let activeBrush = null;
         let activeBrushNode = null;
 
-        let brush_width = this.xScale(this.max_brush_width);
-        let brush_height = this.height;
-    
-            brush_chart.each(function() {
-                let selectionThis = this;
-                let selection = d3.select(selectionThis);
-    
-                let brush = d3.brushX().extent([[0,40], [brush_width, brush_height+5]]);
-    
-                brush
-                    .on('start', function() {
-                        if (activeBrush && selection !== activeBrushNode) {
-                            activeBrushNode.call(activeBrush.move, null);
-                        }
-                        activeBrush = brush;
+        brush_chart.each(function() {
+            let selectionThis = this;
+            let selection = d3.select(selectionThis);
 
-                        activeBrushNode = selection;
-                        console.log("hi");
-                    });
-                brush
-                    .on('brush', function () {
-                        let brushSelection = d3.brushSelection(selectionThis);
-                        if (!brushSelection) {
-                            return;
-                        }
-                        let [y1,y2] = brushSelection;
-    
-                        svg.selectAll("circle").classed("brushed", false);
-                        console.log("hello");
-    
-                    });
-                brush   
-                    .on('end', function() {
-                        let brushSelection = d3.brushSelection(selectionThis);
-                        if(!brushSelection){
-                            svg.selectAll("circle").classed("brushed",false);
-                        }
-                        console.log("hey");
-                    });
-                selection.call(brush);
-            });
+            let brush = d3.brushX().extent([[0,40], [brush_width, brush_height+5]]);
+
+            brush
+                .on('start', function() {
+                    if (activeBrush && selection !== activeBrushNode) {
+                        activeBrushNode.call(activeBrush.move, null);
+                    }
+                    activeBrush = brush;
+
+                    activeBrushNode = selection;
+                    console.log("hi");
+                });
+            brush
+                .on('brush', function () {
+                    let brushSelection = d3.brushSelection(selectionThis);
+                    if (!brushSelection) {
+                        return;
+                    }
+                    let [y1,y2] = brushSelection;
+
+                    svg.selectAll("circle").classed("brushed", false);
+                    console.log("hello");
+
+                });
+            brush   
+                .on('end', function() {
+                    let brushSelection = d3.brushSelection(selectionThis);
+                    if(!brushSelection){
+                        svg.selectAll("circle").classed("brushed",false);
+                    }
+                    console.log("hey");
+                });
+            selection.call(brush);
+        });
     }
+
 
     /**
      * Toggles between the separation of the categories
@@ -293,57 +347,61 @@ class bubblechart {
 
         if (that.isExpanded === false){
             that.isExpanded = true;
-            let chart = d3.select('.plot-svg').selectAll('circle')
-                .data(that.circles_arr)
 
-            chart.style("opacity", 1)
-                .exit().remove()
-                .transition()
-                .duration(5)
-                .style("opacity",0);
+            that.addCircles();
+            // let chart = d3.select('.plot-svg').selectAll('circle')
+            //     .data(that.circles_arr)
+
+            // chart.style("opacity", 1)
+            //     .exit().remove()
+            //     .transition()
+            //     .duration(5)
+            //     .style("opacity",0);
             
-            chart
-                .enter().append("rect")
-                .merge(chart)
+            // chart
+            //     .enter().append("rect")
+            //     .merge(chart)
             
-            chart.style("opacity", 0)
-                .transition()
-                .duration(750)
-                .attr('cx', (d,i) => that.xScale(d.moveX))
-                .attr('cy', (d,i) => that.yScale(d.moveY))
-                .attr('r', (d,i) => d.circleSize)
-                .attr("class", "circle")
-                .attr("transform", "translate("+10+",0)")
-                .attr("fill", (d,i) => this.colorScale(d.category))
-                .style("opacity", 1);
+            // chart.style("opacity", 0)
+            //     .transition()
+            //     .duration(750)
+            //     .attr('cx', (d,i) => that.xScale(d.moveX))
+            //     .attr('cy', (d,i) => that.yScale(d.moveY))
+            //     .attr('r', (d,i) => d.circleSize)
+            //     .attr("class", "circle")
+            //     .attr("transform", "translate("+10+",0)")
+            //     .attr("fill", (d,i) => this.colorScale(d.category))
+            //     .style("opacity", 1);
 
         }
         else if (that.isExpanded === true) {
             that.isExpanded = false;
 
-            let chart = d3.select('.plot-svg').selectAll('circle')
-                .data(that.circles_arr)
+            that.addCircles();
 
-            chart.style("opacity", 1)
-                .exit().remove()
-                .transition()
-                .duration(5)
-                .style("opacity",0);
+            // let chart = d3.select('.plot-svg').selectAll('circle')
+            //     .data(that.circles_arr)
+
+            // chart.style("opacity", 1)
+            //     .exit().remove()
+            //     .transition()
+            //     .duration(5)
+            //     .style("opacity",0);
             
-            chart
-                .enter().append("rect")
-                .merge(chart)
+            // chart
+            //     .enter().append("rect")
+            //     .merge(chart)
             
-            chart.style("opacity", 0)
-                .transition()
-                .duration(750)
-                .attr('cx', (d,i) => that.xScale(d.xVal))
-                .attr('cy', (d,i) => that.yScale(d.yVal))
-                .attr('r', (d,i) => d.circleSize)
-                .attr("class", "circle")
-                .attr("transform", "translate("+10+",0)")
-                .attr("fill", (d,i) => this.colorScale(d.category))
-                .style("opacity", 1);
+            // chart.style("opacity", 0)
+            //     .transition()
+            //     .duration(750)
+            //     .attr('cx', (d,i) => that.xScale(d.xVal))
+            //     .attr('cy', (d,i) => that.yScale(d.yVal))
+            //     .attr('r', (d,i) => d.circleSize)
+            //     .attr("class", "circle")
+            //     .attr("transform", "translate("+10+",0)")
+            //     .attr("fill", (d,i) => this.colorScale(d.category))
+            //     .style("opacity", 1);
         }
            
 
