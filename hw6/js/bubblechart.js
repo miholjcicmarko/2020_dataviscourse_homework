@@ -265,8 +265,9 @@ class bubblechart {
         brush_chart.each(function() {
             let selectionThis = this;
             let selection = d3.select(selectionThis);
+            let ylim = 40*factor;
 
-            let brush = d3.brushX().extent([[0,40*factor], [brush_width, brush_height+5]]);
+            let brush = d3.brushX().extent([[0,ylim], [brush_width, brush_height+5]]);
 
             brush
                 .on('start', function() {
@@ -346,7 +347,7 @@ class bubblechart {
                 .attr("fill", (d,i) => this.colorScale(d.category))
                 .style("opacity", 1);
 
-            for (let i = 1; i < this.unique_categories.length+1; i++) {
+            for (let i = 1; i < that.unique_categories.length+1; i++) {
                 that.brush(svg, brush_chart, brush_width, brush_height, i);
             };
 
