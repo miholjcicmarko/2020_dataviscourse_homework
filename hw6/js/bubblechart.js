@@ -170,6 +170,51 @@ class bubblechart {
             let toggleGroup = d3.select("#toggle-group");
 
             let extremeButton = d3.select("#extreme-button");
+
+            let svg = d3.select('.plot-svg');
+            let brush_chart = d3.selectAll('.brushes');
+    
+                let activeBrush = null;
+                let activeBrushNode = null;
+    
+                brush_chart.each(function() {
+                    let selectionThis = this;
+                    let selection = d3.select(selectionThis);
+    
+                    let brush = d3.brushX().extent([[0,0], [150, 100]]);
+    
+                    brush
+                         .on('start', function() {
+                            if (activeBrush && selection !== activeBrushNode) {
+                                activeBrushNode.call(activeBrush.move, null);
+                            }
+                            activeBrush = brush;
+    
+                            activeBrushNode = selection;
+                            console.log("hi");
+                        });
+                    brush
+                        .on('brush', function () {
+                            let brushSelection = d3.brushSelection(selectionThis);
+                            if (!brushSelection) {
+                                return;
+                            }
+                            let [y1,y2] = brushSelection;
+    
+                            svg.selectAll("circle").classed("brushed", false);
+                            console.log("hello");
+    
+                        });
+                    brush   
+                        .on('end', function() {
+                            let brushSelection = d3.brushSelection(selectionThis);
+                            if(!brushSelection){
+                                svg.selectAll("circle").classed("brushed",false);
+                            }
+                            console.log("hey");
+                        });
+                    selection.call(brush);
+                });
             
             this.addCircles();
 
@@ -224,52 +269,6 @@ class bubblechart {
             .attr("class", "circle")
             .attr("transform", "translate("+10+",0)")
             .attr("fill", (d,i) => this.colorScale(d.category));
-        
-        let svg = d3.select('.plot-svg');
-        let brush_chart = d3.selectAll('.brushes');
-
-            let activeBrush = null;
-            let activeBrushNode = null;
-
-            brush_chart.each(function() {
-                let selectionThis = this;
-                let selection = d3.select(selectionThis);
-
-                let brush = d3.brushX().extent([[0,0], [this.width, this.chartHeight]]);
-
-                 brush
-                     .on('start', function() {
-                        if (activeBrush && selection !== activeBrushNode) {
-                            activeBrushNode.call(activeBrush.move, null);
-                        }
-                        activeBrush = brush;
-
-                        activeBrushNode = selection;
-                        console.log("hi");
-                    });
-                 brush
-                    .on('brush', function () {
-                        brushSelection = d3.brushSelection(selectionThis);
-                        if (!brushSelection) {
-                            return;
-                        }
-                        let [y1,y2] = brushSelection;
-
-                        svg.selectAll("circle").classed("brushed", false);
-                        console.log("hello");
-
-                    });
-                brush   
-                    .on('end', function() {
-                        let brushSelection = d3.brushSelection(selectionThis);
-                        if(!brushSelection){
-                            svg.selectAll("circle").classed("brushed",false);
-                        }
-                        console.log("hey");
-                    });
-                debugger;
-                 selection.call(brush);
-            });
 
     }
 
