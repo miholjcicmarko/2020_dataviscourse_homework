@@ -184,14 +184,17 @@ class bubblechart {
             let svg = d3.select('.plot-svg');
             let brush_chart = d3.selectAll('.brushes');
     
-                let activeBrush = null;
-                let activeBrushNode = null;
+            let activeBrush = null;
+            let activeBrushNode = null;
+
+            let brush_width = this.xScale(this.max_brush_width);
+            let brush_height = this.yScale(this.max_brush_height);
     
                 brush_chart.each(function() {
                     let selectionThis = this;
                     let selection = d3.select(selectionThis);
     
-                    let brush = d3.brushX().extent([[0,0], [this.max_brush_width, this.max_brush_height]]);
+                    let brush = d3.brushX().extent([[0,0], [brush_width, brush_height]]);
     
                     brush
                          .on('start', function() {
