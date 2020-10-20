@@ -237,16 +237,17 @@ class bubblechart {
 
                 let brush = d3.brushX().extent([[0,0], [this.width, this.chartHeight]]);
 
-                brush
-                    .on('start', function() {
+                 brush
+                     .on('start', function() {
                         if (activeBrush && selection !== activeBrushNode) {
                             activeBrushNode.call(activeBrush.move, null);
                         }
                         activeBrush = brush;
 
                         activeBrushNode = selection;
+                        console.log("hi");
                     });
-                brush
+                 brush
                     .on('brush', function () {
                         brushSelection = d3.brushSelection(selectionThis);
                         if (!brushSelection) {
@@ -255,10 +256,7 @@ class bubblechart {
                         let [y1,y2] = brushSelection;
 
                         svg.selectAll("circle").classed("brushed", false);
-
-                        let filteredGroups = activeBrushNode.selectAll("circle")
-                            .filter(d => d[1] >= y1 && d[1] <= y2)
-                            .classed("brushed", true);
+                        console.log("hello");
 
                     });
                 brush   
@@ -267,9 +265,10 @@ class bubblechart {
                         if(!brushSelection){
                             svg.selectAll("circle").classed("brushed",false);
                         }
+                        console.log("hey");
                     });
-                
-                selection.call(brush);
+                debugger;
+                 selection.call(brush);
             });
 
     }
