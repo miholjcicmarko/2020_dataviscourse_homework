@@ -126,7 +126,7 @@ class bubblechart {
         debugger;
 
         this.max_brush_width = d3.max(xVals);
-        this.max_height_width = d3.max(yMoves);
+        this.max_brush_height = d3.max(yMoves);
     }
 
     /**
@@ -191,7 +191,7 @@ class bubblechart {
                     let selectionThis = this;
                     let selection = d3.select(selectionThis);
     
-                    let brush = d3.brushX().extent([[0,0], [this.width, 100]]);
+                    let brush = d3.brushX().extent([[0,0], [this.max_brush_width, this.max_brush_height]]);
     
                     brush
                          .on('start', function() {
