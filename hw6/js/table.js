@@ -6,6 +6,10 @@ class table {
      * @param data the full dataset
      */
     constructor(data, selectedData) {
+        if (selectedData === null) {
+
+        };
+
         this.data = data;
         this.chartData = [...data]
 
