@@ -115,10 +115,10 @@ class bubblechart {
             category_arr.push(this.circles_arr[i].category);
         }
 
-        let unique_categories = [... new Set(category_arr)];
+        this.unique_categories = [... new Set(category_arr)];
 
         this.colorScale = d3.scaleOrdinal()
-            .domain(unique_categories)
+            .domain(this.unique_categories)
             .range(d3.schemeSet2);
 
         let yMoves = [];
@@ -250,16 +250,15 @@ class bubblechart {
 
         let brush_width = this.xScale(this.max_brush_width);
         let brush_height = this.height;
-    
-        this.brush(svg, brush_chart, brush_width, brush_height);
-                
+
+        this.brush(svg, brush_chart, brush_width, brush_height, 1);
          
     }
 
     /**
      * Creates the brush
      */
-    brush(svg, brush_chart, brush_width, brush_height) {
+    brush(svg, brush_chart, brush_width, brush_height, factor) {
         let activeBrush = null;
         let activeBrushNode = null;
 
@@ -267,7 +266,7 @@ class bubblechart {
             let selectionThis = this;
             let selection = d3.select(selectionThis);
 
-            let brush = d3.brushX().extent([[0,40], [brush_width, brush_height+5]]);
+            let brush = d3.brushX().extent([[0,40*factor], [brush_width, brush_height+5]]);
 
             brush
                 .on('start', function() {
@@ -312,6 +311,13 @@ class bubblechart {
     toggleExpansion() {
         //button toggles between
         // animated transitions
+        debugger;
+        let svg = d3.select('.plot-svg');
+        let brush_chart = d3.selectAll('.brushes');
+        
+        let brush_width = this.xScale(this.max_brush_width);
+        let brush_height = this.height;
+
         let that = this;
 
         if (that.isExpanded === false){
@@ -340,6 +346,10 @@ class bubblechart {
                 .attr("fill", (d,i) => this.colorScale(d.category))
                 .style("opacity", 1);
 
+            for (let i = 1; i < this.unique_categories.length+1; i++) {
+                that.brush(svg, brush_chart, brush_width, brush_height, i);
+            };
+
         }
         else if (that.isExpanded === true) {
             that.isExpanded = false;
@@ -367,6 +377,9 @@ class bubblechart {
                 .attr("transform", "translate("+10+",0)")
                 .attr("fill", (d,i) => this.colorScale(d.category))
                 .style("opacity", 1);
+
+            that.brush(svg, brush_chart, brush_width, brush_height, 1);
+            
         }
            
 
