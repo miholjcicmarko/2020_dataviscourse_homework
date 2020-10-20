@@ -180,49 +180,49 @@ class bubblechart {
                         .append('g').classed('brushes', true)
                         .append('rect').attr('width', this.width)
                         .attr("height", this.height)
+                        .attr("id", "g1")
                         //.attr("transform", 'translate(0,0)')
-                        .classed("brush_dim")
-                        .attr("id", "g1");
+                        .classed("brush_dim");
 
             let g2 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         .append('rect').attr('width', this.width)
                         .attr("height", this.height)
+                        .attr("id", "g2")
                         //.attr("transform", 'translate(0,'+this.height+')')
-                        .classed("brush_dim")
-                        .attr("id", "g2");
+                        .classed("brush_dim");
 
             let g3 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)    
                         .append('rect').attr('width', this.width)
                         .attr("height", this.height)
+                        .attr("id", "g3")
                         //.attr("transform", 'translate(0,'+this.height*2+')')
-                        .classed("brush_dim")
-                        .attr("id", "g3");
+                        .classed("brush_dim");
 
             let g4 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         .append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height)
+                        .attr("id", "g4")
                         //.attr("transform", 'translate(0,'+this.height*3+')')
-                        .classed("brush_dim")
-                        .attr("id", "g4");
+                        .classed("brush_dim");
             
             let g5 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         .append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height)
+                        .attr("id", "g5")
                         //.attr("transform", 'translate(0,'+this.height*4+')')
-                        .classed("brush_dim")
-                        .attr("id", "g5");
+                        .classed("brush_dim");
 
             let g6 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         .append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height)
+                        .attr("id", "g6")
                         //.attr("transform", 'translate(0,'+this.height*5+')')
-                        .classed("brush_dim")
-                        .attr("id", "g6");
+                        .classed("brush_dim");
 
             let toggleGroup = d3.select("#toggle-group");
 
