@@ -377,8 +377,11 @@ class bubblechart {
      *
      */
     showExtremes() {
-        
+        let exteme1 = d3.selectAll(".plot-svg").selectAll("circle")
+            .select("Dem-Extreme").append("div");
 
+        let extreme2 = d3.selectAll(".plot-svg").selectAll("circle")
+            .select("Rep-Extreme").append("div");
 
     }
 
