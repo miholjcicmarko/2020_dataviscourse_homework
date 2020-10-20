@@ -223,39 +223,15 @@ class bubblechart {
             //.attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "axis line");
 
-        if (!this.isExpanded) {
-            let svg = d3.select('.plot-svg').select('.brushes').selectAll('circle')
-                .data(this.circles_arr)
-                .enter().append("circle")
-                .attr('cx', (d,i) => this.xScale(d.xVal))
-                .attr('cy', (d,i) => this.yScale(d.yVal))
-                .attr('r', (d,i) => d.circleSize)
-                .attr("class", "circle")
-                .attr("transform", "translate("+10+",0)")
-                .attr("fill", (d,i) => this.colorScale(d.category));
-        }
-        else if (this.isExpanded) {
-            let svg = d3.select('.plot-svg').select('.brushes').selectAll('circle')
-                .data(this.circles_arr)
-                .enter().append("circle")
-                .attr('cx', (d,i) => this.xScale(d.xVal))
-                .attr('cy', (d,i) => this.yScale(d.yVal))
-                .attr('r', (d,i) => d.circleSize)
-                .attr("class", "circle")
-                .attr("transform", "translate("+10+",0)")
-                .attr("fill", (d,i) => this.colorScale(d.category))
-                .groups(d, d => d.category);
-                debugger;
-        }
-        // let svg = d3.select('.plot-svg').select('.brushes').selectAll('circle')
-        //     .data(this.circles_arr)
-        //     .enter().append("circle")
-        //     .attr('cx', (d,i) => this.xScale(d.xVal))
-        //     .attr('cy', (d,i) => this.yScale(d.yVal))
-        //     .attr('r', (d,i) => d.circleSize)
-        //     .attr("class", "circle")
-        //     .attr("transform", "translate("+10+",0)")
-        //     .attr("fill", (d,i) => this.colorScale(d.category));
+        d3.select('.plot-svg').select('.brushes').selectAll('circle')
+            .data(this.circles_arr)
+            .enter().append("circle")
+            .attr('cx', (d,i) => this.xScale(d.xVal))
+            .attr('cy', (d,i) => this.yScale(d.yVal))
+            .attr('r', (d,i) => d.circleSize)
+            .attr("class", "circle")
+            .attr("transform", "translate("+10+",0)")
+            .attr("fill", (d,i) => this.colorScale(d.category));
 
         let svg = d3.select('.plot-svg');
         let brush_chart = d3.selectAll('.brushes');
@@ -326,8 +302,8 @@ class bubblechart {
 
         if (that.isExpanded === false){
             that.isExpanded = true;
-            let chart = d3.select('.plot-svg').selectAll('circle')
-                .data(that.circles_arr)
+            let chart = d3.select('.plot-svg').append("g").selectAll('circle')
+                .data(that.circles_arr);
 
             chart.style("opacity", 1)
                 .exit().remove()
