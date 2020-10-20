@@ -5,7 +5,7 @@ class table {
      *
      * @param data the full dataset
      */
-    constructor(data) {
+    constructor(data, selectedData) {
         this.data = data;
         this.chartData = [...data]
 

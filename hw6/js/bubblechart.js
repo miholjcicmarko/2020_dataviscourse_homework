@@ -265,7 +265,7 @@ class bubblechart {
                     activeBrush = brush;
 
                     activeBrushNode = selection;
-                    console.log("hi");
+                   
                 });
             brush
                 .on('brush', function () {
@@ -276,7 +276,7 @@ class bubblechart {
                     let [y1,y2] = brushSelection;
 
                     svg.selectAll("circle").classed("brushed", true);
-                    console.log("hello");
+                    
 
                 });
             brush   
@@ -285,7 +285,7 @@ class bubblechart {
                     if(!brushSelection){
                         svg.selectAll("circle").classed("brushed",false);
                     }
-                    console.log("hey");
+                   
                 });
             selection.call(brush);
         });
@@ -365,8 +365,6 @@ class bubblechart {
      */
     showExtremes() {
         let that = this;
-
-        
     }
 
 
