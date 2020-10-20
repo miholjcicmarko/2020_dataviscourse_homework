@@ -278,8 +278,6 @@ class bubblechart {
             let cat = this.circles_arr.filter(d => d.category === this.unique_categories[i]);
             this.cat_circles.push(cat);
         }
-
-        debugger;
         
         this.group = ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'];
 
@@ -423,8 +421,13 @@ class bubblechart {
         else if (that.isExpanded === true) {
             that.isExpanded = false;
 
-            let chart = d3.select('.plot-svg').selectAll('circle')
-                .data(that.circles_arr)
+            for (let i = 0; i < that.cat_circles.length; i++) {
+
+            let data_arr = that.cat_circles[i];
+            let group_select = that.group[i];
+    
+            let chart = d3.select('.plot-svg').select('#'+group_select).selectAll('circle')
+                .data(data_arr)
 
             chart.style("opacity", 1)
                 .exit().remove()
@@ -448,7 +451,7 @@ class bubblechart {
                 .style("opacity", 1);
         }
            
-
+    }
     }
 
     /**
