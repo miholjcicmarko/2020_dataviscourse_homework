@@ -288,6 +288,7 @@ class bubblechart {
                    
                 });
             selection.call(brush);
+            
         });
     }
 

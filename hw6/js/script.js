@@ -36,15 +36,14 @@
 words_json = d3.json('data/words.json');
 
 Promise.all([words_json]).then(data => {
-    let that = this;
+    data.selectedData = null;
+    debugger;
+    let that = data;
 
     function updateTable(newData) {
-        if (newData === null) {
-            that.selectedData = null;
-        }
-        else {
-            that.selectedData = newData;
-        }
+        that.selectedData = newData;
+        
+        table.selectedData = newData;
     }
 
     debugger;
