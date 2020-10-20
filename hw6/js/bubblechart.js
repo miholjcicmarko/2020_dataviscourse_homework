@@ -223,67 +223,23 @@ class bubblechart {
             //.attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "axis line");
 
-        if (this.isExpanded === false) {
-            debugger;
-            let chart = d3.select('.plot-svg').selectAll('circle')
+        d3.select('.plot-svg').select('.brushes').selectAll('circle')
             .data(this.circles_arr)
-
-        chart.style("opacity", 1)
-            .exit().remove()
-            .transition()
-            .duration(5)
-            .style("opacity",0);
-        
-        chart
-            .enter().append("rect")
-            .merge(chart)
-        
-        chart.style("opacity", 0)
-            .transition()
-            .duration(750)
+            .enter().append("circle")
             .attr('cx', (d,i) => this.xScale(d.xVal))
             .attr('cy', (d,i) => this.yScale(d.yVal))
             .attr('r', (d,i) => d.circleSize)
             .attr("class", "circle")
             .attr("transform", "translate("+10+",0)")
-            .attr("fill", (d,i) => this.colorScale(d.category))
-            .style("opacity", 1);
+            .attr("fill", (d,i) => this.colorScale(d.category));
 
-            let svg = d3.select('.plot-svg');
-            let brush_chart = d3.selectAll('.brushes');
+        let svg = d3.select('.plot-svg');
+        let brush_chart = d3.selectAll('.brushes');
 
-            let brush_width = this.xScale(this.max_brush_width);
-            let brush_height = this.height;
+        let brush_width = this.xScale(this.max_brush_width);
+        let brush_height = this.height;
     
-            this.brush(svg, brush_chart, brush_width, brush_height);
-        }
-        else if (this.isExpanded === true) {
-            let chart = d3.select('.plot-svg').selectAll('circle')
-            .data(this.circles_arr)
-
-        chart.style("opacity", 1)
-            .exit().remove()
-            .transition()
-            .duration(5)
-            .style("opacity",0);
-        
-        chart
-            .enter().append("rect")
-            .merge(chart)
-        
-        chart.style("opacity", 0)
-            .transition()
-            .duration(750)
-            .attr('cx', (d,i) => this.xScale(d.moveX))
-            .attr('cy', (d,i) => this.yScale(d.moveY))
-            .attr('r', (d,i) => d.circleSize)
-            .attr("class", "circle")
-            .attr("transform", "translate("+10+",0)")
-            .attr("fill", (d,i) => this.colorScale(d.category))
-            .style("opacity", 1);
-        }
-
-       
+        this.brush(svg, brush_chart, brush_width, brush_height);
                 
          
     }
@@ -347,61 +303,57 @@ class bubblechart {
 
         if (that.isExpanded === false){
             that.isExpanded = true;
+            let chart = d3.select('.plot-svg').selectAll('circle')
+                .data(that.circles_arr)
 
-            that.addCircles();
-            // let chart = d3.select('.plot-svg').selectAll('circle')
-            //     .data(that.circles_arr)
-
-            // chart.style("opacity", 1)
-            //     .exit().remove()
-            //     .transition()
-            //     .duration(5)
-            //     .style("opacity",0);
+            chart.style("opacity", 1)
+                .exit().remove()
+                .transition()
+                .duration(5)
+                .style("opacity",0);
             
-            // chart
-            //     .enter().append("rect")
-            //     .merge(chart)
+            chart
+                .enter().append("rect")
+                .merge(chart)
             
-            // chart.style("opacity", 0)
-            //     .transition()
-            //     .duration(750)
-            //     .attr('cx', (d,i) => that.xScale(d.moveX))
-            //     .attr('cy', (d,i) => that.yScale(d.moveY))
-            //     .attr('r', (d,i) => d.circleSize)
-            //     .attr("class", "circle")
-            //     .attr("transform", "translate("+10+",0)")
-            //     .attr("fill", (d,i) => this.colorScale(d.category))
-            //     .style("opacity", 1);
+            chart.style("opacity", 0)
+                .transition()
+                .duration(750)
+                .attr('cx', (d,i) => that.xScale(d.moveX))
+                .attr('cy', (d,i) => that.yScale(d.moveY))
+                .attr('r', (d,i) => d.circleSize)
+                .attr("class", "circle")
+                .attr("transform", "translate("+10+",0)")
+                .attr("fill", (d,i) => this.colorScale(d.category))
+                .style("opacity", 1);
 
         }
         else if (that.isExpanded === true) {
             that.isExpanded = false;
 
-            that.addCircles();
+            let chart = d3.select('.plot-svg').selectAll('circle')
+                .data(that.circles_arr)
 
-            // let chart = d3.select('.plot-svg').selectAll('circle')
-            //     .data(that.circles_arr)
-
-            // chart.style("opacity", 1)
-            //     .exit().remove()
-            //     .transition()
-            //     .duration(5)
-            //     .style("opacity",0);
+            chart.style("opacity", 1)
+                .exit().remove()
+                .transition()
+                .duration(5)
+                .style("opacity",0);
             
-            // chart
-            //     .enter().append("rect")
-            //     .merge(chart)
+            chart
+                .enter().append("rect")
+                .merge(chart)
             
-            // chart.style("opacity", 0)
-            //     .transition()
-            //     .duration(750)
-            //     .attr('cx', (d,i) => that.xScale(d.xVal))
-            //     .attr('cy', (d,i) => that.yScale(d.yVal))
-            //     .attr('r', (d,i) => d.circleSize)
-            //     .attr("class", "circle")
-            //     .attr("transform", "translate("+10+",0)")
-            //     .attr("fill", (d,i) => this.colorScale(d.category))
-            //     .style("opacity", 1);
+            chart.style("opacity", 0)
+                .transition()
+                .duration(750)
+                .attr('cx', (d,i) => that.xScale(d.xVal))
+                .attr('cy', (d,i) => that.yScale(d.yVal))
+                .attr('r', (d,i) => d.circleSize)
+                .attr("class", "circle")
+                .attr("transform", "translate("+10+",0)")
+                .attr("fill", (d,i) => this.colorScale(d.category))
+                .style("opacity", 1);
         }
            
 
