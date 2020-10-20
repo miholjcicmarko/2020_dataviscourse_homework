@@ -236,9 +236,14 @@ class bubblechart {
             .attr("class", "circle")
             .attr("transform", "translate("+10+",0)")
             .attr("fill", (d,i) => this.colorScale(d.category))
-            .classed("Demo-Extreme", function (d) {
-                if (d.percent )
-            })
+            .attr("class", function (d) {
+                if (d.d_percentage > 0.48){
+                    return "Dem-Extreme";
+                }
+                else if (d.r_percentage > 0.51) {
+                    return "Rep-Extreme";
+                }
+            });
 
         let svg = d3.select('.plot-svg');
         let brush_chart = d3.selectAll('.brushes');
