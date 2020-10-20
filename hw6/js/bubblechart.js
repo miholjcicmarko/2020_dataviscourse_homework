@@ -241,6 +241,7 @@ class bubblechart {
     
         this.brush(svg, brush_chart, brush_width, brush_height);
                 
+         
     }
 
     /**
@@ -302,8 +303,8 @@ class bubblechart {
 
         if (that.isExpanded === false){
             that.isExpanded = true;
-            let chart = d3.select('.plot-svg').append("g").selectAll('circle')
-                .data(that.circles_arr);
+            let chart = d3.select('.plot-svg').selectAll('circle')
+                .data(that.circles_arr)
 
             chart.style("opacity", 1)
                 .exit().remove()
