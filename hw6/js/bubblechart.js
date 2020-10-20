@@ -99,7 +99,7 @@ class bubblechart {
 
         this.xScale = d3.scaleLinear()
             .domain([d3.min(xVals),d3.max(xVals)])
-            .range([0, this.width]);
+            .range([0, this.width - this.margin.left]);
 
         this.yScale = d3.scaleLinear()
             .domain([d3.min(yVals), d3.max(yVals)])
@@ -123,9 +123,8 @@ class bubblechart {
             yMoves.push(this.circles_arr[i].moveY);
         }
 
-        debugger;
+        this.max_brush_width = d3.max(xVals)+40;
 
-        this.max_brush_width = d3.max(xVals);
     }
 
     /**
