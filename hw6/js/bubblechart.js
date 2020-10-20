@@ -193,7 +193,7 @@ class bubblechart {
                     let selectionThis = this;
                     let selection = d3.select(selectionThis);
     
-                    let brush = d3.brushX().extent([[0,0], [brush_width, brush_height]]);
+                    let brush = d3.brushX().extent([[0,40], [brush_width, brush_height+5]]);
     
                     brush
                          .on('start', function() {
