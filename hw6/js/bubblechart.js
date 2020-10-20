@@ -173,8 +173,7 @@ class bubblechart {
                 .attr("class", "y-label");   
                 
             d3.select('#chart-view').select('.plot-svg')
-                .selectAll('g').classed('brushes', true)
-                .join('g');
+                .append('g').classed('brushes', true);
                 
             let toggleGroup = d3.select("#toggle-group");
 
@@ -224,15 +223,39 @@ class bubblechart {
             //.attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "axis line");
 
-        d3.select('.plot-svg').select('.brushes').selectAll('circle')
-            .data(this.circles_arr)
-            .enter().append("circle")
-            .attr('cx', (d,i) => this.xScale(d.xVal))
-            .attr('cy', (d,i) => this.yScale(d.yVal))
-            .attr('r', (d,i) => d.circleSize)
-            .attr("class", "circle")
-            .attr("transform", "translate("+10+",0)")
-            .attr("fill", (d,i) => this.colorScale(d.category));
+        if (!this.isExpanded) {
+            let svg = d3.select('.plot-svg').select('.brushes').selectAll('circle')
+                .data(this.circles_arr)
+                .enter().append("circle")
+                .attr('cx', (d,i) => this.xScale(d.xVal))
+                .attr('cy', (d,i) => this.yScale(d.yVal))
+                .attr('r', (d,i) => d.circleSize)
+                .attr("class", "circle")
+                .attr("transform", "translate("+10+",0)")
+                .attr("fill", (d,i) => this.colorScale(d.category));
+        }
+        else if (this.isExpanded) {
+            let svg = d3.select('.plot-svg').select('.brushes').selectAll('circle')
+                .data(this.circles_arr)
+                .enter().append("circle")
+                .attr('cx', (d,i) => this.xScale(d.xVal))
+                .attr('cy', (d,i) => this.yScale(d.yVal))
+                .attr('r', (d,i) => d.circleSize)
+                .attr("class", "circle")
+                .attr("transform", "translate("+10+",0)")
+                .attr("fill", (d,i) => this.colorScale(d.category))
+                .groups(d, d => d.category);
+                debugger;
+        }
+        // let svg = d3.select('.plot-svg').select('.brushes').selectAll('circle')
+        //     .data(this.circles_arr)
+        //     .enter().append("circle")
+        //     .attr('cx', (d,i) => this.xScale(d.xVal))
+        //     .attr('cy', (d,i) => this.yScale(d.yVal))
+        //     .attr('r', (d,i) => d.circleSize)
+        //     .attr("class", "circle")
+        //     .attr("transform", "translate("+10+",0)")
+        //     .attr("fill", (d,i) => this.colorScale(d.category));
 
         let svg = d3.select('.plot-svg');
         let brush_chart = d3.selectAll('.brushes');
@@ -242,7 +265,6 @@ class bubblechart {
     
         this.brush(svg, brush_chart, brush_width, brush_height);
                 
-         
     }
 
     /**
@@ -276,7 +298,7 @@ class bubblechart {
                     }
                     let [y1,y2] = brushSelection;
 
-                    svg.selectAll("circle").classed("brushed", false);
+                    svg.selectAll("circle").classed("brushed", true);
                     console.log("hello");
 
                 });
