@@ -72,8 +72,8 @@ class bubblechart {
                                 this.data[i].category, this.data[i].total, 
                                 this.data[i].moveX, this.data[i].moveY, 
                                 this.data[i].position, this.data[i].total, 
-                                this.data[i].d_percentage, 
-                                this.data[i].r_percentage);
+                                this.data[i].percent_of_d_speeches, 
+                                this.data[i].percent_of_r_speeches);
             this.circles_arr.push(circle_data);
         }
 
