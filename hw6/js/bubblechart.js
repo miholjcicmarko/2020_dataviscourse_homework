@@ -293,6 +293,9 @@ class bubblechart {
                 
     }
 
+    /*
+    Binds the circles
+    */
     bindCircle (data, group, isExpanded) {
         if (!isExpanded) {
 
