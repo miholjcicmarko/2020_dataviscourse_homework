@@ -237,10 +237,10 @@ class bubblechart {
             .attr("transform", "translate("+10+",0)")
             .attr("fill", (d,i) => this.colorScale(d.category))
             .attr("class", function (d) {
-                if (d.d_percentage > 0.48){
+                if (d.d_percentage > 48){
                     return "Dem-Extreme";
                 }
-                else if (d.r_percentage > 0.51) {
+                else if (d.r_percentage > 51) {
                     return "Rep-Extreme";
                 }
             });
