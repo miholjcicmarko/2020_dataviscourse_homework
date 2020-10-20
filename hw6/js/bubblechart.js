@@ -12,7 +12,7 @@ class CircleData {
      */
     
     constructor(phrase, xVal, yVal, category, circleSize, moveX, moveY,
-                position, total) {
+                position, total, d_percentage, r_percentage) {
 
         let position_val = +position;
         let position_fixed = position_val.toFixed(3);
@@ -28,6 +28,8 @@ class CircleData {
         this.moveY = moveY;
         this.position = position_fixed;
         this.frequency = frequency_fixed;
+        this.d_percentage = d_percentage;
+        this.r_percentage = r_percentage;
     }
 }
 
@@ -69,7 +71,9 @@ class bubblechart {
                                 this.data[i].sourceX, this.data[i].sourceY,
                                 this.data[i].category, this.data[i].total, 
                                 this.data[i].moveX, this.data[i].moveY, 
-                                this.data[i].position, this.data[i].total);
+                                this.data[i].position, this.data[i].total, 
+                                this.data[i].d_percentage, 
+                                this.data[i].r_percentage);
             this.circles_arr.push(circle_data);
         }
 
@@ -231,7 +235,10 @@ class bubblechart {
             .attr('r', (d,i) => d.circleSize)
             .attr("class", "circle")
             .attr("transform", "translate("+10+",0)")
-            .attr("fill", (d,i) => this.colorScale(d.category));
+            .attr("fill", (d,i) => this.colorScale(d.category))
+            .classed("Demo-Extreme", function (d) {
+                if (d.percent )
+            })
 
         let svg = d3.select('.plot-svg');
         let brush_chart = d3.selectAll('.brushes');
@@ -365,7 +372,9 @@ class bubblechart {
      *
      */
     showExtremes() {
-        let that = this;
+        
+
+
     }
 
 
