@@ -118,7 +118,7 @@ class bubblechart {
         this.unique_categories = [... new Set(category_arr)];
 
         this.colorScale = d3.scaleOrdinal()
-            .domain(unique_categories)
+            .domain(this.unique_categories)
             .range(d3.schemeSet2);
 
         let yMoves = [];
