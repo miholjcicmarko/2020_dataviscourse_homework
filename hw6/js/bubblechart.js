@@ -317,22 +317,22 @@ class bubblechart {
         if (!isExpanded) {
 
             for (let i = 0; i < data.length; i++) {
-                d3.select('.plot-svg').select(''+group[i]).selectAll("circle")
+                d3.select('.plot-svg').select('#'+group[i]).selectAll("circle")
                     .data(data[i])
                     .enter().append("circle")
-                .attr('cx', (d,i) => this.xScale(d.xVal))
-                .attr('cy', (d,i) => this.yScale(d.yVal))
-                .attr('r', (d,i) => d.circleSize)
-                .attr("class", "circle")
-                .attr("transform", "translate("+10+",0)")
-                .attr("fill", (d,i) => this.colorScale(d.category))
-                .attr("class", function (d) {
-                if (d.d_percentage > 48){
-                    return "Dem-Extreme";
-                }
-                else if (d.r_percentage > 51) {
-                    return "Rep-Extreme";
-                }
+                    .attr('cx', (d,i) => this.xScale(d.xVal))
+                    .attr('cy', (d,i) => this.yScale(d.yVal))
+                    .attr('r', (d,i) => d.circleSize)
+                    .attr("class", "circle")
+                    .attr("transform", "translate("+10+",0)")
+                    .attr("fill", (d,i) => this.colorScale(d.category))
+                    .attr("class", function (d) {
+                    if (d.d_percentage > 48){
+                        return "Dem-Extreme";
+                    }
+                    else if (d.r_percentage > 51) {
+                        return "Rep-Extreme";
+                    }
             });
 
             }
