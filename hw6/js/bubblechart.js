@@ -283,13 +283,12 @@ class bubblechart {
 
         this.bindCircle(this.cat_circles, this.group, this.isExpanded);
 
-        let svg = d3.select('.plot-svg').selectAll('g');
         let brush_chart = d3.selectAll('.brushes');
 
         let brush_width = this.xScale(this.max_brush_width);
         let brush_height = this.height;
     
-        this.brush(svg, brush_chart, brush_width, brush_height);
+        this.brush(brush_chart, brush_width, brush_height);
                 
     }
 
@@ -332,7 +331,7 @@ class bubblechart {
     /**
      * Creates the brush
      */
-    brush(svg, brush_chart, brush_width, brush_height) {
+    brush(brush_chart, brush_width, brush_height) {
         let activeBrush = null;
         let activeBrushNode = null;
 
