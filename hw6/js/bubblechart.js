@@ -117,6 +117,16 @@ class bubblechart {
             .domain(unique_categories)
             .range(d3.schemeSet2);
 
+        debugger;
+
+        let yMoves = [];
+
+        for (let i = 0; i < this.circles_arr.length; i++) {
+            yMoves.push(this.circles_arr[i].moveY);
+        }
+
+        this.max_brush_width = d3.min(xVals);
+        this.max_height_width = d3.max(yMoves);
     }
 
     /**
@@ -181,7 +191,7 @@ class bubblechart {
                     let selectionThis = this;
                     let selection = d3.select(selectionThis);
     
-                    let brush = d3.brushX().extent([[0,0], [150, 100]]);
+                    let brush = d3.brushX().extent([[0,0], [this.width, 100]]);
     
                     brush
                          .on('start', function() {
