@@ -365,6 +365,8 @@ class bubblechart {
      */
     showExtremes() {
         let that = this;
+
+        
     }
 
 
