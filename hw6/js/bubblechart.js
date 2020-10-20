@@ -180,43 +180,49 @@ class bubblechart {
                         .append('g').classed('brushes', true)
                         .append('rect').attr('width', this.width)
                         .attr("height", this.height)
-                        .attr("transform", 'translate(0,0)')
-                        .classed("brush_dim");
+                        //.attr("transform", 'translate(0,0)')
+                        .classed("brush_dim")
+                        .attr("id", "g1");
 
             let g2 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         .append('rect').attr('width', this.width)
                         .attr("height", this.height)
-                        .attr("transform", 'translate(0,'+this.height+')')
-                        .classed("brush_dim");
+                        //.attr("transform", 'translate(0,'+this.height+')')
+                        .classed("brush_dim")
+                        .attr("id", "g2");
 
             let g3 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)    
                         .append('rect').attr('width', this.width)
                         .attr("height", this.height)
-                        .attr("transform", 'translate(0,'+this.height*2+')')
-                        .classed("brush_dim");
+                        //.attr("transform", 'translate(0,'+this.height*2+')')
+                        .classed("brush_dim")
+                        .attr("id", "g3");
 
             let g4 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         .append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height)
-                        .attr("transform", 'translate(0,'+this.height*3+')')
-                        .classed("brush_dim");
+                        //.attr("transform", 'translate(0,'+this.height*3+')')
+                        .classed("brush_dim")
+                        .attr("id", "g4");
             
             let g5 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         .append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height)
-                        .attr("transform", 'translate(0,'+this.height*4+')')
-                        .classed("brush_dim");
+                        //.attr("transform", 'translate(0,'+this.height*4+')')
+                        .classed("brush_dim")
+                        .attr("id", "g5");
 
             let g6 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         .append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height)
-                        .attr("transform", 'translate(0,'+this.height*5+')')
-                        .classed("brush_dim");
+                        //.attr("transform", 'translate(0,'+this.height*5+')')
+                        .classed("brush_dim")
+                        .attr("id", "g6");
 
             let toggleGroup = d3.select("#toggle-group");
 
@@ -272,26 +278,30 @@ class bubblechart {
             let cat = this.circles_arr.filter(d => d.category === this.unique_categories[i]);
             cat_circles.push(cat);
         }
-        
-        debugger;
 
-        d3.select('.plot-svg').select('.brushes').selectAll('circle')
-            .data(this.circles_arr)
-            .enter().append("circle")
-            .attr('cx', (d,i) => this.xScale(d.xVal))
-            .attr('cy', (d,i) => this.yScale(d.yVal))
-            .attr('r', (d,i) => d.circleSize)
-            .attr("class", "circle")
-            .attr("transform", "translate("+10+",0)")
-            .attr("fill", (d,i) => this.colorScale(d.category))
-            .attr("class", function (d) {
-                if (d.d_percentage > 48){
-                    return "Dem-Extreme";
-                }
-                else if (d.r_percentage > 51) {
-                    return "Rep-Extreme";
-                }
-            });
+        debugger;
+        
+        let group = ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'];
+
+        this.bindCircle(cat_circles, group, this.isExpanded);
+
+        // d3.select('.plot-svg').selectAll('circle')
+        //     .data(this.circles_arr)
+        //     .enter().append("circle")
+        //     .attr('cx', (d,i) => this.xScale(d.xVal))
+        //     .attr('cy', (d,i) => this.yScale(d.yVal))
+        //     .attr('r', (d,i) => d.circleSize)
+        //     .attr("class", "circle")
+        //     .attr("transform", "translate("+10+",0)")
+        //     .attr("fill", (d,i) => this.colorScale(d.category))
+        //     .attr("class", function (d) {
+        //         if (d.d_percentage > 48){
+        //             return "Dem-Extreme";
+        //         }
+        //         else if (d.r_percentage > 51) {
+        //             return "Rep-Extreme";
+        //         }
+        //     });
 
         let svg = d3.select('.plot-svg');
         let brush_chart = d3.selectAll('.brushes');
@@ -302,6 +312,35 @@ class bubblechart {
         this.brush(svg, brush_chart, brush_width, brush_height);
                 
     }
+
+    bindCircle (data, group, isExpanded) {
+        if (!isExpanded) {
+
+            for (let i = 0; i < data.length; i++) {
+                d3.select('.plot-svg').select(''+group[i]).selectAll("circle")
+                    .data(data[i])
+                    .enter().append("circle")
+                .attr('cx', (d,i) => this.xScale(d.xVal))
+                .attr('cy', (d,i) => this.yScale(d.yVal))
+                .attr('r', (d,i) => d.circleSize)
+                .attr("class", "circle")
+                .attr("transform", "translate("+10+",0)")
+                .attr("fill", (d,i) => this.colorScale(d.category))
+                .attr("class", function (d) {
+                if (d.d_percentage > 48){
+                    return "Dem-Extreme";
+                }
+                else if (d.r_percentage > 51) {
+                    return "Rep-Extreme";
+                }
+            });
+
+            }
+           
+        }
+
+    }
+
 
     /**
      * Creates the brush
