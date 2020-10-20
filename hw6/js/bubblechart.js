@@ -384,6 +384,7 @@ class bubblechart {
     toggleExpansion() {
         //button toggles between
         // animated transitions
+        debugger;
         let that = this;
 
         if (that.isExpanded === false){
@@ -393,6 +394,7 @@ class bubblechart {
 
             let data_arr = that.cat_circles[i];
             let group_select = that.group[i];
+            let group_loc = that.height*i;
 
             let chart = d3.select('.plot-svg').select('#'+group_select).selectAll('circle')
                 .data(data_arr)
@@ -415,6 +417,7 @@ class bubblechart {
                 .attr('r', (d,i) => d.circleSize)
                 .attr("class", "circle")
                 .attr("transform", "translate("+10+",0)")
+                .attr("transform", 'translate(0,'+group_loc+')')
                 .attr("fill", (d,i) => this.colorScale(d.category))
                 .style("opacity", 1);
             }
