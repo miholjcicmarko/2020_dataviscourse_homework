@@ -272,36 +272,18 @@ class bubblechart {
             //.attr("transform", "translate("+this.margin.left+",0)")
             .attr("class", "axis line");
 
-        let cat_circles = [];
+        this.cat_circles = [];
 
         for (let i = 0; i < this.unique_categories.length; i++) {
             let cat = this.circles_arr.filter(d => d.category === this.unique_categories[i]);
-            cat_circles.push(cat);
+            this.cat_circles.push(cat);
         }
 
         debugger;
         
-        let group = ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'];
+        this.group = ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'];
 
         this.bindCircle(cat_circles, group, this.isExpanded);
-
-        // d3.select('.plot-svg').selectAll('circle')
-        //     .data(this.circles_arr)
-        //     .enter().append("circle")
-        //     .attr('cx', (d,i) => this.xScale(d.xVal))
-        //     .attr('cy', (d,i) => this.yScale(d.yVal))
-        //     .attr('r', (d,i) => d.circleSize)
-        //     .attr("class", "circle")
-        //     .attr("transform", "translate("+10+",0)")
-        //     .attr("fill", (d,i) => this.colorScale(d.category))
-        //     .attr("class", function (d) {
-        //         if (d.d_percentage > 48){
-        //             return "Dem-Extreme";
-        //         }
-        //         else if (d.r_percentage > 51) {
-        //             return "Rep-Extreme";
-        //         }
-        //     });
 
         let svg = d3.select('.plot-svg');
         let brush_chart = d3.selectAll('.brushes');
@@ -407,8 +389,14 @@ class bubblechart {
 
         if (that.isExpanded === false){
             that.isExpanded = true;
-            let chart = d3.select('.plot-svg').selectAll('circle')
-                .data(that.circles_arr)
+
+            for (let i = 0; i < that.cat_circles.length; i++) {
+
+            let data_arr = that.cat_circles[i];
+            let group_select = that.group[i];
+
+            let chart = d3.select('.plot-svg').select('#'+group_select).selectAll('circle')
+                .data(data_arr)
 
             chart.style("opacity", 1)
                 .exit().remove()
@@ -430,7 +418,7 @@ class bubblechart {
                 .attr("transform", "translate("+10+",0)")
                 .attr("fill", (d,i) => this.colorScale(d.category))
                 .style("opacity", 1);
-
+            }
         }
         else if (that.isExpanded === true) {
             that.isExpanded = false;
