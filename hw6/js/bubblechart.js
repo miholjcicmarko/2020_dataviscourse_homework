@@ -317,7 +317,7 @@ class bubblechart {
         if (!isExpanded) {
 
             for (let i = 0; i < data.length; i++) {
-                d3.select('.plot-svg').select('#'+group[i]).selectAll("circle")
+                d3.select('.plot-svg').selectAll('g').select('#'+group[i]).selectAll("circle")
                     .data(data[i])
                     .enter().append("circle")
                     .attr('cx', (d,i) => this.xScale(d.xVal))
