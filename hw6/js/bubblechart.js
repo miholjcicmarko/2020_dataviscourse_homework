@@ -315,10 +315,12 @@ class bubblechart {
 
     bindCircle (data, group, isExpanded) {
         if (!isExpanded) {
-            let data_arr = data[i];
-            let group_select = group[i];
 
             for (let i = 0; i < data.length; i++) {
+
+                let data_arr = data[i];
+                let group_select = group[i];
+        
                 d3.select('.plot-svg').select('#'+group_select).selectAll("circle")
                     .data(data_arr)
                     .enter().append("circle")
