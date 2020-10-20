@@ -269,7 +269,7 @@ class bubblechart {
         let cat_circles = [];
 
         for (let i = 0; i < this.unique_categories.length; i++) {
-            let cat = this.circles_arr.filter(d => d.category === this.unique_categories[0]);
+            let cat = this.circles_arr.filter(d => d.category === this.unique_categories[i]);
             cat_circles.push(cat);
         }
         
