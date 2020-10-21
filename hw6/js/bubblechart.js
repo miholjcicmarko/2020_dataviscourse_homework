@@ -527,11 +527,15 @@ class bubblechart {
                 
                 let coord = rect.getBoundingClientRect();
 
-                let demDiv = d3.select('#overlay').select('#demExtreme').append('text')
+                let demDiv = d3.select('#overlay').select('#demExtreme');
+
+                demDiv.style.translate(coord.x, coord.y);
+                
+                demDiv.append('text')
 
                 demDiv
-                    .attr("x", coord.x)
-                    .attr("y", coord.y)
+                    .attr("x", 0)
+                    .attr("y", 0)
                     .classed("textDiv", true)
                     .text("Democrats");
 
