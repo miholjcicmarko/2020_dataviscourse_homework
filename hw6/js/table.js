@@ -628,5 +628,6 @@ class table {
 
         this.chartData = newData;
         this.drawTable();
+        
     }
 }
