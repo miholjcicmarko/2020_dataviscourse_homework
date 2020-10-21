@@ -527,19 +527,15 @@ class bubblechart {
                 
                 let coord = rect.getBoundingClientRect();
 
-                let demDiv = d3.select('#overlay');
+                let demDiv = d3.select('#overlay').select('#demExtreme');
 
-                //demDiv.html(this.circleDiv(d) + "<br/>");
-                    //.style("left", (d3.))
-
-                //demDiv.style.transform = "translate(coord.x, coord.y)";
+                demDiv.style.transform = "translate(coord.x, coord.y)";
                 
-                // demDiv.append('text')
-                //     .attr("x", coord.x)
-                //     .attr("y", coord.y)
-                //     .attr("transform", "translate("+500+",0)")
-                //     //.classed("textDiv", true)
-                //     .text("Democrats");
+                demDiv.append('text')
+                    .attr("x", coord.x)
+                    .attr("y", coord.y)
+                    //.classed("textDiv", true)
+                    .text("Democrats");
 
                 // let min = d3.min(this.circles_arr, d => d.moveX)
                 // let minIndex = d3.minIndex(this.circles_arr, d => d.moveX);
@@ -555,7 +551,10 @@ class bubblechart {
 
             }
 
+
         }
+
+        
 
     }
 
@@ -581,20 +580,6 @@ class bubblechart {
         return phrase + "\n" + 
             party + " " + pos + "%" +"\n" + 
             "In " + freq + "%" + " of speeches";
-    }
-
-    /**
-     * Makes the text for the circle div
-     */
-    circleDiv (identifier){
-        if (identifier === "dem") {
-            let text = "<h2>" + "Democratic speeches" + "</h2>";
-            return text;
-        }
-        else if (identifier === "rep") {
-            let text = "<h2>" + "Republican speeches" + "</h2>";
-            return text;
-        }
     }
 
 }
