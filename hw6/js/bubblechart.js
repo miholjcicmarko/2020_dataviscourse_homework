@@ -522,9 +522,9 @@ class bubblechart {
                 let minY = this.circles_arr[minIndex].moveY;
 
                 let minDiv = document.getElementById('minDiv')
-                minDiv.style.position = "absolute";
-                minDiv.style.top = minY;
-                minDiv.style.left = min;
+                // minDiv.style.position = "absolute";
+                // minDiv.style.top = minY;
+                // minDiv.style.left = min;
                 minDiv.innerHTML += "Democratic speeches mentioned climate change 49.11% more";
                 
 
