@@ -42,6 +42,7 @@ class bubblechart {
      */
     constructor(wordData, updateTable) {
         this.updateTable = updateTable;
+        
         this.data = wordData;
         this.chartData = [...wordData];
 
