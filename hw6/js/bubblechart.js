@@ -40,7 +40,8 @@ class bubblechart {
      *
      * @param data the full dataset
      */
-    constructor(wordData) {
+    constructor(wordData, updateTable) {
+        this.updateTable = updateTable;
         this.data = wordData;
         this.chartData = [...wordData];
 

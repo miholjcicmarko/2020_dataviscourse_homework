@@ -5,10 +5,9 @@ class table {
      *
      * @param data the full dataset
      */
-    constructor(data, selectedData) {
-        if (selectedData === null) {
+    constructor(data, updateTable) {
 
-        };
+        this.updateTable = updateTable;
 
         this.data = data;
         this.chartData = [...data]
@@ -625,5 +624,12 @@ class table {
             total.selectAll("i")
                 .attr("class", "fas no-display"); 
         }
+    }
+
+    /* 
+    Updates the Table
+    */
+    updatePhrase(newData) {
+
     }
 }
