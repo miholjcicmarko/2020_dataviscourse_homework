@@ -47,7 +47,7 @@ Promise.all([words_json]).then(data => {
     }
 
     debugger;
-    let bubbles = new bubblechart(data[0]);
+    let bubbles = new bubblechart(data[0], updateTable);
     bubbles.drawChart();
     let bars = new table(data[0], updateTable);
     bars.drawTable();
