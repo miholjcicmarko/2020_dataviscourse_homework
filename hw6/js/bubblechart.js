@@ -521,12 +521,7 @@ class bubblechart {
                 let minIndex = d3.minIndex(this.circles_arr, d => d.moveX);
                 let minY = this.circles_arr[minIndex].moveY;
 
-                let minDiv = d3.select('#chart-view').
-                                    select('.plot-svg').select('#minDiv');
-                
-                minDiv.css('position', 'absolute');
-                minDiv.css('left', min);
-                minDiv.css('top', minY);
+                let minDiv = document.getElementById('minDiv');
 
                 minDiv.append("text")
                     .attr("x", -10)
