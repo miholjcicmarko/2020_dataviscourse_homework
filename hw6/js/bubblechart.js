@@ -364,7 +364,12 @@ class bubblechart {
                     }
                     let [y1,y2] = brushSelection;
 
-                    svg.selectAll("circle").classed("brushed", true);
+                    svg.selectAll("circle").classed("brushed", false);
+                    
+                    let filteredData = activeBrushNode.selectAll("circle")
+                        .filter(d => d[1] >= y1 && d[1] <= y2)
+                        .classed("brushed", true);
+
                     
 
                 });
@@ -372,7 +377,7 @@ class bubblechart {
                 .on('end', function() {
                     let brushSelection = d3.brushSelection(selectionThis);
                     if(!brushSelection){
-                        svg.selectAll("circle").classed("brushed",false);
+                        svg.selectAll("circle").classed("brushed",true);
                     }
                    
                 });
