@@ -283,8 +283,6 @@ class bubblechart {
 
         this.bindCircle(this.cat_circles, this.group, this.isExpanded);
 
-        debugger;
-
         let svg = d3.select('#chart-view').select('.plot-svg');
 
         let brush_chart = d3.selectAll('.brushes');
@@ -366,11 +364,12 @@ class bubblechart {
 
                     svg.selectAll("circle").classed("brushed", false);
                     
+                    debugger;
                     let filteredData = activeBrushNode.selectAll("circle")
                         .filter(d => d[1] >= y1 && d[1] <= y2)
                         .classed("brushed", true);
 
-                    
+
 
                 });
             brush   
