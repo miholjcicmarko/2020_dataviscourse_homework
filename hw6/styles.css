@@ -182,11 +182,4 @@ div.tooltip {
 /*
 Stylings for the brush
 */
-.brushed {
-    fill: black;
-}
 
-.brush_dim {
-    fill: none;
-    stroke: 'none';
-}
