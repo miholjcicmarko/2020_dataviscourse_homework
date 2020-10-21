@@ -473,6 +473,7 @@ class bubblechart {
                 .attr("fill", (d,i) => that.colorScale(d.category))
                 .style("opacity", 1);
             }
+            this.brush();
         }
         else if (that.isExpanded === true) {
             that.isExpanded = false;
@@ -507,7 +508,7 @@ class bubblechart {
                 .attr("fill", (d,i) => that.colorScale(d.category))
                 .style("opacity", 1);
         }
-           
+        this.brush();
     }
     }
 
