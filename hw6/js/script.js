@@ -43,8 +43,8 @@ Promise.all([words_json]).then(data => {
     function updateTable(newData) {
 
         if (newData === null) {
-            that.selectedData = null;
-            bars.clearUpdate();
+            let bars = new table(data[0]);
+            bars.drawTable();
         }
         else {
             that.selectedData = newData;
@@ -55,6 +55,6 @@ Promise.all([words_json]).then(data => {
     debugger;
     let bubbles = new bubblechart(data[0], updateTable);
     bubbles.drawChart();
-    let bars = new table(data[0], updateTable);
+    let bars = new table(data[0]);
     bars.drawTable();
 });

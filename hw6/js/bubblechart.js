@@ -367,11 +367,11 @@ class bubblechart {
 
                     svg.selectAll("circle").classed("brushed", false);
                     
-                    let filteredData = activeBrushNode.selectAll("circle")
-                        .filter(d => d.xVal >= that.xScale.invert(x1) && d.xVal <= that.xScale.invert(x2))
-                        .classed("brushed", true);
+                    // let filteredData = activeBrushNode.selectAll("circle")
+                    //     .filter(d => d.xVal >= that.xScale.invert(x1) && d.xVal <= that.xScale.invert(x2))
+                    //     .classed("brushed", true);
 
-                    console.log(filteredData);
+                    // console.log(filteredData);
 
                     that.updateTable(filteredData);
                     
@@ -383,6 +383,14 @@ class bubblechart {
                         svg.selectAll("circle").classed("brushed",true);
                     }
                    
+                    let filteredData = activeBrushNode.selectAll("circle")
+                        .filter(d => d.xVal >= that.xScale.invert(x1) && d.xVal <= that.xScale.invert(x2))
+                        .classed("brushed", true);
+
+                    console.log(filteredData);
+
+                    that.updateTable(filteredData);
+
                 });
             selection.call(brush);
             
