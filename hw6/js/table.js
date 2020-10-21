@@ -625,7 +625,7 @@ class table {
     Updates the Table
     */
     updatePhrase(newData) {
-
+        debugger;
         for (let i = 0; i < newData.length; i++) {
             if (newData.phrase) {
 
