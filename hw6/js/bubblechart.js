@@ -514,15 +514,18 @@ class bubblechart {
             this.isExtreme = true; 
 
             if (this.isExpanded) {
-                let min = d3.min(this.circles_arr, d => d.moveX)
-                let minIndex = d3.minIndex(this.circles_arr, d => d.moveX);
-                let minY = this.circles_arr[minIndex].moveY;
 
-                let minDiv = document.getElementById('minDiv')
+
+                // let min = d3.min(this.circles_arr, d => d.moveX)
+                // let minIndex = d3.minIndex(this.circles_arr, d => d.moveX);
+                // let minY = this.circles_arr[minIndex].moveY;
+
+                document.getElementById('overlay').style.display = "block";
+
                 // minDiv.style.position = "absolute";
                 // minDiv.style.top = minY;
                 // minDiv.style.left = min;
-                minDiv.innerHTML += "Democratic speeches mentioned climate change 49.11% more";
+                // minDiv.innerHTML += "Democratic speeches mentioned climate change 49.11% more";
                 
 
             }
