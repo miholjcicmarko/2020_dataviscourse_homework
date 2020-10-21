@@ -47,6 +47,7 @@ class bubblechart {
         this.chartData = [...wordData];
 
         this.isExpanded = false;
+        this.isExtreme = false;
 
         // for (let bubble of this.chartData)
         // {
@@ -183,53 +184,50 @@ class bubblechart {
                         //.append('rect').attr('width', this.width)
                         .attr("height", this.height-10)
                         .attr("id", "g1")
-                        .attr("transform", 'translate(0,0)')
-                        .classed("brush_dim");
+                        .attr("transform", 'translate(0,0)');
 
             let g2 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.width)
                         .attr("height", this.height-this.margin.bottom)
                         .attr("id", "g2")
-                        .attr("transform", 'translate(0,'+this.height+')')
-                        .classed("brush_dim");
+                        .attr("transform", 'translate(0,'+this.height+')');
 
             let g3 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)    
                         //.append('rect').attr('width', this.width)
                         .attr("height", this.height-this.margin.bottom)
                         .attr("id", "g3")
-                        .attr("transform", 'translate(0,'+this.height*2+')')
-                        .classed("brush_dim");
+                        .attr("transform", 'translate(0,'+this.height*2+')');
 
             let g4 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height-this.margin.bottom)
                         .attr("id", "g4")
-                        .attr("transform", 'translate(0,'+this.height*3+')')
-                        .classed("brush_dim");
+                        .attr("transform", 'translate(0,'+this.height*3+')');
             
             let g5 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height-this.margin.bottom)
                         .attr("id", "g5")
-                        .attr("transform", 'translate(0,'+this.height*4+')')
-                        .classed("brush_dim");
+                        .attr("transform", 'translate(0,'+this.height*4+')');
 
             let g6 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height-this.margin.bottom)
                         .attr("id", "g6")
-                        .attr("transform", 'translate(0,'+this.height*5+')')
-                        .classed("brush_dim");
+                        .attr("transform", 'translate(0,'+this.height*5+')');
 
             let toggleGroup = d3.select("#toggle-group");
 
             let extremeButton = d3.select("#extreme-button");
-            
+
+            let minDiv = d3.select('#chart-view').select('.plot-svg').append('div')
+                .attr("id", "minDiv");
+                
             this.addCircles();
 
             let that = this;
@@ -316,22 +314,14 @@ class bubblechart {
                     .attr('r', (d,i) => d.circleSize)
                     .attr("class", "circle")
                     .attr("transform", "translate("+10+",0)")
-                    .attr("fill", (d,i) => this.colorScale(d.category))
-                    .attr("class", function (d) {
-                    if (d.d_percentage > 48){
-                        return "Dem-Extreme";
-                    }
-                    else if (d.r_percentage > 51) {
-                        return "Rep-Extreme";
-                    }
-            });
+                    .attr("fill", (d,i) => this.colorScale(d.category));
+            };
 
-            }
+        
            
         }
 
     }
-
 
     /**
      * Creates the brush
@@ -522,11 +512,32 @@ class bubblechart {
      *
      */
     showExtremes() {
-        let exteme1 = d3.selectAll(".plot-svg").selectAll("circle")
-            .select("Dem-Extreme").append("div");
+        if (this.isExtreme === false) {
+            this.isExtreme = true; 
 
-        let extreme2 = d3.selectAll(".plot-svg").selectAll("circle")
-            .select("Rep-Extreme").append("div");
+            if (this.isExpanded) {
+                let min = d3.min(this.circles_arr.moveX);
+                let minIndex = d3.minIndex(this.circles_arr.moveX);
+                let minY = this.circles_arr[minIndex].moveY;
+
+                let minDiv = d3.select('#chart-view').
+                                    select('.plot-svg').select('#minDiv');
+                
+                minDiv.css('position', 'absolute');
+                minDiv.css('left', min);
+                minDiv.css('top', minY);
+
+                minDiv.append("text")
+                    .attr("x", -10)
+                    .attr("y", -10)
+                    .text("hello");
+
+            }
+
+
+        }
+
+        
 
     }
 
