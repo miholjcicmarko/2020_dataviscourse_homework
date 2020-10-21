@@ -361,7 +361,7 @@ class bubblechart {
                 .on('brush', function () {
                     let brushSelection = d3.brushSelection(selectionThis);
                     if (brushSelection) {
-                        selectionData = [];
+                        let selectionData = [];
 
                         let [x1,x2] = brushSelection;
 
@@ -386,6 +386,7 @@ class bubblechart {
                     if(!brushSelection){
                         svg.selectAll("circle").classed("brushed",true);
                     }
+                    let selectionData = [];
 
                     let [x1,x2] = brushSelection;
                    
