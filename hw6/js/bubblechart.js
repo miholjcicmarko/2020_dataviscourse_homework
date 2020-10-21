@@ -369,12 +369,24 @@ class bubblechart {
                         let selectionData = that.circles_arr.filter(d => d.xVal >= that.xScale.invert(x1) &&
                                                     d.xVal <= that.xScale.invert(x2));
 
-                        // brushSelection.forEach((d,i) => {
-                        //     if (d.xVal >= that.xScale.invert(x1) &&
-                        //         d.xVal <= that.xScale.invert(x2)) {
-                        //             selectionData.push(i);
-                        //         }
-                        // })
+                        if (that.isExpanded) {
+                            let group_select = d3.select(this).attr("id");    
+                            
+                            let groups = ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'];
+                                
+                            let index = 0;
+                                
+                            for (let i = 0; i < groups.length; i++) {
+                                if (group_select === groups[i]) {
+                                    index = i;
+                                }
+                            }
+                                
+                            let category = that.unique_categories[index];
+                                
+                            selectionData = selectionData.filter(d => d.category === category);
+                                
+                        }
 
                         that.updateTable(selectionData);
                     }
@@ -386,7 +398,6 @@ class bubblechart {
                         svg.selectAll("circle").classed("brushed",true);
                     }
                  
-
                     let [x1,x2] = brushSelection;
 
                     svg.selectAll("circle").classed("brushed", false);
