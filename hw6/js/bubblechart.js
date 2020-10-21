@@ -388,10 +388,8 @@ class bubblechart {
                         svg.selectAll("circle").classed("brushed",true);
                     }
                     debugger;
-                    let selectionData = [];
 
                     let [x1,x2] = brushSelection;
-
 
                     svg.selectAll("circle").classed("brushed", false);
                         
