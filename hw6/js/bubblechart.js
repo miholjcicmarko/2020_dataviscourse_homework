@@ -338,45 +338,45 @@ class bubblechart {
         let activeBrush = null;
         let activeBrushNode = null;
 
-        brush_chart.each(function() {
-            let selectionThis = this;
-            let selection = d3.select(selectionThis);
+        // brush_chart.each(function() {
+        //     let selectionThis = this;
+        //     let selection = d3.select(selectionThis);
 
-            let brush = d3.brushX().extent([[0,0], [brush_width, brush_height]]);
+        //     let brush = d3.brushX().extent([[0,0], [brush_width, brush_height]]);
 
-            brush
-                .on('start', function() {
-                    if (activeBrush && selection !== activeBrushNode) {
-                        activeBrushNode.call(activeBrush.move, null);
-                    }
-                    activeBrush = brush;
+        //     brush
+        //         .on('start', function() {
+        //             if (activeBrush && selection !== activeBrushNode) {
+        //                 activeBrushNode.call(activeBrush.move, null);
+        //             }
+        //             activeBrush = brush;
 
-                    activeBrushNode = selection;
+        //             activeBrushNode = selection;
                    
-                });
-            brush
-                .on('brush', function () {
-                    let brushSelection = d3.brushSelection(selectionThis);
-                    if (!brushSelection) {
-                        return;
-                    }
-                    let [y1,y2] = brushSelection;
+        //         });
+        //     brush
+        //         .on('brush', function () {
+        //             let brushSelection = d3.brushSelection(selectionThis);
+        //             if (!brushSelection) {
+        //                 return;
+        //             }
+        //             let [y1,y2] = brushSelection;
 
-                    svg.selectAll("circle").classed("brushed", true);
+        //             svg.selectAll("circle").classed("brushed", true);
                     
 
-                });
-            brush   
-                .on('end', function() {
-                    let brushSelection = d3.brushSelection(selectionThis);
-                    if(!brushSelection){
-                        svg.selectAll("circle").classed("brushed",false);
-                    }
+        //         });
+        //     brush   
+        //         .on('end', function() {
+        //             let brushSelection = d3.brushSelection(selectionThis);
+        //             if(!brushSelection){
+        //                 svg.selectAll("circle").classed("brushed",false);
+        //             }
                    
-                });
-            selection.call(brush);
+        //         });
+        //     selection.call(brush);
             
-        });
+        // });
     }
 
 
