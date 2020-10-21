@@ -527,29 +527,22 @@ class bubblechart {
                 
                 let coord = rect.getBoundingClientRect();
 
-                let minDiv = d3.select('#chart-view').select('.plot-svg').append('div')
-                    .attr("id", "demExtreme");
-
-                minDiv.append('svg')
-                    .attr("width", this.width + this.margin.left + this.margin.right)
-                    .attr("height", this.chartHeight + this.margin.top + this.margin.bottom);
-
-                // let demDiv = d3.select('#overlay').select('#demExtreme')
-                //     .append('svg')
-                //     .attr("width", this.width)
-                //     .attr("height", this.chartHeight);
+                let demDiv = d3.select('#overlay').select('#demExtreme')
+                    .append('svg')
+                    .attr("width", this.width)
+                    .attr("height", this.chartHeight);
                 
-                minDiv.append('text')
+                demDiv.append('text')
                     .attr("x", coord.x)
-                    .attr("y", coord.y)
-                    .classed("textDiv", true)
+                    .attr("y", 500)
+                    //.classed("textDiv", true)
                     .text("Democrats");
 
                 // let min = d3.min(this.circles_arr, d => d.moveX)
                 // let minIndex = d3.minIndex(this.circles_arr, d => d.moveX);
                 // let minY = this.circles_arr[minIndex].moveY;
 
-                //document.getElementById('overlay').style.display = "block";
+                document.getElementById('overlay').style.display = "block";
 
                 // minDiv.style.position = "absolute";
                 // minDiv.style.top = minY;
