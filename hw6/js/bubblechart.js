@@ -283,6 +283,8 @@ class bubblechart {
 
         this.bindCircle(this.cat_circles, this.group, this.isExpanded);
 
+        debugger;
+
         let brush_chart = d3.selectAll('.brushes');
 
         let brush_width = this.xScale(this.max_brush_width);
