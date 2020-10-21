@@ -5,9 +5,7 @@ class table {
      *
      * @param data the full dataset
      */
-    constructor(data, updateTable) {
-
-        this.updateTable = updateTable;
+    constructor(data) {
 
         this.data = data;
         this.chartData = [...data]
@@ -223,9 +221,6 @@ class table {
             .attr("fill", (d,i) => colorScale(d.category));
 
     }
-
-
-
 
     /**
      * Draws the bar chart for the percentages column
