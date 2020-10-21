@@ -41,9 +41,15 @@ Promise.all([words_json]).then(data => {
     let that = data;
 
     function updateTable(newData) {
-        bars.selectedData = newData;
 
-        bars.updatePhrase(newData);
+        if (newData === null) {
+            that.selectedData = null;
+            bars.clearUpdate();
+        }
+        else {
+            that.selectedData = newData;
+            bars.updatePhrase(newData);
+        }
     }
 
     debugger;
