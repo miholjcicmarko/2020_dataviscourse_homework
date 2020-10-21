@@ -227,6 +227,8 @@ class bubblechart {
 
             let minDiv = d3.select('#chart-view').select('.plot-svg').append('div')
                 .attr("id", "minDiv");
+
+             minDiv.append(div).attr('id', "textDiv");
                 
             this.addCircles();
 
