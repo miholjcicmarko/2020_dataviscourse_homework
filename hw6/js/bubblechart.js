@@ -181,7 +181,7 @@ class bubblechart {
                         //.append('rect').attr('width', this.width)
                         .attr("height", this.height)
                         .attr("id", "g1")
-                        //.attr("transform", 'translate(0,0)')
+                        .attr("transform", 'translate(0,0)')
                         .classed("brush_dim");
 
             let g2 = d3.select('#chart-view').select('.plot-svg')
@@ -189,7 +189,7 @@ class bubblechart {
                         //.append('rect').attr('width', this.width)
                         .attr("height", this.height)
                         .attr("id", "g2")
-                        //.attr("transform", 'translate(0,'+this.height+')')
+                        .attr("transform", 'translate(0,'+this.height+')')
                         .classed("brush_dim");
 
             let g3 = d3.select('#chart-view').select('.plot-svg')
@@ -197,7 +197,7 @@ class bubblechart {
                         //.append('rect').attr('width', this.width)
                         .attr("height", this.height)
                         .attr("id", "g3")
-                        //.attr("transform", 'translate(0,'+this.height*2+')')
+                        .attr("transform", 'translate(0,'+this.height*2+')')
                         .classed("brush_dim");
 
             let g4 = d3.select('#chart-view').select('.plot-svg')
@@ -205,7 +205,7 @@ class bubblechart {
                         //.append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height)
                         .attr("id", "g4")
-                        //.attr("transform", 'translate(0,'+this.height*3+')')
+                        .attr("transform", 'translate(0,'+this.height*3+')')
                         .classed("brush_dim");
             
             let g5 = d3.select('#chart-view').select('.plot-svg')
@@ -213,7 +213,7 @@ class bubblechart {
                         //.append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height)
                         .attr("id", "g5")
-                        //.attr("transform", 'translate(0,'+this.height*4+')')
+                        .attr("transform", 'translate(0,'+this.height*4+')')
                         .classed("brush_dim");
 
             let g6 = d3.select('#chart-view').select('.plot-svg')
@@ -221,7 +221,7 @@ class bubblechart {
                         //.append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height)
                         .attr("id", "g6")
-                        //.attr("transform", 'translate(0,'+this.height*5+')')
+                        .attr("transform", 'translate(0,'+this.height*5+')')
                         .classed("brush_dim");
 
             let toggleGroup = d3.select("#toggle-group");
@@ -302,12 +302,13 @@ class bubblechart {
 
                 let data_arr = data[i];
                 let group_select = group[i];
+                let group_loc = this.height*i;
         
                 d3.select('.plot-svg').select('#'+group_select).selectAll("circle")
                     .data(data_arr)
                     .enter().append("circle")
                     .attr('cx', (d,i) => this.xScale(d.xVal))
-                    .attr('cy', (d,i) => this.yScale(d.yVal))
+                    .attr('cy', (d,i) => this.yScale(d.yVal) - group_loc);
                     .attr('r', (d,i) => d.circleSize)
                     .attr("class", "circle")
                     .attr("transform", "translate("+10+",0)")
@@ -384,7 +385,6 @@ class bubblechart {
     toggleExpansion() {
         //button toggles between
         // animated transitions
-        debugger;
         let that = this;
 
         if (that.isExpanded === false){
@@ -394,7 +394,6 @@ class bubblechart {
 
             let data_arr = that.cat_circles[i];
             let group_select = that.group[i];
-            let group_loc = that.height*i;
 
             let chart = d3.select('.plot-svg').select('#'+group_select).selectAll('circle')
                 .data(data_arr)
@@ -417,7 +416,6 @@ class bubblechart {
                 .attr('r', (d,i) => d.circleSize)
                 .attr("class", "circle")
                 .attr("transform", "translate("+10+",0)")
-                .attr("transform", 'translate(0,'+group_loc+')')
                 .attr("fill", (d,i) => this.colorScale(d.category))
                 .style("opacity", 1);
             }
