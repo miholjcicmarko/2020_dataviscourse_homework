@@ -199,8 +199,8 @@ class table {
 
         let category_arr = [];
 
-        for (let i = 0; i < this.chartData.length; i++) {
-            category_arr.push(this.chartData[i].category);
+        for (let i = 0; i < this.data.length; i++) {
+            category_arr.push(this.data[i].category);
         }
 
         let unique_categories = [... new Set(category_arr)];
@@ -635,7 +635,7 @@ class table {
                 }
             }
         }
-        debugger;
+        console.log(selectedData);
         this.chartData = selectedData;
         this.drawTable();
 
