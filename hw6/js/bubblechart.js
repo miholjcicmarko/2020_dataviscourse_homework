@@ -367,10 +367,11 @@ class bubblechart {
 
                     svg.selectAll("circle").classed("brushed", false);
                     
-                    debugger;
                     let filteredData = activeBrushNode.selectAll("circle")
-                        .filter(d => d[1] >= x1 && d[1] <= x2)
+                        .filter(d => d.xVal >= x1 && d.xVal <= x2)
                         .classed("brushed", true);
+
+                    console.log(filteredData);
 
                     that.updateTable(filteredData);
                     
