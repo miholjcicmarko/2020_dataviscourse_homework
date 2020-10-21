@@ -368,12 +368,14 @@ class bubblechart {
 
                         svg.selectAll("circle").classed("brushed", false);
                         
-                        brushSelection.forEach((d,i) => {
-                            if (d.xVal >= that.xScale.invert(x1) &&
-                                d.xVal <= that.xScale.invert(x2)) {
-                                    selectionData.push(i);
-                                }
-                        })
+                        
+
+                        // brushSelection.forEach((d,i) => {
+                        //     if (d.xVal >= that.xScale.invert(x1) &&
+                        //         d.xVal <= that.xScale.invert(x2)) {
+                        //             selectionData.push(i);
+                        //         }
+                        // })
                     }
 
                     console.log(selectionData);
