@@ -363,13 +363,13 @@ class bubblechart {
                     if (!brushSelection) {
                         return;
                     }
-                    let [y1,y2] = brushSelection;
+                    let [x1,x2] = brushSelection;
 
                     svg.selectAll("circle").classed("brushed", false);
                     
                     debugger;
                     let filteredData = activeBrushNode.selectAll("circle")
-                        .filter(d => d[1] >= y1 && d[1] <= y2)
+                        .filter(d => d[1] >= x1 && d[1] <= x2)
                         .classed("brushed", true);
 
                     that.updateTable(filteredData);
