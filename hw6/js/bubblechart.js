@@ -517,11 +517,8 @@ class bubblechart {
             this.isExtreme = true; 
 
             if (this.isExpanded) {
-                let min = d3.min(this.circles_arr, function(d) {
-                    return d3.min(d.moveX, function(e) {
-                        d3.min(e);
-                    })});
-                let minIndex = d3.minIndex(this.circles_arr.moveX);
+                let min = d3.min(this.circles_arr, d => d.moveX)
+                let minIndex = d3.minIndex(this.circles_arr, d => moveX);
                 let minY = this.circles_arr[minIndex].moveY;
 
                 let minDiv = d3.select('#chart-view').
