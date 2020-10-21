@@ -405,7 +405,7 @@ class bubblechart {
 
                     console.log(selectionData);
 
-                    that.updateTable(filteredData);
+                    that.updateTable(selectionData);
 
                 });
             selection.call(brush);
