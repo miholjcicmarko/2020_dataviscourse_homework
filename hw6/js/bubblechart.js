@@ -376,8 +376,6 @@ class bubblechart {
                         //         }
                         // })
 
-                        console.log(selectionData);
-
                         that.updateTable(selectionData);
                     }
                 });
@@ -403,7 +401,7 @@ class bubblechart {
                     //     }
                     // })
 
-                    console.log(selectionData);
+                    debugger;
 
                     that.updateTable(selectionData);
 
