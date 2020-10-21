@@ -37,7 +37,7 @@ words_json = d3.json('data/words.json');
 
 Promise.all([words_json]).then(data => {
     data.selectedData = null;
-    debugger;
+
     let that = data;
 
     function updateTable(newData) {
@@ -52,7 +52,6 @@ Promise.all([words_json]).then(data => {
         }
     }
 
-    debugger;
     let bubbles = new bubblechart(data[0], updateTable);
     bubbles.drawChart();
     let bars = new table(data[0]);
