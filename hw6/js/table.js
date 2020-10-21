@@ -635,7 +635,7 @@ class table {
                 }
             }
         }
-        
+        debugger;
         this.chartData = selectedData;
         this.drawTable();
 
