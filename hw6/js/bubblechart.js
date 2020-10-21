@@ -224,11 +224,6 @@ class bubblechart {
             let toggleGroup = d3.select("#toggle-group");
 
             let extremeButton = d3.select("#extreme-button");
-
-            let minDiv = d3.select('#chart-view').select('.plot-svg').append('div')
-                .attr("id", "minDiv");
-
-             minDiv.append(div).attr('id', "textDiv");
                 
             this.addCircles();
 
