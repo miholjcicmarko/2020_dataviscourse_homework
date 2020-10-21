@@ -308,7 +308,7 @@ class bubblechart {
                     .data(data_arr)
                     .enter().append("circle")
                     .attr('cx', (d,i) => this.xScale(d.xVal))
-                    .attr('cy', (d,i) => this.yScale(d.yVal) - group_loc);
+                    .attr('cy', (d,i) => this.yScale(d.yVal) - group_loc)
                     .attr('r', (d,i) => d.circleSize)
                     .attr("class", "circle")
                     .attr("transform", "translate("+10+",0)")
