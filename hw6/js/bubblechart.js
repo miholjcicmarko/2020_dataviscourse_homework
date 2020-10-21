@@ -527,9 +527,13 @@ class bubblechart {
                 
                 let coord = rect.getBoundingClientRect();
 
-                d3.select('overlay').select('demExtreme').append('text')
+                let demDiv = d3.select('#overlay').select('#demExtreme').append('text')
+
+                demDiv
+                    .attr("x", coord.x)
+                    .attr("y", coord.y)
                     .classed("textDiv", true)
-                    .attr("transform", "translate(");
+                    .text("Democrats");
 
                 // let min = d3.min(this.circles_arr, d => d.moveX)
                 // let minIndex = d3.minIndex(this.circles_arr, d => d.moveX);
