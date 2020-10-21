@@ -395,7 +395,6 @@ class bubblechart {
                                                 d.xVal <= that.xScale.invert(x2));
                    
                     if (that.isExpanded) {
-                        debugger;
                         let group_select = d3.select(this).attr("id");
 
                         let groups = ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'];
