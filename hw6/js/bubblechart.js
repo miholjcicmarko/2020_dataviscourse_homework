@@ -529,7 +529,7 @@ class bubblechart {
 
                 let demDiv = d3.select('#overlay');
 
-                demDiv.html(this.circleDiv(d) + "<br/>");
+                //demDiv.html(this.circleDiv(d) + "<br/>");
                     //.style("left", (d3.))
 
                 //demDiv.style.transform = "translate(coord.x, coord.y)";
