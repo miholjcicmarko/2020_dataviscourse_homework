@@ -60,6 +60,6 @@ Promise.all([words_json]).then(data => {
 
     // This clears a selection by listening for a click
     document.addEventListener("click", function (e) {
-        updateCountry(null);
+        ;
     }, true);
 });
