@@ -199,7 +199,7 @@ Stylings for the div
     background-color: rgba(0,0,0,0.5);
 }
 
-#text{
+#text{ 
     position: absolute;
     top: 50%;
     left: 50%;
@@ -207,6 +207,6 @@ Stylings for the div
     color: white;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
-  }
+}
 
 

@@ -311,7 +311,15 @@ class bubblechart {
                     .attr('r', (d,i) => d.circleSize)
                     .attr("class", "circle")
                     .attr("transform", "translate("+10+",0)")
-                    .attr("fill", (d,i) => this.colorScale(d.category));
+                    .attr("fill", (d,i) => this.colorScale(d.category))
+                    .attr("id", function(d) {
+                        if (d.d_percentage > 49) {
+                            return "dem-Extreme";
+                        }
+                        else if (d.r_percentage > 51) {
+                            return "rep-Extreme";
+                        }
+                    });
             };
 
         
