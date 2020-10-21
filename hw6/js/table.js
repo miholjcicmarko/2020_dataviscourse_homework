@@ -628,7 +628,7 @@ class table {
 
         let selectedData = [];
         
-        for (let i = 0; i < newData.length; i++) {
+        for (let i = 0; i < this.data.length; i++) {
             if (newData[i].phrase === this.data[i].phrase) {
                 selectedData.push(this.data[i]);
             }
