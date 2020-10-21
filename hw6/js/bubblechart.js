@@ -523,6 +523,11 @@ class bubblechart {
 
             if (this.isExpanded) {
 
+                let rect = document.getElementById('dem-Extreme');
+                
+                let coord = rect.getBoundingClientRect();
+
+                //d3.select('overlay').select('demExtreme')
 
                 // let min = d3.min(this.circles_arr, d => d.moveX)
                 // let minIndex = d3.minIndex(this.circles_arr, d => d.moveX);
