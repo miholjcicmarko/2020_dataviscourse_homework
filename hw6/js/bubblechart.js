@@ -20,12 +20,12 @@ class CircleData {
         let frequency_fixed = frequency_val.toFixed(2);
 
         this.phrase = phrase;
-        this.xVal = xVal;
-        this.yVal = yVal;
+        this.xVal = +xVal;
+        this.yVal = +yVal;
         this.category = category;
         this.circleSize = +circleSize;
-        this.moveX = moveX;
-        this.moveY = moveY;
+        this.moveX = +moveX;
+        this.moveY = +moveY;
         this.position = position_fixed;
         this.frequency = frequency_fixed;
         this.d_percentage = d_percentage;
@@ -517,7 +517,10 @@ class bubblechart {
             this.isExtreme = true; 
 
             if (this.isExpanded) {
-                let min = d3.min(this.circles_arr.moveX);
+                let min = d3.min(this.circles_arr, function(d) {
+                    return d3.min(d.moveX, function(e) {
+                        d3.min(e);
+                    })});
                 let minIndex = d3.minIndex(this.circles_arr.moveX);
                 let minY = this.circles_arr[minIndex].moveY;
 
