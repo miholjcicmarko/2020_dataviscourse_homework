@@ -635,7 +635,7 @@ class table {
                 }
             }
         }
-        console.log(selectedData);
+        
         this.chartData = selectedData;
         this.drawTable();
 
