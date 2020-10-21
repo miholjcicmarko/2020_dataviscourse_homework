@@ -582,4 +582,16 @@ class bubblechart {
             "In " + freq + "%" + " of speeches";
     }
 
+    extremeRender(identifier) {
+        if (identifier === "extremeDem") {
+            let text = "<h2>" + data['country'] + "</h2>";
+            return text;
+        }
+        else if (indentifier === "extremeRep") {
+            let text = "<h2>" + data['country'] + "</h2>";
+            return text;
+        }
+    }
+
+
 }
