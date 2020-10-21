@@ -368,7 +368,7 @@ class bubblechart {
                     svg.selectAll("circle").classed("brushed", false);
                     
                     let filteredData = activeBrushNode.selectAll("circle")
-                        .filter(d => d.xVal >= x1 && d.xVal <= x2)
+                        .filter(d => d.xVal >= this.xScale.invert(x1) && d.xVal <= this.xScale.invert(x2))
                         .classed("brushed", true);
 
                     console.log(filteredData);
