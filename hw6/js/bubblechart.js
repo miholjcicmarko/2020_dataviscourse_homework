@@ -405,7 +405,7 @@ class bubblechart {
                             }
                         }
 
-                        let category = that.unique_categories[i];
+                        let category = that.unique_categories[index];
 
                         let selectionData = selectionData.filter(d => d.category === category);
 
