@@ -626,8 +626,7 @@ class table {
     */
     updatePhrase(newData) {
 
-        
-
-
+        this.chartData = newData;
+        this.drawTable();
     }
 }
