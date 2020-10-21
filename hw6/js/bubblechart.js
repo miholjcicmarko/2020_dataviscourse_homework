@@ -361,14 +361,13 @@ class bubblechart {
                 .on('brush', function () {
                     let brushSelection = d3.brushSelection(selectionThis);
                     if (brushSelection) {
-                      
-                        let selectionData = [];
 
                         let [x1,x2] = brushSelection;
 
                         svg.selectAll("circle").classed("brushed", false);
                         
-                        
+                        let selectionData = that.circles_arr.filter(d => d.xVal >= that.xScale.invert(x1) &&
+                                                    d.xVal <= that.xScale.invert(x2));
 
                         // brushSelection.forEach((d,i) => {
                         //     if (d.xVal >= that.xScale.invert(x1) &&
@@ -376,12 +375,11 @@ class bubblechart {
                         //             selectionData.push(i);
                         //         }
                         // })
+
+                        console.log(selectionData);
+
+                        that.updateTable(selectionData);
                     }
-
-                    console.log(selectionData);
-
-                    that.updateTable(filteredData);
-                    
                 });
             brush   
                 .on('end', function() {
@@ -393,13 +391,19 @@ class bubblechart {
                     let selectionData = [];
 
                     let [x1,x2] = brushSelection;
+
+
+                    svg.selectAll("circle").classed("brushed", false);
+                        
+                    let selectionData = that.circles_arr.filter(d => d.xVal >= that.xScale.invert(x1) &&
+                                                d.xVal <= that.xScale.invert(x2));
                    
-                    brushSelection.forEach((d,i) => {
-                        if (d.xVal >= that.xScale.invert(x1) &&
-                            d.xVal <= that.xScale.invert(x2)) {
-                                selectionData.push(i);
-                        }
-                    })
+                    // brushSelection.forEach((d,i) => {
+                    //     if (d.xVal >= that.xScale.invert(x1) &&
+                    //         d.xVal <= that.xScale.invert(x2)) {
+                    //             selectionData.push(i);
+                    //     }
+                    // })
 
                     console.log(selectionData);
 
