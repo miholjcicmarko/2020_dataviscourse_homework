@@ -399,9 +399,11 @@ class bubblechart {
 
                         let groups = ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'];
 
+                        let index = 0;
+
                         for (let i = 0; i < groups.length; i++) {
                             if (group_select === groups[i]) {
-                                let index = i;
+                                index = i;
                             }
                         }
 
