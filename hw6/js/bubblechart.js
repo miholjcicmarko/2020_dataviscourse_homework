@@ -42,7 +42,7 @@ class bubblechart {
      */
     constructor(wordData, updateTable) {
         this.updateTable = updateTable;
-        
+
         this.data = wordData;
         this.chartData = [...wordData];
 
@@ -337,6 +337,7 @@ class bubblechart {
      * Creates the brush
      */
     brush(svg, brush_chart, brush_width, brush_height) {
+        let that = this;
         let activeBrush = null;
         let activeBrushNode = null;
 
@@ -371,8 +372,8 @@ class bubblechart {
                         .filter(d => d[1] >= y1 && d[1] <= y2)
                         .classed("brushed", true);
 
-
-
+                    that.updateTable(filteredData);
+                    
                 });
             brush   
                 .on('end', function() {
