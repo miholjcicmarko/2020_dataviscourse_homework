@@ -626,8 +626,14 @@ class table {
     */
     updatePhrase(newData) {
 
-        this.chartData = newData;
-        this.drawTable();
+        for (let i = 0; i < newData.length; i++) {
+            if (newData.phrase) {
+
+            }
+        }
         
+        //this.chartData = newData;
+        this.drawTable();
+
     }
 }
