@@ -179,7 +179,7 @@ class bubblechart {
             let g1 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.width)
-                        .attr("height", this.height)
+                        .attr("height", this.height-10)
                         .attr("id", "g1")
                         .attr("transform", 'translate(0,0)')
                         .classed("brush_dim");
@@ -187,7 +187,7 @@ class bubblechart {
             let g2 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.width)
-                        .attr("height", this.height-this.margin.bottom-this.margin.right)
+                        .attr("height", this.height-this.margin.bottom)
                         .attr("id", "g2")
                         .attr("transform", 'translate(0,'+this.height+')')
                         .classed("brush_dim");
@@ -195,7 +195,7 @@ class bubblechart {
             let g3 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)    
                         //.append('rect').attr('width', this.width)
-                        .attr("height", this.height-this.margin.bottom-this.margin.right)
+                        .attr("height", this.height-this.margin.bottom)
                         .attr("id", "g3")
                         .attr("transform", 'translate(0,'+this.height*2+')')
                         .classed("brush_dim");
@@ -203,7 +203,7 @@ class bubblechart {
             let g4 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.max_brush_width)
-                        .attr("height", this.height-this.margin.bottom-this.margin.right)
+                        .attr("height", this.height-this.margin.bottom)
                         .attr("id", "g4")
                         .attr("transform", 'translate(0,'+this.height*3+')')
                         .classed("brush_dim");
@@ -211,7 +211,7 @@ class bubblechart {
             let g5 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.max_brush_width)
-                        .attr("height", this.height-this.margin.bottom-this.margin.right)
+                        .attr("height", this.height-this.margin.bottom)
                         .attr("id", "g5")
                         .attr("transform", 'translate(0,'+this.height*4+')')
                         .classed("brush_dim");
@@ -219,7 +219,7 @@ class bubblechart {
             let g6 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.max_brush_width)
-                        .attr("height", this.height-this.margin.bottom-this.margin.right)
+                        .attr("height", this.height-this.margin.bottom)
                         .attr("id", "g6")
                         .attr("transform", 'translate(0,'+this.height*5+')')
                         .classed("brush_dim");
