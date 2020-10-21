@@ -360,18 +360,22 @@ class bubblechart {
             brush
                 .on('brush', function () {
                     let brushSelection = d3.brushSelection(selectionThis);
-                    if (!brushSelection) {
-                        return;
+                    if (brushSelection) {
+                        selectionData = [];
+
+                        let [x1,x2] = brushSelection;
+
+                        svg.selectAll("circle").classed("brushed", false);
+                        
+                        brushSelection.forEach((d,i) => {
+                            if (d.xVal >= that.xScale.invert(x1) &&
+                                d.xVal <= that.xScale.invert(x2)) {
+                                    selectionData.push(i);
+                                }
+                        })
                     }
-                    let [x1,x2] = brushSelection;
 
-                    svg.selectAll("circle").classed("brushed", false);
-                    
-                    let filteredData = activeBrushNode.selectAll("circle")
-                        .filter(d => d.xVal >= that.xScale.invert(x1) && d.xVal <= that.xScale.invert(x2))
-                        .classed("brushed", true);
-
-                    console.log(filteredData);
+                    console.log(selectionData);
 
                     that.updateTable(filteredData);
                     
@@ -385,11 +389,14 @@ class bubblechart {
 
                     let [x1,x2] = brushSelection;
                    
-                    let filteredData = activeBrushNode.selectAll("circle")
-                        .filter(d => d.xVal >= that.xScale.invert(x1) && d.xVal <= that.xScale.invert(x2))
-                        .classed("brushed", true);
+                    brushSelection.forEach((d,i) => {
+                        if (d.xVal >= that.xScale.invert(x1) &&
+                            d.xVal <= that.xScale.invert(x2)) {
+                                selectionData.push(i);
+                        }
+                    })
 
-                    console.log(filteredData);
+                    Console.log(selectionData);
 
                     that.updateTable(filteredData);
 
