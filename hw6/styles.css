@@ -199,14 +199,17 @@ Stylings for the div
     background-color: rgba(0,0,0,0.5);
 }
 
-#text{ 
+.textDiv{ 
     position: absolute;
     top: 50%;
     left: 50%;
     font-size: 50px;
     color: white;
-    transform: translate(-50%,-50%);
+}
+    /*transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
 }
+
+
 
 
