@@ -430,6 +430,7 @@ class bubblechart {
 
             let data_arr = that.cat_circles[i];
             let group_select = that.group[i];
+            let group_loc = this.height*i;
     
             let chart = d3.select('.plot-svg').select('#'+group_select).selectAll('circle')
                 .data(data_arr)
@@ -448,7 +449,7 @@ class bubblechart {
                 .transition()
                 .duration(750)
                 .attr('cx', (d,i) => that.xScale(d.xVal))
-                .attr('cy', (d,i) => that.yScale(d.yVal))
+                .attr('cy', (d,i) => that.yScale(d.yVal - group_loc))
                 .attr('r', (d,i) => d.circleSize)
                 .attr("class", "circle")
                 .attr("transform", "translate("+10+",0)")
