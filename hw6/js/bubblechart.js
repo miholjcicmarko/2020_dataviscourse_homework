@@ -423,12 +423,11 @@ class bubblechart {
 
                         selectionData = selectionData.filter(d => d.category === category);
 
-                    }
-                    }
+                        debugger;
 
-                    debugger;
-
-                    that.updateTable(selectionData);
+                        that.updateTable(selectionData);
+                    }
+                }
 
                 });
             selection.call(brush);
