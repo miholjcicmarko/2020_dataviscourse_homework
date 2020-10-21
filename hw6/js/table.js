@@ -625,14 +625,16 @@ class table {
     Updates the Table
     */
     updatePhrase(newData) {
-        debugger;
-        for (let i = 0; i < newData.length; i++) {
-            if (newData.phrase) {
 
+        let selectedData = [];
+        
+        for (let i = 0; i < newData.length; i++) {
+            if (newData[i].phrase === this.chartData[i].phrase) {
+                selectedData.push(this.chartData[i]);
             }
         }
         
-        //this.chartData = newData;
+        this.chartData = selectedData;
         this.drawTable();
 
     }
