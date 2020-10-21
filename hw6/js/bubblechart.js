@@ -449,7 +449,7 @@ class bubblechart {
                 .transition()
                 .duration(750)
                 .attr('cx', (d,i) => that.xScale(d.xVal))
-                .attr('cy', (d,i) => that.yScale(d.yVal - group_loc))
+                .attr('cy', (d,i) => that.yScale(d.yVal))
                 .attr('r', (d,i) => d.circleSize)
                 .attr("class", "circle")
                 .attr("transform", "translate("+10+",0)")
