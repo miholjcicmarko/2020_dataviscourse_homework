@@ -280,12 +280,12 @@ class bubblechart {
 
         let svg = d3.select('#chart-view').select('.plot-svg');
 
-        this.brush_chart = d3.selectAll('.brushes');
+        let brush_chart = d3.selectAll('.brushes');
 
         let brush_width = this.xScale(this.max_brush_width);
         let brush_height = this.height;
     
-        this.brush(svg, this.brush_chart, brush_width, brush_height);
+        this.brush(svg, brush_chart, brush_width, brush_height);
 
         this.bindCircle(this.cat_circles, this.group, this.isExpanded);
                 
@@ -443,6 +443,9 @@ class bubblechart {
 
         if (that.isExpanded === false){
             that.isExpanded = true;
+             debugger;
+
+            d3.selectAll('.brushes').remove();
 
             for (let i = 0; i < that.cat_circles.length; i++) {
 
