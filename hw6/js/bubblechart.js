@@ -570,7 +570,7 @@ class bubblechart {
                 let textDiv2 = d3.select('#textRep')
                         .style("position", "relative")
                         .style("top", coord2.y+5 + "px")
-                        .style("left", 0 + "px")
+                        .style("left", coord2.x + "px")
                         .style("border", "2px solid black")
                         .classed("textDiv", true);
                 
@@ -619,9 +619,9 @@ class bubblechart {
             return text;
         }
         else if (identifier === "rep") {
-            let text = "Republican speeches" + "\n" +
+            let text = "<h5>" + "Republican speeches" + "\n" +
                         "mentioned prison" + "\n" +
-                        "52.33% more"
+                        "52.33% more" + "</h5>";
             return text;
         }
     }
