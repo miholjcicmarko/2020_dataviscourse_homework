@@ -299,11 +299,13 @@ class bubblechart {
     }
 
     addCatLabels() {
+        let cat_arr = this.unique_categories;
+
         debugger;
         let catLabels = d3.select('#bubbleSVG').selectAll('text')
-                            .data(this.unique_categories)
+                            .data(cat_arr)
                             .join('text')
-                            .text(d => ""+d)
+                            .text(d => d)
                             .attr("x", 0)
                             .attr("y", (d,i) => i*150);
 
