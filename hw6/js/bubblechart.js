@@ -310,7 +310,7 @@ class bubblechart {
                             .attr("y", (d,i) => i*150);
 
         if (this.isExpanded) {
-            catLabels.attr("opacity", 1);
+            catLabels.attr("opacity", 0);
         }
         else if (this.isExpanded === false) {
             catLabels.attr("opacity", 1);
