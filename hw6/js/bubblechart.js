@@ -243,11 +243,11 @@ class bubblechart {
                 that.showExtremes();
             });
 
-            let chartListener = d3.select('.brsuhes');
+            let chartListener = d3.select('.innerWrapper1');
                 
             chartListener.on("click", function() {
                 debugger;
-                this.updateTable(null);
+                that.updateTable(null);
             });
 
     }
