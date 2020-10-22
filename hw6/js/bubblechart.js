@@ -534,7 +534,7 @@ class bubblechart {
             this.isExtreme = true; 
 
             if (this.isExpanded) {
-
+                debugger;
                 let rect = document.getElementById('dem-Extreme');
                 
                 let coord = rect.getBoundingClientRect();
