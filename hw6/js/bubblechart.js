@@ -287,44 +287,41 @@ class bubblechart {
     
         this.brush(svg, brush_chart, brush_width, brush_height);
 
-        this.bindCircle(this.cat_circles, this.group, this.isExpanded);
+        this.bindCircle(this.cat_circles, this.group);
                 
     }
 
     /*
     Binds the circles
     */
-    bindCircle (data, group, isExpanded) {
-        if (!isExpanded) {
+    bindCircle (data, group) {
 
-            for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) {
 
-                let data_arr = data[i];
-                let group_select = group[i];
-                let group_loc = this.height*i;
+            let data_arr = data[i];
+            let group_select = group[i];
+            let group_loc = this.height*i;
         
-                d3.select('.plot-svg').select('#'+group_select).selectAll("circle")
-                    .data(data_arr)
-                    .enter().append("circle")
-                    .attr('cx', (d,i) => this.xScale(d.xVal))
-                    .attr('cy', (d,i) => this.yScale(d.yVal) - group_loc)
-                    .attr('r', (d,i) => d.circleSize)
-                    .attr("class", "circle")
-                    .attr("transform", "translate("+10+",0)")
-                    .attr("fill", (d,i) => this.colorScale(d.category))
-                    .attr("id", function(d) {
-                        if (d.d_percentage > 49) {
-                            return "dem-Extreme";
-                        }
-                        else if (d.r_percentage > 51) {
-                            return "rep-Extreme";
-                        }
-                    });
-            };
+            d3.select('.plot-svg').select('#'+group_select).selectAll("circle")
+                .data(data_arr)
+                .enter().append("circle")
+                .attr('cx', (d,i) => this.xScale(d.xVal))
+                .attr('cy', (d,i) => this.yScale(d.yVal) - group_loc)
+                .attr('r', (d,i) => d.circleSize)
+                .attr("class", "circle")
+                .attr("transform", "translate("+10+",0)")
+                .attr("fill", (d,i) => this.colorScale(d.category))
+                .attr("id", function(d) {
+                    if (d.d_percentage > 49) {
+                        return "dem-Extreme";
+                    }
+                    else if (d.r_percentage > 51) {
+                        return "rep-Extreme";
+                    }
+                });
+        };
 
         
-           
-        }
 
     }
 
@@ -446,6 +443,8 @@ class bubblechart {
              debugger;
 
             d3.selectAll('.brushes').remove();
+
+            that.drawChart();
 
             for (let i = 0; i < that.cat_circles.length; i++) {
 
