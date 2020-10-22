@@ -529,6 +529,7 @@ class bubblechart {
      *
      */
     showExtremes() {
+        debugger;
         if (this.isExtreme === false) {
          
             this.isExtreme = true; 
@@ -586,8 +587,8 @@ class bubblechart {
                 let coord = rect.getBoundingClientRect();
 
                 let drDiv = d3.select('#overlay')
-                                .style("top", 150 + "px")
-                                .style("left", 10 + "px");
+                                .style("top", 0 + "px")
+                                .style("left", 0 + "px");
 
                 drDiv.append("div")
                     .attr("id", "textDem")
@@ -596,8 +597,8 @@ class bubblechart {
 
                 let textDiv = d3.select('#textDem')
                         .style("position", "relative")
-                        .style("top", coord.y+5 + "px")
-                        .style("left", 0 + "px")
+                        .style("top", coord.y+35+ "px")
+                        .style("left", coord.x-95 + "px")
                         .style("border", "2px solid black")
                         .classed("textDiv", true);
                 
@@ -614,7 +615,7 @@ class bubblechart {
 
                 let textDiv2 = d3.select('#textRep')
                         .style("position", "relative")
-                        .style("top", coord2.y+60 + "px")
+                        .style("top", coord2.y-50 + "px")
                         .style("left", coord2.x + "px")
                         .style("border", "2px solid black")
                         .classed("textDiv", true);
@@ -624,8 +625,11 @@ class bubblechart {
                 document.getElementById('overlay').style.display = "block";
 
             }
+        }
+        else if (this.isExtreme === false) {
+            this.isExtreme = true;
 
-
+            document.getElementById('overlay').style.display = "none";            
         }
     }
 
