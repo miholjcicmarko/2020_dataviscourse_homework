@@ -297,7 +297,7 @@ class bubblechart {
     }
 
     addCatLabels() {
-        let catLabels = d3.select('.plot-svg').selectAll('text')
+        let catLabels = d3.select('#bubbleSVG').selectAll('text')
                             .data(this.unique_categories)
                             .join('text')
                             .text(d => ""+d)
@@ -513,13 +513,13 @@ class bubblechart {
                 .style("opacity", 1);
             }
 
-            let labels = d3.select(".plot-svg").selectAll("text");
+            let labels = d3.select("#bubbleSVG").selectAll("text");
 
             labels
                 .attr("opacity", 0)
                 .transition()
                 .duration(750)
-                .att("opacity", 1);
+                .attr("opacity", 1);
         }
         else if (that.isExpanded === true) {
             that.isExpanded = false;
