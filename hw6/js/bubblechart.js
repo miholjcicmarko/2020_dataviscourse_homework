@@ -534,6 +534,51 @@ class bubblechart {
             this.isExtreme = true; 
 
             if (this.isExpanded) {
+
+                let rect = document.getElementById('dem-Extreme');
+                
+                let coord = rect.getBoundingClientRect();
+
+                let drDiv = d3.select('#overlay')
+                                .style("top", 150 + "px")
+                                .style("left", 10 + "px");
+
+                drDiv.append("div")
+                    .attr("id", "textDem")
+                    .style("width", "100px")
+                    .style("height", "70px");
+
+                let textDiv = d3.select('#textDem')
+                        .style("position", "relative")
+                        .style("top", coord.y+5 + "px")
+                        .style("left", 0 + "px")
+                        .style("border", "2px solid black")
+                        .classed("textDiv", true);
+                
+                textDiv.html(this.extremeRender("dem"));
+
+                let rect2 = document.getElementById('rep-Extreme');
+                
+                let coord2 = rect2.getBoundingClientRect();
+
+                drDiv.append("div")
+                    .attr("id", "textRep")
+                    .style("width", "100px")
+                    .style("height", "70px");
+
+                let textDiv2 = d3.select('#textRep')
+                        .style("position", "relative")
+                        .style("top", coord2.y+60 + "px")
+                        .style("left", coord2.x + "px")
+                        .style("border", "2px solid black")
+                        .classed("textDiv", true);
+                
+                textDiv2.html(this.extremeRender("rep"));
+
+                document.getElementById('overlay').style.display = "block";
+                
+            }
+            else if (this.isExpanded === false) {
                 debugger;
 
                 let rect = document.getElementById('dem-Extreme');
@@ -569,7 +614,7 @@ class bubblechart {
 
                 let textDiv2 = d3.select('#textRep')
                         .style("position", "relative")
-                        .style("top", coord2.y+5 + "px")
+                        .style("top", coord2.y+60 + "px")
                         .style("left", coord2.x + "px")
                         .style("border", "2px solid black")
                         .classed("textDiv", true);
@@ -577,10 +622,7 @@ class bubblechart {
                 textDiv2.html(this.extremeRender("rep"));
 
                 document.getElementById('overlay').style.display = "block";
-                
-            }
-            else if (this.isExpanded === false) {
-                
+
             }
 
 
