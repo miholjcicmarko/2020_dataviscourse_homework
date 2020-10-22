@@ -185,8 +185,7 @@ class bubblechart {
                 .attr("text-anchor", "middle")
                 .attr("class", "y-label"); 
 
-            let chartListener = d3.select('#chart-view')
-                .select('#bubbleSVG');
+            let chartListener = d3.select('#bubbleSVG');
                 
             chartListener.on("click", function() {
                 debugger;
