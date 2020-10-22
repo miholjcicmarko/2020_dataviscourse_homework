@@ -527,16 +527,33 @@ class bubblechart {
                 
                 let coord = rect.getBoundingClientRect();
 
-                let demDiv = d3.select('#overlay').select('#demExtreme')
-                    .append('svg')
-                    .attr("width", this.width)
-                    .attr("height", this.chartHeight);
+                let demDiv = d3.select('#overlay')
+                                .style("top", 150 + "px")
+                                .style("left", 10 + "px");
+
+                // demDiv.html(this.extremeRender("dem"))
+                //      .classed("textDiv", true)
+                //      .style("top", coord.x + "px")
+                //      .style("left", coord.y + "px");
+
+                // demDiv
+                //      .append('svg')
+                //      .attr("id", "svgdem")
+                //      .attr("width", this.width)
+                //      .attr("height", this.chartHeight)
+                //      .classed("svgDiv", true);
                 
-                demDiv.append('text')
-                    .attr("x", coord.x)
-                    .attr("y", coord.y+500)
-                    //.classed("textDiv", true)
-                    .text("Democrats");
+                // let demsvg = d3.select('#svgdem').append('div')
+                //          .style("left", coord.x)
+                //          .style("top", coord.y)
+                //          .attr("id", "demdiv")
+                //          .classed("textDiv", true);
+
+                // let dimdiv = d3.select("demdiv");
+                
+                demDiv.html(this.extremeRender("dem"));
+
+
 
                 // let min = d3.min(this.circles_arr, d => d.moveX)
                 // let minIndex = d3.minIndex(this.circles_arr, d => d.moveX);
@@ -584,12 +601,16 @@ class bubblechart {
     }
 
     extremeRender(identifier) {
-        if (identifier === "extremeDem") {
-            let text = "<h2>" + data['country'] + "</h2>";
+        if (identifier === "dem") {
+            let text = "<h5>" + "Democratic speeches" + "<br/>" +
+                        "mentioned climate change" + "<br/>" +
+                        "49.11% more </h5>";
             return text;
         }
-        else if (indentifier === "extremeRep") {
-            let text = "<h2>" + data['country'] + "</h2>";
+        else if (indentifier === "rep") {
+            let text = "Republican speeches" + "\n" +
+                        "mentioned prison" + "\n" +
+                        "52.33% more"
             return text;
         }
     }
