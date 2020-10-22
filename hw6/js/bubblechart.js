@@ -243,15 +243,15 @@ class bubblechart {
                 that.showExtremes();
             });
 
-            let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
+            // let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
 
-            tooltip.on("mouseover", function(d) {
+            // tooltip.on("mouseover", function(d) {
 
-                d3.select(this).append("title")
-                    .attr("class", "div.tooltip")
-                    .attr("class", "tooltip h2")
-                    .text(that.tooltipRender(d));
-            });
+            //     d3.select(this).append("title")
+            //         .attr("class", "div.tooltip")
+            //         .attr("class", "tooltip h2")
+            //         .text(that.tooltipRender(d));
+            // });
 
     }
 
@@ -308,26 +308,37 @@ class bubblechart {
             let group_select = group[i];
             let group_loc = this.height*i;
         
-            d3.select('.plot-svg').select('#'+group_select).selectAll("circle")
-                .data(data_arr)
-                .enter().append("circle")
-                .attr('cx', (d,i) => this.xScale(d.xVal))
-                .attr('cy', (d,i) => this.yScale(d.yVal) - group_loc)
-                .attr('r', (d,i) => d.circleSize)
-                .attr("class", "circle")
-                .attr("transform", "translate("+10+",0)")
-                .attr("fill", (d,i) => this.colorScale(d.category))
-                .attr("id", function(d) {
-                    if (d.d_percentage > 49) {
-                        return "dem-Extreme";
-                    }
-                    else if (d.r_percentage > 51) {
-                        return "rep-Extreme";
-                    }
-                });
+            let circles = d3.select('.plot-svg').select('#'+group_select).selectAll("circle")
+                    .data(data_arr)
+                    .enter().append("circle")
+                    .attr('cx', (d,i) => this.xScale(d.xVal))
+                    .attr('cy', (d,i) => this.yScale(d.yVal) - group_loc)
+                    .attr('r', (d,i) => d.circleSize)
+                    .attr("class", "circle")
+                    .attr("transform", "translate("+10+",0)")
+                    .attr("fill", (d,i) => this.colorScale(d.category))
+                    .attr("id", function(d) {
+                        if (d.d_percentage > 49) {
+                            return "dem-Extreme";
+                        }
+                        else if (d.r_percentage > 51) {
+                            return "rep-Extreme";
+                        }
+                    });
         };
 
-        
+        let tooltip = d3.select('.tooltip');
+
+        circles.on('mouseover', function(d,i) {
+            tooltip.transition()
+                .duration(200)
+                .style("opacity", 0.9);
+
+            tooltip.html(that.tooltipDivRender(d))
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+                
+        });
 
     }
 
@@ -676,6 +687,11 @@ class bubblechart {
                         "52.33% more" + "</h5>";
             return text;
         }
+    }
+
+    tooltipDivRender(data) {
+        let text = "<h2>" + data['country'] + "</h2>";
+        return text;
     }
 
 
