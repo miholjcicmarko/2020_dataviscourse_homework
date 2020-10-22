@@ -533,11 +533,11 @@ class bubblechart {
                 
                 let coord = rect.getBoundingClientRect();
 
-                let demDiv = d3.select('#overlay')
+                let drDiv = d3.select('#overlay')
                                 .style("top", 150 + "px")
                                 .style("left", 10 + "px");
 
-                demDiv.append("div")
+                drDiv.append("div")
                     .attr("id", "textDem")
                     .style("width", "100px")
                     .style("height", "70px");
@@ -555,7 +555,7 @@ class bubblechart {
                 
                 let coord2 = rect2.getBoundingClientRect();
 
-                repDiv.append("div")
+                drDiv.append("div")
                     .attr("id", "textRep")
                     .style("width", "100px")
                     .style("height", "70px");
