@@ -4,9 +4,8 @@ Wrapper and view stylings
 
 .container {
     display: inline-grid;
-    grid-template-columns: [c1] 10%
-    [c2] 5% [c3] 10 [c4] 30% [c5] 50%;
-    grid-template-rows: [r1] 5% [r2] 95%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr;
 }
 
 .wrapper {
