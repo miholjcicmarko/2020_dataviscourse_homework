@@ -534,7 +534,7 @@ class bubblechart {
                 
                 demDiv.append('text')
                     .attr("x", coord.x)
-                    .attr("y", coord.y)
+                    .attr("y", coord.y+500)
                     //.classed("textDiv", true)
                     .text("Democrats");
 
