@@ -627,8 +627,8 @@ class bubblechart {
 
             }
         }
-        else if (this.isExtreme === false) {
-            this.isExtreme = true;
+        else if (this.isExtreme === true) {
+            this.isExtreme = false;
 
             document.getElementById('textDem').style.display = "none"; 
             document.getElementById('textRep').style.display = "none";           
