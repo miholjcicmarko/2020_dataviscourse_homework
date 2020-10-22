@@ -185,6 +185,8 @@ class bubblechart {
                 .attr("text-anchor", "middle")
                 .attr("class", "y-label"); 
                 
+            this.addCatLabels();
+
             let g1 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.width)
@@ -231,9 +233,9 @@ class bubblechart {
 
             let extremeButton = d3.select("#extreme-button");
 
-            this.addCatLabels();
+            //this.addCatLabels();
                 
-            this.addCircles();
+            //this.addCircles();
 
             let that = this;
                
@@ -302,12 +304,14 @@ class bubblechart {
                             .data(this.unique_categories)
                             .join('text')
                             .text(d => ""+d)
-                            .attr("y", (d,i) => this.margin.top + i*150);
+                            .attr("x", 0)
+                            .attr("y", (d,i) => i*150);
+
         if (this.isExpanded) {
             catLabels.attr("opacity", 1);
         }
         else if (this.isExpanded === false) {
-            catLabels.attr("opacity", 0);
+            catLabels.attr("opacity", 1);
         }
     }
 
