@@ -611,7 +611,7 @@ class bubblechart {
                         "49.11% more </h5>";
             return text;
         }
-        else if (indentifier === "rep") {
+        else if (identifier === "rep") {
             let text = "Republican speeches" + "\n" +
                         "mentioned prison" + "\n" +
                         "52.33% more"
