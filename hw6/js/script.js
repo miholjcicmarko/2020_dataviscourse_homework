@@ -58,7 +58,7 @@ Promise.all([words_json]).then(data => {
     bars.drawTable();
 
     // This clears a selection by listening for a click
-    // document.addEventListener("click", function (e) {
-    //     ;
-    // }, true);
+    document.addEventListener("click", function (e) {
+        updateTable(null);
+    }, true);
 });
