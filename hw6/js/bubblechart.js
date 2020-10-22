@@ -183,9 +183,7 @@ class bubblechart {
                 .attr("transform", "translate("+(20*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
                 .attr("class", "axis-label")
                 .attr("text-anchor", "middle")
-                .attr("class", "y-label"); 
-                
-            this.addCatLabels();
+                .attr("class", "y-label");
 
             let g1 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
@@ -233,9 +231,9 @@ class bubblechart {
 
             let extremeButton = d3.select("#extreme-button");
 
-            //this.addCatLabels();
+            this.addCatLabels();
                 
-            //this.addCircles();
+            this.addCircles();
 
             let that = this;
                
@@ -299,7 +297,8 @@ class bubblechart {
     }
 
     addCatLabels() {
-        let cat_arr = this.unique_categories;
+        let all_cat = ["economy/fiscal issues", "energy/environment"]
+        let cat_arr = all_cat.push(this.unique_categories);
 
         debugger;
         let catLabels = d3.select('#bubbleSVG').selectAll('text')
@@ -307,14 +306,15 @@ class bubblechart {
                             .join('text')
                             .text(d => d)
                             .attr("x", 0)
-                            .attr("y", (d,i) => i*150);
+                            .attr("y", (d,i) => 0)
+                            .attr("opacity", 1);
 
-        if (this.isExpanded) {
-            catLabels.attr("opacity", 0);
-        }
-        else if (this.isExpanded === false) {
-            catLabels.attr("opacity", 1);
-        }
+        // if (this.isExpanded) {
+        //     catLabels.attr("opacity", 0);
+        // }
+        // else if (this.isExpanded === false) {
+        //     catLabels.attr("opacity", 1);
+        // }
     }
 
     /*
