@@ -252,7 +252,6 @@ class bubblechart {
             let chartListener = d3.select('.innerWrapper1');
                 
             chartListener.on("click", function() {
-                debugger;
                 that.updateTable(null);
             });
 
@@ -307,12 +306,11 @@ class bubblechart {
         //     all_cat.push(this.unique_categories[i]);
         // }
 
-        debugger;
         let catLabels = d3.select('#groupLabel').selectAll('text')
                             .data(this.unique_categories)
                             .join('text')
                             .text(d => d)
-                            .attr("x", (d,i) => i*10)
+                            .attr("x", (d,i) => 10)
                             .attr("y", (d,i) => (i*150) + 100);
 
         if (this.isExpanded) {
