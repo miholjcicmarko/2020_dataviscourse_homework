@@ -196,7 +196,7 @@ Stylings for the div
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 2;
+    z-index: -1;
 }
 
 .svgDiv{
@@ -205,7 +205,7 @@ Stylings for the div
     left: 0;
     right: 200;
     bottom: 0;
-    z-index: 2;
+    z-index: -1;
 }
 
 .textDiv{ 
