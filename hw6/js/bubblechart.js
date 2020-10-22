@@ -297,12 +297,18 @@ class bubblechart {
     }
 
     addCatLabels() {
+        debugger;
         let catLabels = d3.select('#bubbleSVG').selectAll('text')
                             .data(this.unique_categories)
                             .join('text')
                             .text(d => ""+d)
-                            .attr("y", (d,i) => this.margin.top + i*150)
-                            .attr("opacity", 0);
+                            .attr("y", (d,i) => this.margin.top + i*150);
+        if (this.isExpanded) {
+            catLabels.attr("opacity", 1);
+        }
+        else if (this.isExpanded === false) {
+            catLabels.attr("opacity", 0);
+        }
     }
 
     /*
@@ -513,13 +519,7 @@ class bubblechart {
                 .style("opacity", 1);
             }
 
-            let labels = d3.select("#bubbleSVG").selectAll("text");
-
-            labels
-                .attr("opacity", 0)
-                .transition()
-                .duration(750)
-                .attr("opacity", 1);
+            that.addCatLabels();
         }
         else if (that.isExpanded === true) {
             that.isExpanded = false;
