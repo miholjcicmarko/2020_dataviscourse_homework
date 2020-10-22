@@ -419,8 +419,6 @@ class bubblechart {
 
                         selectionData = selectionData.filter(d => d.category === category);
 
-                        debugger;
-
                         that.updateTable(selectionData);
                     }
                 }
