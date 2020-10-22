@@ -441,6 +441,8 @@ class bubblechart {
         // animated transitions
         let that = this;
 
+        that.updateTable(null);
+
         if (that.isExpanded === false){
             that.isExpanded = true;
 
@@ -518,7 +520,7 @@ class bubblechart {
      */
     showExtremes() {
         if (this.isExtreme === false) {
-            debugger;
+         
             this.isExtreme = true; 
 
             if (this.isExpanded) {
