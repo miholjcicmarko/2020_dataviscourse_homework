@@ -183,8 +183,11 @@ class bubblechart {
                 .attr("class", "axis-label")
                 .attr("text-anchor", "middle")
                 .attr("class", "y-label"); 
+
+            let chartListener = d3.select('#chart-view').select('.plot-svg');
                 
-            svgGroup.on("click", function() {
+            chartListener.on("click", function() {
+                debugger;
                 this.updateTable(null);
             });
                 
