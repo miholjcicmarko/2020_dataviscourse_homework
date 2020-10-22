@@ -8,7 +8,7 @@ Container stylings for the button and slider
     grid-template-rows: 1fr;
     column-gap: 5px;
     
-    grid-template-areas: "switch";
+    grid-template-areas: "topicLabel switch";
 }
 
 #groupByTopicLabel {
@@ -17,7 +17,7 @@ Container stylings for the button and slider
 }
 
 /* 
-button stylings
+slider stylings
 */
 
 .switch {
@@ -79,6 +79,8 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+
 
 
 .wrapper {
