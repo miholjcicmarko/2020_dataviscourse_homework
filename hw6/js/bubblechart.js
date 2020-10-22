@@ -230,6 +230,8 @@ class bubblechart {
             let toggleGroup = d3.select("#toggle-group");
 
             let extremeButton = d3.select("#extreme-button");
+
+            this.addCatLabels();
                 
             this.addCircles();
 
@@ -292,6 +294,15 @@ class bubblechart {
 
         this.bindCircle(this.cat_circles, this.group);
                 
+    }
+
+    addCatLabels() {
+        let catLabels = d3.select('.plot-svg').selectAll('text')
+                            .data(this.unique_categories)
+                            .join('text')
+                            .text(d => ""+d)
+                            .attr("y", (d,i) => this.margin.top + i*150)
+                            .attr("opacity", 0);
     }
 
     /*
@@ -501,6 +512,14 @@ class bubblechart {
                 .attr("fill", (d,i) => that.colorScale(d.category))
                 .style("opacity", 1);
             }
+
+            let labels = d3.select(".plot-svg").selectAll("text");
+
+            labels
+                .attr("opacity", 0)
+                .transition()
+                .duration(750)
+                .att("opacity", 1);
         }
         else if (that.isExpanded === true) {
             that.isExpanded = false;
