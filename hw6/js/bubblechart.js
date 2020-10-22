@@ -132,6 +132,8 @@ class bubblechart {
 
         this.max_brush_width = d3.max(xVals)+40;
 
+        this.count = 0;
+
     }
 
     /**
@@ -150,10 +152,13 @@ class bubblechart {
             .attr("class", "tooltip")
             .style("opacity", 0);
 
-        d3.select('#chart-view')
+        if (this.count = 0) {
+            d3.select('#chart-view')
             .append('svg').classed('plot-svg', true)
             .attr("width", this.width + this.margin.left + this.margin.right)
             .attr("height", this.chartHeight + this.margin.top + this.margin.bottom);
+        }
+ 
 
         let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g');
     
@@ -434,6 +439,7 @@ class bubblechart {
     toggleExpansion() {
         //button toggles between
         // animated transitions
+        this.count = 1;
         let that = this;
 
         that.updateTable(null);
