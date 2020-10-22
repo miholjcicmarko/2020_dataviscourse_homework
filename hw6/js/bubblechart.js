@@ -285,7 +285,7 @@ class bubblechart {
         let brush_width = this.xScale(this.max_brush_width);
         let brush_height = this.height;
     
-        this.brush(svg, brush_chart, brush_width, brush_height);
+        this.brush(svg, this.brush_chart, brush_width, brush_height);
 
         this.bindCircle(this.cat_circles, this.group, this.isExpanded);
                 
@@ -442,8 +442,6 @@ class bubblechart {
         let that = this;
 
         that.updateTable(null);
-
-        debugger;
 
         if (that.isExpanded === false){
             that.isExpanded = true;
