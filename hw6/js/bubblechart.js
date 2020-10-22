@@ -154,13 +154,12 @@ class bubblechart {
             .attr("class", "tooltip")
             .style("opacity", 0);
 
-            d3.select('#chart-view')
+        d3.select('#chart-view')
             .append('svg').classed('plot-svg', true)
             .attr("width", this.width + this.margin.left + this.margin.right)
             .attr("height", this.chartHeight + this.margin.top + this.margin.bottom);
         }
  
-
         let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g');
     
             let xaxis = svgGroup.append("g")
@@ -183,7 +182,11 @@ class bubblechart {
                 .attr("transform", "translate("+(20*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
                 .attr("class", "axis-label")
                 .attr("text-anchor", "middle")
-                .attr("class", "y-label");   
+                .attr("class", "y-label"); 
+                
+            svgGroup.on("click", function() {
+                this.updateTable(null);
+            });
                 
             let g1 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
