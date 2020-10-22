@@ -638,6 +638,7 @@ class table {
         
         this.chartData = selectedData;
         this.drawTable();
+        this.sortHandlers();
 
     }
 }

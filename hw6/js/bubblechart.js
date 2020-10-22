@@ -480,6 +480,10 @@ class bubblechart {
         else if (that.isExpanded === true) {
             that.isExpanded = false;
 
+            d3.selectAll('.brushes').remove();
+
+            that.drawChart();
+
             for (let i = 0; i < that.cat_circles.length; i++) {
 
             let data_arr = that.cat_circles[i];
@@ -585,9 +589,6 @@ class bubblechart {
 
 
         }
-
-        
-
     }
 
 
