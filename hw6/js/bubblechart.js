@@ -450,7 +450,8 @@ class bubblechart {
 
             d3.selectAll('.brushes').remove();
 
-            document.getElementById('overlay').style.display = "none"; 
+            document.getElementById('overlay').style.display = "none";
+            that.isExtreme = false; 
 
             that.drawChart();
 
@@ -490,7 +491,8 @@ class bubblechart {
 
             d3.selectAll('.brushes').remove();
 
-            document.getElementById('overlay').style.display = "none"; 
+            document.getElementById('overlay').style.display = "none";
+            that.isExtreme = false; 
 
             that.drawChart();
 
