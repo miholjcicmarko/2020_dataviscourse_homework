@@ -450,6 +450,8 @@ class bubblechart {
 
             d3.selectAll('.brushes').remove();
 
+            document.getElementById('overlay').style.display = "none"; 
+
             that.drawChart();
 
             for (let i = 0; i < that.cat_circles.length; i++) {
@@ -487,6 +489,8 @@ class bubblechart {
             that.isExpanded = false;
 
             d3.selectAll('.brushes').remove();
+
+            document.getElementById('overlay').style.display = "none"; 
 
             that.drawChart();
 
