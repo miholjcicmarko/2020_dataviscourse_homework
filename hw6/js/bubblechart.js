@@ -243,16 +243,6 @@ class bubblechart {
                 that.showExtremes();
             });
 
-            // let tooltip = d3.selectAll('.plot-svg').selectAll("circle");
-
-            // tooltip.on("mouseover", function(d) {
-
-            //     d3.select(this).append("title")
-            //         .attr("class", "div.tooltip")
-            //         .attr("class", "tooltip h2")
-            //         .text(that.tooltipRender(d));
-            // });
-
     }
 
      /**
@@ -337,10 +327,15 @@ class bubblechart {
                         .duration(200)
                         .style("opacity", 0.9);
             
-                    debugger;
                     tooltip.html(that.tooltipDivRender(d))
                         .style("left", (d3.event.pageX) + "px")
                         .style("top", (d3.event.pageY - 28) + "px");
+                });
+
+                circles.on("mouseout", function(d,i) {
+                    tooltip.transition()
+                        .duration(500)
+                        .style("opacity", 0);
                 });
 
         };
@@ -653,30 +648,6 @@ class bubblechart {
         }
     }
 
-
-    /**
-     * Returns html that can be used to render the tooltip.
-     * @param data 
-     * @returns {string}
-     */
-    tooltipRender(data) {
-        let phrase = data['phrase'];
-        let freq = data['frequency']*100;
-        let pos = +data['position'];
-        let party = "";
-        if (pos > 0) {
-            party = party + "R+"
-        }
-        else if (pos < 0) {
-            party = party + "D+"
-            let pos_val = pos * -1;
-            pos = pos_val.toFixed(3);
-        }
-        return phrase + "\n" + 
-            party + " " + pos + "%" +"\n" + 
-            "In " + freq + "%" + " of speeches";
-    }
-
     extremeRender(identifier) {
         if (identifier === "dem") {
             let text = "<h5>" + "Democratic speeches" + "<br/>" +
@@ -693,8 +664,22 @@ class bubblechart {
     }
 
     tooltipDivRender(data) {
-        let text = "<h2>" + "HI" + "</h2>";
-        return text;
+        let phrase = data['phrase'];
+        let freq = data['frequency']*100;
+        let frequency_fixed = freq.toFixed(0)
+        let pos = +data['position'];
+        let party = "";
+        if (pos > 0) {
+            party = party + "R+"
+        }
+        else if (pos < 0) {
+            party = party + "D+"
+            let pos_val = pos * -1;
+            pos = pos_val.toFixed(3);
+        }
+        return "<h5>" + phrase + "<br/>" + 
+            party + " " + pos + "%" +"<br/>" + 
+            "In " + frequency_fixed + "%" + " of speeches" + "</h5>";
     }
 
 
