@@ -576,8 +576,8 @@ class bubblechart {
                 
                 textDiv2.html(this.extremeRender("rep"));
 
-                document.getElementById('textDem').style.display = "block";
-                document.getElementById('textRep').style.display = "block";
+                document.getElementById('overlay').style.display = "block";
+                
             }
             else if (this.isExpanded === false) {
                 debugger;
@@ -622,16 +622,14 @@ class bubblechart {
                 
                 textDiv2.html(this.extremeRender("rep"));
 
-                document.getElementById('textDem').style.display = "block";
-                document.getElementById('textRep').style.display = "block";
+                document.getElementById('overlay').style.display = "block";
 
             }
         }
         else if (this.isExtreme === true) {
             this.isExtreme = false;
 
-            document.getElementById('textDem').style.display = "none"; 
-            document.getElementById('textRep').style.display = "none";           
+            document.getElementById('overlay').style.display = "none";            
         }
     }
 
