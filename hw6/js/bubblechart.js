@@ -280,7 +280,7 @@ class bubblechart {
 
         let svg = d3.select('#chart-view').select('.plot-svg');
 
-        let brush_chart = d3.selectAll('.brushes');
+        this.brush_chart = d3.selectAll('.brushes');
 
         let brush_width = this.xScale(this.max_brush_width);
         let brush_height = this.height;
@@ -442,6 +442,8 @@ class bubblechart {
         let that = this;
 
         that.updateTable(null);
+
+        debugger;
 
         if (that.isExpanded === false){
             that.isExpanded = true;
