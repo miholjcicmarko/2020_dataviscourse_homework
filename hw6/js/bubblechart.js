@@ -184,13 +184,6 @@ class bubblechart {
                 .attr("class", "axis-label")
                 .attr("text-anchor", "middle")
                 .attr("class", "y-label"); 
-
-            let chartListener = d3.select('#bubbleSVG');
-                
-            chartListener.on("click", function() {
-                debugger;
-                this.updateTable(null);
-            });
                 
             let g1 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
@@ -248,6 +241,13 @@ class bubblechart {
 
             extremeButton.on("click", function() {
                 that.showExtremes();
+            });
+
+            let chartListener = d3.select('.brsuhes');
+                
+            chartListener.on("click", function() {
+                debugger;
+                this.updateTable(null);
             });
 
     }
