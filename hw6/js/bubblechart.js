@@ -144,6 +144,8 @@ class bubblechart {
         // create the diverging x-axis
         
         //create the tool tip
+        if (this.count === 0) {
+
         d3.select("#bubbleChart")
             .append('div').attr("id", "chart-view");
 
@@ -152,7 +154,6 @@ class bubblechart {
             .attr("class", "tooltip")
             .style("opacity", 0);
 
-        if (this.count = 0) {
             d3.select('#chart-view')
             .append('svg').classed('plot-svg', true)
             .attr("width", this.width + this.margin.left + this.margin.right)
