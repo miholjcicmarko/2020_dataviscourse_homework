@@ -325,22 +325,25 @@ class bubblechart {
                             return "rep-Extreme";
                         }
                     });
+
+                let tooltip = d3.select('.tooltip');
+
+                debugger;
+
+                let that = this;
+
+                circles.on('mouseover', function(d,i) {
+                    tooltip.transition()
+                        .duration(200)
+                        .style("opacity", 0.9);
+            
+                    debugger;
+                    tooltip.html(that.tooltipDivRender(d))
+                        .style("left", (d3.event.pageX) + "px")
+                        .style("top", (d3.event.pageY - 28) + "px");
+                });
+
         };
-
-        let tooltip = d3.select('.tooltip');
-
-        debugger;
-        circles.on('mouseover', function(d,i) {
-            tooltip.transition()
-                .duration(200)
-                .style("opacity", 0.9);
-
-            debugger;
-            tooltip.html(that.tooltipDivRender(d))
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY - 28) + "px");
-
-        });
 
     }
 
@@ -598,7 +601,7 @@ class bubblechart {
                 
             }
             else if (this.isExpanded === false) {
-                
+
                 let rect = document.getElementById('dem-Extreme');
                 
                 let coord = rect.getBoundingClientRect();
@@ -690,7 +693,7 @@ class bubblechart {
     }
 
     tooltipDivRender(data) {
-        let text = "<h2>" + data['country'] + "</h2>";
+        let text = "<h2>" + "HI" + "</h2>";
         return text;
     }
 
