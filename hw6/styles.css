@@ -8,6 +8,12 @@ Container stylings for the button and slider
     grid-template-rows: 1fr;
     column-gap: 5px;
     
+    grid-template-areas: "switch";
+}
+
+#groupByTopicLabel {
+    grid-area: "topicLabel";
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* 
@@ -15,6 +21,7 @@ button stylings
 */
 
 .switch {
+    grid-area: "switch";
     position: relative;
     display: inline-block;
     width: 30px;
