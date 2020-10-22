@@ -227,6 +227,10 @@ class bubblechart {
                         .attr("id", "g6")
                         .attr("transform", 'translate(0,'+this.height*5+')');
 
+            let groupLabel = d3.select('#chart-view').selectAll('.plot-svg')
+                                .append('g')
+                                .attr("id", "groupLabel");
+
             let toggleGroup = d3.select("#toggle-group");
 
             let extremeButton = d3.select("#extreme-button");
@@ -297,24 +301,26 @@ class bubblechart {
     }
 
     addCatLabels() {
-        let all_cat = ["economy/fiscal issues", "energy/environment"]
-        let cat_arr = all_cat.push(this.unique_categories);
+        //let all_cat = ["economy/fiscal issues", "energy/environment"]
+
+        // for (let i = 0; i < this.unique_categories.length; i++) {
+        //     all_cat.push(this.unique_categories[i]);
+        // }
 
         debugger;
-        let catLabels = d3.select('#bubbleSVG').selectAll('text')
-                            .data(cat_arr)
+        let catLabels = d3.select('#groupLabel').selectAll('text')
+                            .data(this.unique_categories)
                             .join('text')
                             .text(d => d)
-                            .attr("x", 0)
-                            .attr("y", (d,i) => 0)
-                            .attr("opacity", 1);
+                            .attr("x", (d,i) => i*10)
+                            .attr("y", (d,i) => (i*150) + 100);
 
-        // if (this.isExpanded) {
-        //     catLabels.attr("opacity", 0);
-        // }
-        // else if (this.isExpanded === false) {
-        //     catLabels.attr("opacity", 1);
-        // }
+        if (this.isExpanded) {
+             catLabels.attr("opacity", 0.8);
+        }
+        else if (this.isExpanded === false) {
+             catLabels.attr("opacity", 0);
+        }
     }
 
     /*
