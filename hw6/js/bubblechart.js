@@ -440,7 +440,6 @@ class bubblechart {
 
         if (that.isExpanded === false){
             that.isExpanded = true;
-             debugger;
 
             d3.selectAll('.brushes').remove();
 
@@ -528,6 +527,7 @@ class bubblechart {
             this.isExtreme = true; 
 
             if (this.isExpanded) {
+                debugger;
 
                 let rect = document.getElementById('dem-Extreme');
                 
@@ -548,43 +548,32 @@ class bubblechart {
                         .style("left", 0 + "px")
                         .style("border", "2px solid black")
                         .classed("textDiv", true);
-
-                // demDiv.html(this.extremeRender("dem"))
-                //      .classed("textDiv", true)
-                //      .style("top", coord.x + "px")
-                //      .style("left", coord.y + "px");
-
-                // demDiv
-                //      .append('svg')
-                //      .attr("id", "svgdem")
-                //      .attr("width", this.width)
-                //      .attr("height", this.chartHeight)
-                //      .classed("svgDiv", true);
-                
-                // let demsvg = d3.select('#svgdem').append('div')
-                //          .style("left", coord.x)
-                //          .style("top", coord.y)
-                //          .attr("id", "demdiv")
-                //          .classed("textDiv", true);
-
-                // let dimdiv = d3.select("demdiv");
                 
                 textDiv.html(this.extremeRender("dem"));
 
+                let rect2 = document.getElementById('rep-Extreme');
+                
+                let coord2 = rect2.getBoundingClientRect();
 
+                repDiv.append("div")
+                    .attr("id", "textRep")
+                    .style("width", "100px")
+                    .style("height", "70px");
 
-                // let min = d3.min(this.circles_arr, d => d.moveX)
-                // let minIndex = d3.minIndex(this.circles_arr, d => d.moveX);
-                // let minY = this.circles_arr[minIndex].moveY;
+                let textDiv2 = d3.select('#textRep')
+                        .style("position", "relative")
+                        .style("top", coord2.y+5 + "px")
+                        .style("left", 0 + "px")
+                        .style("border", "2px solid black")
+                        .classed("textDiv", true);
+                
+                textDiv2.html(this.extremeRender("rep"));
 
                 document.getElementById('overlay').style.display = "block";
-
-                // minDiv.style.position = "absolute";
-                // minDiv.style.top = minY;
-                // minDiv.style.left = min;
-                // minDiv.innerHTML += "Democratic speeches mentioned climate change 49.11% more";
                 
-
+            }
+            else if (this.isExpanded === false) {
+                
             }
 
 
