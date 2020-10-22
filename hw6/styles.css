@@ -1,12 +1,78 @@
 /* 
-Wrapper and view stylings
+Container stylings for the button and slider
 */
 
 .container {
     display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
     grid-template-rows: 1fr;
+    column-gap: 5px;
+    
 }
+
+/* 
+button stylings
+*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: steelblue;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px steelblue;
+  }
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
+}
+
+.slider.round {
+    border-radius: 17px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
 
 .wrapper {
     margin: auto;
@@ -99,69 +165,6 @@ bubbleChart stylings
 circle {
     stroke: gray;
     opacity: .8;
-}
-
-/* 
-button stylings
-*/
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 30px;
-    height: 17px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 13px;
-    width: 13px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: steelblue;
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px steelblue;
-  }
-  
-input:checked + .slider:before {
-    -webkit-transform: translateX(13px);
-    -ms-transform: translateX(13px);
-    transform: translateX(13px);
-}
-
-.slider.round {
-    border-radius: 17px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
 }
 
 /* 
