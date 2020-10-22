@@ -58,8 +58,10 @@ Promise.all([words_json]).then(data => {
     bars.drawTable();
 
     // This clears a selection by listening for a click
-    // document.addEventListener("click", function (e) {
-    //     debugger;
-    //     updateTable(null);
-    // }, true);
+    let bubbleSVG = document.getElementsByClassName("innerWrapper1")
+
+    bubbleSVG.addEventListener("click", function (e) {
+        debugger;
+        updateTable(null);
+    }, true);
 });

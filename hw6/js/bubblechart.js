@@ -318,8 +318,6 @@ class bubblechart {
 
                 let tooltip = d3.select('.tooltip');
 
-                debugger;
-
                 let that = this;
 
                 circles.on('mouseover', function(d,i) {
