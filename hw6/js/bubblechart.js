@@ -531,6 +531,18 @@ class bubblechart {
                                 .style("top", 150 + "px")
                                 .style("left", 10 + "px");
 
+                demDiv.append("div")
+                    .attr("id", "textDem")
+                    .style("width", "100px")
+                    .style("height", "70px");
+
+                let textDiv = d3.select('#textDem')
+                        .style("position", "relative")
+                        .style("top", coord.y+5 + "px")
+                        .style("left", 0 + "px")
+                        .style("border", "2px solid black")
+                        .classed("textDiv", true);
+
                 // demDiv.html(this.extremeRender("dem"))
                 //      .classed("textDiv", true)
                 //      .style("top", coord.x + "px")
@@ -551,7 +563,7 @@ class bubblechart {
 
                 // let dimdiv = d3.select("demdiv");
                 
-                demDiv.html(this.extremeRender("dem"));
+                textDiv.html(this.extremeRender("dem"));
 
 
 
