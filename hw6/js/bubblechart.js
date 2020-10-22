@@ -278,8 +278,6 @@ class bubblechart {
         
         this.group = ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'];
 
-        this.bindCircle(this.cat_circles, this.group, this.isExpanded);
-
         let svg = d3.select('#chart-view').select('.plot-svg');
 
         let brush_chart = d3.selectAll('.brushes');
@@ -288,6 +286,8 @@ class bubblechart {
         let brush_height = this.height;
     
         this.brush(svg, brush_chart, brush_width, brush_height);
+
+        this.bindCircle(this.cat_circles, this.group, this.isExpanded);
                 
     }
 
