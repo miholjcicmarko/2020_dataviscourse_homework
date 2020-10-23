@@ -80,8 +80,16 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
-
-
+.button {
+  background-color: white;
+  border: 2px solid steelblue;
+  color: steelblue;
+  padding: 5% 10%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
 
 .wrapper {
     margin: auto;
