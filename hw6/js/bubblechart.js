@@ -289,6 +289,8 @@ class bubblechart {
                     .attr("class", "midline");
             }
             else if (this.isExpanded === false) {
+                midline.selectAll("line").exit().remove();
+
                 midline.selectAll("line")
                     .data(midline_data)
                     .join("line")
