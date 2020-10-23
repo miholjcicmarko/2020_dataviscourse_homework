@@ -49,11 +49,6 @@ class bubblechart {
         this.isExpanded = false;
         this.isExtreme = false;
 
-        // for (let bubble of this.chartData)
-        // {
-        //     bubble.isExpanded = false;
-        // }
-
       this.margin = {top: 50, right: 30, bottom: 50, left: 30};
       this.width = 1000 - this.margin.left - this.margin.right;
       this.height = 250 - this.margin.top - this.margin.bottom;
@@ -323,6 +318,10 @@ class bubblechart {
         this.bindCircle(this.cat_circles, this.group);
                 
     }
+
+    /*
+    * Adds the labels of all the catgories to the plot
+    */
 
     addCatLabels() {
 
@@ -739,6 +738,5 @@ class bubblechart {
             party + " " + pos + "%" +"<br/>" + 
             "In " + frequency_fixed + "%" + " of speeches" + "</h5>";
     }
-
 
 }
