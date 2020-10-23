@@ -63,16 +63,16 @@ class table {
             .data(freq_values)
             .join("text")
             .attr("x", (d) => this.scaleXFreq(d))
-            .attr("y", 15)
+            .attr("y", this.vizHeight/2)
             .attr('class', "freqlabel-table")
             .text(d => d); 
 
         legendF.selectAll("line")
             .data(freq_values)
             .join('line')
-            .attr('x1', (d) => this.scaleXFreq(d)+3)
-            .attr('y1', 16)
-            .attr('x2', (d) => this.scaleXFreq(d)+3)
+            .attr('x1', (d) => this.scaleXFreq(d))
+            .attr('y1', (this.vizHeight/2) + 1)
+            .attr('x2', (d) => this.scaleXFreq(d))
             .attr('y2', this.vizHeight)
             .attr("stroke-width", 1)
             .attr("stroke", "black");
@@ -87,7 +87,7 @@ class table {
             .data(percentValues)
             .join("text")
             .attr("x", (d) => this.scaleXPercent(d))
-            .attr("y", this.vizHeight)
+            .attr("y", this.vizHeight/2)
             .attr('class', "percentlabel-table")
             .text(function(d) {
                 if (d < 0) {
@@ -96,7 +96,17 @@ class table {
                 else {
                     return "" + d;
                 }
-            });        
+            });     
+            
+        legendP.selectAll("line")
+            .data(percentValues)
+            .join('line')
+            .attr('x1', (d) => this.scaleXPercent(d))
+            .attr('y1', (this.vizHeight/2) + 1)
+            .attr('x2', (d) => this.scaleXPercent(d))
+            .attr('y2', this.vizHeight)
+            .attr("stroke-width", 1)
+            .attr("stroke", "black");
         
         
 
