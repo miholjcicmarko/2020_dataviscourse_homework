@@ -166,62 +166,48 @@ class bubblechart {
             let xaxis = svgGroup.append("g")
                 .classed("x-axis", true)
                 .attr("id", "x-axis");
-
-            let yaxis = svgGroup.append("g")
-                .classed("y-axis", true)
-                .attr("id", "y-axis");
         
             xaxis.append("text")
-                .classed("axis-label-x", true)
-                .attr("transform", "translate("+(1000*this.margin.left)+"," +(2*this.margin.top)+")")
-                .attr("text-anchor", "middle");
-
-            yaxis.append("text")
-                .classed("axis-label-y", true)
-                .attr("transform", "translate("+(20*this.margin.bottom) + ","+(2.5*this.margin.left)+")rotate(-90)")
-                .attr("class", "axis-label")
-                .attr("text-anchor", "middle")
-                .attr("class", "y-label");
-
+                .classed("axis-label-x", true);
+                
             let g1 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
-                        //.append('rect').attr('width', this.width)
-                        .attr("height", this.height-10)
+                        .attr("height", this.height-this.margin.top-this.margin.bottom)
                         .attr("id", "g1")
                         .attr("transform", 'translate(0,0)');
 
             let g2 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.width)
-                        .attr("height", this.height-this.margin.bottom)
+                        .attr("height", this.height-this.margin.top-this.margin.bottom)
                         .attr("id", "g2")
                         .attr("transform", 'translate(0,'+this.height+')');
 
             let g3 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)    
                         //.append('rect').attr('width', this.width)
-                        .attr("height", this.height-this.margin.bottom)
+                        .attr("height", this.height-this.margin.top-this.margin.bottom)
                         .attr("id", "g3")
                         .attr("transform", 'translate(0,'+this.height*2+')');
 
             let g4 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.max_brush_width)
-                        .attr("height", this.height-this.margin.bottom)
+                        .attr("height", this.height-this.margin.top-this.margin.bottom)
                         .attr("id", "g4")
                         .attr("transform", 'translate(0,'+this.height*3+')');
             
             let g5 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.max_brush_width)
-                        .attr("height", this.height-this.margin.bottom)
+                        .attr("height", this.height-this.margin.top-this.margin.bottom)
                         .attr("id", "g5")
                         .attr("transform", 'translate(0,'+this.height*4+')');
 
             let g6 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         //.append('rect').attr('width', this.max_brush_width)
-                        .attr("height", this.height-this.margin.bottom)
+                        .attr("height", this.height-this.margin.top-this.margin.bottom)
                         .attr("id", "g6")
                         .attr("transform", 'translate(0,'+this.height*5+')');
 
@@ -266,14 +252,7 @@ class bubblechart {
         let xaxis_data = d3.select('#x-axis');
 
         xaxis_data.call(d3.axisBottom(this.xScale).ticks(5))
-            //.attr("transform", "translate("+this.margin.left+"," +this.height+")")
-            .attr("class", "axis line");
-
-        let yaxis = d3.select('#y-axis');
-
-        yaxis.call(d3.axisLeft(this.yScale).ticks(5))
-            //.attr("transform", "translate("+this.margin.left+",0)")
-            .attr("class", "axis line");
+            .attr("class", "axis-line");
 
         this.cat_circles = [];
 

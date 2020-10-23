@@ -199,6 +199,7 @@ bubbleChart stylings
     display: inline-block;
     padding-right: 5px;
     font-size: 15px;
+    text-anchor: middle;
 }
 
 .axis line {
