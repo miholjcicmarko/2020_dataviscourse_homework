@@ -251,22 +251,11 @@ Stylings for the div
     z-index: -1;
 }
 
-.svgDiv{
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 200;
-    bottom: 0;
-    z-index: 2;
-}
-
 .textDiv{ 
     font-size: 12px;
     color: black;
     border: "2px solid black";
     text-align: center;
-    background: white;
-    pointer-events: none;
 }
     /*transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
