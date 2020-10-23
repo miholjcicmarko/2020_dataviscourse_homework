@@ -279,7 +279,7 @@ class bubblechart {
                         .attr("id", "midline");
 
         let midline_data = [0];
-        debugger;
+       
             if (this.isExpanded) {
                 midline.selectAll("line")
                     .data(midline_data)
