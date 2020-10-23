@@ -106,7 +106,7 @@ Styling for the wrapper containing the two tables
 
 .wrapper {
     display: inline-grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 2fr 1fr; 
     grid-template-rows: 1fr;
     column-gap: 5%;
     margin: auto;
