@@ -273,6 +273,8 @@ class bubblechart {
         
         xaxis.select('.domain').attr("stroke-width", 0);
 
+        d3.selectAll("#midline").remove();
+
         let midline = d3.select('#chart-view').select('.plot-svg').append('g')
                         .attr("id", "midline");
 
@@ -289,7 +291,6 @@ class bubblechart {
                     .attr("class", "midline");
             }
             else if (this.isExpanded === false) {
-                midline.selectAll("line").exit().remove();
 
                 midline.selectAll("line")
                     .data(midline_data)
