@@ -130,7 +130,7 @@ class bubblechart {
             yMoves.push(this.circles_arr[i].moveY);
         }
 
-        this.max_brush_width = d3.max(xVals);
+        this.max_brush_width = this.width
 
         this.count = 0;
 
