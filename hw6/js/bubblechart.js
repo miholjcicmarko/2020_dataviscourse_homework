@@ -287,7 +287,7 @@ class bubblechart {
         let brush_chart = d3.selectAll('.brushes');
 
         let brush_width = this.xScale(this.max_brush_width);
-        let brush_height = this.height;
+        let brush_height = this.height-this.margin.top;
     
         this.brush(svg, brush_chart, brush_width, brush_height);
 
