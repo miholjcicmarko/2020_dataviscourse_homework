@@ -89,14 +89,14 @@ Styling for the button
 */
 
 .button {
-    grid-area: "button";
+  position: relative;  
+  top: 15%;
+  grid-area: "button";
   background-color: white;
   border: 2px solid steelblue;
   color: steelblue;
   padding: 5% 10%;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 12px;
 }
 
@@ -106,7 +106,7 @@ Styling for the wrapper containing the two tables
 
 .wrapper {
     display: inline-grid;
-    grid-template-columns: 2fr 0.5fr; 
+    grid-template-columns: 1fr 1fr; 
     grid-template-rows: 1fr;
     column-gap: 5%;
     margin: auto;
