@@ -249,10 +249,30 @@ class bubblechart {
         // size of circle encodes the  total use of the N-grams.
         // the circle is colored by category
 
-        let xaxis_data = d3.select('#x-axis');
+        let xaxis = d3.select('#x-axis').append('svg')
+            .attr("id", "bubbleXaxis")
+            .attr("width", this.vizWidth)
+            .attr("height", this.vizHeight);
 
-        xaxis_data.call(d3.axisBottom(this.xScale).ticks(5))
-            .attr("class", "axis-line");
+        let xaxisdata = [-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50];
+
+        this.axisXscale = d3.scaleLinear()
+            .domain([-50, 50])
+            .range([this.margin.left, this.width-this.margin.right])
+
+        xaxis.append("text")
+            .data(xaxisdata)
+            .attr("x", (d) => this.axisXscale(d))
+            .attr("y", 0)
+            .text(d => d);
+
+            // .attr("x", (d) => this.scaleXFreq(d))
+            // .attr("y", this.vizHeight/2)
+            // .attr('class', "freqlabel-table")
+            // .text(d => d); 
+
+        // xaxis.call(d3.axisBottom(this.xScale).ticks(5))
+        //     .attr("class", "axis-line");
 
         this.cat_circles = [];
 
