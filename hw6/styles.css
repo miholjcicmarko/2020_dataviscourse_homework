@@ -207,7 +207,7 @@ bubbleChart stylings
 } */ */
 
 circle {
-    stroke: gray;
+    stroke: black;
     opacity: .8;
 }
 

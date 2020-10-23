@@ -166,9 +166,6 @@ class bubblechart {
             let xaxis = svgGroup.append("g")
                 .classed("x-axis", true)
                 .attr("id", "x-axis");
-        
-            xaxis.append("text")
-                .classed("axis-label-x", true);
                 
             let g1 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
@@ -244,9 +241,6 @@ class bubblechart {
         // size of circle encodes the  total use of the N-grams.
         // the circle is colored by category
 
-        let xaxis = d3.selectAll('#axis')
-            .append('text');
-
         let xaxis = d3.select('#x-axis')
             .attr("transform", "translate(0,25)");
 
@@ -259,6 +253,15 @@ class bubblechart {
         xaxis.call(d3.axisTop(this.axisXscale).ticks(11));
         
         xaxis.select('.domain').attr("stroke-width", 0);
+
+        let twoLeaners = ["Democratic Leaning", "Republican Leaning"];
+
+        // xaxis.selectAll("text")
+        //     .data(twoLeaners)
+        //     .join("text")
+        //     .attr("x", this.vizHeight/4)
+        //     .attr("y", this.vizHeight/2)
+
 
         this.cat_circles = [];
 
