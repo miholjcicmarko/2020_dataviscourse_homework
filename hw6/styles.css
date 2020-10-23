@@ -6,7 +6,7 @@ Container stylings for the button and slider
     display: inline-grid;
     grid-template-columns: 2fr 0.5fr; 
     grid-template-rows: 1fr;
-    column-gap: 5px;
+    column-gap: 5%;
     
     grid-template-areas: "topicLabel switch button";
 }
@@ -100,36 +100,40 @@ Styling for the button
   font-size: 12px;
 }
 
+/* 
+Styling for the wrapper containing the two tables
+*/
+
 .wrapper {
+    display: inline-grid;
+    grid-template-columns: 2fr 0.5fr; 
+    grid-template-rows: 1fr;
+    column-gap: 5%;
     margin: auto;
     float: left;
     height: fit-content;
-}
 
-.view {
-    width: 650px;
-    /*margin: auto;*/
-    padding: 5px;
-    display: inline-block;
+    grid-template-areas: "bubble table";
 }
 
 .innerWrapper1 {
-    width: 50%;
+    grid-area: "bubble";
+    width: 100%;
     display: inline-block;
-    float: left;
     height: fit-content;
 }
 
 .innerWrapper2 {
-    width: 50%;
+    grid-area: "table";
+    width: 100%;
     display: inline-block;
-    float: right;
+    height: fit-content;
 }
 
 .view {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
+    width: 100%;
+    margin: auto;
+    display: inline-block;
 }
 
 /*
@@ -148,7 +152,7 @@ Table stylings
 }
 
 .freqlabel-table {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 10px;
     font-weight: bold;
 }
@@ -167,6 +171,15 @@ Table stylings
 .bar-percent-dem {
     color: steelblue;
     fill: steelblue;
+}
+
+td {
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color:black;
 }
 
 /* 
