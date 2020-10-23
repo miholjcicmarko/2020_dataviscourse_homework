@@ -106,11 +106,11 @@ class bubblechart {
 
         this.xScale = d3.scaleLinear()
             .domain([d3.min(xVals),d3.max(xVals)])
-            .range([0, this.width - this.margin.left]);
+            .range([this.margin.left, this.width-this.margin.right]);
 
         this.yScale = d3.scaleLinear()
             .domain([d3.min(yVals), d3.max(yVals)])
-            .range([this.margin.bottom, this.height]);
+            .range([this.margin.top, this.height - this.margin.bottom]);
 
         let category_arr = [];
 
@@ -130,7 +130,7 @@ class bubblechart {
             yMoves.push(this.circles_arr[i].moveY);
         }
 
-        this.max_brush_width = d3.max(xVals)+40;
+        this.max_brush_width = d3.max(xVals);
 
         this.count = 0;
 
@@ -157,8 +157,8 @@ class bubblechart {
         d3.select('#chart-view')
             .append('svg').classed('plot-svg', true)
             .attr("id", "bubbleSVG")
-            .attr("width", this.width + this.margin.left + this.margin.right)
-            .attr("height", this.chartHeight + this.margin.top + this.margin.bottom);
+            .attr("width", this.width)
+            .attr("height", this.chartHeight);
         }
  
         let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g');
@@ -174,9 +174,7 @@ class bubblechart {
             xaxis.append("text")
                 .classed("axis-label-x", true)
                 .attr("transform", "translate("+(1000*this.margin.left)+"," +(2*this.margin.top)+")")
-                .attr("text-anchor", "middle")
-                .attr("class", "axis-label")
-                .attr("class", "x-label");
+                .attr("text-anchor", "middle");
 
             yaxis.append("text")
                 .classed("axis-label-y", true)

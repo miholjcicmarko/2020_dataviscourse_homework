@@ -194,15 +194,11 @@ td {
 bubbleChart stylings
 */
 
-.x-label,
-.y-label {
+.axis-label-x {
     width: 1%7;
     display: inline-block;
     padding-right: 5px;
-}
-
-.axis-label {
-    font-size: 11px;
+    font-size: 15px;
 }
 
 .axis line {
