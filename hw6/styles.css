@@ -258,7 +258,6 @@ Stylings for the div
 }
 
 .textDiv{ 
-    position: static;
     font-size: 12px;
     color: black;
     border: "2px solid black";

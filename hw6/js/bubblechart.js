@@ -274,14 +274,16 @@ class bubblechart {
         xaxis.select('.domain').attr("stroke-width", 0);
 
         if (this.isExpanded) {
-            xaxis.append("line")
+            xaxis.select("line")
+            .join("line")
             .attr("x1", this.axisXscale(0))
             .attr("y1", 0)
             .attr("x2", this.axisXscale(0))
             .attr("y2", this.chartheight);
         }
         else if (this.isExpanded === false) {
-            xaxis.append("line")
+            xaxis.select("line")
+            .join("line")
             .attr("x1", this.axisXscale(0))
             .attr("y1", 0)
             .attr("x2", this.axisXscale(0))
