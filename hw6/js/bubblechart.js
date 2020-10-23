@@ -178,35 +178,30 @@ class bubblechart {
 
             let g2 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
-                        //.append('rect').attr('width', this.width)
                         .attr("height", this.height-this.margin.top-this.margin.bottom)
                         .attr("id", "g2")
                         .attr("transform", 'translate(0,'+this.height+')');
 
             let g3 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)    
-                        //.append('rect').attr('width', this.width)
                         .attr("height", this.height-this.margin.top-this.margin.bottom)
                         .attr("id", "g3")
                         .attr("transform", 'translate(0,'+this.height*2+')');
 
             let g4 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
-                        //.append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height-this.margin.top-this.margin.bottom)
                         .attr("id", "g4")
                         .attr("transform", 'translate(0,'+this.height*3+')');
             
             let g5 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
-                        //.append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height-this.margin.top-this.margin.bottom)
                         .attr("id", "g5")
                         .attr("transform", 'translate(0,'+this.height*4+')');
 
             let g6 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
-                        //.append('rect').attr('width', this.max_brush_width)
                         .attr("height", this.height-this.margin.top-this.margin.bottom)
                         .attr("id", "g6")
                         .attr("transform", 'translate(0,'+this.height*5+')');
@@ -249,30 +244,21 @@ class bubblechart {
         // size of circle encodes the  total use of the N-grams.
         // the circle is colored by category
 
-        let xaxis = d3.select('#x-axis').append('svg')
-            .attr("id", "bubbleXaxis")
-            .attr("width", this.vizWidth)
-            .attr("height", this.vizHeight);
+        let xaxis = d3.selectAll('#axis')
+            .append('text');
+
+        let xaxis = d3.select('#x-axis')
+            .attr("transform", "translate(0,25)");
 
         let xaxisdata = [-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50];
 
         this.axisXscale = d3.scaleLinear()
-            .domain([-50, 50])
-            .range([this.margin.left, this.width-this.margin.right])
+             .domain([-50, 50])
+             .range([this.margin.left, this.width-this.margin.right])
 
-        xaxis.append("text")
-            .data(xaxisdata)
-            .attr("x", (d) => this.axisXscale(d))
-            .attr("y", 0)
-            .text(d => d);
-
-            // .attr("x", (d) => this.scaleXFreq(d))
-            // .attr("y", this.vizHeight/2)
-            // .attr('class', "freqlabel-table")
-            // .text(d => d); 
-
-        // xaxis.call(d3.axisBottom(this.xScale).ticks(5))
-        //     .attr("class", "axis-line");
+        xaxis.call(d3.axisTop(this.axisXscale).ticks(11));
+        
+        xaxis.select('.domain').attr("stroke-width", 0);
 
         this.cat_circles = [];
 

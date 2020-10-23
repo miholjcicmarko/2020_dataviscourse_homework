@@ -194,7 +194,7 @@ td {
 bubbleChart stylings
 */
 
-/* .axis-label-x {
+.x-axis {
     width: 1%7;
     display: inline-block;
     padding-right: 5px;
@@ -202,9 +202,9 @@ bubbleChart stylings
     text-anchor: middle;
 }
 
-.axis line {
+/* .axis line {
     display: none !important;
-} */
+} */ */
 
 circle {
     stroke: gray;
