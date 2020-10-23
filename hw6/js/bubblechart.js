@@ -273,6 +273,23 @@ class bubblechart {
         
         xaxis.select('.domain').attr("stroke-width", 0);
 
+        if (this.isExpanded) {
+            xaxis.append("line")
+            .attr("x1", this.axisXscale(0))
+            .attr("y1", 0)
+            .attr("x2", this.axisXscale(0))
+            .attr("y2", this.chartheight);
+        }
+        else if (this.isExpanded === false) {
+            xaxis.append("line")
+            .attr("x1", this.axisXscale(0))
+            .attr("y1", 0)
+            .attr("x2", this.axisXscale(0))
+            .attr("y2", this.height)
+            .attr("stroke-width", 1)
+            .attr("stroke", "black");
+        }
+
         this.cat_circles = [];
 
         for (let i = 0; i < this.unique_categories.length; i++) {
