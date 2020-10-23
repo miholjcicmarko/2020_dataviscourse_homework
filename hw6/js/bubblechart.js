@@ -170,7 +170,7 @@ class bubblechart {
         leaningLab.selectAll("text")
             .data(twoLeaners)
             .join("text")
-            .attr("x", (d,i) => (this.width)*(3*i/4))
+            .attr("x", (d,i) => (this.width)*(5*i/6))
             .attr("y", 4*this.margin.top/5)
             .attr("class", "leaningLabel")
             .text(d => d); 
