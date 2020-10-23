@@ -343,7 +343,8 @@ class bubblechart {
                     .attr('cx', (d,i) => this.xScale(d.xVal))
                     .attr('cy', (d,i) => this.yScale(d.yVal) - group_loc)
                     .attr('r', (d,i) => d.circleSize)
-                    .attr("class", "circle")
+                    .attr("class", "bubble")
+                    .attr("stroke", "black")
                     .attr("transform", "translate("+10+",0)")
                     .attr("fill", (d,i) => this.colorScale(d.category))
                     .attr("id", function(d) {

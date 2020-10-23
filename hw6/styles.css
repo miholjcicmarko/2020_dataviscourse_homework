@@ -211,8 +211,9 @@ bubbleChart stylings
     display: none !important;
 } */ */
 
-circle {
-    stroke: black;
+.bubble {
+    stroke: grey;
+    stroke-width: "2px";
     opacity: .8;
 }
 
