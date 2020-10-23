@@ -623,7 +623,7 @@ class bubblechart {
                     .style("height", "70px");
 
                 let textDiv = d3.select('#textDem')
-                        .style("position", "relative")
+                        .style("position", "absolute")
                         .style("top", coord.y + "px")
                         .style("left", 0 + "px")
                         .style("border", "2px solid black")
