@@ -285,9 +285,8 @@ class bubblechart {
                     .attr("x1", (d) => this.axisXscale(d))
                     .attr("y1", this.margin.right)
                     .attr("x2", (d) => this.axisXscale(d))
-                    .attr("y2", this.chartheight)
-                    .attr("stroke-width", 1)
-                    .attr("stroke", "black");
+                    .attr("y2", this.chartHeight)
+                    .attr("class", "midline");
             }
             else if (this.isExpanded === false) {
                 midline.selectAll("line")
@@ -297,8 +296,7 @@ class bubblechart {
                     .attr("y1", this.margin.right)
                     .attr("x2", (d) => this.axisXscale(d))
                     .attr("y2", this.height)
-                    .attr("stroke-width", 1)
-                    .attr("stroke", "black");
+                    .attr("class", "midline");
             }
 
         this.cat_circles = [];

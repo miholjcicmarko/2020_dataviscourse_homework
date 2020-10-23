@@ -238,6 +238,13 @@ div.tooltip {
     font: 10px sans-serif;
 }
 
+.midline {
+    stroke-width: 1;
+    stroke: grey;
+    opacity: 0.5;
+    z-index: -1;
+}
+
 /*
 Stylings for the brush
 */
