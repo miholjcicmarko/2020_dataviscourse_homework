@@ -126,6 +126,7 @@ Styling for the wrapper containing the two tables
 .innerWrapper2 {
     grid-area: "table";
     width: 100%;
+    float: left;
     display: inline-block;
     height: fit-content;
 }
