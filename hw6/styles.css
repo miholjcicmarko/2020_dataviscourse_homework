@@ -106,14 +106,14 @@ Styling for the wrapper containing the two tables
 
 .wrapper {
     display: inline-grid;
-    grid-template-columns: 2fr 1fr; 
+    grid-template-columns: 2fr 1fr 1fr; 
     grid-template-rows: 1fr;
-    column-gap: 0.5%;
+    column-gap: 5%;
     margin: auto;
     float: left;
     height: fit-content;
 
-    grid-template-areas: "bubble table";
+    grid-template-areas: "bubble table .";
 }
 
 .innerWrapper1 {
@@ -126,7 +126,6 @@ Styling for the wrapper containing the two tables
 .innerWrapper2 {
     grid-area: "table";
     width: 100%;
-    float: left;
     display: inline-block;
     height: fit-content;
 }
