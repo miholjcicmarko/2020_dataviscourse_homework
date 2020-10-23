@@ -4,13 +4,16 @@ Container stylings for the button and slider
 
 .container {
     display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-columns: 2fr 0.5fr; 
     grid-template-rows: 1fr;
     column-gap: 5px;
     
-    grid-template-areas: "topicLabel switch";
+    grid-template-areas: "topicLabel switch button";
 }
 
+/* 
+Stylings for the group by topic label
+*/
 #groupByTopicLabel {
     grid-area: "topicLabel";
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -26,6 +29,7 @@ slider stylings
     display: inline-block;
     width: 30px;
     height: 17px;
+    top: 35%;
 }
 
 .switch input {
@@ -80,7 +84,12 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+/*
+Styling for the button
+*/
+
 .button {
+    grid-area: "button";
   background-color: white;
   border: 2px solid steelblue;
   color: steelblue;
