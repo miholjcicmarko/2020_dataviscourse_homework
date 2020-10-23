@@ -155,11 +155,30 @@ class bubblechart {
             .style("opacity", 0);
 
         d3.select('#chart-view')
+            .append('svg').classed('leaningLabel', true)
+            .attr("id", "LeaningLabel")
+            .attr("width", this.width)
+            .attr("height", this.margin.top);
+
+        d3.select('#chart-view')
             .append('svg').classed('plot-svg', true)
             .attr("id", "bubbleSVG")
             .attr("width", this.width)
             .attr("height", this.chartHeight);
+
         }
+
+        let leaningLab = d3.select(".leaningLabel");
+
+        let twoLeaners = ["Democratic Leaning", "Republican Leaning"];
+
+        leaningLab.selectAll("text")
+            .data(twoLeaners)
+            .join("text")
+            .attr("x", (d,i) => (this.width)*(3*i/4))
+            .attr("y", 4*this.margin.top/5)
+            .attr("class", "leaningLabel")
+            .text(d => d); 
  
         let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g');
     
