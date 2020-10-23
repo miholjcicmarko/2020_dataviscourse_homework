@@ -241,7 +241,6 @@ Stylings for the div
 
 #overlay {
     position: absolute;
-    display: none; 
     width: 550px;
     height: 2000px;
     top: 0;
@@ -256,6 +255,7 @@ Stylings for the div
     color: black;
     border: "2px solid black";
     text-align: center;
+    background: white;
 }
     /*transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
