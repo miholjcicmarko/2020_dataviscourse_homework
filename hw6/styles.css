@@ -207,10 +207,6 @@ bubbleChart stylings
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-/* .axis line {
-    display: none !important;
-} */ */
-
 .bubble {
     stroke: grey;
     stroke-width: "2px";
@@ -271,9 +267,7 @@ Stylings for the div
     text-align: center;
     background: white;
 }
-    /*transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-}
+
 
 
 
