@@ -33,18 +33,16 @@ class table {
             }
         ]
     
-        this.vizHeight = 20;
-        this.vizWidth = 100;
-
-        this.subWidth = 50;
+        this.vizHeight = 24;
+        this.vizWidth = 110;
 
         this.scaleXFreq = d3.scaleLinear()
             .domain([0,1.1])
-            .range([0, this.subWidth]);
+            .range([0, this.vizWidth]);
 
         this.scaleXPercent = d3.scaleLinear()
             .domain([-120,120])
-            .range([0, this.subWidth]);
+            .range([0, this.vizWidth]);
 
         this.sortHandlers();
         this.drawLegends();
@@ -56,21 +54,31 @@ class table {
      */
     drawLegends() {
         let legendF = d3.select("#frequency-axis")
-            .attr("width", this.subWidth)
+            .attr("width", this.vizWidth)
             .attr("height", this.vizHeight);
 
-        let freq_values = [0, 0.5, 1];
+        let freq_values = [0.0, 0.5, 1.0];
         
         legendF.selectAll("text")
             .data(freq_values)
             .join("text")
             .attr("x", (d) => this.scaleXFreq(d))
-            .attr("y", this.vizHeight)
+            .attr("y", 15)
             .attr('class', "freqlabel-table")
             .text(d => d); 
 
+        legendF.selectAll("line")
+            .data(freq_values)
+            .join('line')
+            .attr('x1', (d) => this.scaleXFreq(d)+3)
+            .attr('y1', 16)
+            .attr('x2', (d) => this.scaleXFreq(d)+3)
+            .attr('y2', this.vizHeight)
+            .attr("stroke-width", 1)
+            .attr("stroke", "black");
+
         let legendP = d3.select("#percentages-axis")
-            .attr("width", this.subWidth)
+            .attr("width", this.vizWidth)
             .attr("height", this.vizHeight);
 
         let percentValues = [-100, -50, 0, 50, 100];
@@ -89,6 +97,7 @@ class table {
                     return "" + d;
                 }
             });        
+        
         
 
     }
