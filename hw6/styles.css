@@ -140,6 +140,11 @@ Styling for the wrapper containing the two tables
 Table stylings
 */
 
+#headerTable {
+    background-color: lightblue;
+    opacity: 1;
+}
+
 .no-display {
     display: none !important;
 }
@@ -181,7 +186,9 @@ td {
     padding-right: 0px;
     padding-left: 0px;
     color:black;
+    text-align: center;
 }
+
 
 /* 
 bubbleChart stylings

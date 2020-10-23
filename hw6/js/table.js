@@ -107,9 +107,6 @@ class table {
             .attr('y2', this.vizHeight)
             .attr("stroke-width", 1)
             .attr("stroke", "black");
-        
-        
-
     }
 
     /**
@@ -121,16 +118,14 @@ class table {
 
         this.updateHeaders();
 
-        
         let rowSelection = d3.select('#tableBody')
             .selectAll('tr')
             .data(this.chartData)
             .join('tr');
 
         let phraseSelection = rowSelection.selectAll('td')
-        .data(this.rowToCellDataTransform)
-        .join('td');
-        //.attr('class', d => d.class);
+            .data(this.rowToCellDataTransform)
+            .join('td');
 
         let txtSelection = phraseSelection.filter(d => d.type === 'text');
 
@@ -151,7 +146,7 @@ class table {
             .data(d => [d])
             .join('g');
         
-            this.drawFrequencyBars(grouperFreqSelect.filter((d,i) => i === 0));
+        this.drawFrequencyBars(grouperFreqSelect.filter((d,i) => i === 0));
         
         let percentSelection = phraseSelection.filter(d => d.type === 'percent');
 
@@ -168,8 +163,6 @@ class table {
             this.drawPercentageBars(grouperPercentSelect.filter((d,i) => i === 0));
 
             this.midline(grouperPercentSelect.filter((d,i) => i === 1));
-
-
         
     }
 
