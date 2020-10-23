@@ -185,34 +185,6 @@ class bubblechart {
             let xaxis = svgGroup.append("g")
                 .classed("x-axis", true)
                 .attr("id", "x-axis");
-
-        let midline = d3.select('#chart-view').select('.plot-svg').append('g')
-                        .attr("id", "midline");
-
-        let midline_data = [0]
-
-            if (this.isExpanded) {
-                midline.selectAll("line")
-                    .data(midline_data)
-                    .join("line")
-                    .attr("x1", (d) => this.axisXscale(d))
-                    .attr("y1", 0)
-                    .attr("x2", (d) => this.axisXscale(d))
-                    .attr("y2", (d) => this.chartheight)
-                    .attr("stroke-width", 1)
-                    .attr("stroke", "black");
-            }
-            else if (this.isExpanded === false) {
-                midline.selectAll("line")
-                    .data(midline_data)
-                    .join("line")
-                    .attr("x1", (d) => this.axisXscale(d))
-                    .attr("y1", 0)
-                    .attr("x2", (d) => this.axisXscale(d))
-                    .attr("y2", (d) => this.height)
-                    .attr("stroke-width", 1)
-                    .attr("stroke", "black");
-            }
                 
             let g1 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
@@ -300,6 +272,34 @@ class bubblechart {
         xaxis.call(d3.axisTop(this.axisXscale).ticks(11));
         
         xaxis.select('.domain').attr("stroke-width", 0);
+
+        let midline = d3.select('#chart-view').select('.plot-svg').append('g')
+                        .attr("id", "midline");
+
+        let midline_data = [0];
+        debugger;
+            if (this.isExpanded) {
+                midline.selectAll("line")
+                    .data(midline_data)
+                    .join("line")
+                    .attr("x1", (d) => this.axisXscale(d))
+                    .attr("y1", this.margin.right)
+                    .attr("x2", (d) => this.axisXscale(d))
+                    .attr("y2", this.chartheight)
+                    .attr("stroke-width", 1)
+                    .attr("stroke", "black");
+            }
+            else if (this.isExpanded === false) {
+                midline.selectAll("line")
+                    .data(midline_data)
+                    .join("line")
+                    .attr("x1", (d) => this.axisXscale(d))
+                    .attr("y1", this.margin.right)
+                    .attr("x2", (d) => this.axisXscale(d))
+                    .attr("y2", this.height)
+                    .attr("stroke-width", 1)
+                    .attr("stroke", "black");
+            }
 
         this.cat_circles = [];
 
@@ -518,7 +518,7 @@ class bubblechart {
 
             document.getElementById('overlay').style.display = "none";
             that.isExtreme = false; 
-            debugger;
+            
             that.drawChart();
 
             for (let i = 0; i < that.cat_circles.length; i++) {
