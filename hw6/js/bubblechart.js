@@ -274,16 +274,17 @@ class bubblechart {
         xaxis.select('.domain').attr("stroke-width", 0);
 
         if (this.isExpanded) {
-            xaxis.select("line")
-            .join("line")
-            .attr("x1", this.axisXscale(0))
-            .attr("y1", 0)
-            .attr("x2", this.axisXscale(0))
-            .attr("y2", this.chartheight);
+            xaxis
+                .exit().remove()
+                .enter().append("line")
+                .merge(xaxis)
+                .attr("x1", this.axisXscale(0))
+                .attr("y1", 0)
+                .attr("x2", this.axisXscale(0))
+                .attr("y2", this.chartheight);
         }
         else if (this.isExpanded === false) {
-            xaxis.select("line")
-            .join("line")
+            xaxis.append("line")
             .attr("x1", this.axisXscale(0))
             .attr("y1", 0)
             .attr("x2", this.axisXscale(0))
@@ -509,7 +510,7 @@ class bubblechart {
 
             document.getElementById('overlay').style.display = "none";
             that.isExtreme = false; 
-
+            debugger;
             that.drawChart();
 
             for (let i = 0; i < that.cat_circles.length; i++) {
