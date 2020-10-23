@@ -265,6 +265,8 @@ Stylings for the div
     color: black;
     border: "2px solid black";
     text-align: center;
+    background: white;
+    pointer-events: none;
 }
     /*transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
