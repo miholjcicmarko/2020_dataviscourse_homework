@@ -273,15 +273,6 @@ class bubblechart {
         
         xaxis.select('.domain').attr("stroke-width", 0);
 
-        let twoLeaners = ["Democratic Leaning", "Republican Leaning"];
-
-        // xaxis.selectAll("text")
-        //     .data(twoLeaners)
-        //     .join("text")
-        //     .attr("x", this.vizHeight/4)
-        //     .attr("y", this.vizHeight/2)
-
-
         this.cat_circles = [];
 
         for (let i = 0; i < this.unique_categories.length; i++) {
@@ -305,18 +296,13 @@ class bubblechart {
     }
 
     addCatLabels() {
-        //let all_cat = ["economy/fiscal issues", "energy/environment"]
-
-        // for (let i = 0; i < this.unique_categories.length; i++) {
-        //     all_cat.push(this.unique_categories[i]);
-        // }
 
         let catLabels = d3.select('#groupLabel').selectAll('text')
                             .data(this.unique_categories)
                             .join('text')
                             .text(d => d)
                             .attr("x", (d,i) => 10)
-                            .attr("y", (d,i) => (i*150) + 100);
+                            .attr("y", (d,i) => 50+(i*140));
 
         if (this.isExpanded) {
              catLabels.attr("opacity", 0.8);
