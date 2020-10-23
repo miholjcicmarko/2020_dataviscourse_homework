@@ -468,6 +468,7 @@ class bubblechart {
                         selectionData = selectionData.filter(d => d.category === category);
 
                         that.updateTable(selectionData);
+        
                     }
                 }
 
@@ -713,8 +714,8 @@ class bubblechart {
             let pos_val = pos * -1;
             pos = pos_val.toFixed(3);
         }
-        return "<h3>" + phrase + "</h3>" + "<br/>" + 
-            "</h5" + party + " " + pos + "%" +"<br/>" + 
+        return "<h5>" + phrase + "<br/>" + 
+            party + " " + pos + "%" +"<br/>" + 
             "In " + frequency_fixed + "%" + " of speeches" + "</h5>";
     }
 
