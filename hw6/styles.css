@@ -162,6 +162,7 @@ th {
     user-select: none;
     cursor: pointer;
     padding: 6px;
+    border-right: 2px solid white;
 }
 
 .freqlabel-table {
