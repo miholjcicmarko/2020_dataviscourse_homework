@@ -643,8 +643,8 @@ class bubblechart {
                 let coord = rect.getBoundingClientRect();
 
                 let drDiv = d3.select('#overlay')
-                                .style("top", 150 + "px")
-                                .style("left", 10 + "px");
+                                .style("top", 0 + "px")
+                                .style("left", 0 + "px");
 
                 drDiv.append("div")
                     .attr("id", "textDem")
@@ -654,7 +654,7 @@ class bubblechart {
                 let textDiv = d3.select('#textDem')
                         .style("position", "absolute")
                         .style("top", coord.y - scrollvert+ "px")
-                        .style("left", 0 - scrollside+ "px")
+                        .style("left", 0 - scrollside + "px")
                         .style("border", "2px solid black")
                         .classed("textDiv", true);
                 
