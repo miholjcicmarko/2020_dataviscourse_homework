@@ -427,12 +427,14 @@ class bubblechart {
 
                         let [x1,x2] = brushSelection;
 
-                        svg.selectAll("circle").classed("notbrushed", true);
+                        let colorchange = svg.selectAll("circle").classed("notbrushed", true);
                         
                         let selectionData = that.circles_arr.filter(d => d.xVal >= that.xScale.invert(x1) &&
                                                     d.xVal <= that.xScale.invert(x2));
 
-                        //selectionData.classed("notbrushed", false);
+                        activeBrushNode.selectAll("circle")
+                            //.filter()
+                            .classed("notbrushed",false);
 
                         if (that.isExpanded) {
                             
