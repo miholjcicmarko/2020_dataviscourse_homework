@@ -426,8 +426,6 @@ class bubblechart {
                     if (brushSelection) {
 
                         let [x1,x2] = brushSelection;
-
-                        let colorchange = svg.selectAll("circle").classed("notbrushed", true);
                         
                         let selectionData = that.circles_arr.filter(d => d.xVal >= that.xScale.invert(x1) &&
                                                     d.xVal <= that.xScale.invert(x2));
@@ -450,12 +448,16 @@ class bubblechart {
                                 
                             selectionData = selectionData.filter(d => d.category === category);
 
+                            let colorchange = svg.selectAll("circle").classed("notbrushed", true);
+
                             activeBrushNode.selectAll("circle")
                                 .filter(d=>d.xVal>=that.xScale.invert(x1) && d.xVal<=that.xScale.invert(x2))
                                 .classed("notbrushed",false);
                                 
                         }
                         else if (that.isExpanded === false) {
+                            let colorchange = svg.selectAll("circle").classed("notbrushed", true);
+
                             colorchange.selectAll("circle")
                                 .filter(d=>d.xVal>=that.xScale.invert(x1) && d.xVal<=that.xScale.invert(x2))
                                 .classed("notbrushed",false);
@@ -499,8 +501,6 @@ class bubblechart {
 
                         selectionData = selectionData.filter(d => d.category === category);
 
-                        let colorchange = svg.selectAll("circle").classed("notbrushed", true);
-
                         activeBrushNode.selectAll("circle")
                             .filter(d=>d.xVal>=that.xScale.invert(x1) && d.xVal<=that.xScale.invert(x2))
                             .classed("notbrushed",false);
@@ -509,6 +509,8 @@ class bubblechart {
         
                     }
                     else if (that.isExpanded === false) {
+                        let colorchange = svg.selectAll("circle").classed("notbrushed", true);
+
                         colorchange.selectAll("circle")
                             .filter(d=>d.xVal>=that.xScale.invert(x1) && d.xVal<=that.xScale.invert(x2))
                             .classed("notbrushed",false);
