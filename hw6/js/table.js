@@ -50,7 +50,6 @@ class table {
 
     /**
      * Draws the legend for the table
-     *
      */
     drawLegends() {
         let legendF = d3.select("#frequency-axis")
@@ -168,7 +167,7 @@ class table {
 
     /**
      * Takes all of the data and converts into a usable form
-     * @param {data} d 
+     * @param {data} d the entire data set
      */
     rowToCellDataTransform(d) {
         let phraseInfo = {
@@ -204,7 +203,8 @@ class table {
 
     /**
      * Draws the bar chart for the frequency column
-     *
+     * @param {grouperFreqSelect} grouperFreqSelect the svg for 
+     * the frequency column
      */
     drawFrequencyBars (grouperFreqSelect) {
         let that = this;
@@ -236,7 +236,8 @@ class table {
 
     /**
      * Draws the bar chart for the percentages column
-     *
+     * @param {grouperPercentSelect} grouperPercentSelect the svg 
+     * for the percentage column
      */
     drawPercentageBars (grouperPercentSelect) {
         let that = this;
@@ -275,7 +276,8 @@ class table {
 
     /**
      * Create midline for Percentage Chart
-     *
+     * @param {grouperPercentSelect} grouperPercentSelect the svg
+     * for the percent column
      */
     midline (grouperPercentSelect) {
 
@@ -501,7 +503,6 @@ class table {
 
     /**
      * Updates the header of the column
-     *
      */
     updateHeaders () {
         let that = this;
@@ -633,9 +634,11 @@ class table {
         }
     }
 
-    /* 
-    Updates the Table
-    */
+    /**
+     * Updates the data put into the table
+     * @param {[newData]} newData the circles selected on the 
+     * bubblechart
+     */
     updatePhrase(newData) {
 
         let selectedData = [];
