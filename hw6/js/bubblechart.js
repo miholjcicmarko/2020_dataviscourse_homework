@@ -420,7 +420,6 @@ class bubblechart {
                 });
             brush
                 .on('brush', function () {
-                    debugger;
                     
                     let brushSelection = d3.brushSelection(selectionThis);
                     if (brushSelection) {
@@ -501,11 +500,11 @@ class bubblechart {
 
                         selectionData = selectionData.filter(d => d.category === category);
 
+                        let colorchange = svg.selectAll("circle").classed("notbrushed", true);
+
                         activeBrushNode.selectAll("circle")
                             .filter(d=>d.xVal>=that.xScale.invert(x1) && d.xVal<=that.xScale.invert(x2))
                             .classed("notbrushed",false);
-
-                        that.updateTable(selectionData);
         
                     }
                     else if (that.isExpanded === false) {
