@@ -5,6 +5,8 @@ Promise.all([words_json]).then(data => {
 
     let that = data;
 
+    // updates the table with the brushed data when brushed
+    // return the original data set when not brushed
     function updateTable(newData) {
 
         if (newData === null) {
