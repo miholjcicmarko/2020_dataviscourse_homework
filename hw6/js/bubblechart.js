@@ -350,9 +350,9 @@ class bubblechart {
             let data_arr = data[i];
             let group_select = group[i];
             let group_loc = this.height*i;
-        
-            debugger;
 
+            debugger;
+        
             let circles = d3.select('.plot-svg').select('#'+group_select).selectAll("circle")
                     .data(data_arr)
                     .enter().append("circle")
@@ -367,14 +367,8 @@ class bubblechart {
                         if (d.d_percentage > 49) {
                             return "dem-Extreme";
                         }
-                        else if (d.d_percentage < 49) {
-                            return "dem";
-                        }
                         else if (d.r_percentage > 51) {
                             return "rep-Extreme";
-                        }
-                        else if (d.r_percentage < 51) {
-                            return "rep";
                         }
                     });
 
@@ -715,7 +709,7 @@ class bubblechart {
                         .style("background", "steelblue")
                         .classed("textDiv", true);
 
-                d3.select('#dem-Extreme')
+                drDiv.select('#dem-Extreme')
                     .classed("blueChosen", true);
                 
                 textDiv.html(this.extremeRender("dem"));
