@@ -479,7 +479,7 @@ class bubblechart {
                                                 d.xVal <= that.xScale.invert(x2));
 
                         activeBrushNode.selectAll("circle")
-                            .filter(d=>d[0]>=that.xScale.invert(x1) && d[0]<=that.xScale.invert(x2))
+                            .filter(d=>d.xVal>=that.xScale.invert(x1) && d.xVal<=that.xScale.invert(x2))
                             .classed("notbrushed",false);
                    
                         if (that.isExpanded) {
