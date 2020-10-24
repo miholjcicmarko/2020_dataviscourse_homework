@@ -141,9 +141,11 @@ Table stylings
 */
 
 #headerTable {
+    border-collapse: collapse;
     background-color: rgb(195, 218, 226);
     opacity: 0.8;
     stroke-opacity: 1;
+    border-spacing: 10px;
 }
 
 .no-display {
