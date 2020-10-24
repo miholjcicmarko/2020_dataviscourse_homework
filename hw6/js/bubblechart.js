@@ -136,9 +136,8 @@ class bubblechart {
      *
      */
     drawChart() {
-        // create the diverging x-axis
-        
-        //create the tool tip
+        // counter needed to prevent the chart
+        // from  being redrawn multiple times
         if (this.count === 0) {
 
         d3.select("#bubbleChart")
@@ -162,7 +161,7 @@ class bubblechart {
             .attr("height", this.chartHeight);
 
         }
-
+        
         let leaningLab = d3.select(".leaningLabel");
 
         let twoLeaners = ["Democratic Leaning", "Republican Leaning"];
@@ -176,11 +175,11 @@ class bubblechart {
             .text(d => d); 
  
         let svgGroup = d3.select('#chart-view').select('.plot-svg').append('g');
-    
+            
             let xaxis = svgGroup.append("g")
                 .classed("x-axis", true)
                 .attr("id", "x-axis");
-                
+            // creates the brushes 
             let g1 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
                         .attr("height", this.height-this.margin.top-this.margin.bottom)
@@ -216,7 +215,7 @@ class bubblechart {
                         .attr("height", this.height-this.margin.top-this.margin.bottom)
                         .attr("id", "g6")
                         .attr("transform", 'translate(0,'+this.height*5+')');
-
+            // intializes group for category label
             let groupLabel = d3.select('#chart-view').selectAll('.plot-svg')
                                 .append('g')
                                 .attr("id", "groupLabel");
@@ -257,7 +256,7 @@ class bubblechart {
 
         let xaxis = d3.select('#x-axis')
             .attr("transform", "translate(0,25)");
-
+        // create diverging axis
         let xaxisdata = [-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50];
 
         this.axisXscale = d3.scaleLinear()
@@ -322,7 +321,6 @@ class bubblechart {
     /*
     * Adds the labels of all the catgories to the plot
     */
-
     addCatLabels() {
 
         let catLabels = d3.select('#groupLabel').selectAll('text')
@@ -765,6 +763,9 @@ class bubblechart {
         }
     }
 
+    /*
+    * creates the text for the story telling
+    */
     extremeRender(identifier) {
         if (identifier === "dem") {
             let text = "<h5>" + "Democratic speeches" + "<br/>" +
@@ -780,6 +781,9 @@ class bubblechart {
         }
     }
 
+    /*
+    * creates the text for the tool tip
+    */
     tooltipDivRender(data) {
         let phrase = data['phrase'];
         let freq = data['frequency']*100;
