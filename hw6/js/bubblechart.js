@@ -632,6 +632,7 @@ class bubblechart {
             this.isExtreme = true; 
 
             if (this.isExpanded) {
+                debugger;
             
                 let scrollvert = window.pageYOffset;
 
@@ -645,7 +646,8 @@ class bubblechart {
                                 .style("top", 0 + "px")
                                 .style("left", 0 + "px");
 
-                rect.select('#dem-Extreme').classed("blueChosen", true);
+                d3.select('#dem-Extreme')
+                    .classed("blueChosen", true);
 
                 drDiv.append("div")
                     .attr("id", "textDem")
@@ -669,6 +671,9 @@ class bubblechart {
                     .attr("id", "textRep")
                     .style("width", "100px")
                     .style("height", "70px");
+
+                d3.select('#rep-Extreme')
+                    .classed("redChosen", true);
 
                 let textDiv2 = d3.select('#textRep')
                         .style("position", "relative")
