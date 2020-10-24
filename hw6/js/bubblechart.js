@@ -468,7 +468,6 @@ class bubblechart {
                 });
             brush   
                 .on('end', function() {
-                    debugger;
                     
                     let brushSelection = d3.brushSelection(selectionThis);
                     if(!brushSelection){
@@ -633,7 +632,8 @@ class bubblechart {
             this.isExtreme = true; 
 
             if (this.isExpanded) {
-
+                debugger;
+            
                 let scrollvert = document.getElementById('dem-Extreme').scrollTop;
 
                 let scrollside = document.getElementById('dem-Extreme').scrollLeft;
