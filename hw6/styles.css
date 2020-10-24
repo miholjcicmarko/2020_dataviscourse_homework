@@ -213,6 +213,11 @@ bubbleChart stylings
     opacity: .8;
 }
 
+.catlabel {
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 /*
 brush stylings
 */
