@@ -703,13 +703,13 @@ class bubblechart {
 
                 let textDiv = d3.select('#textDem')
                         .style("position", "relative")
-                        .style("top", coord.y+35 - scrollvert+ "px")
-                        .style("left", coord.x -225 - scrollside + "px")
+                        .style("top", coord.y + 20 - scrollvert+ "px")
+                        .style("left", coord.x - scrollside + "px")
                         .style("border", "2px solid blue")
                         .style("background", "steelblue")
                         .classed("textDiv", true);
 
-                drDiv.select('#dem-Extreme')
+                d3.select('#dem-Extreme')
                     .classed("blueChosen", true);
                 
                 textDiv.html(this.extremeRender("dem"));
@@ -725,11 +725,14 @@ class bubblechart {
 
                 let textDiv2 = d3.select('#textRep')
                         .style("position", "relative")
-                        .style("top", coord2.y-50 + "px")
-                        .style("left", coord2.x + 100 + "px")
+                        .style("top", coord2.y-50 - scrollvert + "px")
+                        .style("left", coord2.x - 20 - scrollside "px")
                         .style("border", "2px solid red")
                         .style("background", "orangered")
                         .classed("textDiv", true);
+
+                d3.select('#rep-Extreme')
+                    .classed("redChosen", true);
                 
                 textDiv2.html(this.extremeRender("rep"));
 
