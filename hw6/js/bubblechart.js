@@ -726,7 +726,7 @@ class bubblechart {
                 let textDiv2 = d3.select('#textRep')
                         .style("position", "relative")
                         .style("top", coord2.y-50 - scrollvert + "px")
-                        .style("left", coord2.x - 20 - scrollside "px")
+                        .style("left", coord2.x - 20 - scrollside + "px")
                         .style("border", "2px solid red")
                         .style("background", "orangered")
                         .classed("textDiv", true);
