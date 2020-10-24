@@ -420,7 +420,6 @@ class bubblechart {
                 });
             brush
                 .on('brush', function () {
-                    debugger;
                     
                     let brushSelection = d3.brushSelection(selectionThis);
                     if (brushSelection) {
