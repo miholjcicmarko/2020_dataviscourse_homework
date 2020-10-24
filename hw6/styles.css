@@ -216,7 +216,7 @@ bubbleChart stylings
 /*
 brush stylings
 */
-.notbrush {
+.notbrushed {
     fill: gray;
     opacity: 0.5;
 }
