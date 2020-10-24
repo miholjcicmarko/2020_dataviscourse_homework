@@ -431,9 +431,9 @@ class bubblechart {
                         let selectionData = that.circles_arr.filter(d => d.xVal >= that.xScale.invert(x1) &&
                                                     d.xVal <= that.xScale.invert(x2));
 
-                        activeBrushNode.selectAll("circle")
-                            .filter(d => d[0] >= that.xScale.invert(x1) && d[0] <= that.xScale.invert(x2))
-                            .classed("notbrushed",false);
+                        // activeBrushNode.selectAll("circle")
+                        //     .filter(d => d[0] >= that.xScale.invert(x1) && d[0] <= that.xScale.invert(x2))
+                        //     .classed("notbrushed",false);
 
                         if (that.isExpanded) {
                             
@@ -482,10 +482,6 @@ class bubblechart {
                         let [x1,x2] = brushSelection;
 
                         svg.selectAll("circle").classed("notbrushed", true);
-
-                        activeBrushNode.selectAll("circle")
-                            //.filter()
-                            .classed("notbrushed",false)
                         
                         let selectionData = that.circles_arr.filter(d => d.xVal >= that.xScale.invert(x1) &&
                                                 d.xVal <= that.xScale.invert(x2));
@@ -507,8 +503,17 @@ class bubblechart {
 
                         selectionData = selectionData.filter(d => d.category === category);
 
+                        activeBrushNode.selectAll("circle")
+                            .filter(d => d[0] >= that.xScale.invert(x1) && d[0] <= that.xScale.invert(x2))
+                            .classed("notbrushed",false);
+
                         that.updateTable(selectionData);
         
+                    }
+                    else if (this.isExpanded === false) {
+                        svg.selectAll("circle")
+                            .filter(d => d[0] >= that.xScale.invert(x1) && d[0] <= that.xScale.invert(x2))
+                            .classed("notbrushed",false);
                     }
                 }
 
