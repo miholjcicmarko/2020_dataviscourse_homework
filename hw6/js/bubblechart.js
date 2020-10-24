@@ -328,15 +328,20 @@ class bubblechart {
         let catLabels = d3.select('#groupLabel').selectAll('text')
                             .data(this.unique_categories)
                             .join('text')
+                            .transition()
+                            .duration(750)
                             .text(d => d)
                             .attr("x", (d,i) => 10)
                             .attr("y", (d,i) => 50+(i*140));
 
         if (this.isExpanded) {
-             catLabels.attr("opacity", 0.8);
+            catLabels.attr("opacity", 0.8);
         }
         else if (this.isExpanded === false) {
-             catLabels.attr("opacity", 0);
+            catLabels.attr("opacity", 0.8)
+                .attr("x", (d,i) => 10)
+                .attr("y", (d,i) => 50-(i*1))
+                .attr("opacity", 0);
         }
     }
 
@@ -598,10 +603,13 @@ class bubblechart {
                 .data(data_arr)
 
             chart.style("opacity", 1)
+                .attr('cx', (d,i) => that.xScale(d.moveX))
+                .attr('cy', (d,i) => that.yScale(d.moveY) - group_loc)
+                .attr('r', (d,i) => d.circleSize)
                 .exit().remove()
-                .transition()
-                .duration(5)
                 .style("opacity",0);
+
+            debugger;
             
             chart
                 .enter().append("rect")
