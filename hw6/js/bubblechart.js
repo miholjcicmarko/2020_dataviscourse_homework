@@ -456,7 +456,7 @@ class bubblechart {
                                 
                         }
                         else if (this.isExpanded === false) {
-                            svg.selectAll("circle")
+                            colorchange.selectAll("circle")
                                 .filter(d=>d.xVal>=that.xScale.invert(x1) && d.xVal<=that.xScale.invert(x2))
                                 .classed("notbrushed",false);
                         }
