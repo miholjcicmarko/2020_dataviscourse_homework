@@ -4,11 +4,17 @@
 class CircleData {
     /**
      * 
-     * @param {phrase} phrase 
+     * @param {phrase} phrase the phrase
      * @param {xVal} xVal x-position
-     * @param {*} yVal y-position
-     * @param {*} category category 
-     * @param {*} circleSize the radius of the circle
+     * @param {yVal} yVal y-position
+     * @param {category} category category 
+     * @param {circleSize} circleSize the radius of the circle
+     * @param {moveX} moveX new x position when table expanded
+     * @param {moveY} moveY new y position when table expanded
+     * @param {position} position the position of the phrase
+     * @param {total} total the total of the word used
+     * @param {d_percentage} d_percentage the percentage of democratic usage
+     * @param {r_percentage} r_percentage the percentage of republican usage
      */
     
     constructor(phrase, xVal, yVal, category, circleSize, moveX, moveY,
@@ -38,7 +44,8 @@ class bubblechart {
     /**
      * Creates a bubblechart Object
      *
-     * @param data the full dataset
+     * @param worddata the full dataset
+     * @param updateTable the function from script to update the table
      */
     constructor(wordData, updateTable) {
         this.updateTable = updateTable;
@@ -55,6 +62,7 @@ class bubblechart {
 
       this.chartHeight = 900;
 
+    // function used to encode the total to the size of the circle
         let circleSizer = function (d) {
             let cScale = d3.scaleSqrt()
                 .range([2, 8])
@@ -119,12 +127,6 @@ class bubblechart {
             .domain(this.unique_categories)
             .range(d3.schemeSet2);
 
-        let yMoves = [];
-
-        for (let i = 0; i < this.circles_arr.length; i++) {
-            yMoves.push(this.circles_arr[i].moveY);
-        }
-
         this.max_brush_width = this.width
 
         this.count = 0;
@@ -133,7 +135,6 @@ class bubblechart {
 
     /**
      * Draws the bubblechart
-     *
      */
     drawChart() {
         // counter needed to prevent the chart
@@ -179,6 +180,7 @@ class bubblechart {
             let xaxis = svgGroup.append("g")
                 .classed("x-axis", true)
                 .attr("id", "x-axis");
+
             // creates the brushes 
             let g1 = d3.select('#chart-view').select('.plot-svg')
                         .append('g').classed('brushes', true)
@@ -215,6 +217,7 @@ class bubblechart {
                         .attr("height", this.height-this.margin.top-this.margin.bottom)
                         .attr("id", "g6")
                         .attr("transform", 'translate(0,'+this.height*5+')');
+
             // intializes group for category label
             let groupLabel = d3.select('#chart-view').selectAll('.plot-svg')
                                 .append('g')
@@ -256,6 +259,7 @@ class bubblechart {
 
         let xaxis = d3.select('#x-axis')
             .attr("transform", "translate(0,25)");
+
         // create diverging axis
         let xaxisdata = [-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50];
 
@@ -344,8 +348,10 @@ class bubblechart {
         }
     }
 
-    /*
-    Binds the circles
+    /**
+     * Binds the circles to the svg
+     * @param {[data]} data array of arrays of circle data for the specific group
+     * @param {[group]} group array of group identities
     */
     bindCircle (data, group) {
 
@@ -378,6 +384,7 @@ class bubblechart {
 
                 let that = this;
 
+                // tooltip for the circles in the bubblechart
                 circles.on('mouseover', function(d,i) {
                     tooltip.transition()
                         .duration(200)
@@ -400,7 +407,11 @@ class bubblechart {
 
     /**
      * Creates the brush
-     */
+     * @param {svg} svg svg selection where the brush will be 
+     * @param {brush_chart} brush_chart all the groups of brushes
+     * @param {brush_width} brush_width width of the brush
+     * @param {brush_height} brush_height height of the brush
+    */
     brush(svg, brush_chart, brush_width, brush_height) {
         let that = this;
         let activeBrush = null;
@@ -434,7 +445,7 @@ class bubblechart {
                                                     d.xVal <= that.xScale.invert(x2));
 
                         if (that.isExpanded) {
-                            
+                            // gets the group selected
                             let group_select = d3.select(this).attr("id");    
                             
                             let groups = ['g1', 'g2', 'g3', 'g4', 'g5', 'g6'];
@@ -448,7 +459,8 @@ class bubblechart {
                             }
                                 
                             let category = that.unique_categories[index];
-                                
+                            
+                            // gets the data for the sole group selected   
                             selectionData = selectionData.filter(d => d.category === category);
 
                             svg.selectAll("circle").classed("notbrushed", true);
@@ -529,11 +541,9 @@ class bubblechart {
 
     /**
      * Toggles between the separation of the categories
-     *
      */
     toggleExpansion() {
-        //button toggles between
-        // animated transitions
+        // this count prevents the svg for the chart from being drawn repeatedly
         this.count = 1;
         let that = this;
 
@@ -629,7 +639,6 @@ class bubblechart {
 
     /**
      * Shows the Extremes when the button is pressed
-     *
      */
     showExtremes() {
         if (this.isExtreme === false) {
