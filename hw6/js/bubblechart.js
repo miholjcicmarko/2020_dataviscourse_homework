@@ -685,9 +685,9 @@ class bubblechart {
             }
             else if (this.isExpanded === false) {
                 debugger;
-                let scrollvert = document.getElementById('overlay').scrollTop;
+                let scrollvert = document.getElementById('innerWrapper1').scrollTop;
 
-                let scrollside = document.getElementById('overlay').scrollLeft;
+                let scrollside = document.getElementById('innerWrapper2').scrollLeft;
 
                 let rect = document.getElementById('dem-Extreme');
                 
