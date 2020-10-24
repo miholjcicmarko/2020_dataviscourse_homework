@@ -432,8 +432,8 @@ class bubblechart {
                                                     d.xVal <= that.xScale.invert(x2));
 
                         activeBrushNode.selectAll("circle")
-                            //.filter()
-                            .classed("notbrushed",false)
+                            .filter(d => d[0] >= that.xScale.invert(x1) && d[0] <= that.xScale.invert(x2))
+                            .classed("notbrushed",false);
 
                         if (that.isExpanded) {
                             
@@ -452,7 +452,16 @@ class bubblechart {
                             let category = that.unique_categories[index];
                                 
                             selectionData = selectionData.filter(d => d.category === category);
+
+                            activeBrushNode.selectAll("circle")
+                                .filter(d => d[0] >= that.xScale.invert(x1) && d[0] <= that.xScale.invert(x2))
+                                .classed("notbrushed",false);
                                 
+                        }
+                        else if (this.isExpanded === false) {
+                            svg.selectAll("circle")
+                                .filter(d => d[0] >= that.xScale.invert(x1) && d[0] <= that.xScale.invert(x2))
+                                .classed("notbrushed",false);
                         }
 
                         that.updateTable(selectionData);
