@@ -470,10 +470,12 @@ class bubblechart {
                     if (brushSelection !== null) {
                         let [x1,x2] = brushSelection;
 
-                        svg.selectAll("circle").classed("notbrushed", false);
+                        svg.selectAll("circle").classed("notbrushed", true);
                         
                         let selectionData = that.circles_arr.filter(d => d.xVal >= that.xScale.invert(x1) &&
                                                 d.xVal <= that.xScale.invert(x2));
+
+                        selectionData.classed("notbrushed", false);
                    
                         if (that.isExpanded) {
                             let group_select = d3.select(this).attr("id");
