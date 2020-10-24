@@ -477,6 +477,10 @@ class bubblechart {
                         
                         let selectionData = that.circles_arr.filter(d => d.xVal >= that.xScale.invert(x1) &&
                                                 d.xVal <= that.xScale.invert(x2));
+
+                        activeBrushNode.selectAll("circle")
+                            .filter(d=>d[0]>=that.xScale.invert(x1) && d[0]<=that.xScale.invert(x2))
+                            .classed("notbrushed",false);
                    
                         if (that.isExpanded) {
                             let group_select = d3.select(this).attr("id");
