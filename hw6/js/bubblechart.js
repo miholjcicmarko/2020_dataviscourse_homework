@@ -420,6 +420,7 @@ class bubblechart {
                 });
             brush
                 .on('brush', function () {
+                    debugger;
                     
                     let brushSelection = d3.brushSelection(selectionThis);
                     if (brushSelection) {
@@ -431,7 +432,7 @@ class bubblechart {
                         let selectionData = that.circles_arr.filter(d => d.xVal >= that.xScale.invert(x1) &&
                                                     d.xVal <= that.xScale.invert(x2));
 
-                        selectionData.classed("notbrushed", false);
+                        //selectionData.classed("notbrushed", false);
 
                         if (that.isExpanded) {
                             
@@ -474,8 +475,6 @@ class bubblechart {
                         
                         let selectionData = that.circles_arr.filter(d => d.xVal >= that.xScale.invert(x1) &&
                                                 d.xVal <= that.xScale.invert(x2));
-
-                        selectionData.classed("notbrushed", false);
                    
                         if (that.isExpanded) {
                             let group_select = d3.select(this).attr("id");
