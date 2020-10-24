@@ -648,7 +648,7 @@ class bubblechart {
                                 .style("top", 0 + "px")
                                 .style("left", 0 + "px");
 
-                d3.select('#dem-Extreme').classed("blueChosen", true);
+                rect.select('#dem-Extreme').classed("blueChosen", true);
 
                 drDiv.append("div")
                     .attr("id", "textDem")
