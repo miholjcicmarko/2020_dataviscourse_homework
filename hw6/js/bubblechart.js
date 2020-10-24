@@ -478,8 +478,6 @@ class bubblechart {
                  
                     if (brushSelection !== null) {
                         let [x1,x2] = brushSelection;
-
-                        svg.selectAll("circle").classed("notbrushed", true);
                         
                         let selectionData = that.circles_arr.filter(d => d.xVal >= that.xScale.invert(x1) &&
                                                 d.xVal <= that.xScale.invert(x2));
@@ -500,6 +498,8 @@ class bubblechart {
                         let category = that.unique_categories[index];
 
                         selectionData = selectionData.filter(d => d.category === category);
+
+                        let colorchange = svg.selectAll("circle").classed("notbrushed", true);
 
                         activeBrushNode.selectAll("circle")
                             .filter(d=>d.xVal>=that.xScale.invert(x1) && d.xVal<=that.xScale.invert(x2))
