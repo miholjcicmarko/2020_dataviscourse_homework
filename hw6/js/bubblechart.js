@@ -743,6 +743,12 @@ class bubblechart {
         else if (this.isExtreme === true) {
             this.isExtreme = false;
 
+            d3.select('#dem-Extreme')
+                .classed("blueChosen", false);
+
+            d3.select('#rep-Extreme')
+                .classed("redChosen", false);
+
             document.getElementById('overlay').style.display = "none";            
         }
     }
