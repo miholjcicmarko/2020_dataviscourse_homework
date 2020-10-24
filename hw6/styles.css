@@ -141,8 +141,9 @@ Table stylings
 */
 
 #headerTable {
-    background-color: lightblue;
-    opacity: 1;
+    background-color: rgb(195, 218, 226);
+    opacity: 0.8;
+    stroke-opacity: 1;
 }
 
 .no-display {
@@ -211,6 +212,11 @@ bubbleChart stylings
     stroke: grey;
     stroke-width: "2px";
     opacity: .8;
+}
+
+.catlabel {
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /*
