@@ -447,7 +447,7 @@ class bubblechart {
                                 
                             selectionData = selectionData.filter(d => d.category === category);
 
-                            let colorchange = svg.selectAll("circle").classed("notbrushed", true);
+                            svg.selectAll("circle").classed("notbrushed", true);
 
                             activeBrushNode.selectAll("circle")
                                 .filter(d=>d.xVal>=that.xScale.invert(x1) && d.xVal<=that.xScale.invert(x2))
@@ -455,9 +455,9 @@ class bubblechart {
                                 
                         }
                         else if (that.isExpanded === false) {
-                            let colorchange = svg.selectAll("circle").classed("notbrushed", true);
+                            svg.selectAll("circle").classed("notbrushed", true);
 
-                            colorchange.selectAll("circle")
+                            svg.selectAll("circle")
                                 .filter(d=>d.xVal>=that.xScale.invert(x1) && d.xVal<=that.xScale.invert(x2))
                                 .classed("notbrushed",false);
                         }
@@ -500,7 +500,7 @@ class bubblechart {
 
                         selectionData = selectionData.filter(d => d.category === category);
 
-                        let colorchange = svg.selectAll("circle").classed("notbrushed", true);
+                        svg.selectAll("circle").classed("notbrushed", true);
 
                         activeBrushNode.selectAll("circle")
                             .filter(d=>d.xVal>=that.xScale.invert(x1) && d.xVal<=that.xScale.invert(x2))
@@ -508,7 +508,7 @@ class bubblechart {
         
                     }
                     else if (that.isExpanded === false) {
-                        let colorchange = svg.selectAll("circle").classed("notbrushed", true);
+                        svg.selectAll("circle").classed("notbrushed", true);
 
                         svg.selectAll("circle")
                             .filter(d=>d.xVal>=that.xScale.invert(x1) && d.xVal<=that.xScale.invert(x2))
