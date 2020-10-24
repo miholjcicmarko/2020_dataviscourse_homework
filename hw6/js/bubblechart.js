@@ -508,8 +508,8 @@ class bubblechart {
                         that.updateTable(selectionData);
         
                     }
-                    else if (this.isExpanded === false) {
-                        svg.selectAll("circle")
+                    else if (that.isExpanded === false) {
+                        colorchange.selectAll("circle")
                             .filter(d=>d.xVal>=that.xScale.invert(x1) && d.xVal<=that.xScale.invert(x2))
                             .classed("notbrushed",false);
                     }
