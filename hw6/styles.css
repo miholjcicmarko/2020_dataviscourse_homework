@@ -209,7 +209,7 @@ bubbleChart stylings
 }
 
 .bubble {
-    stroke: grey;
+    stroke: black;
     stroke-width: "2px";
     opacity: .8;
 }
