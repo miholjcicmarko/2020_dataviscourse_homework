@@ -557,7 +557,7 @@ class bubblechart {
             chart.style("opacity", 1)
                 .exit().remove()
                 .transition()
-                .duration(5)
+                .duration(750)
                 .style("opacity",0);
             
             chart
