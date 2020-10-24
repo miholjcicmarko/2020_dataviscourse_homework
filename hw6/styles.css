@@ -162,7 +162,6 @@ Table stylings
 
 .sortable {
     user-select: none;
-    border-radius: 3px;
     cursor: pointer;
     padding: 6px;
 }
