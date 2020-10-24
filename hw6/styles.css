@@ -144,16 +144,14 @@ Table stylings
     border-collapse: collapse;
 }
 
-#columnHeaders {
-    background-color: rgb(195, 218, 226)
-}
-
 #headerTable {
     background-color: rgb(195, 218, 226);
-    opacity: 0.8;
+    opacity: 1;
     stroke-opacity: 1;
-    padding: 0;
-    border-spacing: 0;
+}
+
+th {
+    border-right: 2px solid white;
 }
 
 .no-display {
