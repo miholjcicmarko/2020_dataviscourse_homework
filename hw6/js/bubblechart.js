@@ -634,6 +634,10 @@ class bubblechart {
 
             if (this.isExpanded) {
 
+                let scrollvert = document.getElementById('dem-Extreme').scrollTop;
+
+                let scrollside = document.getElementById('dem-Extreme').scrollLeft;
+
                 let rect = document.getElementById('dem-Extreme');
                 
                 let coord = rect.getBoundingClientRect();
@@ -649,8 +653,8 @@ class bubblechart {
 
                 let textDiv = d3.select('#textDem')
                         .style("position", "absolute")
-                        .style("top", coord.y + "px")
-                        .style("left", 0 + "px")
+                        .style("top", coord.y - scrollvert+ "px")
+                        .style("left", 0 - scrollside+ "px")
                         .style("border", "2px solid black")
                         .classed("textDiv", true);
                 
@@ -667,8 +671,8 @@ class bubblechart {
 
                 let textDiv2 = d3.select('#textRep')
                         .style("position", "relative")
-                        .style("top", coord2.y+60 + "px")
-                        .style("left", coord2.x + "px")
+                        .style("top", coord2.y+60 - scrollvert + "px")
+                        .style("left", coord2.x - scrollside + "px")
                         .style("border", "2px solid black")
                         .classed("textDiv", true);
                 
