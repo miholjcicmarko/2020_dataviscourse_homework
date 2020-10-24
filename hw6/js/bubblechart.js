@@ -593,23 +593,21 @@ class bubblechart {
 
             that.drawChart();
 
-            // for (let i = 0; i < that.cat_circles.length; i++) {
+            for (let i = 0; i < that.cat_circles.length; i++) {
 
-            // let data_arr = that.cat_circles[i];
-            // let group_select = that.group[i];
-            // let group_loc = that.height*i;
+            let data_arr = that.cat_circles[i];
+            let group_select = that.group[i];
+            let group_loc = that.height*i;
     
             let chart = d3.select('.plot-svg').select('#'+group_select).selectAll('circle')
-                .data(that.cat_circles)
+                .data(data_arr)
 
             chart.style("opacity", 1)
-                .attr('cx', (d,i) => that.xScale(d[i].moveX))
-                .attr('cy', (d,i) => that.yScale(d[i].moveY) - group_loc)
-                .attr('r', (d,i) => d[i].circleSize)
+                .attr('cx', (d,i) => that.xScale(d.moveX))
+                .attr('cy', (d,i) => that.yScale(d.moveY) - group_loc)
+                .attr('r', (d,i) => d.circleSize)
                 .exit().remove()
                 .style("opacity",0);
-
-            debugger;
             
             chart
                 .enter().append("rect")
@@ -618,14 +616,14 @@ class bubblechart {
             chart.style("opacity", 0)
                 .transition()
                 .duration(750)
-                .attr('cx', (d,i) => that.xScale(d[i].xVal))
-                .attr('cy', (d,i) => that.yScale(d[i].yVal) - group_loc)
-                .attr('r', (d,i) => d[i].circleSize)
+                .attr('cx', (d,i) => that.xScale(d.xVal))
+                .attr('cy', (d,i) => that.yScale(d.yVal) - group_loc)
+                .attr('r', (d,i) => d.circleSize)
                 .attr("class", "circle")
                 .attr("transform", "translate("+10+",0)")
-                .attr("fill", (d,i) => that.colorScale(d[i].category))
+                .attr("fill", (d,i) => that.colorScale(d.category))
                 .style("opacity", 1);
-        //}
+        }
         
     }
     }
