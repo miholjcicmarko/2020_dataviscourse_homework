@@ -420,12 +420,13 @@ class bubblechart {
                 });
             brush
                 .on('brush', function () {
+                    svg.selectAll("circle").classed("notbrush", true);
                     let brushSelection = d3.brushSelection(selectionThis);
                     if (brushSelection) {
 
                         let [x1,x2] = brushSelection;
 
-                        svg.selectAll("circle").classed("brushed", false);
+                        
                         
                         let selectionData = that.circles_arr.filter(d => d.xVal >= that.xScale.invert(x1) &&
                                                     d.xVal <= that.xScale.invert(x2));
@@ -455,6 +456,8 @@ class bubblechart {
                 });
             brush   
                 .on('end', function() {
+                    debugger;
+                    svg.selectAll("circle").classed("notbrush", true);
                     let brushSelection = d3.brushSelection(selectionThis);
                     if(!brushSelection){
                         svg.selectAll("circle").classed("brushed",true);

@@ -213,6 +213,14 @@ bubbleChart stylings
     opacity: .8;
 }
 
+/*
+brush stylings
+*/
+.notbrush {
+    color: gray;
+    opacity: 0.5;
+}
+
 /* 
 tool tip stylings
 */
