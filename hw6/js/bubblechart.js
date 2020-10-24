@@ -634,9 +634,9 @@ class bubblechart {
             if (this.isExpanded) {
                 debugger;
             
-                let scrollvert = document.getElementById('dem-Extreme').scrollTop;
+                let scrollvert = document.getElementById('overlay').scrollTop;
 
-                let scrollside = document.getElementById('dem-Extreme').scrollLeft;
+                let scrollside = document.getElementById('overlay').scrollLeft;
 
                 let rect = document.getElementById('dem-Extreme');
                 
@@ -684,9 +684,10 @@ class bubblechart {
                 
             }
             else if (this.isExpanded === false) {
-                let scrollvert = document.getElementById('dem-Extreme').scrollTop;
+                debugger;
+                let scrollvert = $window.scrollTop();
 
-                let scrollside = document.getElementById('dem-Extreme').scrollLeft;
+                let scrollside = $window.scrollLeft();
 
                 let rect = document.getElementById('dem-Extreme');
                 
