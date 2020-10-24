@@ -22,11 +22,4 @@ Promise.all([words_json]).then(data => {
     let bars = new table(data[0]);
     bars.drawTable();
 
-    // This clears a selection by listening for a click
-    // let bubbleSVG = document.getElementById("chart-view");
-
-    //bubbleSVG.addEventListener("click", function () {
-    //      debugger;
-    //      updateTable(null);
-    // }, false);
 });
