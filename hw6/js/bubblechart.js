@@ -351,8 +351,6 @@ class bubblechart {
             let group_select = group[i];
             let group_loc = this.height*i;
 
-            debugger;
-        
             let circles = d3.select('.plot-svg').select('#'+group_select).selectAll("circle")
                     .data(data_arr)
                     .enter().append("circle")
