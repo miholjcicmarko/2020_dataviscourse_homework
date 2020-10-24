@@ -140,12 +140,20 @@ Styling for the wrapper containing the two tables
 Table stylings
 */
 
-#headerTable {
+#table {
     border-collapse: collapse;
+}
+
+#columnHeaders {
+    background-color: rgb(195, 218, 226)
+}
+
+#headerTable {
     background-color: rgb(195, 218, 226);
     opacity: 0.8;
     stroke-opacity: 1;
-    border-spacing: 10px;
+    padding: 0;
+    border-spacing: 0;
 }
 
 .no-display {
