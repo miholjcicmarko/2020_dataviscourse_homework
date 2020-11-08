@@ -43,39 +43,16 @@ Container stylings for the button and slider
 /* 
 Styling for the wrapper containing the svg
 */
-
 .wrapper {
-    display: inline-grid;
-    grid-template-columns: 2fr 1fr 1fr; 
-    grid-template-rows: 1fr;
-    column-gap: 5%;
-    margin: auto;
-    float: left;
-    height: fit-content;
-
-    grid-template-areas: "bubble table .";
-}
-
-.innerWrapper1 {
-    grid-area: "bubble";
-    width: 100%;
-    display: inline-block;
-    height: fit-content;
-}
-
-.innerWrapper2 {
-    grid-area: "table";
-    width: 100%;
-    display: inline-block;
-    height: fit-content;
-}
-
-.view {
     width: 100%;
     margin: auto;
+    height: fit-content;
     display: inline-block;
 }
 
+/* 
+Styling for the container below the shot chart
+*/
 .containerB {
     display: grid;
     grid-template-columns: 2fr 1fr; 
@@ -88,16 +65,19 @@ Styling for the wrapper containing the svg
 /*
 Styling for the button
 */
-
 .button {
     grid-area: "button";
     position: relative;
-    background-color: white;
-    border: 2px solid purple;
+    background-color: gold;
     color: purple;
     padding: 1% 1%;
     text-align: center;
     font-size: 12px;
+}
+
+.button:active {
+    box-shadow: 0 5px gold;
+    transform: translateY(4px);
 }
 
 #slider {
