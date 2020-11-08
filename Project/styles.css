@@ -2,15 +2,16 @@
 Container stylings for the button and slider
 */
 
-.container {
-    display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr; 
+.containerA {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
     grid-template-rows: 1fr;
     column-gap: 5%;
     
-    grid-template-areas: "playoff-season-labelA switch playoff-season-labelB switch";
+    grid-template-areas: "playoff-season-labelA checkbox playoff-season-labelB checkbox";
 }
 
+/* label stylings */
 #playoff-season-labelA {
     grid-area: "playoff-season-labelA";
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -23,100 +24,24 @@ Container stylings for the button and slider
     font-weight: bold;
 }
 
-/* Create a custom checkbox */
+/* checkbox stylings */
 .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
+    grid-area: "checkbox";
+    position: relative;
     height: 25px;
     width: 25px;
     background-color: #eee;
-  }
+}
 
-/* 
-slider stylings
-*/
-
-.switch {
-    grid-area: "switch";
+.toggle-button {
+    display: block;
     position: relative;
-    display: inline-block;
-    width: 30px;
-    height: 17px;
-    top: 35%;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-.slider {
-    position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 13px;
-    width: 13px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: steelblue;
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px steelblue;
-  }
-  
-input:checked + .slider:before {
-    -webkit-transform: translateX(13px);
-    -ms-transform: translateX(13px);
-    transform: translateX(13px);
-}
-
-.slider.round {
-    border-radius: 17px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
-/*
-Styling for the button
-*/
-
-.button {
-  position: relative;  
-  top: 15%;
-  grid-area: "button";
-  background-color: white;
-  border: 2px solid steelblue;
-  color: steelblue;
-  padding: 5% 10%;
-  text-align: center;
-  font-size: 12px;
+    padding-top: 10%;
 }
 
 /* 
-Styling for the wrapper containing the two tables
-and the individual wrappers
+Styling for the wrapper containing the svg
 */
 
 .wrapper {
@@ -151,7 +76,34 @@ and the individual wrappers
     display: inline-block;
 }
 
+.containerB {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    grid-template-rows: 1fr;
+    column-gap: 5%;
+    
+    grid-template-areas: "button slider";
+}
 
+/*
+Styling for the button
+*/
+
+.button {
+    grid-area: "button";
+    position: relative;
+    background-color: white;
+    border: 2px solid purple;
+    color: purple;
+    padding: 1% 1%;
+    text-align: center;
+    font-size: 12px;
+}
+
+#slider {
+    grid-area: "slider";
+    border: 2px solid purple;
+}
 
 
 
