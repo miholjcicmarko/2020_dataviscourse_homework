@@ -4,9 +4,11 @@ Container stylings for the button and slider
 
 .containerA {
     display: grid;
+    position: relative;
+    left: 5%;
     grid-template-columns: 1fr 1fr 1fr 1fr; 
     grid-template-rows: 1fr;
-    column-gap: 5%;
+    column-gap: 15%;
     
     grid-template-areas: "playoff-season-labelA checkbox playoff-season-labelB checkbox";
 }
@@ -55,17 +57,28 @@ Styling for the container below the shot chart
 */
 .containerB {
     display: grid;
-    grid-template-columns: 2fr 1fr; 
+    position: relative;
+    left: 0%;
+    grid-template-columns: 1fr 1fr 1fr; 
     grid-template-rows: 1fr;
     column-gap: 5%;
     
-    grid-template-areas: "button slider";
+    grid-template-areas: "button button slider";
 }
 
 /*
-Styling for the button
+Styling for the buttons
 */
 .button {
+    grid-area: "button";
+    position: relative;
+    background-color: gold;
+    padding: 1% 1%;
+    text-align: center;
+    font-size: 12px;
+}
+
+button {
     grid-area: "button";
     position: relative;
     background-color: gold;
@@ -79,11 +92,91 @@ Styling for the button
     transform: translateY(4px);
 }
 
-#slider {
-    grid-area: "slider";
-    border: 2px solid purple;
+/* 
+tool tip stylings
+*/
+
+div.tooltip {
+    position: fixed;
+    text-align: center;
+    width: 5%;
+    height: 5%;
+    padding: 2px;
+    background: white;
+    stroke: gray;
+    border-radius: 6px;
+    pointer-events: none;
 }
 
+.tooltip h5 {
+    margin: auto;
+    font: 10px sans-serif;
+}
 
+.slider {
+    -webkit-appearance: none;
+    width: 725px;
+    height: 15px;
+    border-radius: 5px;
+    background:purple;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-left: 20px
+}
 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: gold;
+    cursor: pointer;
+}
 
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #D4E157;
+    cursor: pointer;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider-label svg {
+    width: 750px;
+    height: 35px;
+}
+
+.slider-label svg text {
+    text-anchor: middle;
+}
+
+.slider-wrap {
+    display: inline-block;
+    float: left;
+    width: 750px;
+    margin-left: 50px;
+}
+
+#overlay {
+    position: absolute;
+    width: 550px;
+    height: 900px;
+    top: 0;
+    left: 5%;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+/*
+#heatmap-div{
+    background-image: url("data/basicHalfCourt.gif");
+    background-color: #cccccc;
+}*/

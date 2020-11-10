@@ -3,69 +3,63 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Project </title>
-    <script src="https://d3js.org/d3.v5.js"></script>
+    <title>Mamba Mentality: Shot Selection</title>
+    <script src="https://d3js.org/d3.v6.js"></script>
     <script src="https://d3js.org/d3-array.v2.min.js"></script>
     <script src="https://d3js.org/d3-hexbin.v0.2.min.js"></script>
     <script src="https://d3js.org/d3-color.v2.min.js"></script>
     <script src="https://d3js.org/d3-interpolate.v2.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v2.min.js"></script>
-    
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
-    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" 
-    crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap" rel="stylesheet">
+    <script src="js/script_prelim.js"></script>
+    <script src="js/heatmap.js"></script>
     <link rel="stylesheet" href="styles.css" />
-    <!-- 
-       Bootstrap styling if you want to use it: 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
 </head>
 
 <body>
-
     <div id="header-wrap">
         <header>
-            <h1>Project</h1>
-            <div>Name: Marko Miholjcic; E-Mail: u0984549@utah.edu; UID: u0984549</div>
+            <h1>Mamba Mentality: Shot Selection</h1>
+            <div>Name: Jordan Hendriksen; E-Mail: jordan.hendriksen@utah.edu </div>
+            <div>Name: Marko Miholjcic; E-Mail: u0984549@utah.edu</div>
         </header>
-    
+    </div>
 
     <div class="containerA">
 
-    <div id="playoff-season-labelA">
-        <p>
-            Playoff Kobe
-        </p>
-    </div>
-
-    <div class="toggle-button"> Playoffs
-        <input type="checkbox">
-        <span class="checkmark" class="box-position"></span>
-    </div>
-
-    <div id="playoff-season-labelB">
-        <p>
-            Season Kobe
-        </p>
-    </div>
-
-    <div class="toggle-button"> Brush
-        <input type="checkbox">
-        <span class="checkmark" class="box-position"></span>
-    </div>
-
+        <div id="playoff-season-labelA">
+            <p>
+                Playoff Kobe
+            </p>
+        </div>
+        
+        <div class="toggle-button"> Playoffs
+            <input type="checkbox">
+            <span class="checkmark" class="box-position"></span>
+        </div>
+        
+        <div id="playoff-season-labelB">
+            <p>
+                Season Kobe
+            </p>
+        </div>
+        
+        <div class="toggle-button"> Brush
+            <input type="checkbox">
+            <span class="checkmark" class="box-position"></span>
+        </div>
+        
     </div> 
-    </div>
 
-    <div class="wrapper">
-        <div id = "overlay"></div>
-        <div class="court" id="#heatmap-div"> </div>
-    </div>
+    <div id = "overlay"></div>
+    <div id="heatmap-div"></div>
 
     <div class="containerB">
         <span>
-            <button class = "button" id = "story-button">Story Mode</button>
+            <button class = "button" id = "story-button">Press for Buzzer Beaters</button>
+        </span>
+
+        <span>
+            <button class = "button" id = "reset-button">Reset to Default</button>
         </span>
 
         <div id= "slider">
@@ -73,7 +67,7 @@
         </div>
     </div>
 
-    <script src="js/heatmap.js"></script> 
-    <script src="js/script_prelim.js"></script>   
 </body>
+
+
 </html>
